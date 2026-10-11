@@ -47,7 +47,7 @@
     document.title = tool.title || (tool.name + " - 일상툴");
     if (descMeta) descMeta.setAttribute("content", tool.desc || "");
     var canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", tool.id === "home" ? "/" : "/#" + tool.id);
+    if (canonical) canonical.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/#" + tool.id);
   }
 
   function show(id) {
