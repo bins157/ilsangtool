@@ -24,6 +24,8 @@
     { id: "preg", name: "임신 주수", ico: "♥", blurb: "LMP 기준 예정일", title: "임신 주수 계산기 예정일 - 일상툴", desc: "마지막 생리일 기준 임신 주수와 예정일을 계산합니다. 의료 진단이 아닙니다." },
     { id: "stopwatch", name: "스톱워치", ico: "▶", blurb: "랩 기록 스톱워치", title: "스톱워치 - 일상툴", desc: "랩 기록이 가능한 웹 스톱워치입니다." },
     { id: "datecalc", name: "날짜 계산", ico: "↔", blurb: "두 날짜 사이 일수", title: "날짜 계산기 며칠 후 - 일상툴", desc: "두 날짜 사이 일수와 N일 후 날짜를 계산합니다." },
+    { id: "postcode", name: "우편번호 검색", ico: "우편", blurb: "도로명·지번 우편번호", title: "우편번호 검색기 도로명 주소 - 일상툴", desc: "도로명 또는 지번으로 우편번호와 주소를 찾습니다. 다음 우편번호 서비스 사용." },
+    { id: "enaddr", name: "영문 주소 변환", ico: "EN", blurb: "한글 주소를 영문으로", title: "영문 주소 변환기 한글주소 로마자 - 일상툴", desc: "한글 도로명·지번 주소를 영문으로 변환합니다. 해외 배송·입국신고서용." },
     { id: "board", name: "도구 요청", ico: "글", blurb: "만들고 싶은 도구를 남기세요", title: "도구 요청 게시판 - 일상툴", desc: "만들고 싶은 계산기나 웹 도구를 요청하는 게시판입니다." }
   ];
 
@@ -61,6 +63,7 @@
     setSeo(tool);
     if (history.replaceState) history.replaceState(null, "", id === "home" ? location.pathname : "#" + id);
     else location.hash = id === "home" ? "" : id;
+    if (id === "postcode") initPostcode();
   }
 
   document.querySelectorAll(".nav button, .mobile-nav button, .brand[data-id]").forEach(function (btn) {
@@ -827,6 +830,152 @@
     document.getElementById(id).addEventListener("input", calcTargetSave);
   });
   calcTargetSave();
+
+  var lastPcEn = "";
+  var postcodeInited = false;
+  function loadDaumPostcode(cb) {
+    if (window.daum && window.daum.Postcode) { cb(); return; }
+    var s = document.createElement("script");
+    s.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+    s.onload = cb;
+    s.onerror = function () {
+      document.getElementById("postcodeBox").textContent = "우편번호 서비스를 불러오지 못했습니다. 네트워크를 확인한 뒤 다시 시도하세요.";
+    };
+    document.head.appendChild(s);
+  }
+  function initPostcode() {
+    if (postcodeInited) return;
+    var box = document.getElementById("postcodeBox");
+    if (!box) return;
+    loadDaumPostcode(function () {
+      postcodeInited = true;
+      new daum.Postcode({
+        oncomplete: function (data) {
+          var road = data.roadAddress || data.autoRoadAddress || data.address || "";
+          var jibun = data.jibunAddress || data.autoJibunAddress || "";
+          if (data.buildingName) {
+            road += (road ? " " : "") + data.buildingName;
+            if (jibun) jibun += " " + data.buildingName;
+          }
+          lastPcEn = data.roadAddressEnglish || data.addressEnglish || "";
+          document.getElementById("pcZip").textContent = data.zonecode || "-";
+          document.getElementById("pcRoad").textContent = road || "-";
+          document.getElementById("pcJibun").textContent = jibun || "-";
+          document.getElementById("pcEn").textContent = lastPcEn || toEnglishAddress(road);
+          document.getElementById("postcodeResult").hidden = false;
+          document.getElementById("enKo").value = road;
+        },
+        width: "100%",
+        height: "100%"
+      }).embed(box);
+    });
+  }
+  function copyText(text, label) {
+    if (!text || text === "-") return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { toast(label + " 복사됨"); }).catch(function () { toast("복사 실패"); });
+    } else toast("복사 실패");
+  }
+  document.getElementById("pcCopyZip").onclick = function () { copyText(document.getElementById("pcZip").textContent, "우편번호"); };
+  document.getElementById("pcCopyRoad").onclick = function () { copyText(document.getElementById("pcRoad").textContent, "도로명"); };
+  document.getElementById("pcCopyEn").onclick = function () { copyText(document.getElementById("pcEn").textContent, "영문 주소"); };
+  document.getElementById("pcToEn").onclick = function () {
+    var road = document.getElementById("pcRoad").textContent;
+    if (road && road !== "-") document.getElementById("enKo").value = road;
+    if (lastPcEn) {
+      document.getElementById("enOut").textContent = lastPcEn;
+      var zip = document.getElementById("pcZip").textContent;
+      document.getElementById("enOutZip").textContent = zip && zip !== "-" ? lastPcEn + ", " + zip : lastPcEn;
+    } else convertEnAddr();
+    show("enaddr");
+  };
+
+  var CHO_R = ["g", "kk", "n", "d", "tt", "r", "m", "b", "pp", "s", "ss", "", "j", "jj", "ch", "k", "t", "p", "h"];
+  var JUNG_R = ["a", "ae", "ya", "yae", "eo", "e", "yeo", "ye", "o", "wa", "wae", "oe", "yo", "u", "wo", "we", "wi", "yu", "eu", "ui", "i"];
+  var JONG_R = ["", "k", "k", "k", "n", "n", "n", "t", "l", "k", "m", "l", "l", "l", "p", "l", "m", "p", "p", "t", "t", "ng", "t", "t", "k", "t", "p", "t"];
+  var ADDR_MAP = {
+    "서울특별시": "Seoul", "서울시": "Seoul", "서울": "Seoul",
+    "부산광역시": "Busan", "부산시": "Busan",
+    "대구광역시": "Daegu", "대구시": "Daegu",
+    "인천광역시": "Incheon", "인천시": "Incheon",
+    "광주광역시": "Gwangju", "광주시": "Gwangju",
+    "대전광역시": "Daejeon", "대전시": "Daejeon",
+    "울산광역시": "Ulsan", "울산시": "Ulsan",
+    "세종특별자치시": "Sejong", "세종시": "Sejong",
+    "경기도": "Gyeonggi-do", "강원특별자치도": "Gangwon-do", "강원도": "Gangwon-do",
+    "충청북도": "Chungcheongbuk-do", "충청남도": "Chungcheongnam-do",
+    "전북특별자치도": "Jeonbuk-do", "전라북도": "Jeollabuk-do", "전라남도": "Jeollanam-do",
+    "경상북도": "Gyeongsangbuk-do", "경상남도": "Gyeongsangnam-do",
+    "제주특별자치도": "Jeju-do", "제주도": "Jeju-do",
+    "대한민국": "Republic of Korea", "한국": "Korea",
+    "아파트": "Apt.", "오피스텔": "Officetel", "빌딩": "Bldg.", "타워": "Tower",
+    "센터": "Center", "호텔": "Hotel", "역": "Station", "지하": "B"
+  };
+  var ADDR_SUF = [
+    ["특별자치시", ""], ["광역시", ""], ["특별시", ""],
+    ["대로", "-daero"], ["번길", "-beongil"], ["로", "-ro"], ["길", "-gil"],
+    ["구", "-gu"], ["군", "-gun"], ["시", "-si"], ["읍", "-eup"],
+    ["면", "-myeon"], ["동", "-dong"], ["리", "-ri"], ["가", "-ga"]
+  ];
+  function romanizeHangul(str) {
+    var out = "";
+    for (var i = 0; i < str.length; i++) {
+      var c = str.charCodeAt(i);
+      if (c >= 0xAC00 && c <= 0xD7A3) {
+        var s = c - 0xAC00;
+        var jong = s % 28;
+        var jung = Math.floor(s / 28) % 21;
+        var cho = Math.floor(s / 28 / 21);
+        out += CHO_R[cho] + JUNG_R[jung] + JONG_R[jong];
+      } else out += str.charAt(i);
+    }
+    return out;
+  }
+  function capEn(s) {
+    return String(s).replace(/(^|[\s\-\.])([a-z])/g, function (_, a, b) { return a + b.toUpperCase(); });
+  }
+  function tokenToEn(tok) {
+    if (!tok) return "";
+    if (/^\d+$/.test(tok)) return tok;
+    if (ADDR_MAP[tok]) return ADDR_MAP[tok];
+    var i;
+    for (i = 0; i < ADDR_SUF.length; i++) {
+      var suf = ADDR_SUF[i][0];
+      if (tok.length > suf.length && tok.slice(-suf.length) === suf) {
+        var stem = tok.slice(0, -suf.length);
+        if (ADDR_MAP[tok]) return ADDR_MAP[tok];
+        if (!ADDR_SUF[i][1]) return ADDR_MAP[tok] || capEn(romanizeHangul(tok));
+        return capEn(romanizeHangul(stem)) + ADDR_SUF[i][1];
+      }
+    }
+    return capEn(romanizeHangul(tok));
+  }
+  function toEnglishAddress(ko) {
+    var raw = String(ko || "").replace(/,/g, " ").replace(/\s+/g, " ").trim();
+    if (!raw) return "";
+    var zip = "";
+    raw = raw.replace(/\b(\d{5})\b/g, function (_, z) { zip = z; return " "; }).replace(/\s+/g, " ").trim();
+    var parts = raw.split(" ").filter(Boolean).map(tokenToEn).filter(Boolean);
+    parts.reverse();
+    var en = parts.join(", ");
+    if (zip) en += (en ? ", " : "") + zip;
+    if (!/Korea/i.test(en)) en += (en ? ", " : "") + "Republic of Korea";
+    return en;
+  }
+  function convertEnAddr() {
+    var ko = document.getElementById("enKo").value.trim();
+    var en = toEnglishAddress(ko);
+    document.getElementById("enOut").textContent = en || "-";
+    var zipMatch = ko.match(/\b\d{5}\b/);
+    document.getElementById("enOutZip").textContent = zipMatch ? en : (en ? en : "-");
+  }
+  document.getElementById("enConvert").onclick = convertEnAddr;
+  document.getElementById("enCopy").onclick = function () {
+    copyText(document.getElementById("enOut").textContent, "영문 주소");
+  };
+  document.getElementById("enKo").addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) convertEnAddr();
+  });
 
   var BD_KEY = "dailytool-board";
   function loadBoard() {
