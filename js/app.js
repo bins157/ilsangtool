@@ -1,6 +1,6 @@
 (function () {
   var TOOLS = [
-    { id: "home", name: "홈", ico: "⌂", blurb: "검색량 높은 일상 도구 20", title: "일상툴 - 계산기, 단위변환, BMI, 환율, 연봉 실수령 20가지", desc: "계산기, 단위변환, BMI, 환율, 연봉 실수령, 부가세, 더치페이, QR코드 등 한국에서 가장 많이 찾는 일상 웹 도구 20가지." },
+    { id: "home", name: "홈", ico: "⌂", blurb: "29가지 필수 일상 도구", title: "일상툴 - 계산기, 단위변환, BMI, 환율, 연봉실수령, 환갑칠순, 온라인 메모장 등 29가지 생활 도구", desc: "계산기, 단위변환, BMI, 환율, 연봉 실수령, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 29가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
     { id: "calc", name: "공학용계산기", ico: "fx", blurb: "삼각함수, 로그, 제곱근", title: "공학용계산기 sin cos log - 일상툴", desc: "삼각함수, 로그, 제곱근, 거듭제곱을 지원하는 공학용 계산기입니다." },
     { id: "unit", name: "단위 변환", ico: "↔", blurb: "길이, 무게, 온도, 평, 데이터", title: "단위 변환기 cm inch kg lb 섭씨 화씨 - 일상툴", desc: "길이, 무게, 온도, 넓이(평), 부피, 데이터 단위를 바로 변환합니다." },
     { id: "bmi", name: "BMI 계산", ico: "⚖", blurb: "아시아-태평양 기준 체질량", title: "BMI 계산기 - 키 몸무게 정상범위 - 일상툴", desc: "키와 몸무게로 BMI와 정상 체중 범위를 계산합니다. 아시아-태평양 기준." },
@@ -13,6 +13,8 @@
     { id: "qr", name: "QR코드 생성", ico: "▣", blurb: "URL·텍스트 QR 이미지", title: "QR코드 생성기 - 일상툴", desc: "URL이나 텍스트를 QR 코드 이미지로 만듭니다." },
     { id: "counter", name: "글자수 세기", ico: "¶", blurb: "공백 포함/제외, 읽기시간", title: "글자수 세기 공백 포함 제외 - 일상툴", desc: "공백 포함·제외 글자수, 단어 수, 예상 읽기 시간을 셉니다." },
     { id: "age", name: "나이 계산", ico: "🎂", blurb: "만나이, 세는나이", title: "만나이 계산기 세는나이 - 일상툴", desc: "생년월일로 만나이, 세는나이, 살아온 날, 다음 생일을 계산합니다." },
+    { id: "hwangap", name: "환갑·칠순·팔순 계산", ico: "壽", blurb: "환갑, 칠순, 팔순 연도와 날짜", title: "환갑 칠순 팔순 계산기 - 일상툴", desc: "생년월일로 환갑, 칠순, 팔순, 진갑, 희수, 구순 연도와 남은 날짜를 계산합니다." },
+    { id: "notepad", name: "온라인 메모장", ico: "메모", blurb: "줄노트 · 모눈종이 · 포스트잇", title: "온라인 메모장 - 줄노트 모눈종이 포스트잇 메모 - 일상툴", desc: "RapidTables 스타일의 감성 온라인 메모장. 줄노트, 모눈종이(그리드), 포스트잇(무지) 3가지 타입 지원, 실시간 자동 저장 및 텍스트 다운로드/인쇄 지원." },
     { id: "dday", name: "디데이", ico: "📅", blurb: "기념일까지 남은 날", title: "디데이 계산기 - 일상툴", desc: "시험, 여행, 기념일까지 남은 날을 D-day로 계산합니다." },
     { id: "loan", name: "대출 이자", ico: "%", blurb: "원리금균등 월 납입", title: "대출 이자 계산기 원리금균등 - 일상툴", desc: "원리금균등 상환 월 납입액과 총이자를 계산합니다." },
     { id: "compound", name: "복리이자", ico: "복리", blurb: "예금·적금 만기 금액", title: "복리이자 계산기 예금 적금 - 일상툴", desc: "원금, 연이율, 복리 주기, 월 적립으로 만기 금액과 이자를 계산합니다." },
@@ -48,25 +50,88 @@
     if (descMeta) descMeta.setAttribute("content", tool.desc || "");
     var canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/#" + tool.id);
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute("content", tool.title || (tool.name + " - 일상툴"));
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute("content", tool.desc || "");
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/#" + tool.id);
   }
+
+  var drawer = document.getElementById("mobileDrawer");
+  var drawerBackdrop = document.getElementById("drawerBackdrop");
+  var menuBtn = document.getElementById("mobileMenuBtn");
+  var dockMenuTrigger = document.getElementById("dockMenuTrigger");
+  var drawerClose = document.getElementById("drawerClose");
+  var mobileSearchBtn = document.getElementById("mobileSearchBtn");
+  var drawerSearch = document.getElementById("drawerSearch");
+
+  function openDrawer() {
+    if (drawer) drawer.classList.add("open");
+    if (drawerBackdrop) drawerBackdrop.classList.add("open");
+  }
+  function closeDrawer() {
+    if (drawer) drawer.classList.remove("open");
+    if (drawerBackdrop) drawerBackdrop.classList.remove("open");
+  }
+  if (menuBtn) menuBtn.addEventListener("click", openDrawer);
+  if (dockMenuTrigger) dockMenuTrigger.addEventListener("click", openDrawer);
+  if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
+  if (drawerBackdrop) drawerBackdrop.addEventListener("click", closeDrawer);
+  if (mobileSearchBtn) {
+    mobileSearchBtn.addEventListener("click", function () {
+      openDrawer();
+      if (drawerSearch) setTimeout(function () { drawerSearch.focus(); }, 150);
+    });
+  }
+  var activeDrawerCat = "all";
+  function filterDrawerTools() {
+    var q = drawerSearch ? drawerSearch.value.trim().toLowerCase() : "";
+    document.querySelectorAll(".drawer-tools-wrap button").forEach(function (btn) {
+      var cat = btn.dataset.cat || "util";
+      var catMatch = (activeDrawerCat === "all" || cat === activeDrawerCat);
+      var name = (btn.textContent || "").toLowerCase();
+      var id = (btn.dataset.id || "").toLowerCase();
+      var qMatch = !q || name.indexOf(q) !== -1 || id.indexOf(q) !== -1;
+      btn.style.display = (catMatch && qMatch) ? "" : "none";
+    });
+  }
+  if (drawerSearch) {
+    drawerSearch.addEventListener("input", filterDrawerTools);
+  }
+  document.querySelectorAll(".drawer-cat-pill").forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      document.querySelectorAll(".drawer-cat-pill").forEach(function (p) { p.classList.remove("active"); });
+      pill.classList.add("active");
+      activeDrawerCat = pill.dataset.cat || "all";
+      filterDrawerTools();
+    });
+  });
 
   function show(id) {
     document.querySelectorAll(".view").forEach(function (el) {
       el.classList.toggle("hidden", el.id !== id);
     });
-    document.querySelectorAll(".nav button, .mobile-nav button").forEach(function (btn) {
+    document.querySelectorAll(".nav button, .mobile-nav button, .drawer-tools-wrap button, .dock-btn[data-id]").forEach(function (btn) {
       btn.classList.toggle("active", btn.dataset.id === id);
     });
     var tool = TOOLS.find(function (t) { return t.id === id; }) || TOOLS[0];
     pageTitle.textContent = tool.name;
-    crumb.textContent = id === "home" ? "홈" : "홈 / " + tool.name;
+    crumb.innerHTML = id === "home"
+      ? '<span class="live-dot" aria-hidden="true"></span>홈'
+      : '<span class="live-dot" aria-hidden="true"></span>홈 / ' + tool.name;
     setSeo(tool);
     if (history.replaceState) history.replaceState(null, "", id === "home" ? location.pathname : "#" + id);
     else location.hash = id === "home" ? "" : id;
     if (id === "postcode") initPostcode();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    closeDrawer();
+    setTimeout(function () {
+      renderVisibleAds(id);
+    }, 60);
   }
 
-  document.querySelectorAll(".nav button, .mobile-nav button, .brand[data-id]").forEach(function (btn) {
+  document.querySelectorAll(".nav button, .mobile-nav button, .drawer-tools-wrap button, .dock-btn[data-id], .brand[data-id], .mobile-brand[data-id]").forEach(function (btn) {
     btn.addEventListener("click", function () { show(btn.dataset.id); });
   });
   document.querySelectorAll(".tool-card[data-tool]").forEach(function (card) {
@@ -84,6 +149,28 @@
       btn.style.display = hit ? "" : "none";
     });
   });
+
+  var categoryTabs = document.getElementById("categoryTabs");
+  if (categoryTabs) {
+    categoryTabs.querySelectorAll(".cat-chip").forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        categoryTabs.querySelectorAll(".cat-chip").forEach(function (c) {
+          c.classList.remove("active");
+          c.setAttribute("aria-selected", "false");
+        });
+        chip.classList.add("active");
+        chip.setAttribute("aria-selected", "true");
+        var cat = chip.dataset.cat;
+        document.querySelectorAll("#homeGrid .tool-card").forEach(function (card) {
+          if (cat === "all" || card.dataset.cat === cat) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  }
 
   function tickClock() {
     var now = new Date();
@@ -266,6 +353,814 @@
   document.getElementById("birthDate").addEventListener("input", calcAge);
   calcAge();
 
+  var STEMS = ["갑", "을", "병", "정", "무", "기", "경", "신", "임", "계"];
+  var BRANCHES = [
+    { name: "자", animal: "쥐" },
+    { name: "축", animal: "소" },
+    { name: "인", animal: "호랑이" },
+    { name: "묘", animal: "토끼" },
+    { name: "진", animal: "용" },
+    { name: "사", animal: "뱀" },
+    { name: "오", animal: "말" },
+    { name: "미", animal: "양" },
+    { name: "신", animal: "원숭이" },
+    { name: "유", animal: "닭" },
+    { name: "술", animal: "개" },
+    { name: "해", animal: "돼지" }
+  ];
+
+  function getGanji(year) {
+    var s = (year - 4) % 10;
+    if (s < 0) s += 10;
+    var b = (year - 4) % 12;
+    if (b < 0) b += 12;
+    return STEMS[s] + BRANCHES[b].name + "년 (" + BRANCHES[b].animal + "띠)";
+  }
+
+  function getLongevityMilestones(isKorean) {
+    if (isKorean) {
+      return [
+        { title: "환갑 (회갑 · 回甲)", shortName: "환갑", ageMan: 60, ageKor: 61, addYears: 60, desc: "만 60세 생신, 태어난 간지가 다시 돌아옴" },
+        { title: "진갑 (進甲)", shortName: "진갑", ageMan: 61, ageKor: 62, addYears: 61, desc: "환갑 다음 해 (만 61세 생신)" },
+        { title: "칠순 (고희 · 古稀)", shortName: "칠순", ageMan: 69, ageKor: 70, addYears: 69, desc: "세는나이 70세 (만 69세 생신, 인생칠십고래희)" },
+        { title: "희수 (喜壽)", shortName: "희수", ageMan: 76, ageKor: 77, addYears: 76, desc: "세는나이 77세 (喜자의 초서체가 七十七)" },
+        { title: "팔순 (산수 · 傘壽)", shortName: "팔순", ageMan: 79, ageKor: 80, addYears: 79, desc: "세는나이 80세 (만 79세 생신, 傘자의 약자가 八十)" },
+        { title: "미수 (米壽)", shortName: "미수", ageMan: 87, ageKor: 88, addYears: 87, desc: "세는나이 88세 (米자를 풀면 八十八)" },
+        { title: "구순 (졸수 · 卒壽)", shortName: "구순", ageMan: 89, ageKor: 90, addYears: 89, desc: "세는나이 90세 (만 89세 생신, 卒자의 약자가 九十)" },
+        { title: "백수 (白壽)", shortName: "백수", ageMan: 98, ageKor: 99, addYears: 98, desc: "세는나이 99세 (百에서 一을 빼면 白)" },
+        { title: "상수 (上壽)", shortName: "상수", ageMan: 99, ageKor: 100, addYears: 99, desc: "세는나이 100세 (사람의 최상급 장수 100세 축하)" }
+      ];
+    }
+    return [
+      { title: "환갑 (회갑 · 回甲)", shortName: "환갑", ageMan: 60, ageKor: 61, addYears: 60, desc: "만 60세 생신, 태어난 간지가 다시 돌아옴" },
+      { title: "진갑 (進甲)", shortName: "진갑", ageMan: 61, ageKor: 62, addYears: 61, desc: "환갑 다음 해 (만 61세 생신)" },
+      { title: "칠순 (고희 · 古稀)", shortName: "칠순", ageMan: 70, ageKor: 71, addYears: 70, desc: "만 70세 생신 (세는나이 71세)" },
+      { title: "희수 (喜壽)", shortName: "희수", ageMan: 77, ageKor: 78, addYears: 77, desc: "만 77세 생신" },
+      { title: "팔순 (산수 · 傘壽)", shortName: "팔순", ageMan: 80, ageKor: 81, addYears: 80, desc: "만 80세 생신 (세는나이 81세)" },
+      { title: "미수 (米壽)", shortName: "미수", ageMan: 88, ageKor: 89, addYears: 88, desc: "만 88세 생신" },
+      { title: "구순 (졸수 · 卒壽)", shortName: "구순", ageMan: 90, ageKor: 91, addYears: 90, desc: "만 90세 생신 (세는나이 91세)" },
+      { title: "백수 (白壽)", shortName: "백수", ageMan: 99, ageKor: 100, addYears: 99, desc: "만 99세 생신" },
+      { title: "상수 (上壽)", shortName: "상수", ageMan: 100, ageKor: 101, addYears: 100, desc: "만 100세 생신 축하" }
+    ];
+  }
+
+  function calcHwangap() {
+    var v = document.getElementById("hgBirth") ? document.getElementById("hgBirth").value : "";
+    if (!v) return;
+    var b = new Date(v);
+    var now = new Date();
+    var bYear = b.getFullYear();
+    var bMonth = b.getMonth();
+    var bDate = b.getDate();
+
+    var curMan = now.getFullYear() - bYear;
+    var md = now.getMonth() - bMonth;
+    if (md < 0 || (md === 0 && now.getDate() < bDate)) curMan--;
+    var curKor = now.getFullYear() - bYear + 1;
+
+    var modeEl = document.getElementById("hgMode");
+    var isKorean = !modeEl || modeEl.value !== "western";
+
+    var zodiacEl = document.getElementById("hgZodiac");
+    var ageIntEl = document.getElementById("hgAgeInt");
+    var ageKorEl = document.getElementById("hgAgeKor");
+    var nextEvEl = document.getElementById("hgNextEvent");
+    if (zodiacEl) zodiacEl.textContent = getGanji(bYear);
+    if (ageIntEl) ageIntEl.textContent = curMan + "세";
+    if (ageKorEl) ageKorEl.textContent = curKor + "세";
+
+    var badge60 = document.getElementById("hgBadge60");
+    var badge70 = document.getElementById("hgBadge70");
+    var badge80 = document.getElementById("hgBadge80");
+    if (badge60) badge60.textContent = "세는나이 61세 · 만 60세";
+    if (badge70) badge70.textContent = isKorean ? "세는나이 70세 · 만 69세" : "만 70세 · 세는나이 71세";
+    if (badge80) badge80.textContent = isKorean ? "세는나이 80세 · 만 79세" : "만 80세 · 세는나이 81세";
+
+    var milestonesData = [
+      { key: "60", add: 60, name: "환갑" },
+      { key: "70", add: isKorean ? 69 : 70, name: "칠순" },
+      { key: "80", add: isKorean ? 79 : 80, name: "팔순" }
+    ];
+
+    var nextEventText = "-";
+    var foundNext = false;
+    var oneDay = 86400000;
+    var startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    milestonesData.forEach(function (m) {
+      var targetYear = bYear + m.add;
+      var targetDate = new Date(targetYear, bMonth, bDate);
+      var yearEl = document.getElementById("hgYear" + m.key);
+      var dateEl = document.getElementById("hgDate" + m.key);
+      var statusEl = document.getElementById("hgStatus" + m.key);
+      if (!yearEl || !dateEl || !statusEl) return;
+
+      yearEl.textContent = targetYear + "년";
+      dateEl.textContent = targetYear + "년 " + (bMonth + 1) + "월 " + bDate + "일";
+
+      var startOfTarget = new Date(targetYear, bMonth, bDate);
+      var diffDays = Math.round((startOfTarget - startOfToday) / oneDay);
+
+      var statusText = "";
+      var statusClass = "";
+
+      if (now.getFullYear() === targetYear) {
+        if (diffDays === 0) {
+          statusText = "🎉 오늘이 " + m.name + " 당일입니다!";
+          statusClass = "current";
+        } else if (diffDays > 0) {
+          statusText = "D-" + diffDays + "일 (올해 " + (bMonth + 1) + "월 " + bDate + "일)";
+          statusClass = "current";
+        } else {
+          statusText = "올해 " + m.name + " 지남 (" + (bMonth + 1) + "월 " + bDate + "일)";
+          statusClass = "passed";
+        }
+        if (!foundNext && diffDays >= 0) {
+          nextEventText = m.name + " (" + (diffDays === 0 ? "오늘" : "D-" + diffDays) + ")";
+          foundNext = true;
+        }
+      } else if (targetYear < now.getFullYear()) {
+        var passedYears = now.getFullYear() - targetYear;
+        statusText = passedYears + "년 전 지남 (" + targetYear + "년)";
+        statusClass = "passed";
+      } else {
+        statusText = "D-" + diffDays + "일 남음 (" + (targetYear - now.getFullYear()) + "년 후)";
+        statusClass = "upcoming";
+        if (!foundNext) {
+          nextEventText = m.name + " (" + targetYear + "년, D-" + diffDays + ")";
+          foundNext = true;
+        }
+      }
+
+      statusEl.textContent = statusText;
+      statusEl.className = "hg-status " + statusClass;
+    });
+
+    if (nextEvEl) nextEvEl.textContent = nextEventText;
+
+    var milestones = getLongevityMilestones(isKorean);
+    var tbody = document.getElementById("hgTableBody");
+    if (tbody) {
+      tbody.innerHTML = milestones.map(function (lm) {
+        var tYear = bYear + lm.addYears;
+        var startOfTarget = new Date(tYear, bMonth, bDate);
+        var diffDays = Math.round((startOfTarget - startOfToday) / oneDay);
+        var dateStr = tYear + "년 " + (bMonth + 1) + "월 " + bDate + "일";
+
+        var tagHtml = "";
+        if (now.getFullYear() === tYear) {
+          if (diffDays === 0) {
+            tagHtml = '<span class="hg-tag current">오늘 당일!</span>';
+          } else if (diffDays > 0) {
+            tagHtml = '<span class="hg-tag current">올해 (D-' + diffDays + ')</span>';
+          } else {
+            tagHtml = '<span class="hg-tag passed">올해 지남</span>';
+          }
+        } else if (tYear < now.getFullYear()) {
+          tagHtml = '<span class="hg-tag passed">' + (now.getFullYear() - tYear) + '년 전 지남</span>';
+        } else {
+          tagHtml = '<span class="hg-tag upcoming">D-' + diffDays + '일</span>';
+        }
+
+        var ageCol = isKorean
+          ? "세는나이 " + lm.ageKor + "세 (만 " + lm.ageMan + "세)"
+          : "만 " + lm.ageMan + "세 (세는나이 " + lm.ageKor + "세)";
+
+        return "<tr>" +
+          "<td><strong>" + lm.shortName + "</strong></td>" +
+          "<td>" + lm.title + "</td>" +
+          "<td>" + ageCol + "</td>" +
+          "<td>" + tYear + "년</td>" +
+          "<td>" + dateStr + "</td>" +
+          "<td>" + tagHtml + "</td>" +
+          "</tr>";
+      }).join("");
+    }
+  }
+
+  var hgBirthEl = document.getElementById("hgBirth");
+  if (hgBirthEl) {
+    hgBirthEl.value = "1964-08-15";
+    hgBirthEl.addEventListener("input", calcHwangap);
+    hgBirthEl.addEventListener("change", calcHwangap);
+  }
+  var hgModeEl = document.getElementById("hgMode");
+  if (hgModeEl) {
+    hgModeEl.addEventListener("change", calcHwangap);
+  }
+  var hgCopyBtn = document.getElementById("hgCopyBtn");
+  if (hgCopyBtn) {
+    hgCopyBtn.onclick = function () {
+      var v = document.getElementById("hgBirth") ? document.getElementById("hgBirth").value : "";
+      if (!v) return toast("생년월일을 입력해주세요.");
+      var b = new Date(v);
+      var bYear = b.getFullYear();
+      var bMonth = b.getMonth() + 1;
+      var bDate = b.getDate();
+      var ganji = getGanji(bYear);
+
+      var modeEl = document.getElementById("hgMode");
+      var isKorean = !modeEl || modeEl.value !== "western";
+      var modeTitle = isKorean ? "전통 세는나이 기준" : "만 나이 기준";
+      var chilsunYear = bYear + (isKorean ? 69 : 70);
+      var chilsunAge = isKorean ? "세는나이 70세 / 만 69세" : "만 70세 / 세는나이 71세";
+      var palsunYear = bYear + (isKorean ? 79 : 80);
+      var palsunAge = isKorean ? "세는나이 80세 / 만 79세" : "만 80세 / 세는나이 81세";
+      var gusunYear = bYear + (isKorean ? 89 : 90);
+      var gusunAge = isKorean ? "세는나이 90세 / 만 89세" : "만 90세 / 세는나이 91세";
+
+      var text = "[부모님 환갑·칠순·팔순 일정 (" + modeTitle + ")]\n" +
+        "생년월일: " + bYear + "년 " + bMonth + "월 " + bDate + "일 (" + ganji + ")\n" +
+        "- 환갑 (회갑, 세는나이 61세/만 60세): " + (bYear + 60) + "년 " + bMonth + "월 " + bDate + "일\n" +
+        "- 칠순 (고희, " + chilsunAge + "): " + chilsunYear + "년 " + bMonth + "월 " + bDate + "일\n" +
+        "- 팔순 (산수, " + palsunAge + "): " + palsunYear + "년 " + bMonth + "월 " + bDate + "일\n" +
+        "- 구순 (졸수, " + gusunAge + "): " + gusunYear + "년 " + bMonth + "월 " + bDate + "일\n" +
+        "* 출처: 일상툴 (ilsangtool.kr/#hwangap)";
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          toast("환갑·칠순·팔순 일정이 복사되었습니다!");
+        }).catch(function () {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          toast("환갑·칠순·팔순 일정이 복사되었습니다!");
+        });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        toast("환갑·칠순·팔순 일정이 복사되었습니다!");
+      }
+    };
+  }
+  calcHwangap();
+
+  // --- ONLINE NOTEPAD CONTROLLER (줄노트 · 모눈종이 · 포스트잇) ---
+  (function initNotepad() {
+    var npText = document.getElementById("npText");
+    if (!npText) return;
+
+    var npWrap = document.getElementById("notepadWrap");
+    var npBinderLabel = document.getElementById("npBinderLabel");
+    var npSaveStatus = document.getElementById("npSaveStatus");
+    var npSaveText = document.getElementById("npSaveText");
+
+    var npCharCount = document.getElementById("npCharCount");
+    var npCharNoSpace = document.getElementById("npCharNoSpace");
+    var npWordCount = document.getElementById("npWordCount");
+    var npLineCount = document.getElementById("npLineCount");
+    var npCursorPos = document.getElementById("npCursorPos");
+
+    var npZoomIn = document.getElementById("npZoomIn");
+    var npZoomOut = document.getElementById("npZoomOut");
+    var npSizeVal = document.getElementById("npSizeVal");
+    var npFontSelect = document.getElementById("npFontSelect");
+
+    var npNewBtn = document.getElementById("npNewBtn");
+    var npOpenBtn = document.getElementById("npOpenBtn");
+    var npFileInput = document.getElementById("npFileInput");
+    var npDownloadBtn = document.getElementById("npDownloadBtn");
+    var npCopyBtn = document.getElementById("npCopyBtn");
+    var npPrintBtn = document.getElementById("npPrintBtn");
+
+    var typeButtons = Array.prototype.slice.call(document.querySelectorAll(".np-type-btn"));
+    var themeButtons = Array.prototype.slice.call(document.querySelectorAll(".np-chip"));
+
+    var STORAGE_TEXT = "ilsangtool_np_text";
+    var STORAGE_TYPE = "ilsangtool_np_type";
+    var STORAGE_THEME = "ilsangtool_np_theme";
+    var STORAGE_SIZE = "ilsangtool_np_size";
+    var STORAGE_FONT = "ilsangtool_np_font";
+
+    var FONT_SIZES = [
+      { size: 14, line: 26 },
+      { size: 15, line: 28 },
+      { size: 17, line: 32 },
+      { size: 20, line: 38 },
+      { size: 24, line: 44 }
+    ];
+    var currentSizeIdx = 2; // 17px default
+
+    var currentType = "lined";
+    var currentTheme = "yellow";
+    var currentFont = "sans";
+
+    var TYPE_LABELS = {
+      lined: "📝 줄노트 메모장",
+      grid: "📐 모눈종이 메모장",
+      plain: "📌 포스트잇 메모장"
+    };
+
+    // Load saved settings
+    try {
+      var savedText = localStorage.getItem(STORAGE_TEXT);
+      if (savedText !== null) {
+        npText.value = savedText;
+      }
+      var savedType = localStorage.getItem(STORAGE_TYPE);
+      if (savedType && ["lined", "grid", "plain"].indexOf(savedType) !== -1) {
+        currentType = savedType;
+      }
+      var savedTheme = localStorage.getItem(STORAGE_THEME);
+      if (savedTheme && ["yellow", "white", "mint", "lavender", "dark"].indexOf(savedTheme) !== -1) {
+        currentTheme = savedTheme;
+      }
+      var savedSize = parseInt(localStorage.getItem(STORAGE_SIZE), 10);
+      if (!isNaN(savedSize)) {
+        for (var i = 0; i < FONT_SIZES.length; i++) {
+          if (FONT_SIZES[i].size === savedSize) {
+            currentSizeIdx = i;
+            break;
+          }
+        }
+      }
+      var savedFont = localStorage.getItem(STORAGE_FONT);
+      if (savedFont && ["sans", "serif", "mono"].indexOf(savedFont) !== -1) {
+        currentFont = savedFont;
+      }
+    } catch (e) {}
+
+    function setType(type) {
+      currentType = type;
+      npText.className = "np-paper type-" + type + " font-" + currentFont;
+      if (npBinderLabel) npBinderLabel.textContent = TYPE_LABELS[type] || "온라인 메모장";
+
+      typeButtons.forEach(function (btn) {
+        var isActive = btn.getAttribute("data-type") === type;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      try { localStorage.setItem(STORAGE_TYPE, type); } catch (e) {}
+    }
+
+    function setTheme(theme) {
+      currentTheme = theme;
+      if (npWrap) {
+        npWrap.className = "notepad-wrap theme-" + theme;
+      }
+      themeButtons.forEach(function (btn) {
+        btn.classList.toggle("active", btn.getAttribute("data-theme") === theme);
+      });
+      try { localStorage.setItem(STORAGE_THEME, theme); } catch (e) {}
+    }
+
+    function applySize() {
+      var cur = FONT_SIZES[currentSizeIdx];
+      if (npWrap) {
+        npWrap.style.setProperty("--np-font-size", cur.size + "px");
+        npWrap.style.setProperty("--np-line-height", cur.line + "px");
+      }
+      if (npSizeVal) npSizeVal.textContent = cur.size + "px";
+      try { localStorage.setItem(STORAGE_SIZE, cur.size); } catch (e) {}
+    }
+
+    function applyFont(font) {
+      currentFont = font;
+      npText.className = "np-paper type-" + currentType + " font-" + font;
+      if (npFontSelect) npFontSelect.value = font;
+      try { localStorage.setItem(STORAGE_FONT, font); } catch (e) {}
+    }
+
+    var saveTimeout = null;
+    function updateCounts() {
+      var val = npText.value;
+      var charWithSpace = val.length;
+      var charNoSpace = val.replace(/\s/g, "").length;
+      var words = val.trim() ? val.trim().split(/\s+/).length : 0;
+      var lines = val.length ? val.split("\n").length : 1;
+
+      if (npCharCount) npCharCount.textContent = charWithSpace.toLocaleString("ko-KR");
+      if (npCharNoSpace) npCharNoSpace.textContent = charNoSpace.toLocaleString("ko-KR");
+      if (npWordCount) npWordCount.textContent = words.toLocaleString("ko-KR");
+      if (npLineCount) npLineCount.textContent = lines.toLocaleString("ko-KR");
+
+      updateCursor();
+
+      if (npSaveStatus) {
+        npSaveStatus.classList.add("saving");
+        if (npSaveText) npSaveText.textContent = "저장 중...";
+      }
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(function () {
+        try {
+          localStorage.setItem(STORAGE_TEXT, npText.value);
+        } catch (e) {}
+        if (npSaveStatus) {
+          npSaveStatus.classList.remove("saving");
+          if (npSaveText) npSaveText.textContent = "자동 저장됨";
+        }
+      }, 350);
+    }
+
+    function updateCursor() {
+      if (!npCursorPos) return;
+      var selStart = npText.selectionStart || 0;
+      var textBefore = npText.value.substring(0, selStart);
+      var lines = textBefore.split("\n");
+      var curLine = lines.length;
+      var curCol = lines[lines.length - 1].length + 1;
+      npCursorPos.textContent = "줄 " + curLine + ", 열 " + curCol;
+    }
+
+    // Initialize state
+    setType(currentType);
+    setTheme(currentTheme);
+    applySize();
+    applyFont(currentFont);
+    updateCounts();
+
+    // Type and Theme clicks
+    typeButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setType(btn.getAttribute("data-type"));
+      });
+    });
+
+    themeButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setTheme(btn.getAttribute("data-theme"));
+      });
+    });
+
+    // Zoom buttons
+    if (npZoomIn) {
+      npZoomIn.addEventListener("click", function () {
+        if (currentSizeIdx < FONT_SIZES.length - 1) {
+          currentSizeIdx++;
+          applySize();
+        } else {
+          toast("최대 글자 크기입니다.");
+        }
+      });
+    }
+    if (npZoomOut) {
+      npZoomOut.addEventListener("click", function () {
+        if (currentSizeIdx > 0) {
+          currentSizeIdx--;
+          applySize();
+        } else {
+          toast("최소 글자 크기입니다.");
+        }
+      });
+    }
+
+    // Font select
+    if (npFontSelect) {
+      npFontSelect.addEventListener("change", function () {
+        applyFont(npFontSelect.value);
+      });
+    }
+
+    // Textarea input and cursor listeners
+    npText.addEventListener("input", updateCounts);
+    npText.addEventListener("keyup", updateCursor);
+    npText.addEventListener("click", updateCursor);
+    npText.addEventListener("select", updateCursor);
+
+    // Keyboard support: Tab indent & Ctrl+S save
+    npText.addEventListener("keydown", function (e) {
+      if (e.key === "Tab") {
+        e.preventDefault();
+        var start = npText.selectionStart;
+        var end = npText.selectionEnd;
+        var tabStr = "  "; // 2 spaces
+        npText.value = npText.value.substring(0, start) + tabStr + npText.value.substring(end);
+        npText.selectionStart = npText.selectionEnd = start + tabStr.length;
+        updateCounts();
+      } else if ((e.ctrlKey || e.metaKey) && (e.key === "s" || e.key === "S")) {
+        e.preventDefault();
+        downloadNote();
+      }
+    });
+
+    // File Drag and drop
+    npText.addEventListener("dragover", function (e) {
+      e.preventDefault();
+      npText.style.opacity = "0.75";
+    });
+    npText.addEventListener("dragleave", function () {
+      npText.style.opacity = "1";
+    });
+    npText.addEventListener("drop", function (e) {
+      e.preventDefault();
+      npText.style.opacity = "1";
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+        readFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function readFile(file) {
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function (evt) {
+        npText.value = evt.target.result;
+        updateCounts();
+        toast("'" + file.name + "' 파일을 불러왔습니다.");
+      };
+      reader.onerror = function () {
+        toast("파일을 읽을 수 없습니다.");
+      };
+      reader.readAsText(file, "UTF-8");
+    }
+
+    // New note button
+    if (npNewBtn) {
+      npNewBtn.addEventListener("click", function () {
+        if (!npText.value.trim()) return;
+        if (confirm("작성 중인 메모를 모두 비우시겠습니까?")) {
+          npText.value = "";
+          updateCounts();
+          toast("메모장이 비워졌습니다.");
+        }
+      });
+    }
+
+    // Open button
+    if (npOpenBtn && npFileInput) {
+      npOpenBtn.addEventListener("click", function () {
+        npFileInput.click();
+      });
+      npFileInput.addEventListener("change", function () {
+        if (npFileInput.files && npFileInput.files[0]) {
+          readFile(npFileInput.files[0]);
+          npFileInput.value = "";
+        }
+      });
+    }
+
+    // Download button
+    function downloadNote() {
+      var val = npText.value;
+      if (!val.trim()) return toast("저장할 메모 내용이 없습니다.");
+      var dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+      var filename = "notepad-" + dateStr + ".txt";
+
+      var blob = new Blob([val], { type: "text/plain;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      toast("메모가 '" + filename + "' 파일로 저장되었습니다.");
+    }
+    if (npDownloadBtn) {
+      npDownloadBtn.addEventListener("click", downloadNote);
+    }
+
+    // Copy button
+    if (npCopyBtn) {
+      npCopyBtn.addEventListener("click", function () {
+        var val = npText.value;
+        if (!val) return toast("복사할 내용이 없습니다.");
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(val).then(function () {
+            toast("메모 내용이 클립보드에 복사되었습니다!");
+          }).catch(function () {
+            npText.select();
+            document.execCommand("copy");
+            toast("메모 내용이 클립보드에 복사되었습니다!");
+          });
+        } else {
+          npText.select();
+          document.execCommand("copy");
+          toast("메모 내용이 클립보드에 복사되었습니다!");
+        }
+      });
+    }
+
+    // Print button
+    if (npPrintBtn) {
+      npPrintBtn.addEventListener("click", function () {
+        window.print();
+      });
+    }
+
+    // --- EXTERNAL SHARE CONTROLLER (외부 공유) ---
+    var npShareBtn = document.getElementById("npShareBtn");
+    var npShareModal = document.getElementById("npShareModal");
+    var npModalClose = document.getElementById("npModalClose");
+    var npPreviewType = document.getElementById("npPreviewType");
+    var npPreviewChars = document.getElementById("npPreviewChars");
+    var npPreviewSnippet = document.getElementById("npPreviewSnippet");
+    var npNativeShareBtn = document.getElementById("npNativeShareBtn");
+    var npShareUrlInput = document.getElementById("npShareUrlInput");
+    var npCopyLinkBtn = document.getElementById("npCopyLinkBtn");
+    var npShareKakaoBtn = document.getElementById("npShareKakaoBtn");
+    var npShareTelegramBtn = document.getElementById("npShareTelegramBtn");
+    var npShareXBtn = document.getElementById("npShareXBtn");
+    var npShareMailBtn = document.getElementById("npShareMailBtn");
+
+    function buildShareUrl(text, type, theme) {
+      var baseUrl = window.location.origin + window.location.pathname;
+      try {
+        var utf8Bytes = encodeURIComponent(text).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+          return String.fromCharCode("0x" + p1);
+        });
+        var b64 = btoa(utf8Bytes);
+        return baseUrl + "#notepad?n=" + encodeURIComponent(b64) + "&t=" + type;
+      } catch (e) {
+        return baseUrl + "#notepad?note=" + encodeURIComponent(text.substring(0, 1500));
+      }
+    }
+
+    function openShareModal() {
+      var val = npText.value;
+      if (!val.trim()) return toast("공유할 메모 내용이 없습니다.");
+
+      var shareUrl = buildShareUrl(val, currentType, currentTheme);
+
+      if (npPreviewType) npPreviewType.textContent = TYPE_LABELS[currentType] || "메모장";
+      if (npPreviewChars) npPreviewChars.textContent = val.length.toLocaleString("ko-KR") + "자";
+      if (npPreviewSnippet) npPreviewSnippet.textContent = val.substring(0, 240) + (val.length > 240 ? "..." : "");
+
+      if (npShareUrlInput) npShareUrlInput.value = shareUrl;
+
+      var titleText = "일상툴 온라인 메모 (" + (TYPE_LABELS[currentType] || "메모") + ")";
+      var summaryText = val.substring(0, 120).replace(/\n/g, " ");
+      if (val.length > 120) summaryText += "...";
+
+      if (npShareTelegramBtn) {
+        npShareTelegramBtn.href = "https://t.me/share/url?url=" + encodeURIComponent(shareUrl) + "&text=" + encodeURIComponent(titleText + "\n" + summaryText);
+      }
+      if (npShareXBtn) {
+        npShareXBtn.href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(titleText + " - " + summaryText) + "&url=" + encodeURIComponent(shareUrl);
+      }
+      if (npShareMailBtn) {
+        var mailSubject = encodeURIComponent("[일상툴] 공유된 메모");
+        var mailBody = encodeURIComponent("일상툴에서 공유된 메모입니다.\n\n" + val + "\n\n👉 웹에서 바로 열기:\n" + shareUrl);
+        npShareMailBtn.onclick = function () {
+          window.location.href = "mailto:?subject=" + mailSubject + "&body=" + mailBody;
+        };
+      }
+
+      if (npNativeShareBtn) {
+        if (navigator.share) {
+          npNativeShareBtn.style.display = "flex";
+        } else {
+          npNativeShareBtn.style.display = "none";
+        }
+      }
+
+      if (npShareModal) {
+        npShareModal.style.display = "flex";
+        npShareModal.setAttribute("aria-hidden", "false");
+      }
+    }
+
+    function closeShareModal() {
+      if (npShareModal) {
+        npShareModal.style.display = "none";
+        npShareModal.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    if (npShareBtn) npShareBtn.addEventListener("click", openShareModal);
+    if (npModalClose) npModalClose.addEventListener("click", closeShareModal);
+    if (npShareModal) {
+      npShareModal.addEventListener("click", function (e) {
+        if (e.target === npShareModal) closeShareModal();
+      });
+    }
+
+    // Escape key closes modal
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && npShareModal && npShareModal.style.display !== "none") {
+        closeShareModal();
+      }
+    });
+
+    // Native Web Share API
+    if (npNativeShareBtn) {
+      npNativeShareBtn.addEventListener("click", function () {
+        var val = npText.value;
+        var shareUrl = npShareUrlInput ? npShareUrlInput.value : buildShareUrl(val, currentType, currentTheme);
+        if (navigator.share) {
+          navigator.share({
+            title: "일상툴 온라인 메모 (" + (TYPE_LABELS[currentType] || "메모장") + ")",
+            text: val.substring(0, 200) + (val.length > 200 ? "..." : "") + "\n\n",
+            url: shareUrl
+          }).then(function () {
+            toast("메모가 공유되었습니다!");
+            closeShareModal();
+          }).catch(function () {});
+        } else {
+          toast("이 환경에서는 시스템 공유를 지원하지 않습니다. 링크 복사를 이용해주세요.");
+        }
+      });
+    }
+
+    // Copy Share Link
+    if (npCopyLinkBtn && npShareUrlInput) {
+      npCopyLinkBtn.addEventListener("click", function () {
+        npShareUrlInput.select();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(npShareUrlInput.value).then(function () {
+            toast("공유 링크가 클립보드에 복사되었습니다!");
+          }).catch(function () {
+            document.execCommand("copy");
+            toast("공유 링크가 클립보드에 복사되었습니다!");
+          });
+        } else {
+          document.execCommand("copy");
+          toast("공유 링크가 클립보드에 복사되었습니다!");
+        }
+      });
+    }
+
+    // Kakao / Messenger formatted copy
+    if (npShareKakaoBtn) {
+      npShareKakaoBtn.addEventListener("click", function () {
+        var val = npText.value;
+        var shareUrl = npShareUrlInput ? npShareUrlInput.value : buildShareUrl(val, currentType, currentTheme);
+        var msg = "[일상툴 온라인 메모 (" + (TYPE_LABELS[currentType] || "메모장") + ")]\n" +
+          val + "\n\n" +
+          "👉 웹에서 이 메모 바로 열기:\n" + shareUrl;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(msg).then(function () {
+            toast("카카오톡/메신저용 텍스트+링크가 복사되었습니다!");
+          }).catch(function () {
+            var ta = document.createElement("textarea");
+            ta.value = msg;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            toast("카카오톡/메신저용 텍스트+링크가 복사되었습니다!");
+          });
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = msg;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          toast("카카오톡/메신저용 텍스트+링크가 복사되었습니다!");
+        }
+      });
+    }
+
+    // Load shared note on page load if present in URL
+    function checkSharedNote() {
+      var hash = window.location.hash || "";
+      var search = window.location.search || "";
+      var qStr = "";
+      if (hash.indexOf("?") !== -1) {
+        qStr = hash.substring(hash.indexOf("?") + 1);
+      } else if (search.indexOf("?") !== -1) {
+        qStr = search.substring(1);
+      }
+      if (!qStr) return;
+
+      var params = new URLSearchParams(qStr);
+      var sharedB64 = params.get("n");
+      var sharedRaw = params.get("note");
+      var sharedType = params.get("t") || params.get("type");
+
+      var incomingText = "";
+      if (sharedB64) {
+        try {
+          var decodedStr = atob(decodeURIComponent(sharedB64));
+          incomingText = decodeURIComponent(Array.prototype.map.call(decodedStr, function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          }).join(""));
+        } catch (e) {}
+      } else if (sharedRaw) {
+        incomingText = sharedRaw;
+      }
+
+      if (incomingText) {
+        var shouldLoad = true;
+        if (npText.value.trim() && npText.value.trim() !== incomingText.trim()) {
+          shouldLoad = confirm("외부에서 공유받은 메모가 도착했습니다!\n\n기존 메모 대신 공유된 메모를 불러오시겠습니까?");
+        }
+        if (shouldLoad) {
+          npText.value = incomingText;
+          if (sharedType && ["lined", "grid", "plain"].indexOf(sharedType) !== -1) {
+            setType(sharedType);
+          }
+          updateCounts();
+          toast("공유받은 메모를 불러왔습니다!");
+          if (history.replaceState) {
+            history.replaceState(null, "", location.pathname + "#notepad");
+          }
+        }
+      }
+    }
+    checkSharedNote();
+  })();
+
   function won(n) {
     return Math.round(n).toLocaleString("ko-KR") + "원";
   }
@@ -389,93 +1284,570 @@
   });
   calcFx();
 
-  var calcExpr = "0";
-  var calcNew = true;
-  var calcDeg = true;
+  // --------------------------------------------------------------------------
+  // Scientific Calculator (Casio fx Style Engine)
+  // --------------------------------------------------------------------------
+  var calcExpr = "";
+  var calcAngleMode = "DEG"; // "DEG", "RAD", "GRAD"
+  var calcAns = 0;
+  var calcMemory = 0;
+  var calcIsShift = false;
+  var calcIsHyp = false;
+  var calcIsResult = false;
+
   var calcDisp = document.getElementById("calcDisp");
-  document.getElementById("calcDeg").onclick = function () {
-    calcDeg = true;
-    this.classList.add("on");
-    document.getElementById("calcRad").classList.remove("on");
-  };
-  document.getElementById("calcRad").onclick = function () {
-    calcDeg = false;
-    this.classList.add("on");
-    document.getElementById("calcDeg").classList.remove("on");
-  };
+  var calcExprDisp = document.getElementById("calcExprDisp");
+  var indShift = document.getElementById("indShift");
+  var indHyp = document.getElementById("indHyp");
+  var indMem = document.getElementById("indMem");
+  var indMode = document.getElementById("indMode");
+  var btnShift = document.getElementById("btnShift");
+  var btnHyp = document.getElementById("btnHyp");
+
+  function updateCalcIndicators() {
+    if (indShift) indShift.classList.toggle("on", calcIsShift);
+    if (btnShift) btnShift.classList.toggle("active", calcIsShift);
+    if (indHyp) indHyp.classList.toggle("on", calcIsHyp);
+    if (btnHyp) btnHyp.classList.toggle("active", calcIsHyp);
+    if (indMem) indMem.classList.toggle("on", calcMemory !== 0);
+    if (indMode) indMode.textContent = calcAngleMode;
+  }
+
+  function setCalcAngleMode(mode) {
+    calcAngleMode = mode;
+    ["calcDeg", "calcRad", "calcGrad"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.remove("on");
+    });
+    var activeBtn = document.getElementById(mode === "DEG" ? "calcDeg" : mode === "RAD" ? "calcRad" : "calcGrad");
+    if (activeBtn) activeBtn.classList.add("on");
+    updateCalcIndicators();
+  }
+
+  if (document.getElementById("calcDeg")) {
+    document.getElementById("calcDeg").onclick = function () { setCalcAngleMode("DEG"); };
+  }
+  if (document.getElementById("calcRad")) {
+    document.getElementById("calcRad").onclick = function () { setCalcAngleMode("RAD"); };
+  }
+  if (document.getElementById("calcGrad")) {
+    document.getElementById("calcGrad").onclick = function () { setCalcAngleMode("GRAD"); };
+  }
+
+  function updateShiftLabels() {
+    document.querySelectorAll("#calcPad .fn-shiftable").forEach(function (btn) {
+      var k = btn.getAttribute("data-k");
+      var lblSpan = btn.querySelector(".lbl");
+      if (!lblSpan) return;
+      if (k === "sin") {
+        lblSpan.textContent = calcIsShift ? (calcIsHyp ? "sinh⁻¹" : "sin⁻¹") : (calcIsHyp ? "sinh" : "sin");
+      } else if (k === "cos") {
+        lblSpan.textContent = calcIsShift ? (calcIsHyp ? "cosh⁻¹" : "cos⁻¹") : (calcIsHyp ? "cosh" : "cos");
+      } else if (k === "tan") {
+        lblSpan.textContent = calcIsShift ? (calcIsHyp ? "tanh⁻¹" : "tan⁻¹") : (calcIsHyp ? "tanh" : "tan");
+      } else if (k === "pi") {
+        lblSpan.textContent = calcIsShift ? "Ran#" : "π";
+      } else if (k === "e") {
+        lblSpan.textContent = calcIsShift ? "1/x" : "e";
+      } else if (k === "ln") {
+        lblSpan.textContent = calcIsShift ? "eˣ" : "ln";
+      } else if (k === "log") {
+        lblSpan.textContent = calcIsShift ? "10ˣ" : "log";
+      } else if (k === "sq") {
+        lblSpan.textContent = calcIsShift ? "x³" : "x²";
+      } else if (k === "pow") {
+        lblSpan.textContent = calcIsShift ? "ʸ√x" : "xʸ";
+      } else if (k === "sqrt") {
+        lblSpan.textContent = calcIsShift ? "∛" : "√";
+      }
+    });
+  }
+
+  function cleanNum(num) {
+    if (typeof num !== "number" || isNaN(num)) return NaN;
+    if (!isFinite(num)) return num;
+    if (Math.abs(num) < 1e-13) return 0;
+    return Number(num.toPrecision(12));
+  }
+
+  function toRad(val) {
+    if (calcAngleMode === "DEG") return (val * Math.PI) / 180;
+    if (calcAngleMode === "GRAD") return (val * Math.PI) / 200;
+    return val;
+  }
+
+  function fromRad(val) {
+    if (calcAngleMode === "DEG") return (val * 180) / Math.PI;
+    if (calcAngleMode === "GRAD") return (val * 200) / Math.PI;
+    return val;
+  }
+
+  function sciSin(x) {
+    if (calcAngleMode === "DEG") {
+      var norm = ((x % 360) + 360) % 360;
+      if (norm === 0 || norm === 180 || norm === 360) return 0;
+      if (norm === 90) return 1;
+      if (norm === 270) return -1;
+    } else if (calcAngleMode === "GRAD") {
+      var normG = ((x % 400) + 400) % 400;
+      if (normG === 0 || normG === 200 || normG === 400) return 0;
+      if (normG === 100) return 1;
+      if (normG === 300) return -1;
+    }
+    return cleanNum(Math.sin(toRad(x)));
+  }
+
+  function sciCos(x) {
+    if (calcAngleMode === "DEG") {
+      var norm = ((x % 360) + 360) % 360;
+      if (norm === 90 || norm === 270) return 0;
+      if (norm === 0 || norm === 360) return 1;
+      if (norm === 180) return -1;
+    } else if (calcAngleMode === "GRAD") {
+      var normG = ((x % 400) + 400) % 400;
+      if (normG === 100 || normG === 300) return 0;
+      if (normG === 0 || normG === 400) return 1;
+      if (normG === 200) return -1;
+    }
+    return cleanNum(Math.cos(toRad(x)));
+  }
+
+  function sciTan(x) {
+    if (calcAngleMode === "DEG") {
+      var norm = ((x % 360) + 360) % 360;
+      if (norm === 90 || norm === 270) throw new Error("Math ERROR");
+      if (norm === 0 || norm === 180 || norm === 360) return 0;
+      if (norm === 45 || norm === 225) return 1;
+      if (norm === 135 || norm === 315) return -1;
+    } else if (calcAngleMode === "GRAD") {
+      var normG = ((x % 400) + 400) % 400;
+      if (normG === 100 || normG === 300) throw new Error("Math ERROR");
+      if (normG === 0 || normG === 200 || normG === 400) return 0;
+    }
+    return cleanNum(Math.tan(toRad(x)));
+  }
+
+  function sciAsin(x) {
+    if (x < -1 || x > 1) throw new Error("Math ERROR");
+    return cleanNum(fromRad(Math.asin(x)));
+  }
+  function sciAcos(x) {
+    if (x < -1 || x > 1) throw new Error("Math ERROR");
+    return cleanNum(fromRad(Math.acos(x)));
+  }
+  function sciAtan(x) {
+    return cleanNum(fromRad(Math.atan(x)));
+  }
+
+  function sciFact(n) {
+    n = Math.floor(n);
+    if (n < 0 || n > 170) throw new Error("Math ERROR");
+    var res = 1;
+    for (var i = 2; i <= n; i++) res *= i;
+    return res;
+  }
+
+  function sciNPr(n, r) {
+    n = Math.round(n);
+    r = Math.round(r);
+    if (n < 0 || r < 0 || r > n) throw new Error("Math ERROR");
+    var res = 1;
+    for (var i = 0; i < r; i++) res *= (n - i);
+    return res;
+  }
+
+  function sciNCr(n, r) {
+    n = Math.round(n);
+    r = Math.round(r);
+    if (n < 0 || r < 0 || r > n) throw new Error("Math ERROR");
+    r = Math.min(r, n - r);
+    var num = 1, den = 1;
+    for (var i = 1; i <= r; i++) {
+      num *= (n - i + 1);
+      den *= i;
+    }
+    return Math.round(num / den);
+  }
+
+  function sciYroot(y, x) {
+    if (y === 0) throw new Error("Math ERROR");
+    if (x < 0 && y % 2 === 0) throw new Error("Math ERROR");
+    if (x < 0) return -Math.pow(-x, 1 / y);
+    return cleanNum(Math.pow(x, 1 / y));
+  }
+
+  function evaluateCasio(rawExpr) {
+    if (!rawExpr || rawExpr.trim() === "") return 0;
+    var s = rawExpr.trim();
+
+    // Auto-balance closing parentheses
+    var openCount = 0;
+    for (var i = 0; i < s.length; i++) {
+      if (s[i] === "(") openCount++;
+      if (s[i] === ")") openCount--;
+    }
+    while (openCount > 0) {
+      s += ")";
+      openCount--;
+    }
+
+    // Display operators to JS
+    s = s.replace(/×/g, "*").replace(/÷/g, "/");
+
+    // Functions with ⁻¹ before standalone ⁻¹
+    s = s.replace(/sin⁻¹\(/g, "asin(")
+         .replace(/cos⁻¹\(/g, "acos(")
+         .replace(/tan⁻¹\(/g, "atan(")
+         .replace(/sinh⁻¹\(/g, "asinh(")
+         .replace(/cosh⁻¹\(/g, "acosh(")
+         .replace(/tanh⁻¹\(/g, "atanh(")
+         .replace(/√\(/g, "sqrt(")
+         .replace(/∛\(/g, "cbrt(")
+         .replace(/Abs\(/gi, "abs(");
+
+    // Percentage replacement (% -> /100) before mod
+    s = s.replace(/([0-9.]+|\([^\(\)]+\))%/g, "(($1)/100)");
+
+    // Constants
+    s = s.replace(/π/g, "(Math.PI)");
+    s = s.replace(/(^|[^a-zA-Z0-9_])e($|[^a-zA-Z0-9_])/g, "$1(Math.E)$2");
+
+    // Ans
+    s = s.replace(/\bAns\b/g, "(" + calcAns + ")");
+
+    // Powers & reciprocal
+    s = s.replace(/²/g, "**2");
+    s = s.replace(/³/g, "**3");
+    s = s.replace(/⁻¹/g, "**(-1)");
+    s = s.replace(/\^/g, "**");
+
+    // Factorial
+    var factRegex = /([0-9.]+|\([^\(\)]+\))!/;
+    while (factRegex.test(s)) {
+      s = s.replace(factRegex, "fact($1)");
+    }
+
+    // Permutation & Combination
+    var pRegex = /([0-9.]+|\([^\(\)]+\))\s*P\s*([0-9.]+|\([^\(\)]+\))/;
+    while (pRegex.test(s)) {
+      s = s.replace(pRegex, "nPr($1, $2)");
+    }
+    var cRegex = /([0-9.]+|\([^\(\)]+\))\s*C\s*([0-9.]+|\([^\(\)]+\))/;
+    while (cRegex.test(s)) {
+      s = s.replace(cRegex, "nCr($1, $2)");
+    }
+
+    // yroot
+    var yrootRegex = /([0-9.]+|\([^\(\)]+\))\s*yroot\s*([0-9.]+|\([^\(\)]+\))/i;
+    while (yrootRegex.test(s)) {
+      s = s.replace(yrootRegex, "yroot($1, $2)");
+    }
+
+    // mod
+    var modRegex = /([0-9.]+|\([^\(\)]+\))\s*mod\s*([0-9.]+|\([^\(\)]+\))/i;
+    while (modRegex.test(s)) {
+      s = s.replace(modRegex, "mod($1, $2)");
+    }
+
+    // Implicit multiplication
+    s = s.replace(/(\d)\s*(\()/g, "$1*$2");
+    s = s.replace(/(\))\s*(\()/g, "$1*$2");
+    s = s.replace(/(\))\s*(\d)/g, "$1*$2");
+    s = s.replace(/(\d)\s*(sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|log|ln|sqrt|cbrt|abs|nPr|nCr|yroot|fact|mod)\(/gi, "$1*$2(");
+    s = s.replace(/(\))\s*(sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|log|ln|sqrt|cbrt|abs|nPr|nCr|yroot|fact|mod)\(/gi, "$1*$2(");
+
+    var fn = new Function(
+      "sin", "cos", "tan",
+      "asin", "acos", "atan",
+      "sinh", "cosh", "tanh",
+      "asinh", "acosh", "atanh",
+      "log", "ln", "sqrt", "cbrt", "yroot",
+      "fact", "nPr", "nCr", "abs", "mod",
+      '"use strict"; return (' + s + ");"
+    );
+
+    var res = fn(
+      sciSin, sciCos, sciTan,
+      sciAsin, sciAcos, sciAtan,
+      function(x){ return cleanNum(Math.sinh(x)); },
+      function(x){ return cleanNum(Math.cosh(x)); },
+      function(x){ return cleanNum(Math.tanh(x)); },
+      function(x){ return cleanNum(Math.asinh(x)); },
+      function(x){ if (x<1) throw new Error("Math ERROR"); return cleanNum(Math.acosh(x)); },
+      function(x){ if (x<=-1||x>=1) throw new Error("Math ERROR"); return cleanNum(Math.atanh(x)); },
+      function(x){ if (x<=0) throw new Error("Math ERROR"); return cleanNum(Math.log10(x)); },
+      function(x){ if (x<=0) throw new Error("Math ERROR"); return cleanNum(Math.log(x)); },
+      function(x){ if (x<0) throw new Error("Math ERROR"); return cleanNum(Math.sqrt(x)); },
+      function(x){ return cleanNum(Math.cbrt(x)); },
+      sciYroot,
+      sciFact, sciNPr, sciNCr,
+      function(x){ return Math.abs(x); },
+      function(a, b){ return cleanNum(a % b); }
+    );
+
+    if (typeof res !== "number" || isNaN(res)) throw new Error("Math ERROR");
+    return cleanNum(res);
+  }
+
+  function updateCalcScreen() {
+    if (calcExprDisp) {
+      calcExprDisp.textContent = calcExpr === "" ? "\u00A0" : calcExpr;
+    }
+    if (calcDisp) {
+      if (calcExpr === "") {
+        calcDisp.textContent = "0";
+      } else if (calcIsResult) {
+        // already showing formatted result
+      } else {
+        calcDisp.textContent = calcExpr;
+      }
+    }
+  }
+
+  function calcKey(k) {
+    try {
+      if (k === "shift") {
+        calcIsShift = !calcIsShift;
+        updateCalcIndicators();
+        updateShiftLabels();
+        return;
+      }
+      if (k === "hyp") {
+        calcIsHyp = !calcIsHyp;
+        updateCalcIndicators();
+        updateShiftLabels();
+        return;
+      }
+      if (k === "AC") {
+        calcExpr = "";
+        calcIsResult = false;
+        calcIsShift = false;
+        calcIsHyp = false;
+        updateCalcIndicators();
+        updateShiftLabels();
+        if (calcExprDisp) calcExprDisp.textContent = "\u00A0";
+        if (calcDisp) calcDisp.textContent = "0";
+        return;
+      }
+      if (k === "DEL") {
+        if (calcIsResult) {
+          calcExpr = "";
+          calcIsResult = false;
+          if (calcExprDisp) calcExprDisp.textContent = "\u00A0";
+          if (calcDisp) calcDisp.textContent = "0";
+          return;
+        }
+        if (calcExpr.length > 0) {
+          var tokenMatch = calcExpr.match(/(sinh⁻¹\(|cosh⁻¹\(|tanh⁻¹\(|sin⁻¹\(|cos⁻¹\(|tan⁻¹\(|sinh\(|cosh\(|tanh\(|sin\(|cos\(|tan\(|log\(|ln\(|10\^\(|e\^\(|√\(|∛\(|Abs\(|×10\^\(| yroot | mod | P | C |Ans)$/);
+          if (tokenMatch) {
+            calcExpr = calcExpr.slice(0, -tokenMatch[0].length);
+          } else {
+            calcExpr = calcExpr.slice(0, -1);
+          }
+        }
+        updateCalcScreen();
+        return;
+      }
+      if (k === "=") {
+        if (calcExpr === "") return;
+        var evaluated = evaluateCasio(calcExpr);
+        calcAns = evaluated;
+        var formatted = String(evaluated);
+        if (Math.abs(evaluated) >= 1e12 || (Math.abs(evaluated) < 1e-9 && evaluated !== 0)) {
+          formatted = evaluated.toExponential(6).replace("+", "");
+        }
+        if (calcExprDisp) calcExprDisp.textContent = calcExpr + " =";
+        if (calcDisp) calcDisp.textContent = formatted;
+        calcExpr = String(evaluated);
+        calcIsResult = true;
+        calcIsShift = false;
+        calcIsHyp = false;
+        updateCalcIndicators();
+        updateShiftLabels();
+        return;
+      }
+      if (k === "MC") {
+        calcMemory = 0;
+        updateCalcIndicators();
+        return;
+      }
+      if (k === "MR") {
+        if (calcIsResult) {
+          calcExpr = String(calcMemory);
+          calcIsResult = false;
+        } else {
+          calcExpr += String(calcMemory);
+        }
+        updateCalcScreen();
+        return;
+      }
+      if (k === "M+" || k === "M-") {
+        var mVal = 0;
+        try {
+          mVal = evaluateCasio(calcExpr === "" ? "0" : calcExpr);
+        } catch (e) {
+          mVal = calcAns;
+        }
+        if (k === "M+") calcMemory += mVal;
+        else calcMemory -= mVal;
+        calcMemory = cleanNum(calcMemory);
+        updateCalcIndicators();
+        return;
+      }
+      if (k === "Ans") {
+        if (calcIsResult) {
+          calcExpr = "Ans";
+          calcIsResult = false;
+        } else {
+          calcExpr += "Ans";
+        }
+        updateCalcScreen();
+        return;
+      }
+      if (k === "exp10") {
+        if (calcIsResult) {
+          calcExpr = "Ans×10^(";
+          calcIsResult = false;
+        } else {
+          calcExpr += "×10^(";
+        }
+        updateCalcScreen();
+        return;
+      }
+      if (k === "neg") {
+        if (calcIsResult || calcExpr === "") {
+          calcExpr = "-";
+          calcIsResult = false;
+        } else {
+          calcExpr += "(-";
+        }
+        updateCalcScreen();
+        return;
+      }
+
+      // Operators +, -, *, /
+      if (k === "+" || k === "-" || k === "*" || k === "/") {
+        var op = k === "*" ? "×" : k === "/" ? "÷" : k;
+        if (calcIsResult) {
+          calcExpr = "Ans" + op;
+          calcIsResult = false;
+        } else {
+          calcExpr += op;
+        }
+        updateCalcScreen();
+        return;
+      }
+
+      // Functions
+      var fnInserted = "";
+      if (k === "sin") {
+        fnInserted = calcIsShift ? (calcIsHyp ? "sinh⁻¹(" : "sin⁻¹(") : (calcIsHyp ? "sinh(" : "sin(");
+      } else if (k === "cos") {
+        fnInserted = calcIsShift ? (calcIsHyp ? "cosh⁻¹(" : "cos⁻¹(") : (calcIsHyp ? "cosh(" : "cos(");
+      } else if (k === "tan") {
+        fnInserted = calcIsShift ? (calcIsHyp ? "tanh⁻¹(" : "tan⁻¹(") : (calcIsHyp ? "tanh(" : "tan(");
+      } else if (k === "pi") {
+        fnInserted = calcIsShift ? String(Math.floor(Math.random() * 1000) / 1000) : "π";
+      } else if (k === "e") {
+        fnInserted = calcIsShift ? "⁻¹" : "e";
+      } else if (k === "ln") {
+        fnInserted = calcIsShift ? "e^(" : "ln(";
+      } else if (k === "log") {
+        fnInserted = calcIsShift ? "10^(" : "log(";
+      } else if (k === "sq") {
+        fnInserted = calcIsShift ? "³" : "²";
+      } else if (k === "pow") {
+        fnInserted = calcIsShift ? " yroot " : "^";
+      } else if (k === "sqrt") {
+        fnInserted = calcIsShift ? "∛(" : "√(";
+      } else if (k === "fact") {
+        fnInserted = "!";
+      } else if (k === "nPr") {
+        fnInserted = " P ";
+      } else if (k === "nCr") {
+        fnInserted = " C ";
+      } else if (k === "abs") {
+        fnInserted = "Abs(";
+      } else if (k === "mod") {
+        fnInserted = " mod ";
+      } else if (k === "%") {
+        fnInserted = "%";
+      } else if (k === "(" || k === ")") {
+        fnInserted = k;
+      } else if (/^[0-9.]$/.test(k)) {
+        if (calcIsResult) {
+          calcExpr = k === "." ? "0." : k;
+          calcIsResult = false;
+        } else {
+          calcExpr += k;
+        }
+        updateCalcScreen();
+        return;
+      }
+
+      if (fnInserted) {
+        if (calcIsResult) {
+          if (fnInserted === "²" || fnInserted === "³" || fnInserted === "!" || fnInserted === "⁻¹") {
+            calcExpr = "Ans" + fnInserted;
+          } else {
+            calcExpr = fnInserted;
+          }
+          calcIsResult = false;
+        } else {
+          calcExpr += fnInserted;
+        }
+        if (calcIsShift) {
+          calcIsShift = false;
+          updateCalcIndicators();
+          updateShiftLabels();
+        }
+        if (calcIsHyp && (k === "sin" || k === "cos" || k === "tan")) {
+          calcIsHyp = false;
+          updateCalcIndicators();
+          updateShiftLabels();
+        }
+        updateCalcScreen();
+      }
+    } catch (err) {
+      if (calcDisp) calcDisp.textContent = "수학 오류";
+      calcIsResult = true;
+    }
+  }
+
   document.querySelectorAll("#calcPad [data-k]").forEach(function (b) {
     b.onclick = function () { calcKey(b.getAttribute("data-k")); };
   });
-  function fact(n) {
-    n = Math.floor(n);
-    if (n < 0 || n > 170) throw new Error("fact");
-    var r = 1;
-    for (var i = 2; i <= n; i++) r *= i;
-    return r;
-  }
-  function toRad(x) { return calcDeg ? x * Math.PI / 180 : x; }
-  function evalSci(expr) {
-    var s = String(expr)
-      .replace(/π/g, "(" + Math.PI + ")")
-      .replace(/\be\b/g, "(" + Math.E + ")")
-      .replace(/√\(/g, "sqrt(")
-      .replace(/\^/g, "**");
-    s = s.replace(/sin\(/g, "sin_(").replace(/cos\(/g, "cos_(").replace(/tan\(/g, "tan_(");
-    var ang = calcDeg ? "x*Math.PI/180" : "x";
-    var fn = Function(
-      '"use strict";' +
-      "var sin_=function(x){return Math.sin(" + ang + ");};" +
-      "var cos_=function(x){return Math.cos(" + ang + ");};" +
-      "var tan_=function(x){return Math.tan(" + ang + ");};" +
-      "var log=function(x){return Math.log(x)/Math.LN10;};" +
-      "var ln=function(x){return Math.log(x);};" +
-      "var sqrt=Math.sqrt; return (" + s + ");"
-    );
-    return fn();
-  }
-  function wrapFn(name) {
-    if (calcExpr === "0" || calcNew) calcExpr = name;
-    else calcExpr = name + calcExpr + ")";
-    calcNew = false;
-  }
-  function calcKey(k) {
-    try {
-      if (k === "AC" || k === "C") { calcExpr = "0"; calcNew = true; }
-      else if (k === "←") { calcExpr = calcExpr.length > 1 ? calcExpr.slice(0, -1) : "0"; }
-      else if (k === "=") {
-        var val = evalSci(calcExpr);
-        calcExpr = String(Number(val.toPrecision(12)));
-        calcNew = true;
-      } else if (k === "sq") {
-        var v = evalSci(calcExpr);
-        calcExpr = String(Number((v * v).toPrecision(12)));
-        calcNew = true;
-      } else if (k === "inv") {
-        var iv = evalSci(calcExpr);
-        calcExpr = String(Number((1 / iv).toPrecision(12)));
-        calcNew = true;
-      } else if (k === "fact") {
-        calcExpr = String(fact(evalSci(calcExpr)));
-        calcNew = true;
-      } else if (k === "pi") {
-        calcExpr = calcNew || calcExpr === "0" ? "π" : calcExpr + "π";
-        calcNew = false;
-      } else if (k === "e") {
-        calcExpr = calcNew || calcExpr === "0" ? "e" : calcExpr + "e";
-        calcNew = false;
-      } else if (k === "sin(" || k === "cos(" || k === "tan(" || k === "log(" || k === "ln(" || k === "sqrt(") {
-        wrapFn(k);
-      } else {
-        if (calcNew && /[0-9.]/.test(k)) calcExpr = k === "." ? "0." : k;
-        else calcExpr = calcExpr === "0" && /[0-9]/.test(k) ? k : calcExpr + k;
-        calcNew = false;
-      }
-    } catch (err) {
-      calcExpr = "오류";
-      calcNew = true;
+
+  // PC Keyboard Shortcuts
+  window.addEventListener("keydown", function (e) {
+    var calcSec = document.getElementById("calc");
+    if (!calcSec || calcSec.classList.contains("hidden")) return;
+    var tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
+    if (tag === "input" || tag === "textarea") return;
+
+    if (e.key >= "0" && e.key <= "9") {
+      calcKey(e.key);
+      e.preventDefault();
+    } else if (e.key === ".") {
+      calcKey(".");
+      e.preventDefault();
+    } else if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/") {
+      calcKey(e.key);
+      e.preventDefault();
+    } else if (e.key === "Enter" || e.key === "=") {
+      calcKey("=");
+      e.preventDefault();
+    } else if (e.key === "Backspace") {
+      calcKey("DEL");
+      e.preventDefault();
+    } else if (e.key === "Escape" || e.key === "c" || e.key === "C") {
+      calcKey("AC");
+      e.preventDefault();
+    } else if (e.key === "(" || e.key === ")" || e.key === "^" || e.key === "%") {
+      calcKey(e.key);
+      e.preventDefault();
     }
-    calcDisp.textContent = calcExpr;
-  }
+  });
 
   function calcSplit() {
     var total = parseFloat(document.getElementById("splitTotal").value) || 0;
@@ -983,15 +2355,16 @@
   }
   function renderBoard() {
     var list = document.getElementById("bdList");
+    if (!list) return;
     var posts = loadBoard();
     if (!posts.length) {
-      list.innerHTML = '<div class="card panel"><p class="desc">아직 글이 없습니다. 첫 요청을 남겨 보세요.</p></div>';
+      list.innerHTML = '<div class="card panel" style="padding:16px 20px"><p class="desc" style="margin:0">아직 등록된 요청이 없습니다. 첫 번째 도구를 요청해 보세요!</p></div>';
       return;
     }
     list.innerHTML = posts.map(function (p) {
       return '<article class="card panel board-item"><div class="board-meta">' +
-        (p.name || "익명") + " · " + p.when +
-        '</div><h3>' + p.title + '</h3><p>' + p.body + "</p></article>";
+        esc(p.name || "익명") + " · " + esc(p.when) +
+        '</div><h3>' + esc(p.title) + '</h3><p>' + esc(p.body) + "</p></article>";
     }).join("");
   }
   function esc(s) {
@@ -999,45 +2372,140 @@
       return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c];
     });
   }
-  document.getElementById("bdSubmit").onclick = function () {
-    var title = document.getElementById("bdTitle").value.trim();
-    var body = document.getElementById("bdBody").value.trim();
-    if (!title || !body) return toast("제목과 내용을 입력하세요");
-    var posts = loadBoard();
-    posts.unshift({
-      name: esc(document.getElementById("bdName").value.trim() || "익명"),
-      title: esc(title),
-      body: esc(body),
-      when: new Date().toLocaleString("ko-KR")
-    });
-    localStorage.setItem(BD_KEY, JSON.stringify(posts.slice(0, 50)));
-    document.getElementById("bdTitle").value = "";
-    document.getElementById("bdBody").value = "";
-    renderBoard();
-    toast("글을 남겼습니다");
-  };
+
+  var bdSubmitBtn = document.getElementById("bdSubmit");
+  if (bdSubmitBtn) {
+    bdSubmitBtn.onclick = function () {
+      var name = (document.getElementById("bdName").value || "").trim() || "익명";
+      var contactEl = document.getElementById("bdContact");
+      var contact = contactEl ? contactEl.value.trim() : "";
+      var title = (document.getElementById("bdTitle").value || "").trim();
+      var body = (document.getElementById("bdBody").value || "").trim();
+
+      if (!title) {
+        document.getElementById("bdTitle").focus();
+        return toast("요청 제목을 입력해 주세요.");
+      }
+      if (!body) {
+        document.getElementById("bdBody").focus();
+        return toast("요청 내용을 입력해 주세요.");
+      }
+
+      var cfg = window.SITE_CONFIG || {};
+      var targetEmail = cfg.adminEmail || "kchulsu577@gmail.com";
+
+      var originalBtnHtml = bdSubmitBtn.innerHTML;
+      bdSubmitBtn.disabled = true;
+      bdSubmitBtn.innerHTML = '<span class="btn-text">전송 중...</span>';
+
+      var payload = {
+        "작성자": name,
+        "회신_연락처": contact || "미입력",
+        "요청_제목": title,
+        "요청_내용": body,
+        "전송_일시": new Date().toLocaleString("ko-KR"),
+        "_subject": "[일상툴 도구요청] " + title + " (" + name + ")",
+        "_template": "table",
+        "_captcha": "false"
+      };
+
+      fetch("https://formsubmit.co/ajax/" + encodeURIComponent(targetEmail), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        var posts = loadBoard();
+        posts.unshift({
+          name: name,
+          title: title,
+          body: body,
+          when: new Date().toLocaleString("ko-KR")
+        });
+        localStorage.setItem(BD_KEY, JSON.stringify(posts.slice(0, 50)));
+
+        document.getElementById("bdTitle").value = "";
+        document.getElementById("bdBody").value = "";
+        if (contactEl) contactEl.value = "";
+        renderBoard();
+        toast("관리자 이메일로 성공적으로 전송되었습니다!");
+      })
+      .catch(function (err) {
+        console.error("FormSubmit Error:", err);
+        var posts = loadBoard();
+        posts.unshift({
+          name: name,
+          title: title,
+          body: body,
+          when: new Date().toLocaleString("ko-KR")
+        });
+        localStorage.setItem(BD_KEY, JSON.stringify(posts.slice(0, 50)));
+        document.getElementById("bdTitle").value = "";
+        document.getElementById("bdBody").value = "";
+        renderBoard();
+        toast("소중한 의견이 등록되었습니다!");
+      })
+      .finally(function () {
+        bdSubmitBtn.disabled = false;
+        bdSubmitBtn.innerHTML = originalBtnHtml;
+      });
+    };
+  }
   renderBoard();
 
-  function renderAds() {
+  function renderAdSlot(el) {
+    if (!el || el.getAttribute("data-ad-rendered") === "true") return;
     var cfg = window.SITE_CONFIG || {};
     var ready = cfg.adsenseEnabled && cfg.adsenseClient && cfg.adsenseClient.indexOf("XXXX") === -1;
-    document.querySelectorAll(".ad-slot").forEach(function (el) {
-      var key = el.getAttribute("data-ad");
-      if (ready) {
-        el.innerHTML = "";
-        var ins = document.createElement("ins");
-        ins.className = "adsbygoogle";
-        ins.style.display = "block";
-        ins.setAttribute("data-ad-client", cfg.adsenseClient);
-        ins.setAttribute("data-ad-slot", (cfg.slots && cfg.slots[key]) || "");
-        ins.setAttribute("data-ad-format", "auto");
-        ins.setAttribute("data-full-width-responsive", "true");
-        el.appendChild(ins);
-        try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    var key = el.getAttribute("data-ad") || "toolIncontent";
+
+    if (ready) {
+      el.classList.add("ad-active");
+      el.classList.remove("preview-mode");
+      el.innerHTML = "";
+      var ins = document.createElement("ins");
+      ins.className = "adsbygoogle";
+      ins.style.display = "block";
+      ins.setAttribute("data-ad-client", cfg.adsenseClient);
+      if (cfg.slots && cfg.slots[key]) {
+        ins.setAttribute("data-ad-slot", cfg.slots[key]);
       }
-    });
+      ins.setAttribute("data-ad-format", "auto");
+      ins.setAttribute("data-full-width-responsive", "true");
+      el.appendChild(ins);
+      el.setAttribute("data-ad-rendered", "true");
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    } else if (cfg.adsensePreview) {
+      el.classList.add("preview-mode");
+      el.innerHTML = '<div class="ad-preview-box"><span class="ad-preview-badge">AD</span><span class="ad-preview-desc">광고 영역 · ' + key + '</span></div>';
+      el.setAttribute("data-ad-rendered", "true");
+    } else {
+      el.innerHTML = "";
+      el.classList.remove("preview-mode", "ad-active");
+    }
   }
-  renderAds();
+
+  function renderVisibleAds(sectionId) {
+    // 1. 전역 공통 광고 슬롯 (사이드바, 헤더 상단, 본문 하단, 푸터)
+    document.querySelectorAll(".sidebar .ad-slot, .main > .ad-slot").forEach(function (slot) {
+      renderAdSlot(slot);
+    });
+    // 2. 현재 활성화된 화면 내부의 슬롯
+    var activeSec = sectionId ? document.getElementById(sectionId) : document.querySelector(".view:not(.hidden)");
+    if (activeSec) {
+      activeSec.querySelectorAll(".ad-slot").forEach(function (slot) {
+        renderAdSlot(slot);
+      });
+    }
+  }
 
   window.addEventListener("hashchange", function () {
     var hash = (location.hash || "").replace("#", "");
