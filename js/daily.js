@@ -1,6 +1,6 @@
 (function () {
   var TOOLS = [
-    { id: "home", name: "홈", ico: "⌂", blurb: "29가지 필수 일상 도구", title: "일상툴 - 계산기, 단위변환, BMI, 환율, 연봉실수령, 환갑칠순, 온라인 메모장 등 29가지 생활 도구", desc: "계산기, 단위변환, BMI, 환율, 연봉 실수령, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 29가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
+    { id: "home", name: "홈", ico: "⌂", blurb: "32가지 필수 일상 도구", title: "일상툴 - 그림판, 사과게임, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환, 환갑칠순 등 32가지 생활 도구", desc: "그림판, 사과게임(과일박스), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 32가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
     { id: "calc", name: "공학용계산기", ico: "fx", blurb: "삼각함수, 로그, 제곱근", title: "공학용계산기 sin cos log - 일상툴", desc: "삼각함수, 로그, 제곱근, 거듭제곱을 지원하는 공학용 계산기입니다." },
     { id: "unit", name: "단위 변환", ico: "↔", blurb: "길이, 무게, 온도, 평, 데이터", title: "단위 변환기 cm inch kg lb 섭씨 화씨 - 일상툴", desc: "길이, 무게, 온도, 넓이(평), 부피, 데이터 단위를 바로 변환합니다." },
     { id: "bmi", name: "BMI 계산", ico: "⚖", blurb: "아시아-태평양 기준 체질량", title: "BMI 계산기 - 키 몸무게 정상범위 - 일상툴", desc: "키와 몸무게로 BMI와 정상 체중 범위를 계산합니다. 아시아-태평양 기준." },
@@ -28,6 +28,9 @@
     { id: "datecalc", name: "날짜 계산", ico: "↔", blurb: "두 날짜 사이 일수", title: "날짜 계산기 며칠 후 - 일상툴", desc: "두 날짜 사이 일수와 N일 후 날짜를 계산합니다." },
     { id: "postcode", name: "우편번호 검색", ico: "우편", blurb: "도로명·지번 우편번호", title: "우편번호 검색기 도로명 주소 - 일상툴", desc: "도로명 또는 지번으로 우편번호와 주소를 찾습니다. 다음 우편번호 서비스 사용." },
     { id: "enaddr", name: "영문 주소 변환", ico: "EN", blurb: "한글 주소를 영문으로", title: "영문 주소 변환기 한글주소 로마자 - 일상툴", desc: "한글 도로명·지번 주소를 영문으로 변환합니다. 해외 배송·입국신고서용." },
+    { id: "pdf", name: "PDF 변환기", ico: "PDF", blurb: "이미지↔PDF, 합치기, 분할, 회전, 압축", title: "PDF 변환기 - 이미지 PDF 변환, 합치기, 분할, 회전, 압축 - 일상툴", desc: "Smallpdf 스타일의 무료 온라인 PDF 솔루션. 이미지 to PDF, PDF to 이미지(JPG/PNG), PDF 병합(합치기), 분할/추출, 페이지 회전, 용량 압축, 텍스트 추출을 100% 브라우저 메모리 연산으로 안전하고 빠르게 제공합니다." },
+    { id: "apple", name: "사과게임", ico: "🍎", blurb: "합이 10이 되는 사과를 드래그!", title: "사과게임 (과일박스 게임) - 합이 10이 되는 상자 만들기 - 일상툴", desc: "인기 웹 두뇌 퍼즐 사과게임(Fruit Box Game). 17x10 격자에서 직사각형으로 드래그하여 합이 10이 되는 사과들을 수확하세요! 120초 타임어택과 무제한 연습 모드, 힌트 기능, 최고 기록 저장 지원." },
+    { id: "paint", name: "그림판", ico: "🎨", blurb: "윈도우 스타일 그림판 · 에셋 보드 · 공유", title: "그림판 - 윈도우 스타일 웹 그림판, 복사 에셋 보드, 텍스트 입력, 이미지 다운로드 & 공유 - 일상툴", desc: "윈도우 기본 그림판 스타일의 무료 온라인 그림판 도구. 연필, 브러시, 지우개, 도형, 페인트통, 텍스트 도구 지원. 복사한 이미지 자료(Ctrl+V)를 즉시 보관하는 우측 에셋 보드와 캔버스 스탬프 기능, 고화질 이미지 다운로드 및 원클릭 공유 기능을 제공합니다." },
     { id: "board", name: "도구 요청", ico: "글", blurb: "만들고 싶은 도구를 남기세요", title: "도구 요청 게시판 - 일상툴", desc: "만들고 싶은 계산기나 웹 도구를 요청하는 게시판입니다." }
   ];
 
@@ -124,6 +127,9 @@
     if (history.replaceState) history.replaceState(null, "", id === "home" ? location.pathname : "#" + id);
     else location.hash = id === "home" ? "" : id;
     if (id === "postcode") initPostcode();
+    if (id === "apple" && window.onShowAppleGame) window.onShowAppleGame();
+    else if (id !== "apple" && window.onHideAppleGame) window.onHideAppleGame();
+    if (id === "paint" && window.onShowPaintTool) window.onShowPaintTool();
     window.scrollTo({ top: 0, behavior: "smooth" });
     closeDrawer();
     setTimeout(function () {
@@ -2458,6 +2464,3546 @@
     };
   }
   renderBoard();
+
+  /* ==========================================================================
+     PDF Suite (Smallpdf Alternative - 100% In-Browser)
+     ========================================================================== */
+  (function initPdfSuite() {
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    }
+
+    var pdfStatus = document.getElementById("pdfStatus");
+    var pdfStatusMsg = document.getElementById("pdfStatusMsg");
+
+    function showPdfStatus(msg) {
+      if (pdfStatus) {
+        pdfStatus.style.display = "flex";
+        if (pdfStatusMsg) pdfStatusMsg.textContent = msg;
+      }
+    }
+    function hidePdfStatus() {
+      if (pdfStatus) pdfStatus.style.display = "none";
+    }
+
+    function downloadBlob(blob, filename) {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return "0 B";
+      var k = 1024, dm = 2;
+      var sizes = ["B", "KB", "MB", "GB"];
+      var i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+    }
+
+    function setupDropzone(dropzoneEl, inputEl, onFiles) {
+      if (!dropzoneEl || !inputEl) return;
+      ["dragenter", "dragover"].forEach(function (ev) {
+        dropzoneEl.addEventListener(ev, function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzoneEl.classList.add("dragover");
+        });
+      });
+      ["dragleave", "drop"].forEach(function (ev) {
+        dropzoneEl.addEventListener(ev, function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzoneEl.classList.remove("dragover");
+        });
+      });
+      dropzoneEl.addEventListener("drop", function (e) {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+          onFiles(e.dataTransfer.files);
+        }
+      });
+      inputEl.addEventListener("change", function () {
+        if (inputEl.files && inputEl.files.length) {
+          onFiles(inputEl.files);
+        }
+      });
+    }
+
+    // Tab Switching
+    var modeTabs = document.querySelectorAll(".pdf-mode-tab");
+    var subpanels = {
+      img2pdf: document.getElementById("pdfPanelImg2Pdf"),
+      pdf2img: document.getElementById("pdfPanelPdf2Img"),
+      merge: document.getElementById("pdfPanelMerge"),
+      split: document.getElementById("pdfPanelSplit"),
+      rotate: document.getElementById("pdfPanelRotate"),
+      compress: document.getElementById("pdfPanelCompress"),
+      txt: document.getElementById("pdfPanelTxt")
+    };
+    modeTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        modeTabs.forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        var mode = tab.dataset.mode;
+        Object.keys(subpanels).forEach(function (k) {
+          if (subpanels[k]) subpanels[k].style.display = (k === mode) ? "block" : "none";
+        });
+      });
+    });
+
+    /* ---------------------------------------------------------
+       1. 이미지 → PDF (img2pdf)
+       --------------------------------------------------------- */
+    var img2pdfFiles = [];
+    var img2pdfDropzone = document.getElementById("img2pdfDropzone");
+    var img2pdfInput = document.getElementById("img2pdfInput");
+    var img2pdfList = document.getElementById("img2pdfList");
+    var img2pdfOptions = document.getElementById("img2pdfOptions");
+    var img2pdfConvertBtn = document.getElementById("img2pdfConvertBtn");
+
+    function renderImg2PdfList() {
+      if (!img2pdfFiles.length) {
+        img2pdfList.style.display = "none";
+        img2pdfOptions.style.display = "none";
+        img2pdfList.innerHTML = "";
+        return;
+      }
+      img2pdfList.style.display = "flex";
+      img2pdfOptions.style.display = "flex";
+      img2pdfList.innerHTML = img2pdfFiles.map(function (item, idx) {
+        return '<div class="pdf-file-card" data-idx="' + idx + '">' +
+          '<div class="pdf-file-info">' +
+            '<img class="pdf-file-thumb" src="' + item.dataUrl + '" alt="preview">' +
+            '<div class="pdf-file-meta">' +
+              '<div class="pdf-file-name">' + esc(item.name) + '</div>' +
+              '<div class="pdf-file-size">' + formatBytes(item.size) + ' · #' + (idx + 1) + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="pdf-file-actions">' +
+            (idx > 0 ? '<button type="button" class="pdf-btn-icon move-up" title="위로">▲</button>' : '') +
+            (idx < img2pdfFiles.length - 1 ? '<button type="button" class="pdf-btn-icon move-down" title="아래로">▼</button>' : '') +
+            '<button type="button" class="pdf-btn-icon del" title="삭제">✕</button>' +
+          '</div>' +
+        '</div>';
+      }).join("");
+
+      img2pdfList.querySelectorAll(".move-up").forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var card = btn.closest(".pdf-file-card");
+          var idx = parseInt(card.dataset.idx, 10);
+          if (idx > 0) {
+            var temp = img2pdfFiles[idx];
+            img2pdfFiles[idx] = img2pdfFiles[idx - 1];
+            img2pdfFiles[idx - 1] = temp;
+            renderImg2PdfList();
+          }
+        };
+      });
+      img2pdfList.querySelectorAll(".move-down").forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var card = btn.closest(".pdf-file-card");
+          var idx = parseInt(card.dataset.idx, 10);
+          if (idx < img2pdfFiles.length - 1) {
+            var temp = img2pdfFiles[idx];
+            img2pdfFiles[idx] = img2pdfFiles[idx + 1];
+            img2pdfFiles[idx + 1] = temp;
+            renderImg2PdfList();
+          }
+        };
+      });
+      img2pdfList.querySelectorAll(".del").forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var card = btn.closest(".pdf-file-card");
+          var idx = parseInt(card.dataset.idx, 10);
+          img2pdfFiles.splice(idx, 1);
+          renderImg2PdfList();
+        };
+      });
+    }
+
+    function handleImgFiles(fileList) {
+      var validFiles = Array.prototype.slice.call(fileList).filter(function (f) {
+        return f.type.startsWith("image/");
+      });
+      if (!validFiles.length) return toast("지원하는 이미지 파일(JPG, PNG, WebP)을 선택해주세요.");
+      var readCount = 0;
+      validFiles.forEach(function (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          img2pdfFiles.push({
+            file: file,
+            name: file.name,
+            size: file.size,
+            dataUrl: e.target.result
+          });
+          readCount++;
+          if (readCount === validFiles.length) {
+            renderImg2PdfList();
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+    setupDropzone(img2pdfDropzone, img2pdfInput, handleImgFiles);
+
+    if (img2pdfConvertBtn) {
+      img2pdfConvertBtn.addEventListener("click", async function () {
+        if (!img2pdfFiles.length) return toast("변환할 이미지를 먼저 추가해주세요.");
+        if (typeof PDFLib === "undefined") return toast("PDF 라이브러리를 로딩 중입니다. 잠시 후 다시 시도해주세요.");
+        try {
+          showPdfStatus("이미지를 PDF로 변환하는 중입니다...");
+          var doc = await PDFLib.PDFDocument.create();
+          var orientation = document.getElementById("img2pdfOrientation").value;
+          var margin = parseInt(document.getElementById("img2pdfMargin").value, 10) || 0;
+          var fitMode = document.getElementById("img2pdfFit") ? document.getElementById("img2pdfFit").value : "contain";
+
+          for (var i = 0; i < img2pdfFiles.length; i++) {
+            var item = img2pdfFiles[i];
+            showPdfStatus("이미지 처리 중 (" + (i + 1) + " / " + img2pdfFiles.length + ")...");
+            var imgEl = new Image();
+            await new Promise(function (resolve, reject) {
+              imgEl.onload = resolve;
+              imgEl.onerror = reject;
+              imgEl.src = item.dataUrl;
+            });
+
+            var isPng = item.file.type === "image/png";
+            var isJpg = item.file.type === "image/jpeg" || item.file.type === "image/jpg";
+            var embeddedImage;
+
+            if (isPng) {
+              try {
+                var ab = await item.file.arrayBuffer();
+                embeddedImage = await doc.embedPng(ab);
+              } catch (e) {}
+            } else if (isJpg) {
+              try {
+                var ab = await item.file.arrayBuffer();
+                embeddedImage = await doc.embedJpg(ab);
+              } catch (e) {}
+            }
+
+            if (!embeddedImage) {
+              var c = document.createElement("canvas");
+              c.width = imgEl.naturalWidth || imgEl.width;
+              c.height = imgEl.naturalHeight || imgEl.height;
+              var ctx = c.getContext("2d");
+              ctx.fillStyle = "#ffffff";
+              ctx.fillRect(0, 0, c.width, c.height);
+              ctx.drawImage(imgEl, 0, 0);
+              var jpegDataUrl = c.toDataURL("image/jpeg", 0.95);
+              var base64 = jpegDataUrl.split(",")[1];
+              var binary = atob(base64);
+              var u8 = new Uint8Array(binary.length);
+              for (var b = 0; b < binary.length; b++) u8[b] = binary.charCodeAt(b);
+              embeddedImage = await doc.embedJpg(u8);
+            }
+
+            var imgW = embeddedImage.width;
+            var imgH = embeddedImage.height;
+            var pageW, pageH;
+
+            if (orientation === "portrait") {
+              pageW = 595.28; pageH = 841.89; // A4 Portrait
+            } else if (orientation === "landscape") {
+              pageW = 841.89; pageH = 595.28; // A4 Landscape
+            } else {
+              pageW = imgW + margin * 2;
+              pageH = imgH + margin * 2;
+            }
+
+            var availW = Math.max(1, pageW - margin * 2);
+            var availH = Math.max(1, pageH - margin * 2);
+
+            var drawW, drawH;
+            if (fitMode === "fill" && orientation !== "auto") {
+              var scale = Math.max(availW / imgW, availH / imgH);
+              drawW = imgW * scale;
+              drawH = imgH * scale;
+            } else {
+              var scale = Math.min(availW / imgW, availH / imgH);
+              drawW = imgW * scale;
+              drawH = imgH * scale;
+            }
+
+            var page = doc.addPage([pageW, pageH]);
+            var posX = margin + (availW - drawW) / 2;
+            var posY = margin + (availH - drawH) / 2;
+            page.drawImage(embeddedImage, {
+              x: posX,
+              y: posY,
+              width: drawW,
+              height: drawH
+            });
+          }
+
+          var pdfBytes = await doc.save();
+          var blob = new Blob([pdfBytes], { type: "application/pdf" });
+          downloadBlob(blob, "ilsangtool-images.pdf");
+          toast("PDF 변환 완료! 파일이 다운로드되었습니다.");
+        } catch (err) {
+          console.error("PDF conversion error:", err);
+          toast("변환 중 오류: " + err.message);
+        } finally {
+          hidePdfStatus();
+        }
+      });
+    }
+
+    /* ---------------------------------------------------------
+       2. PDF → 이미지 (pdf2img)
+       --------------------------------------------------------- */
+    var pdf2imgFile = null;
+    var pdf2imgPages = [];
+    var pdf2imgDropzone = document.getElementById("pdf2imgDropzone");
+    var pdf2imgInput = document.getElementById("pdf2imgInput");
+    var pdf2imgControls = document.getElementById("pdf2imgControls");
+    var pdf2imgGrid = document.getElementById("pdf2imgGrid");
+    var pdf2imgDlAllBtn = document.getElementById("pdf2imgDlAllBtn");
+
+    async function handlePdf2ImgFile(files) {
+      var file = files[0];
+      if (!file || (file.type !== "application/pdf" && !file.name.endsWith(".pdf"))) {
+        return toast("PDF 파일(.pdf)을 선택해주세요.");
+      }
+      pdf2imgFile = file;
+      pdf2imgPages = [];
+      pdf2imgGrid.innerHTML = "";
+      pdf2imgGrid.style.display = "none";
+      pdf2imgControls.style.display = "none";
+
+      if (typeof pdfjsLib === "undefined") return toast("PDF 엔진을 로딩 중입니다.");
+      try {
+        showPdfStatus("PDF 문서를 읽는 중입니다...");
+        var ab = await file.arrayBuffer();
+        var loadingTask = pdfjsLib.getDocument({ data: ab });
+        var pdfDoc = await loadingTask.promise;
+        var numPages = pdfDoc.numPages;
+
+        var scale = parseFloat(document.getElementById("pdf2imgScale").value) || 1.5;
+        var format = document.getElementById("pdf2imgFormat").value;
+        var ext = format === "image/png" ? "png" : "jpg";
+
+        pdf2imgControls.style.display = "flex";
+        pdf2imgGrid.style.display = "grid";
+
+        for (var i = 1; i <= numPages; i++) {
+          showPdfStatus("페이지 렌더링 중 (" + i + " / " + numPages + ")...");
+          var page = await pdfDoc.getPage(i);
+          var viewport = page.getViewport({ scale: scale });
+          var canvas = document.createElement("canvas");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          var ctx = canvas.getContext("2d");
+          await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+
+          (function (pageNum, pageCanvas) {
+            var card = document.createElement("div");
+            card.className = "pdf-page-card";
+            var wrap = document.createElement("div");
+            wrap.className = "pdf-page-canvas-wrap";
+            wrap.appendChild(pageCanvas);
+            card.appendChild(wrap);
+
+            var footer = document.createElement("div");
+            footer.className = "pdf-page-footer";
+            footer.innerHTML = '<span class="pdf-page-num">' + pageNum + ' / ' + numPages + ' 페이지</span>';
+
+            var dlBtn = document.createElement("button");
+            dlBtn.type = "button";
+            dlBtn.className = "pdf-page-dl-btn";
+            dlBtn.textContent = ext.toUpperCase() + " 다운로드";
+            dlBtn.onclick = function () {
+              var curFormat = document.getElementById("pdf2imgFormat").value;
+              var curExt = curFormat === "image/png" ? "png" : "jpg";
+              pageCanvas.toBlob(function (blob) {
+                downloadBlob(blob, (file.name.replace(/\.pdf$/i, "")) + "_page_" + pageNum + "." + curExt);
+              }, curFormat, 0.92);
+            };
+            footer.appendChild(dlBtn);
+            card.appendChild(footer);
+            pdf2imgGrid.appendChild(card);
+
+            pdf2imgPages.push({ pageNum: pageNum, canvas: pageCanvas });
+          })(i, canvas);
+        }
+        toast("총 " + numPages + "개 페이지 렌더링 완료!");
+      } catch (err) {
+        console.error("PDF to image error:", err);
+        toast("PDF 문서를 읽는 중 오류가 발생했습니다.");
+      } finally {
+        hidePdfStatus();
+      }
+    }
+    setupDropzone(pdf2imgDropzone, pdf2imgInput, handlePdf2ImgFile);
+
+    if (pdf2imgDlAllBtn) {
+      pdf2imgDlAllBtn.addEventListener("click", async function () {
+        if (!pdf2imgPages.length) return toast("변환된 페이지가 없습니다.");
+        var format = document.getElementById("pdf2imgFormat").value;
+        var ext = format === "image/png" ? "png" : "jpg";
+        var baseName = (pdf2imgFile ? pdf2imgFile.name.replace(/\.pdf$/i, "") : "pdf_pages");
+
+        if (typeof JSZip !== "undefined") {
+          showPdfStatus("ZIP 압축 파일을 생성하는 중입니다...");
+          try {
+            var zip = new JSZip();
+            for (var i = 0; i < pdf2imgPages.length; i++) {
+              var p = pdf2imgPages[i];
+              var padNum = String(p.pageNum).padStart(2, "0");
+              var blob = await new Promise(function (resolve) {
+                p.canvas.toBlob(resolve, format, 0.92);
+              });
+              zip.file(baseName + "_page_" + padNum + "." + ext, blob);
+            }
+            var zipBlob = await zip.generateAsync({ type: "blob" });
+            downloadBlob(zipBlob, baseName + "_images.zip");
+            toast("전체 페이지 ZIP 다운로드가 완료되었습니다!");
+          } catch (e) {
+            console.error(e);
+            toast("ZIP 압축 중 오류가 발생했습니다.");
+          } finally {
+            hidePdfStatus();
+          }
+        } else {
+          for (var j = 0; j < pdf2imgPages.length; j++) {
+            (function (p, delay) {
+              setTimeout(function () {
+                p.canvas.toBlob(function (blob) {
+                  downloadBlob(blob, baseName + "_page_" + p.pageNum + "." + ext);
+                }, format, 0.92);
+              }, delay);
+            })(pdf2imgPages[j], j * 300);
+          }
+          toast("페이지들을 순서대로 다운로드합니다.");
+        }
+      });
+    }
+
+    /* ---------------------------------------------------------
+       3. PDF 합치기 (merge)
+       --------------------------------------------------------- */
+    var mergeFiles = [];
+    var mergeDropzone = document.getElementById("mergeDropzone");
+    var mergeInput = document.getElementById("mergeInput");
+    var mergeFileList = document.getElementById("mergeFileList");
+    var mergeActions = document.getElementById("mergeActions");
+    var mergeSubmitBtn = document.getElementById("mergeSubmitBtn");
+    var mergeClearBtn = document.getElementById("mergeClearBtn");
+
+    function renderMergeList() {
+      if (!mergeFiles.length) {
+        mergeFileList.style.display = "none";
+        mergeActions.style.display = "none";
+        mergeFileList.innerHTML = "";
+        return;
+      }
+      mergeFileList.style.display = "flex";
+      mergeActions.style.display = "flex";
+      mergeFileList.innerHTML = mergeFiles.map(function (item, idx) {
+        return '<div class="pdf-file-card" data-idx="' + idx + '">' +
+          '<div class="pdf-file-info">' +
+            '<div class="pdf-file-thumb">📑</div>' +
+            '<div class="pdf-file-meta">' +
+              '<div class="pdf-file-name">' + esc(item.name) + '</div>' +
+              '<div class="pdf-file-size">' + formatBytes(item.size) + ' · ' + item.pageCount + ' 페이지 · #' + (idx + 1) + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="pdf-file-actions">' +
+            (idx > 0 ? '<button type="button" class="pdf-btn-icon move-up" title="위로">▲</button>' : '') +
+            (idx < mergeFiles.length - 1 ? '<button type="button" class="pdf-btn-icon move-down" title="아래로">▼</button>' : '') +
+            '<button type="button" class="pdf-btn-icon del" title="삭제">✕</button>' +
+          '</div>' +
+        '</div>';
+      }).join("");
+
+      mergeFileList.querySelectorAll(".move-up").forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var card = btn.closest(".pdf-file-card");
+          var idx = parseInt(card.dataset.idx, 10);
+          if (idx > 0) {
+            var temp = mergeFiles[idx];
+            mergeFiles[idx] = mergeFiles[idx - 1];
+            mergeFiles[idx - 1] = temp;
+            renderMergeList();
+          }
+        };
+      });
+      mergeFileList.querySelectorAll(".move-down").forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var card = btn.closest(".pdf-file-card");
+          var idx = parseInt(card.dataset.idx, 10);
+          if (idx < mergeFiles.length - 1) {
+            var temp = mergeFiles[idx];
+            mergeFiles[idx] = mergeFiles[idx + 1];
+            mergeFiles[idx + 1] = temp;
+            renderMergeList();
+          }
+        };
+      });
+      mergeFileList.querySelectorAll(".del").forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var card = btn.closest(".pdf-file-card");
+          var idx = parseInt(card.dataset.idx, 10);
+          mergeFiles.splice(idx, 1);
+          renderMergeList();
+        };
+      });
+    }
+
+    async function handleMergeFiles(files) {
+      var validFiles = Array.prototype.slice.call(files).filter(function (f) {
+        return f.type === "application/pdf" || f.name.endsWith(".pdf");
+      });
+      if (!validFiles.length) return toast("PDF 파일(.pdf)을 선택해주세요.");
+      showPdfStatus("선택한 PDF 파일 정보를 읽는 중입니다...");
+      try {
+        for (var i = 0; i < validFiles.length; i++) {
+          var file = validFiles[i];
+          var bytes = await file.arrayBuffer();
+          var pageCount = "?";
+          try {
+            var doc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true });
+            pageCount = doc.getPageCount();
+          } catch (e) {}
+          mergeFiles.push({
+            file: file,
+            name: file.name,
+            size: file.size,
+            bytes: bytes,
+            pageCount: pageCount
+          });
+        }
+        renderMergeList();
+      } catch (e) {
+        toast("파일 읽기 오류: " + e.message);
+      } finally {
+        hidePdfStatus();
+      }
+    }
+    setupDropzone(mergeDropzone, mergeInput, handleMergeFiles);
+
+    if (mergeClearBtn) {
+      mergeClearBtn.onclick = function () {
+        mergeFiles = [];
+        renderMergeList();
+      };
+    }
+
+    if (mergeSubmitBtn) {
+      mergeSubmitBtn.onclick = async function () {
+        if (mergeFiles.length < 2) return toast("병합할 PDF 파일을 2개 이상 추가해주세요.");
+        showPdfStatus("PDF 문서들을 병합하는 중입니다...");
+        try {
+          var mergedPdf = await PDFLib.PDFDocument.create();
+          for (var i = 0; i < mergeFiles.length; i++) {
+            var item = mergeFiles[i];
+            showPdfStatus("문서 병합 중 (" + (i + 1) + " / " + mergeFiles.length + "): " + item.name + "...");
+            var srcDoc = await PDFLib.PDFDocument.load(item.bytes, { ignoreEncryption: true });
+            var indices = srcDoc.getPageIndices();
+            var copiedPages = await mergedPdf.copyPages(srcDoc, indices);
+            copiedPages.forEach(function (page) {
+              mergedPdf.addPage(page);
+            });
+          }
+          var mergedBytes = await mergedPdf.save();
+          var blob = new Blob([mergedBytes], { type: "application/pdf" });
+          downloadBlob(blob, "ilsangtool-merged.pdf");
+          toast("총 " + mergedPdf.getPageCount() + "페이지가 성공적으로 병합되었습니다!");
+        } catch (err) {
+          console.error("PDF merge error:", err);
+          toast("병합 중 오류: " + err.message);
+        } finally {
+          hidePdfStatus();
+        }
+      };
+    }
+
+    /* ---------------------------------------------------------
+       4. PDF 분할 / 추출 (split)
+       --------------------------------------------------------- */
+    var splitFile = null;
+    var splitBytes = null;
+    var splitTotalPages = 0;
+    var splitSelectedPages = new Set();
+    var splitDropzone = document.getElementById("splitDropzone");
+    var splitInput = document.getElementById("splitInput");
+    var splitControls = document.getElementById("splitControls");
+    var splitDocInfo = document.getElementById("splitDocInfo");
+    var splitPageRange = document.getElementById("splitPageRange");
+    var splitPageGrid = document.getElementById("splitPageGrid");
+    var splitAllPages = document.getElementById("splitAllPages");
+    var splitOddPages = document.getElementById("splitOddPages");
+    var splitEvenPages = document.getElementById("splitEvenPages");
+    var splitClearPages = document.getElementById("splitClearPages");
+    var splitSubmitBtn = document.getElementById("splitSubmitBtn");
+    var splitEachPageBtn = document.getElementById("splitEachPageBtn");
+
+    function parsePageRange(text, maxPages) {
+      var selected = new Set();
+      var parts = text.split(/[,;\s]+/);
+      parts.forEach(function (part) {
+        if (!part) return;
+        if (part.indexOf("-") !== -1) {
+          var sub = part.split("-");
+          var start = parseInt(sub[0], 10);
+          var end = parseInt(sub[1], 10);
+          if (!isNaN(start) && !isNaN(end)) {
+            if (start > end) { var tmp = start; start = end; end = tmp; }
+            for (var p = Math.max(1, start); p <= Math.min(maxPages, end); p++) {
+              selected.add(p);
+            }
+          }
+        } else {
+          var num = parseInt(part, 10);
+          if (!isNaN(num) && num >= 1 && num <= maxPages) {
+            selected.add(num);
+          }
+        }
+      });
+      return selected;
+    }
+
+    function updateSplitRangeText() {
+      if (!splitSelectedPages.size) {
+        splitPageRange.value = "";
+        return;
+      }
+      var sorted = Array.from(splitSelectedPages).sort(function (a, b) { return a - b; });
+      var ranges = [];
+      var start = sorted[0], end = sorted[0];
+      for (var i = 1; i < sorted.length; i++) {
+        if (sorted[i] === end + 1) {
+          end = sorted[i];
+        } else {
+          ranges.push(start === end ? String(start) : (start + "-" + end));
+          start = sorted[i];
+          end = sorted[i];
+        }
+      }
+      ranges.push(start === end ? String(start) : (start + "-" + end));
+      splitPageRange.value = ranges.join(", ");
+    }
+
+    function syncSplitGridVisuals() {
+      var cards = splitPageGrid.querySelectorAll(".pdf-page-card");
+      cards.forEach(function (card) {
+        var p = parseInt(card.dataset.pageNum, 10);
+        var isSel = splitSelectedPages.has(p);
+        card.classList.toggle("selected", isSel);
+        var chk = card.querySelector(".pdf-check-box");
+        if (chk) chk.textContent = isSel ? "✓" : "";
+      });
+    }
+
+    async function handleSplitFile(files) {
+      var file = files[0];
+      if (!file || (file.type !== "application/pdf" && !file.name.endsWith(".pdf"))) {
+        return toast("PDF 파일(.pdf)을 선택해주세요.");
+      }
+      splitFile = file;
+      splitSelectedPages = new Set();
+      splitPageGrid.innerHTML = "";
+      showPdfStatus("PDF 문서를 분석하고 미리보기를 생성하는 중입니다...");
+      try {
+        splitBytes = await file.arrayBuffer();
+        var pdfDoc = await pdfjsLib.getDocument({ data: splitBytes.slice(0) }).promise;
+        splitTotalPages = pdfDoc.numPages;
+
+        splitDocInfo.textContent = "📄 " + file.name + " · 총 " + splitTotalPages + " 페이지 (" + formatBytes(file.size) + ")";
+        splitControls.style.display = "block";
+
+        for (var i = 1; i <= splitTotalPages; i++) {
+          var page = await pdfDoc.getPage(i);
+          var viewport = page.getViewport({ scale: 0.6 });
+          var canvas = document.createElement("canvas");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          var ctx = canvas.getContext("2d");
+          await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+
+          (function (pageNum, pageCanvas) {
+            var card = document.createElement("div");
+            card.className = "pdf-page-card selectable";
+            card.dataset.pageNum = pageNum;
+
+            var header = document.createElement("div");
+            header.className = "pdf-page-card-header";
+            header.innerHTML = '<span class="pdf-page-num">' + pageNum + ' 페이지</span><span class="pdf-check-box"></span>';
+            card.appendChild(header);
+
+            var wrap = document.createElement("div");
+            wrap.className = "pdf-page-canvas-wrap";
+            wrap.appendChild(pageCanvas);
+            card.appendChild(wrap);
+
+            card.addEventListener("click", function () {
+              if (splitSelectedPages.has(pageNum)) {
+                splitSelectedPages.delete(pageNum);
+              } else {
+                splitSelectedPages.add(pageNum);
+              }
+              syncSplitGridVisuals();
+              updateSplitRangeText();
+            });
+
+            splitPageGrid.appendChild(card);
+          })(i, canvas);
+        }
+      } catch (e) {
+        toast("분할 준비 오류: " + e.message);
+      } finally {
+        hidePdfStatus();
+      }
+    }
+    setupDropzone(splitDropzone, splitInput, handleSplitFile);
+
+    if (splitPageRange) {
+      splitPageRange.addEventListener("input", function () {
+        splitSelectedPages = parsePageRange(splitPageRange.value, splitTotalPages);
+        syncSplitGridVisuals();
+      });
+    }
+    if (splitAllPages) {
+      splitAllPages.onclick = function () {
+        for (var i = 1; i <= splitTotalPages; i++) splitSelectedPages.add(i);
+        syncSplitGridVisuals();
+        updateSplitRangeText();
+      };
+    }
+    if (splitOddPages) {
+      splitOddPages.onclick = function () {
+        splitSelectedPages.clear();
+        for (var i = 1; i <= splitTotalPages; i += 2) splitSelectedPages.add(i);
+        syncSplitGridVisuals();
+        updateSplitRangeText();
+      };
+    }
+    if (splitEvenPages) {
+      splitEvenPages.onclick = function () {
+        splitSelectedPages.clear();
+        for (var i = 2; i <= splitTotalPages; i += 2) splitSelectedPages.add(i);
+        syncSplitGridVisuals();
+        updateSplitRangeText();
+      };
+    }
+    if (splitClearPages) {
+      splitClearPages.onclick = function () {
+        splitSelectedPages.clear();
+        syncSplitGridVisuals();
+        updateSplitRangeText();
+      };
+    }
+
+    if (splitSubmitBtn) {
+      splitSubmitBtn.onclick = async function () {
+        if (!splitSelectedPages.size) return toast("추출할 페이지를 1장 이상 선택해주세요.");
+        showPdfStatus("선택한 페이지를 추출하여 PDF로 생성하는 중입니다...");
+        try {
+          var srcDoc = await PDFLib.PDFDocument.load(splitBytes, { ignoreEncryption: true });
+          var newDoc = await PDFLib.PDFDocument.create();
+          var sorted = Array.from(splitSelectedPages).sort(function (a, b) { return a - b; });
+          var indices = sorted.map(function (p) { return p - 1; });
+          var copied = await newDoc.copyPages(srcDoc, indices);
+          copied.forEach(function (page) { newDoc.addPage(page); });
+          var outBytes = await newDoc.save();
+          var blob = new Blob([outBytes], { type: "application/pdf" });
+          var baseName = (splitFile ? splitFile.name.replace(/\.pdf$/i, "") : "doc") + "_extracted.pdf";
+          downloadBlob(blob, baseName);
+          toast("선택한 " + copied.length + "개 페이지가 성공적으로 추출되었습니다!");
+        } catch (e) {
+          toast("추출 실패: " + e.message);
+        } finally {
+          hidePdfStatus();
+        }
+      };
+    }
+
+    if (splitEachPageBtn) {
+      splitEachPageBtn.onclick = async function () {
+        if (!splitTotalPages) return toast("문서를 먼저 불러와주세요.");
+        if (typeof JSZip === "undefined") return toast("ZIP 라이브러리를 로딩 중입니다.");
+        showPdfStatus("모든 페이지를 1장씩 분할하여 ZIP으로 묶는 중입니다...");
+        try {
+          var zip = new JSZip();
+          var srcDoc = await PDFLib.PDFDocument.load(splitBytes, { ignoreEncryption: true });
+          var baseName = splitFile ? splitFile.name.replace(/\.pdf$/i, "") : "page";
+
+          for (var i = 0; i < splitTotalPages; i++) {
+            showPdfStatus("페이지 분할 중 (" + (i + 1) + " / " + splitTotalPages + ")...");
+            var singleDoc = await PDFLib.PDFDocument.create();
+            var copied = await singleDoc.copyPages(srcDoc, [i]);
+            singleDoc.addPage(copied[0]);
+            var bytes = await singleDoc.save();
+            var padNum = String(i + 1).padStart(2, "0");
+            zip.file(baseName + "_page_" + padNum + ".pdf", bytes);
+          }
+
+          var zipBlob = await zip.generateAsync({ type: "blob" });
+          downloadBlob(zipBlob, baseName + "_split_pages.zip");
+          toast("모든 페이지가 개별 PDF로 분할되어 ZIP으로 다운로드되었습니다!");
+        } catch (e) {
+          toast("분할 실패: " + e.message);
+        } finally {
+          hidePdfStatus();
+        }
+      };
+    }
+
+    /* ---------------------------------------------------------
+       5. PDF 회전 (rotate)
+       --------------------------------------------------------- */
+    var rotateFile = null;
+    var rotateBytes = null;
+    var rotateTotalPages = 0;
+    var rotateAngles = [];
+    var rotateDropzone = document.getElementById("rotateDropzone");
+    var rotateInput = document.getElementById("rotateInput");
+    var rotateControls = document.getElementById("rotateControls");
+    var rotateDocInfo = document.getElementById("rotateDocInfo");
+    var rotatePageGrid = document.getElementById("rotatePageGrid");
+    var rotateAllRight = document.getElementById("rotateAllRight");
+    var rotateAllLeft = document.getElementById("rotateAllLeft");
+    var rotateAll180 = document.getElementById("rotateAll180");
+    var rotateReset = document.getElementById("rotateReset");
+    var rotateSubmitBtn = document.getElementById("rotateSubmitBtn");
+
+    function updateRotateCard(pageNum) {
+      var card = rotatePageGrid.querySelector('.pdf-page-card[data-page-num="' + pageNum + '"]');
+      if (!card) return;
+      var angle = ((rotateAngles[pageNum - 1] % 360) + 360) % 360;
+      var badge = card.querySelector(".pdf-rot-badge");
+      if (badge) badge.textContent = angle === 0 ? "0°" : ("+" + angle + "°");
+      var canvas = card.querySelector("canvas");
+      if (canvas) {
+        canvas.style.transform = "rotate(" + angle + "deg)";
+        canvas.style.transition = "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)";
+      }
+    }
+
+    async function handleRotateFile(files) {
+      var file = files[0];
+      if (!file || (file.type !== "application/pdf" && !file.name.endsWith(".pdf"))) {
+        return toast("PDF 파일(.pdf)을 선택해주세요.");
+      }
+      rotateFile = file;
+      rotateAngles = [];
+      rotatePageGrid.innerHTML = "";
+      showPdfStatus("회전할 PDF 미리보기를 불러오는 중입니다...");
+      try {
+        rotateBytes = await file.arrayBuffer();
+        var pdfDoc = await pdfjsLib.getDocument({ data: rotateBytes.slice(0) }).promise;
+        rotateTotalPages = pdfDoc.numPages;
+        rotateAngles = new Array(rotateTotalPages).fill(0);
+
+        rotateDocInfo.textContent = "📄 " + file.name + " · 총 " + rotateTotalPages + " 페이지 (" + formatBytes(file.size) + ")";
+        rotateControls.style.display = "block";
+
+        for (var i = 1; i <= rotateTotalPages; i++) {
+          var page = await pdfDoc.getPage(i);
+          var viewport = page.getViewport({ scale: 0.6 });
+          var canvas = document.createElement("canvas");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          var ctx = canvas.getContext("2d");
+          await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+
+          (function (pageNum, pageCanvas) {
+            var card = document.createElement("div");
+            card.className = "pdf-page-card";
+            card.dataset.pageNum = pageNum;
+
+            var header = document.createElement("div");
+            header.className = "pdf-page-card-header";
+            header.innerHTML = '<span class="pdf-page-num">' + pageNum + ' 페이지</span><span class="pdf-rot-badge">0°</span>';
+            card.appendChild(header);
+
+            var wrap = document.createElement("div");
+            wrap.className = "pdf-page-canvas-wrap";
+            wrap.appendChild(pageCanvas);
+            card.appendChild(wrap);
+
+            var footer = document.createElement("div");
+            footer.className = "pdf-page-footer";
+            footer.style.marginTop = "8px";
+            footer.innerHTML = '<div class="pdf-rotate-btn-group">' +
+              '<button type="button" class="pdf-rotate-btn rot-left" title="반시계 90°">↺ -90°</button>' +
+              '<button type="button" class="pdf-rotate-btn rot-right" title="시계방향 90°">↻ +90°</button>' +
+            '</div>';
+
+            footer.querySelector(".rot-left").onclick = function () {
+              rotateAngles[pageNum - 1] = (rotateAngles[pageNum - 1] - 90 + 360) % 360;
+              updateRotateCard(pageNum);
+            };
+            footer.querySelector(".rot-right").onclick = function () {
+              rotateAngles[pageNum - 1] = (rotateAngles[pageNum - 1] + 90) % 360;
+              updateRotateCard(pageNum);
+            };
+
+            card.appendChild(footer);
+            rotatePageGrid.appendChild(card);
+          })(i, canvas);
+        }
+      } catch (e) {
+        toast("회전 준비 오류: " + e.message);
+      } finally {
+        hidePdfStatus();
+      }
+    }
+    setupDropzone(rotateDropzone, rotateInput, handleRotateFile);
+
+    if (rotateAllRight) {
+      rotateAllRight.onclick = function () {
+        for (var i = 0; i < rotateTotalPages; i++) {
+          rotateAngles[i] = (rotateAngles[i] + 90) % 360;
+          updateRotateCard(i + 1);
+        }
+      };
+    }
+    if (rotateAllLeft) {
+      rotateAllLeft.onclick = function () {
+        for (var i = 0; i < rotateTotalPages; i++) {
+          rotateAngles[i] = (rotateAngles[i] - 90 + 360) % 360;
+          updateRotateCard(i + 1);
+        }
+      };
+    }
+    if (rotateAll180) {
+      rotateAll180.onclick = function () {
+        for (var i = 0; i < rotateTotalPages; i++) {
+          rotateAngles[i] = (rotateAngles[i] + 180) % 360;
+          updateRotateCard(i + 1);
+        }
+      };
+    }
+    if (rotateReset) {
+      rotateReset.onclick = function () {
+        for (var i = 0; i < rotateTotalPages; i++) {
+          rotateAngles[i] = 0;
+          updateRotateCard(i + 1);
+        }
+      };
+    }
+
+    if (rotateSubmitBtn) {
+      rotateSubmitBtn.onclick = async function () {
+        if (!rotateTotalPages) return toast("문서를 먼저 불러와주세요.");
+        showPdfStatus("회전된 PDF 문서를 생성하는 중입니다...");
+        try {
+          var doc = await PDFLib.PDFDocument.load(rotateBytes, { ignoreEncryption: true });
+          var pages = doc.getPages();
+          for (var i = 0; i < pages.length; i++) {
+            var added = rotateAngles[i] || 0;
+            var cur = pages[i].getRotation().angle;
+            var finalAngle = ((cur + added) % 360 + 360) % 360;
+            pages[i].setRotation(PDFLib.degrees(finalAngle));
+          }
+          var outBytes = await doc.save();
+          var blob = new Blob([outBytes], { type: "application/pdf" });
+          var baseName = (rotateFile ? rotateFile.name.replace(/\.pdf$/i, "") : "doc") + "_rotated.pdf";
+          downloadBlob(blob, baseName);
+          toast("페이지 회전이 완료되어 PDF로 저장되었습니다!");
+        } catch (e) {
+          toast("회전 저장 실패: " + e.message);
+        } finally {
+          hidePdfStatus();
+        }
+      };
+    }
+
+    /* ---------------------------------------------------------
+       6. PDF 압축 (compress)
+       --------------------------------------------------------- */
+    var compressFile = null;
+    var compressBytes = null;
+    var compressedPdfBlob = null;
+    var compressDropzone = document.getElementById("compressDropzone");
+    var compressInput = document.getElementById("compressInput");
+    var compressControls = document.getElementById("compressControls");
+    var compressDocInfo = document.getElementById("compressDocInfo");
+    var compressStartBtn = document.getElementById("compressStartBtn");
+    var compressResult = document.getElementById("compressResult");
+    var compressOrigSize = document.getElementById("compressOrigSize");
+    var compressNewSize = document.getElementById("compressNewSize");
+    var compressPercent = document.getElementById("compressPercent");
+    var compressDlBtn = document.getElementById("compressDlBtn");
+
+    async function handleCompressFile(files) {
+      var file = files[0];
+      if (!file || (file.type !== "application/pdf" && !file.name.endsWith(".pdf"))) {
+        return toast("PDF 파일(.pdf)을 선택해주세요.");
+      }
+      compressFile = file;
+      compressedPdfBlob = null;
+      compressResult.style.display = "none";
+      showPdfStatus("PDF 파일 용량 및 페이지 정보를 읽는 중입니다...");
+      try {
+        compressBytes = await file.arrayBuffer();
+        var pdfDoc = await pdfjsLib.getDocument({ data: compressBytes.slice(0) }).promise;
+        var pages = pdfDoc.numPages;
+        compressDocInfo.textContent = "📄 " + file.name + " · 원본 크기: " + formatBytes(file.size) + " · 총 " + pages + " 페이지";
+        compressControls.style.display = "block";
+      } catch (e) {
+        toast("파일 읽기 오류: " + e.message);
+      } finally {
+        hidePdfStatus();
+      }
+    }
+    setupDropzone(compressDropzone, compressInput, handleCompressFile);
+
+    if (compressStartBtn) {
+      compressStartBtn.onclick = async function () {
+        if (!compressBytes) return toast("압축할 PDF 파일을 선택해주세요.");
+        var level = document.getElementById("compressLevel").value;
+        var scale = 1.2;
+        var quality = 0.72;
+        if (level === "high") {
+          scale = 1.0;
+          quality = 0.52;
+        } else if (level === "light") {
+          scale = 1.4;
+          quality = 0.85;
+        }
+
+        showPdfStatus("PDF 최적화 압축을 시작합니다...");
+        try {
+          var pdfDoc = await pdfjsLib.getDocument({ data: compressBytes.slice(0) }).promise;
+          var numPages = pdfDoc.numPages;
+          var outDoc = await PDFLib.PDFDocument.create();
+
+          for (var i = 1; i <= numPages; i++) {
+            showPdfStatus("페이지 압축 처리 중 (" + i + " / " + numPages + ")...");
+            var page = await pdfDoc.getPage(i);
+            var viewport = page.getViewport({ scale: scale });
+            var canvas = document.createElement("canvas");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            var ctx = canvas.getContext("2d");
+            await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+
+            var jpegDataUrl = canvas.toDataURL("image/jpeg", quality);
+            var base64 = jpegDataUrl.split(",")[1];
+            var binary = atob(base64);
+            var u8 = new Uint8Array(binary.length);
+            for (var b = 0; b < binary.length; b++) u8[b] = binary.charCodeAt(b);
+
+            var embeddedImg = await outDoc.embedJpg(u8);
+            var origViewport = page.getViewport({ scale: 1.0 });
+            var newPage = outDoc.addPage([origViewport.width, origViewport.height]);
+            newPage.drawImage(embeddedImg, {
+              x: 0,
+              y: 0,
+              width: origViewport.width,
+              height: origViewport.height
+            });
+          }
+
+          var outBytes = await outDoc.save();
+          compressedPdfBlob = new Blob([outBytes], { type: "application/pdf" });
+
+          var origSize = compressFile.size;
+          var newSize = compressedPdfBlob.size;
+          var saved = Math.max(0, origSize - newSize);
+          var pct = Math.round((saved / origSize) * 100);
+
+          compressOrigSize.textContent = formatBytes(origSize);
+          compressNewSize.textContent = formatBytes(newSize);
+          compressPercent.textContent = pct > 0 ? ("-" + pct + "% 절감!") : "최적화 완료";
+
+          compressResult.style.display = "flex";
+          toast("PDF 압축이 완료되었습니다!");
+        } catch (e) {
+          console.error(e);
+          toast("압축 처리 오류: " + e.message);
+        } finally {
+          hidePdfStatus();
+        }
+      };
+    }
+
+    if (compressDlBtn) {
+      compressDlBtn.onclick = function () {
+        if (!compressedPdfBlob) return toast("압축된 PDF가 없습니다.");
+        var baseName = (compressFile ? compressFile.name.replace(/\.pdf$/i, "") : "doc") + "_compressed.pdf";
+        downloadBlob(compressedPdfBlob, baseName);
+      };
+    }
+
+    /* ---------------------------------------------------------
+       7. PDF 텍스트 추출 (txt)
+       --------------------------------------------------------- */
+    var txtExtracted = "";
+    var txtFile = null;
+    var txtDropzone = document.getElementById("txtDropzone");
+    var txtInput = document.getElementById("txtInput");
+    var txtControls = document.getElementById("txtControls");
+    var txtStats = document.getElementById("txtStats");
+    var txtOutput = document.getElementById("txtOutput");
+    var txtCopyBtn = document.getElementById("txtCopyBtn");
+    var txtSaveBtn = document.getElementById("txtSaveBtn");
+
+    async function handleTxtFile(files) {
+      var file = files[0];
+      if (!file || (file.type !== "application/pdf" && !file.name.endsWith(".pdf"))) {
+        return toast("PDF 파일(.pdf)을 선택해주세요.");
+      }
+      txtFile = file;
+      txtOutput.value = "";
+      showPdfStatus("PDF 문서 내 텍스트를 추출하는 중입니다...");
+      try {
+        var bytes = await file.arrayBuffer();
+        var pdfDoc = await pdfjsLib.getDocument({ data: bytes }).promise;
+        var numPages = pdfDoc.numPages;
+        var fullText = "";
+
+        for (var i = 1; i <= numPages; i++) {
+          showPdfStatus("텍스트 추출 중 (" + i + " / " + numPages + " 페이지)...");
+          var page = await pdfDoc.getPage(i);
+          var textContent = await page.getTextContent();
+          var pageText = textContent.items.map(function (item) { return item.str; }).join(" ");
+          fullText += "=== [ " + i + " / " + numPages + " 페이지 ] ===\n\n" + pageText.trim() + "\n\n\n";
+        }
+
+        txtExtracted = fullText.trim();
+        txtOutput.value = txtExtracted;
+        var charCount = txtExtracted.length;
+        var wordCount = (txtExtracted.match(/\S+/g) || []).length;
+        txtStats.textContent = "총 " + charCount.toLocaleString() + "자 · " + wordCount.toLocaleString() + "단어";
+        txtControls.style.display = "block";
+        toast("텍스트 추출이 완료되었습니다!");
+      } catch (e) {
+        toast("텍스트 추출 실패: " + e.message);
+      } finally {
+        hidePdfStatus();
+      }
+    }
+    setupDropzone(txtDropzone, txtInput, handleTxtFile);
+
+    if (txtCopyBtn) {
+      txtCopyBtn.onclick = function () {
+        if (!txtExtracted) return toast("복사할 텍스트가 없습니다.");
+        copyText(txtExtracted, "추출된 텍스트");
+      };
+    }
+    if (txtSaveBtn) {
+      txtSaveBtn.onclick = function () {
+        if (!txtExtracted) return toast("저장할 텍스트가 없습니다.");
+        var blob = new Blob([txtExtracted], { type: "text/plain;charset=utf-8" });
+        var baseName = (txtFile ? txtFile.name.replace(/\.pdf$/i, "") : "extracted_text") + ".txt";
+        downloadBlob(blob, baseName);
+      };
+    }
+  })();
+
+  /* ==========================================================================
+     Apple Game (Fruit Box Game / 사과게임) Module
+     ========================================================================== */
+  (function initAppleGame() {
+    var COLS = 17;
+    var ROWS = 10;
+    var TOTAL_APPLES = 170;
+    var TIME_LIMIT = 120;
+
+    var grid = [];
+    var score = 0;
+    var remaining = TOTAL_APPLES;
+    var highScore = parseInt(localStorage.getItem("ilsangtool-apple-highscore") || "0", 10) || 0;
+    var gameMode = "time"; // "time" or "zen"
+    var timeRemaining = TIME_LIMIT;
+    var timerInterval = null;
+    var isPaused = false;
+    var isGameOver = false;
+    var isGameStarted = false;
+    var comboCount = 0;
+    var comboTimeout = null;
+    var soundEnabled = localStorage.getItem("ilsangtool-apple-sound") !== "false";
+
+    // Drag selection state
+    var isPointerDown = false;
+    var startCol = 0, startRow = 0;
+    var curCol = 0, curRow = 0;
+    var currentSum = 0;
+    var selectedCount = 0;
+    var selectedCells = [];
+    var hintTimeout = null;
+
+    // DOM Elements
+    var appleTimerVal = document.getElementById("appleTimerVal");
+    var appleScoreVal = document.getElementById("appleScoreVal");
+    var appleRemVal = document.getElementById("appleRemVal");
+    var appleBestVal = document.getElementById("appleBestVal");
+    var appleTimerBar = document.getElementById("appleTimerBar");
+    var appleModeTime = document.getElementById("appleModeTime");
+    var appleModeZen = document.getElementById("appleModeZen");
+    var appleRestartBtn = document.getElementById("appleRestartBtn");
+    var applePauseBtn = document.getElementById("applePauseBtn");
+    var applePauseIco = document.getElementById("applePauseIco");
+    var applePauseTxt = document.getElementById("applePauseTxt");
+    var appleHintBtn = document.getElementById("appleHintBtn");
+    var appleSoundBtn = document.getElementById("appleSoundBtn");
+    var appleSoundIco = document.getElementById("appleSoundIco");
+    var appleSoundTxt = document.getElementById("appleSoundTxt");
+    var appleBoardContainer = document.getElementById("appleBoardContainer");
+    var appleBoardWrapper = document.getElementById("appleBoardWrapper");
+    var appleBoard = document.getElementById("appleBoard");
+    var appleDragRect = document.getElementById("appleDragRect");
+    var appleSumBadge = document.getElementById("appleSumBadge");
+    var appleHintRect = document.getElementById("appleHintRect");
+    var appleComboToast = document.getElementById("appleComboToast");
+
+    var appleBoardOverlay = document.getElementById("appleBoardOverlay");
+    var appleOverlayTitle = document.getElementById("appleOverlayTitle");
+    var appleOverlaySub = document.getElementById("appleOverlaySub");
+    var appleOverlayRank = document.getElementById("appleOverlayRank");
+    var appleOverlayScore = document.getElementById("appleOverlayScore");
+    var appleOverlayPercent = document.getElementById("appleOverlayPercent");
+    var appleOverlayRemaining = document.getElementById("appleOverlayRemaining");
+    var appleOverlayRestartBtn = document.getElementById("appleOverlayRestartBtn");
+    var appleOverlayShareBtn = document.getElementById("appleOverlayShareBtn");
+    var appleOverlayCloseBtn = document.getElementById("appleOverlayCloseBtn");
+
+    if (!appleBoard || !appleBoardWrapper) return;
+
+    // =========================================================================
+    // Canvas Fireworks & Dopamine Particle System
+    // =========================================================================
+    var fwCanvas = document.getElementById("appleFireworkCanvas");
+    var fwCtx = fwCanvas ? fwCanvas.getContext("2d") : null;
+    var particles = [];
+    var rockets = [];
+    var fwAnimId = null;
+
+    var FIREWORK_COLORS = [
+      "#ff2a55", "#ff007f", "#ff7700", "#ffbe0b", "#00f5d4",
+      "#00bbf9", "#7209b7", "#f72585", "#4ade80", "#ffffff", "#ffd700"
+    ];
+
+    function resizeFwCanvas() {
+      if (!fwCanvas || !appleBoardWrapper) return;
+      var rect = appleBoardWrapper.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      var dpr = window.devicePixelRatio || 1;
+      fwCanvas.width = rect.width * dpr;
+      fwCanvas.height = rect.height * dpr;
+      if (fwCtx) {
+        fwCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+    }
+    window.addEventListener("resize", resizeFwCanvas);
+    setTimeout(resizeFwCanvas, 150);
+
+    function Spark(x, y, color, vx, vy, isStar, isConfetti) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.vx = vx;
+      this.vy = vy;
+      this.alpha = 1;
+      this.decay = Math.random() * 0.02 + 0.015;
+      this.gravity = isConfetti ? 0.12 : 0.22;
+      this.friction = isConfetti ? 0.98 : 0.96;
+      this.size = Math.random() * 3.5 + 2;
+      this.isStar = isStar;
+      this.isConfetti = isConfetti;
+      this.rotation = Math.random() * 360;
+      this.rotSpeed = (Math.random() - 0.5) * 12;
+      this.w = Math.random() * 8 + 4;
+      this.h = Math.random() * 5 + 3;
+    }
+
+    Spark.prototype.update = function () {
+      this.vx *= this.friction;
+      this.vy *= this.friction;
+      this.vy += this.gravity;
+      this.x += this.vx;
+      this.y += this.vy;
+      this.alpha -= this.decay;
+      if (this.isConfetti) {
+        this.rotation += this.rotSpeed;
+      }
+    };
+
+    Spark.prototype.draw = function (ctx) {
+      if (this.alpha <= 0) return;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, this.alpha);
+      ctx.fillStyle = this.color;
+
+      if (this.isConfetti) {
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.fillRect(-this.w / 2, -this.h / 2, this.w, this.h);
+      } else if (this.isStar) {
+        ctx.translate(this.x, this.y);
+        ctx.beginPath();
+        for (var i = 0; i < 4; i++) {
+          ctx.lineTo(Math.cos((i * Math.PI) / 2) * this.size * 2, Math.sin((i * Math.PI) / 2) * this.size * 2);
+          ctx.lineTo(Math.cos((i * Math.PI) / 2 + Math.PI / 4) * (this.size * 0.6), Math.sin((i * Math.PI) / 2 + Math.PI / 4) * (this.size * 0.6));
+        }
+        ctx.closePath();
+        ctx.fill();
+      } else {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+    };
+
+    function Rocket(startX, startY, targetX, targetY, color, comboLevel) {
+      this.x = startX;
+      this.y = startY;
+      this.targetX = targetX;
+      this.targetY = targetY;
+      this.color = color;
+      this.comboLevel = comboLevel;
+      var dx = targetX - startX;
+      var dy = targetY - startY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      var speed = Math.random() * 4 + 10;
+      this.vx = (dx / dist) * speed;
+      this.vy = (dy / dist) * speed;
+      this.alive = true;
+    }
+
+    Rocket.prototype.update = function () {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (Math.random() < 0.6) {
+        particles.push(new Spark(this.x, this.y, "rgba(255,255,255,0.7)", (Math.random() - 0.5) * 1.5, Math.random() * 1.5, false, false));
+      }
+      if (this.vy >= 0 || this.y <= this.targetY) {
+        this.alive = false;
+        explodeFirework(this.x, this.y, this.color, this.comboLevel);
+      }
+    };
+
+    Rocket.prototype.draw = function (ctx) {
+      ctx.save();
+      ctx.fillStyle = this.color;
+      ctx.shadowColor = this.color;
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    };
+
+    function explodeFirework(x, y, baseColor, comboLevel) {
+      playFireworkThump();
+      var sparkCount = comboLevel >= 4 ? 60 : (comboLevel >= 2 ? 45 : 30);
+      for (var i = 0; i < sparkCount; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = Math.random() * (comboLevel >= 3 ? 9 : 6.5) + 2;
+        var vx = Math.cos(angle) * speed;
+        var vy = Math.sin(angle) * speed;
+        var color = Math.random() < 0.4 ? baseColor : FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)];
+        var isStar = Math.random() < 0.35;
+        particles.push(new Spark(x, y, color, vx, vy, isStar, false));
+      }
+
+      if (comboLevel >= 2) {
+        var confettiCount = comboLevel >= 4 ? 30 : 18;
+        for (var j = 0; j < confettiCount; j++) {
+          var cAngle = Math.random() * Math.PI * 2;
+          var cSpeed = Math.random() * 5 + 1.5;
+          particles.push(new Spark(
+            x, y,
+            FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)],
+            Math.cos(cAngle) * cSpeed,
+            Math.sin(cAngle) * cSpeed - 2,
+            false,
+            true
+          ));
+        }
+      }
+    }
+
+    function triggerFireworkShow(originX, originY, comboLevel) {
+      resizeFwCanvas();
+      var rect = appleBoardWrapper.getBoundingClientRect();
+      var w = rect.width;
+      var h = rect.height;
+
+      // Local spark burst at match center
+      explodeFirework(originX, originY, "#ffbe0b", comboLevel);
+
+      // Launch rockets for combo >= 2
+      if (comboLevel >= 2) {
+        var rocketCount = Math.min(comboLevel, 6);
+        for (var i = 0; i < rocketCount; i++) {
+          (function (idx) {
+            setTimeout(function () {
+              var startX = Math.random() * (w * 0.8) + (w * 0.1);
+              var startY = h + 10;
+              var targetX = Math.random() * (w * 0.7) + (w * 0.15);
+              var targetY = Math.random() * (h * 0.5) + (h * 0.1);
+              var color = FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)];
+              rockets.push(new Rocket(startX, startY, targetX, targetY, color, comboLevel));
+            }, idx * 110);
+          })(i);
+        }
+      }
+
+      // Screen shake on combo >= 2
+      if (comboLevel >= 2) {
+        appleBoardContainer.classList.remove("combo-shake");
+        void appleBoardContainer.offsetWidth; // reflow
+        appleBoardContainer.classList.add("combo-shake");
+        setTimeout(function () {
+          appleBoardContainer.classList.remove("combo-shake");
+        }, 360);
+      }
+
+      // Fever glow on combo >= 3
+      if (comboLevel >= 3) {
+        appleBoardContainer.classList.add("fever-glow");
+      }
+
+      if (!fwAnimId) {
+        animLoop();
+      }
+    }
+
+    function spawnFloatingScore(x, y, points, comboLevel) {
+      var floater = document.createElement("div");
+      floater.className = "apple-float-score";
+      floater.style.left = x + "px";
+      floater.style.top = y + "px";
+      if (comboLevel >= 2) {
+        floater.textContent = "+" + points + "점! (COMBO x" + comboLevel + ")";
+      } else {
+        floater.textContent = "+" + points + "점!";
+      }
+      appleBoardWrapper.appendChild(floater);
+      setTimeout(function () {
+        if (floater.parentNode) floater.parentNode.removeChild(floater);
+      }, 900);
+    }
+
+    function animLoop() {
+      if (!fwCtx) return;
+      var rect = appleBoardWrapper.getBoundingClientRect();
+      fwCtx.clearRect(0, 0, rect.width, rect.height);
+
+      for (var r = rockets.length - 1; r >= 0; r--) {
+        rockets[r].update();
+        if (rockets[r].alive) {
+          rockets[r].draw(fwCtx);
+        } else {
+          rockets.splice(r, 1);
+        }
+      }
+
+      for (var p = particles.length - 1; p >= 0; p--) {
+        particles[p].update();
+        if (particles[p].alpha > 0) {
+          particles[p].draw(fwCtx);
+        } else {
+          particles.splice(p, 1);
+        }
+      }
+
+      if (particles.length > 0 || rockets.length > 0) {
+        fwAnimId = requestAnimationFrame(animLoop);
+      } else {
+        fwAnimId = null;
+        fwCtx.clearRect(0, 0, rect.width, rect.height);
+      }
+    }
+
+    // Audio Synthesizer (Web Audio API)
+    var appleAudioCtx = null;
+    function getAudioCtx() {
+      if (!appleAudioCtx) {
+        var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) appleAudioCtx = new AudioContextClass();
+      }
+      if (appleAudioCtx && appleAudioCtx.state === "suspended") {
+        appleAudioCtx.resume();
+      }
+      return appleAudioCtx;
+    }
+
+    function playPop() {
+      if (!soundEnabled) return;
+      try {
+        var ctx = getAudioCtx();
+        if (!ctx) return;
+        var now = ctx.currentTime;
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(650, now);
+        osc.frequency.exponentialRampToValueAtTime(180, now + 0.08);
+        gain.gain.setValueAtTime(0.25, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.09);
+      } catch (e) {}
+    }
+
+    function playFireworkThump() {
+      if (!soundEnabled) return;
+      try {
+        var ctx = getAudioCtx();
+        if (!ctx) return;
+        var now = ctx.currentTime;
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(120, now);
+        osc.frequency.exponentialRampToValueAtTime(35, now + 0.12);
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.13);
+      } catch (e) {}
+    }
+
+    function playMatch(combo) {
+      if (!soundEnabled) return;
+      try {
+        var ctx = getAudioCtx();
+        if (!ctx) return;
+        var now = ctx.currentTime;
+        var baseFreq = 523.25; // C5
+        var factor = Math.pow(1.12, Math.min(combo, 8));
+        var chord = [
+          baseFreq * factor,
+          baseFreq * factor * 1.2599,
+          baseFreq * factor * 1.4983,
+          baseFreq * factor * 2.0
+        ];
+
+        chord.forEach(function (f, idx) {
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.type = idx % 2 === 0 ? "triangle" : "sine";
+          var t = now + idx * 0.045;
+          osc.frequency.setValueAtTime(f, t);
+          gain.gain.setValueAtTime(0.22, t);
+          gain.gain.exponentialRampToValueAtTime(0.01, t + 0.22);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(t);
+          osc.stop(t + 0.24);
+        });
+
+        if (combo >= 2) {
+          var sparkOsc = ctx.createOscillator();
+          var sparkGain = ctx.createGain();
+          sparkOsc.type = "triangle";
+          sparkOsc.frequency.setValueAtTime(1046, now);
+          sparkOsc.frequency.exponentialRampToValueAtTime(2600, now + 0.18);
+          sparkGain.gain.setValueAtTime(0.12, now);
+          sparkGain.gain.exponentialRampToValueAtTime(0.01, now + 0.18);
+          sparkOsc.connect(sparkGain);
+          sparkGain.connect(ctx.destination);
+          sparkOsc.start(now);
+          sparkOsc.stop(now + 0.2);
+        }
+      } catch (e) {}
+    }
+
+    function playFanfare() {
+      if (!soundEnabled) return;
+      try {
+        var ctx = getAudioCtx();
+        if (!ctx) return;
+        var now = ctx.currentTime;
+        var notes = [440, 554.37, 659.25, 880];
+        notes.forEach(function (f, idx) {
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.type = "triangle";
+          var t = now + idx * 0.1;
+          osc.frequency.setValueAtTime(f, t);
+          gain.gain.setValueAtTime(0.22, t);
+          gain.gain.exponentialRampToValueAtTime(0.01, t + 0.35);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(t);
+          osc.stop(t + 0.38);
+        });
+      } catch (e) {}
+    }
+
+    function formatTime(sec) {
+      var m = Math.floor(sec / 60);
+      var s = sec % 60;
+      return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    }
+
+    function updateTimerUI() {
+      if (gameMode === "time") {
+        appleTimerVal.textContent = formatTime(timeRemaining);
+        var pct = Math.max(0, Math.min(100, (timeRemaining / TIME_LIMIT) * 100));
+        appleTimerBar.style.width = pct + "%";
+        if (timeRemaining <= 15) {
+          appleTimerVal.classList.add("low-time");
+          appleTimerBar.classList.add("urgent");
+        } else {
+          appleTimerVal.classList.remove("low-time");
+          appleTimerBar.classList.remove("urgent");
+        }
+      } else {
+        appleTimerVal.textContent = "무제한";
+        appleTimerBar.style.width = "100%";
+        appleTimerVal.classList.remove("low-time");
+        appleTimerBar.classList.remove("urgent");
+      }
+    }
+
+    function startTimer() {
+      if (isGameStarted) return;
+      isGameStarted = true;
+      if (gameMode === "time") {
+        clearInterval(timerInterval);
+        timerInterval = setInterval(function () {
+          if (!isPaused && !isGameOver) {
+            timeRemaining--;
+            updateTimerUI();
+            if (timeRemaining <= 0) {
+              clearInterval(timerInterval);
+              endGame(false);
+            }
+          }
+        }, 1000);
+      }
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+
+    function showComboToast(count) {
+      if (count < 2) return;
+      clearTimeout(comboTimeout);
+      if (count === 2) {
+        appleComboToast.textContent = "🔥 2 COMBO! 연속 성공!";
+      } else if (count === 3) {
+        appleComboToast.textContent = "💥 3 COMBO! MEGA BLAST!";
+      } else if (count === 4) {
+        appleComboToast.textContent = "⚡ 4 COMBO! UNSTOPPABLE!";
+      } else {
+        appleComboToast.textContent = "🎆 " + count + " COMBO! DOPAMINE RUSH!! 🚀";
+      }
+      appleComboToast.classList.add("show");
+      comboTimeout = setTimeout(function () {
+        appleComboToast.classList.remove("show");
+        appleBoardContainer.classList.remove("fever-glow");
+      }, 2200);
+    }
+
+    function getRank(sc) {
+      if (sc >= 140) return { title: "🏆 신의 손 (SSS급)", desc: "170개 사과를 거의 완벽히 수확한 전설적인 고수입니다!" };
+      if (sc >= 110) return { title: "🥇 사과 달인 (S급)", desc: "놀라운 순발력과 공간 감각을 지닌 최상위권 실력자입니다!" };
+      if (sc >= 80) return { title: "🥈 순발력 고수 (A급)", desc: "평균 이상의 빠른 계산과 드래그 테크닉을 보여주셨습니다!" };
+      if (sc >= 50) return { title: "🥉 과일 애호가 (B급)", desc: "기본기를 마스터하셨습니다. 모서리부터 공략하면 A급 진입 가능!" };
+      return { title: "🌱 초보 사과 수확러 (C급)", desc: "차분하게 9+1, 8+2 등 2개짜리 묶음부터 공략해보세요!" };
+    }
+
+    function endGame(isVictory) {
+      isGameOver = true;
+      stopTimer();
+      playFanfare();
+
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("ilsangtool-apple-highscore", highScore.toString());
+        appleBestVal.textContent = highScore + "점";
+      }
+
+      var rankInfo = getRank(score);
+      var pct = Math.round((score / TOTAL_APPLES) * 100);
+
+      appleOverlayTitle.textContent = isVictory ? "🎉 올클리어 대성공! 🏆" : "게임 종료! 🍎";
+      appleOverlaySub.textContent = isVictory
+        ? "170개의 모든 사과를 수확하셨습니다! 경이로운 기록입니다!"
+        : (score > 0 ? rankInfo.desc : "시간이 종료되었습니다. 다시 도전해보세요!");
+      appleOverlayRank.textContent = rankInfo.title;
+      appleOverlayScore.textContent = score + "점";
+      appleOverlayPercent.textContent = pct + "%";
+      appleOverlayRemaining.textContent = remaining + "개";
+
+      appleBoardOverlay.style.display = "flex";
+
+      // Grand finale fireworks on good score or victory!
+      if (isVictory || score >= 80) {
+        for (var f = 0; f < 8; f++) {
+          setTimeout(function () {
+            var bRect = appleBoardWrapper.getBoundingClientRect();
+            triggerFireworkShow(Math.random() * bRect.width, Math.random() * (bRect.height * 0.6) + 30, 5);
+          }, f * 250);
+        }
+      }
+    }
+
+    function resetGame() {
+      stopTimer();
+      clearTimeout(comboTimeout);
+      clearTimeout(hintTimeout);
+      appleComboToast.classList.remove("show");
+      appleBoardContainer.classList.remove("fever-glow", "combo-shake");
+      appleHintRect.style.display = "none";
+      appleDragRect.style.display = "none";
+      appleBoardOverlay.style.display = "none";
+
+      score = 0;
+      remaining = TOTAL_APPLES;
+      comboCount = 0;
+      timeRemaining = TIME_LIMIT;
+      isPaused = false;
+      isGameOver = false;
+      isGameStarted = false;
+      isPointerDown = false;
+      selectedCells = [];
+      currentSum = 0;
+      selectedCount = 0;
+
+      appleScoreVal.textContent = "0점";
+      appleRemVal.textContent = TOTAL_APPLES + "개";
+      appleBestVal.textContent = highScore + "점";
+      applePauseIco.textContent = "⏸";
+      applePauseTxt.textContent = "일시정지";
+      updateTimerUI();
+
+      // Generate 10x17 grid
+      grid = [];
+      var totalSum = 0;
+      for (var r = 0; r < ROWS; r++) {
+        grid[r] = [];
+        for (var c = 0; c < COLS; c++) {
+          var val = Math.floor(Math.random() * 9) + 1; // 1 to 9
+          grid[r][c] = val;
+          totalSum += val;
+        }
+      }
+
+      // Ensure total sum % 10 === 0 for theoretical full clear
+      var rem = totalSum % 10;
+      if (rem > 0) {
+        var needed = 10 - rem;
+        while (needed > 0) {
+          var randR = Math.floor(Math.random() * ROWS);
+          var randC = Math.floor(Math.random() * COLS);
+          if (grid[randR][randC] < 9) {
+            grid[randR][randC]++;
+            needed--;
+          }
+        }
+      }
+
+      // Render cells
+      appleBoard.innerHTML = "";
+      for (var r = 0; r < ROWS; r++) {
+        for (var c = 0; c < COLS; c++) {
+          var cell = document.createElement("div");
+          cell.className = "apple-cell";
+          cell.id = "apple-cell-" + r + "-" + c;
+          cell.setAttribute("data-r", r);
+          cell.setAttribute("data-c", c);
+
+          var item = document.createElement("div");
+          item.className = "apple-item";
+
+          var num = document.createElement("span");
+          num.className = "apple-num";
+          num.textContent = grid[r][c];
+
+          item.appendChild(num);
+          cell.appendChild(item);
+          appleBoard.appendChild(cell);
+        }
+      }
+    }
+
+    function togglePause() {
+      if (isGameOver) return;
+      isPaused = !isPaused;
+      if (isPaused) {
+        applePauseIco.textContent = "▶";
+        applePauseTxt.textContent = "이어하기";
+        appleOverlayTitle.textContent = "게임 일시정지 ⏸";
+        appleOverlaySub.textContent = "잠시 휴식 중입니다. 준비되면 '이어하기'를 누르세요.";
+        appleOverlayRank.textContent = "현재 " + score + "점 진행 중";
+        appleOverlayScore.textContent = score + "점";
+        appleOverlayPercent.textContent = Math.round((score / TOTAL_APPLES) * 100) + "%";
+        appleOverlayRemaining.textContent = remaining + "개";
+        appleBoardOverlay.style.display = "flex";
+      } else {
+        applePauseIco.textContent = "⏸";
+        applePauseTxt.textContent = "일시정지";
+        appleBoardOverlay.style.display = "none";
+      }
+    }
+
+    // Pointer math
+    function getCellCoordsFromPointer(clientX, clientY) {
+      var rect = appleBoardWrapper.getBoundingClientRect();
+      var x = clientX - rect.left;
+      var y = clientY - rect.top;
+      var col = Math.floor((x / rect.width) * COLS);
+      var row = Math.floor((y / rect.height) * ROWS);
+      col = Math.max(0, Math.min(COLS - 1, col));
+      row = Math.max(0, Math.min(ROWS - 1, row));
+      return { col: col, row: row };
+    }
+
+    function updateSelection(col1, row1, col2, row2) {
+      var minC = Math.min(col1, col2);
+      var maxC = Math.max(col1, col2);
+      var minR = Math.min(row1, row2);
+      var maxR = Math.max(row1, row2);
+
+      appleDragRect.style.display = "block";
+      appleDragRect.style.left = (minC / COLS * 100) + "%";
+      appleDragRect.style.top = (minR / ROWS * 100) + "%";
+      appleDragRect.style.width = ((maxC - minC + 1) / COLS * 100) + "%";
+      appleDragRect.style.height = ((maxR - minR + 1) / ROWS * 100) + "%";
+
+      // Clear previous selected marks
+      document.querySelectorAll(".apple-cell.selected").forEach(function (el) {
+        el.classList.remove("selected", "sum-ten", "sum-over");
+      });
+
+      var sum = 0;
+      var count = 0;
+      selectedCells = [];
+
+      for (var r = minR; r <= maxR; r++) {
+        for (var c = minC; c <= maxC; c++) {
+          var val = grid[r][c];
+          if (val > 0) {
+            sum += val;
+            count++;
+            selectedCells.push({ r: r, c: c, val: val });
+            var cellEl = document.getElementById("apple-cell-" + r + "-" + c);
+            if (cellEl) cellEl.classList.add("selected");
+          }
+        }
+      }
+
+      currentSum = sum;
+      selectedCount = count;
+
+      appleDragRect.classList.remove("sum-ten", "sum-over");
+      appleSumBadge.classList.remove("sum-ten", "sum-over");
+
+      if (count === 0) {
+        appleSumBadge.textContent = "합: 0";
+      } else if (sum === 10) {
+        appleDragRect.classList.add("sum-ten");
+        appleSumBadge.classList.add("sum-ten");
+        appleSumBadge.textContent = "합: 10! ✨ (+" + count + "점)";
+        document.querySelectorAll(".apple-cell.selected").forEach(function (el) {
+          el.classList.add("sum-ten");
+        });
+      } else if (sum > 10) {
+        appleDragRect.classList.add("sum-over");
+        appleSumBadge.classList.add("sum-over");
+        appleSumBadge.textContent = "합: " + sum + " (초과)";
+        document.querySelectorAll(".apple-cell.selected").forEach(function (el) {
+          el.classList.add("sum-over");
+        });
+      } else {
+        appleSumBadge.textContent = "합: " + sum;
+      }
+    }
+
+    function onPointerDown(e) {
+      if (isGameOver || isPaused) return;
+      if (e.button && e.button !== 0) return; // Only left click
+
+      if (!isGameStarted) {
+        startTimer();
+      }
+
+      isPointerDown = true;
+      try {
+        if (appleBoardWrapper.setPointerCapture && e.pointerId) {
+          appleBoardWrapper.setPointerCapture(e.pointerId);
+        }
+      } catch (err) {}
+
+      var coords = getCellCoordsFromPointer(e.clientX, e.clientY);
+      startCol = coords.col;
+      startRow = coords.row;
+      curCol = startCol;
+      curRow = startRow;
+      updateSelection(startCol, startRow, curCol, curRow);
+      e.preventDefault();
+    }
+
+    function onPointerMove(e) {
+      if (!isPointerDown || isGameOver || isPaused) return;
+      var coords = getCellCoordsFromPointer(e.clientX, e.clientY);
+      if (coords.col !== curCol || coords.row !== curRow) {
+        curCol = coords.col;
+        curRow = coords.row;
+        updateSelection(startCol, startRow, curCol, curRow);
+      }
+      e.preventDefault();
+    }
+
+    function onPointerUp(e) {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+      try {
+        if (appleBoardWrapper.releasePointerCapture && e.pointerId) {
+          appleBoardWrapper.releasePointerCapture(e.pointerId);
+        }
+      } catch (err) {}
+
+      if (currentSum === 10 && selectedCount > 0) {
+        var minC = 99, maxC = 0, minR = 99, maxR = 0;
+        var list = selectedCells.slice();
+        list.forEach(function (pt) {
+          if (pt.c < minC) minC = pt.c;
+          if (pt.c > maxC) maxC = pt.c;
+          if (pt.r < minR) minR = pt.r;
+          if (pt.r > maxR) maxR = pt.r;
+
+          grid[pt.r][pt.c] = 0;
+          var cellEl = document.getElementById("apple-cell-" + pt.r + "-" + pt.c);
+          if (cellEl) {
+            cellEl.classList.remove("selected", "sum-ten", "sum-over");
+            cellEl.classList.add("popping");
+            setTimeout(function () {
+              cellEl.className = "apple-cell empty";
+              cellEl.innerHTML = "";
+            }, 280);
+          }
+        });
+
+        var bRect = appleBoardWrapper.getBoundingClientRect();
+        var matchX = ((minC + maxC + 1) / 2 / COLS) * bRect.width;
+        var matchY = ((minR + maxR + 1) / 2 / ROWS) * bRect.height;
+
+        playPop();
+        comboCount++;
+        playMatch(comboCount);
+        showComboToast(comboCount);
+
+        // Dopamine fireworks & floating score!
+        triggerFireworkShow(matchX, matchY, comboCount);
+        spawnFloatingScore(matchX, matchY, selectedCount, comboCount);
+
+        score += selectedCount;
+        remaining -= selectedCount;
+        appleScoreVal.textContent = score + "점";
+        appleRemVal.textContent = remaining + "개";
+
+        if (score > highScore) {
+          highScore = score;
+          localStorage.setItem("ilsangtool-apple-highscore", highScore.toString());
+          appleBestVal.textContent = highScore + "점";
+        }
+
+        if (remaining <= 0) {
+          endGame(true);
+        }
+      } else {
+        if (selectedCount > 1) {
+          comboCount = 0;
+          appleBoardContainer.classList.remove("fever-glow");
+        }
+        document.querySelectorAll(".apple-cell.selected").forEach(function (el) {
+          el.classList.remove("selected", "sum-ten", "sum-over");
+        });
+      }
+
+      appleDragRect.style.display = "none";
+      selectedCells = [];
+      currentSum = 0;
+      selectedCount = 0;
+    }
+
+    // Hint Finder
+    function findHint() {
+      if (isGameOver || isPaused) return;
+      if (!isGameStarted) startTimer();
+
+      // Sub-rectangles sorted by area
+      var candidates = [];
+      for (var r1 = 0; r1 < ROWS; r1++) {
+        for (var r2 = r1; r2 < ROWS; r2++) {
+          for (var c1 = 0; c1 < COLS; c1++) {
+            for (var c2 = c1; c2 < COLS; c2++) {
+              candidates.push({ r1: r1, r2: r2, c1: c1, c2: c2, area: (r2 - r1 + 1) * (c2 - c1 + 1) });
+            }
+          }
+        }
+      }
+      candidates.sort(function (a, b) { return a.area - b.area; });
+
+      for (var i = 0; i < candidates.length; i++) {
+        var box = candidates[i];
+        var s = 0;
+        var cnt = 0;
+        for (var r = box.r1; r <= box.r2; r++) {
+          for (var c = box.c1; c <= box.c2; c++) {
+            var v = grid[r][c];
+            if (v > 0) {
+              s += v;
+              cnt++;
+              if (s > 10) break;
+            }
+          }
+          if (s > 10) break;
+        }
+        if (s === 10 && cnt > 0) {
+          // Highlight hint
+          clearTimeout(hintTimeout);
+          appleHintRect.style.display = "block";
+          appleHintRect.style.left = (box.c1 / COLS * 100) + "%";
+          appleHintRect.style.top = (box.r1 / ROWS * 100) + "%";
+          appleHintRect.style.width = ((box.c2 - box.c1 + 1) / COLS * 100) + "%";
+          appleHintRect.style.height = ((box.r2 - box.r1 + 1) / ROWS * 100) + "%";
+
+          hintTimeout = setTimeout(function () {
+            appleHintRect.style.display = "none";
+          }, 2400);
+
+          toast("💡 합이 10이 되는 상자를 찾았습니다!");
+          return;
+        }
+      }
+      toast("남은 사과 중 합이 10이 되는 상자가 없습니다!");
+    }
+
+    function copyShareText(str) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(str).then(function () {
+          toast("결과가 클립보드에 복사되었습니다!");
+        }).catch(function () {
+          fallbackCopy(str);
+        });
+      } else {
+        fallbackCopy(str);
+      }
+    }
+    function fallbackCopy(str) {
+      var ta = document.createElement("textarea");
+      ta.value = str;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        toast("결과가 클립보드에 복사되었습니다!");
+      } catch (e) {
+        toast("클립보드 복사에 실패했습니다.");
+      }
+      document.body.removeChild(ta);
+    }
+
+    // Event Listeners
+    appleBoardWrapper.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointercancel", onPointerUp);
+
+    appleRestartBtn.addEventListener("click", function () { resetGame(); });
+    applePauseBtn.addEventListener("click", togglePause);
+    appleHintBtn.addEventListener("click", findHint);
+
+    appleSoundBtn.addEventListener("click", function () {
+      soundEnabled = !soundEnabled;
+      localStorage.setItem("ilsangtool-apple-sound", soundEnabled.toString());
+      appleSoundIco.textContent = soundEnabled ? "🔊" : "🔇";
+      appleSoundTxt.textContent = soundEnabled ? "소리 켜짐" : "음소거";
+      toast(soundEnabled ? "효과음이 켜졌습니다." : "효과음이 꺼졌습니다.");
+    });
+
+    appleModeTime.addEventListener("click", function () {
+      if (gameMode === "time") return;
+      gameMode = "time";
+      appleModeTime.classList.add("active");
+      appleModeZen.classList.remove("active");
+      resetGame();
+      toast("120초 타임어택 모드로 시작합니다!");
+    });
+
+    appleModeZen.addEventListener("click", function () {
+      if (gameMode === "zen") return;
+      gameMode = "zen";
+      appleModeZen.classList.add("active");
+      appleModeTime.classList.remove("active");
+      resetGame();
+      toast("시간 제한 없는 무제한 힐링 모드로 시작합니다!");
+    });
+
+    appleOverlayRestartBtn.addEventListener("click", function () {
+      resetGame();
+    });
+
+    appleOverlayCloseBtn.addEventListener("click", function () {
+      appleBoardOverlay.style.display = "none";
+    });
+
+    appleOverlayShareBtn.addEventListener("click", function () {
+      var rankInfo = getRank(score);
+      var pct = Math.round((score / TOTAL_APPLES) * 100);
+      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://ilsangtool.kr/#apple";
+      copyShareText(shareText);
+    });
+
+    // Pause when navigating away or switching tabs
+    window.onShowAppleGame = function () {
+      if (!grid || !grid.length) {
+        resetGame();
+      }
+    };
+    window.onHideAppleGame = function () {
+      if (isGameStarted && !isPaused && !isGameOver) {
+        togglePause();
+      }
+    };
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden && isGameStarted && !isPaused && !isGameOver) {
+        togglePause();
+      }
+    });
+
+    // Initialize board
+    resetGame();
+  })();
+
+  /* ==========================================================================
+     PAINT TOOL (그림판 툴 & 복사 에셋 보드 & 자르기 & 이미지 변형)
+     ========================================================================== */
+  (function initPaintTool() {
+    var canvas = document.getElementById("paintCanvas");
+    var overlayCanvas = document.getElementById("paintOverlayCanvas");
+    if (!canvas || !overlayCanvas) return;
+
+    var ctx = canvas.getContext("2d", { willReadFrequently: true });
+    var overlayCtx = overlayCanvas.getContext("2d");
+
+    // Elements
+    var stageWrap = document.getElementById("paintCanvasStageWrap");
+    var canvasDimEl = document.getElementById("paintCanvasDim");
+    var undoBtn = document.getElementById("paintUndoBtn");
+    var redoBtn = document.getElementById("paintRedoBtn");
+    var clearBtn = document.getElementById("paintClearBtn");
+    var downloadBtn = document.getElementById("paintDownloadBtn");
+    var shareBtn = document.getElementById("paintShareBtn");
+
+    var strokeRange = document.getElementById("paintStrokeRange");
+    var strokeVal = document.getElementById("paintStrokeVal");
+    var shapeFillCheck = document.getElementById("paintShapeFill");
+    var colorPicker = document.getElementById("paintColorPicker");
+    var activePreview = document.getElementById("paintActiveColorPreview");
+    var swatches = document.querySelectorAll(".paint-swatch");
+    var toolButtons = document.querySelectorAll(".paint-tool-btn");
+    var sizeChips = document.querySelectorAll(".paint-size-chip");
+    var presetButtons = document.querySelectorAll(".paint-preset-btn");
+
+    // Text tool overlay elements
+    var textOverlay = document.getElementById("paintTextOverlay");
+    var textInput = document.getElementById("paintTextInput");
+    var textFontSize = document.getElementById("paintTextFontSize");
+    var textBoldBtn = document.getElementById("paintTextBoldBtn");
+    var textFontFamily = document.getElementById("paintTextFontFamily");
+    var textColorInput = document.getElementById("paintTextColorInput");
+    var textColorPreview = document.getElementById("paintTextColorPreview");
+    var textApplyBtn = document.getElementById("paintTextApplyBtn");
+    var textCancelBtn = document.getElementById("paintTextCancelBtn");
+
+    // Image Transform Box elements
+    var transformBox = document.getElementById("paintTransformBox");
+    var transformDim = document.getElementById("paintTransformDim");
+    var transformImg = document.getElementById("paintTransformImg");
+    var transformApplyBtn = document.getElementById("paintTransformApplyBtn");
+    var transformCancelBtn = document.getElementById("paintTransformCancelBtn");
+    var transformWrapper = document.getElementById("paintTransformWrapper");
+
+    // Crop elements
+    var cropBox = document.getElementById("paintCropBox");
+    var cropDim = document.getElementById("paintCropDim");
+    var cropApplyBtn = document.getElementById("paintCropApplyBtn");
+    var cropCancelBtn = document.getElementById("paintCropCancelBtn");
+
+    // Asset board elements
+    var assetBoard = document.getElementById("paintAssetBoard");
+    var assetDropzone = document.getElementById("paintAssetDropzone");
+    var assetFileInput = document.getElementById("paintAssetFileInput");
+    var assetUploadTrigger = document.getElementById("paintAssetUploadTrigger");
+    var assetListEl = document.getElementById("paintAssetList");
+    var assetCountEl = document.getElementById("paintAssetCount");
+    var assetClearAllBtn = document.getElementById("paintAssetClearAllBtn");
+    var assetEmptyEl = document.getElementById("paintAssetEmpty");
+
+    // Modal elements
+    var shareModal = document.getElementById("paintShareModal");
+    var modalPreviewImg = document.getElementById("paintModalPreviewImg");
+    var modalCloseBtn = document.getElementById("paintModalCloseBtn");
+    var modalDownloadBtn = document.getElementById("paintModalDownloadBtn");
+    var modalCopyBtn = document.getElementById("paintModalCopyBtn");
+    var modalShareBtn = document.getElementById("paintModalShareBtn");
+
+    // State
+    var currentTool = "brush"; // 'pencil', 'brush', 'eraser', 'fill', 'text', 'line', 'rect', 'circle', 'arrow', 'crop'
+    var currentColor = "#000000";
+    var textSelectedColor = "#000000";
+    var strokeWidth = 3;
+    var isShapeFill = false;
+    var isDrawing = false;
+    var startX = 0, startY = 0;
+    var lastX = 0, lastY = 0;
+    var textPos = { x: 50, y: 50 };
+    var textIsBold = false;
+
+    // Transform State & Placed Image Objects
+    var transformState = {
+      active: false,
+      x: 0,
+      y: 0,
+      w: 0,
+      h: 0,
+      img: null,
+      dataUrl: "",
+      aspectRatio: 1,
+      dragMode: null, // 'move', 'nw', 'n', 'ne', 'e', 'se', 's', 'sw', 'w'
+      startClientX: 0,
+      startClientY: 0,
+      origX: 0,
+      origY: 0,
+      origW: 0,
+      origH: 0,
+      originalItem: null
+    };
+
+    var placedImages = []; // Array of { id, dataUrl, img, x, y, w, h, snapBefore }
+
+    // Crop State
+    var cropState = {
+      active: false,
+      startX: 0,
+      startY: 0,
+      x: 0,
+      y: 0,
+      w: 0,
+      h: 0
+    };
+
+    var undoStack = [];
+    var redoStack = [];
+    var MAX_UNDO = 25;
+
+    var assets = [];
+
+    // Load assets from localStorage
+    try {
+      var saved = localStorage.getItem("ilsang_paint_assets");
+      if (saved) assets = JSON.parse(saved);
+      if (!Array.isArray(assets)) assets = [];
+    } catch (e) {
+      assets = [];
+    }
+
+    // Initialize Canvas Background (Pure White)
+    function initCanvasBackground() {
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      saveState();
+    }
+
+    function saveState() {
+      try {
+        var snap = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        undoStack.push({ width: canvas.width, height: canvas.height, data: snap });
+        if (undoStack.length > MAX_UNDO) undoStack.shift();
+        redoStack = [];
+        updateUndoRedoUI();
+      } catch (e) {}
+    }
+
+    function updateUndoRedoUI() {
+      if (undoBtn) undoBtn.disabled = undoStack.length <= 1;
+      if (redoBtn) redoBtn.disabled = redoStack.length === 0;
+    }
+
+    function undo() {
+      if (undoStack.length <= 1) return;
+      var cur = undoStack.pop();
+      redoStack.push(cur);
+      var prev = undoStack[undoStack.length - 1];
+
+      if (prev.width !== canvas.width || prev.height !== canvas.height) {
+        canvas.width = prev.width;
+        canvas.height = prev.height;
+        overlayCanvas.width = prev.width;
+        overlayCanvas.height = prev.height;
+        if (canvasDimEl) canvasDimEl.textContent = prev.width + " × " + prev.height + " px";
+      }
+      ctx.putImageData(prev.data, 0, 0);
+      closeCropBox();
+      closeTransformBox();
+      hideTextOverlay();
+      updateUndoRedoUI();
+      toast("실행 취소되었습니다.");
+    }
+
+    function redo() {
+      if (redoStack.length === 0) return;
+      var next = redoStack.pop();
+      undoStack.push(next);
+
+      if (next.width !== canvas.width || next.height !== canvas.height) {
+        canvas.width = next.width;
+        canvas.height = next.height;
+        overlayCanvas.width = next.width;
+        overlayCanvas.height = next.height;
+        if (canvasDimEl) canvasDimEl.textContent = next.width + " × " + next.height + " px";
+      }
+      ctx.putImageData(next.data, 0, 0);
+      closeCropBox();
+      closeTransformBox();
+      hideTextOverlay();
+      updateUndoRedoUI();
+      toast("다시 실행되었습니다.");
+    }
+
+    function clearCanvas() {
+      if (!confirm("캔버스의 모든 그림을 지우시겠습니까?")) return;
+      placedImages = [];
+      closeCropBox();
+      closeTransformBox();
+      hideTextOverlay();
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      saveState();
+      toast("캔버스가 초기화되었습니다.");
+    }
+
+    function getCanvasPos(e) {
+      var rect = canvas.getBoundingClientRect();
+      var scaleX = canvas.width / rect.width;
+      var scaleY = canvas.height / rect.height;
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
+    }
+
+    // Set Tool
+    function setTool(tool) {
+      currentTool = tool;
+      toolButtons.forEach(function (btn) {
+        btn.classList.toggle("active", btn.getAttribute("data-tool") === tool);
+      });
+      // Close overlays if switching tools
+      if (tool !== "text") hideTextOverlay();
+      if (tool !== "crop") closeCropBox();
+
+      // Update cursor
+      if (tool === "eraser") {
+        canvas.style.cursor = "cell";
+      } else if (tool === "text") {
+        canvas.style.cursor = "text";
+      } else if (tool === "fill") {
+        canvas.style.cursor = "copy";
+      } else if (tool === "crop") {
+        canvas.style.cursor = "crosshair";
+      } else {
+        canvas.style.cursor = "crosshair";
+      }
+    }
+
+    // Set Color
+    function setColor(hex) {
+      currentColor = hex;
+      if (activePreview) activePreview.style.backgroundColor = hex;
+      if (colorPicker) colorPicker.value = hex;
+      swatches.forEach(function (sw) {
+        sw.classList.toggle("active", sw.getAttribute("data-color").toLowerCase() === hex.toLowerCase());
+      });
+      // Sync text color as well
+      textSelectedColor = hex;
+      if (textColorInput) textColorInput.value = hex;
+      if (textColorPreview) textColorPreview.style.backgroundColor = hex;
+      if (textInput) textInput.style.color = hex;
+    }
+
+    // Set Stroke Size
+    function setStrokeSize(size) {
+      strokeWidth = parseInt(size, 10) || 3;
+      if (strokeRange) strokeRange.value = strokeWidth;
+      if (strokeVal) strokeVal.textContent = strokeWidth + "px";
+      sizeChips.forEach(function (chip) {
+        chip.classList.toggle("active", parseInt(chip.getAttribute("data-size"), 10) === strokeWidth);
+      });
+    }
+
+    // Resize Canvas Preset
+    function setCanvasPreset(w, h) {
+      if (canvas.width === w && canvas.height === h) return;
+      placedImages = [];
+      closeCropBox();
+      closeTransformBox();
+      hideTextOverlay();
+
+      var temp = document.createElement("canvas");
+      temp.width = canvas.width;
+      temp.height = canvas.height;
+      var tempCtx = temp.getContext("2d");
+      tempCtx.drawImage(canvas, 0, 0);
+
+      canvas.width = w;
+      canvas.height = h;
+      overlayCanvas.width = w;
+      overlayCanvas.height = h;
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, w, h);
+      ctx.drawImage(temp, 0, 0);
+
+      if (canvasDimEl) canvasDimEl.textContent = w + " × " + h + " px";
+
+      presetButtons.forEach(function (btn) {
+        var bw = parseInt(btn.getAttribute("data-w"), 10);
+        var bh = parseInt(btn.getAttribute("data-h"), 10);
+        btn.classList.toggle("active", bw === w && bh === h);
+      });
+
+      undoStack = [];
+      redoStack = [];
+      saveState();
+      toast("캔버스 크기가 " + w + "×" + h + "로 변경되었습니다.");
+    }
+
+    // Shape drawing helpers
+    function drawLine(targetCtx, x1, y1, x2, y2, color, width) {
+      targetCtx.beginPath();
+      targetCtx.strokeStyle = color;
+      targetCtx.lineWidth = width;
+      targetCtx.lineCap = "round";
+      targetCtx.moveTo(x1, y1);
+      targetCtx.lineTo(x2, y2);
+      targetCtx.stroke();
+    }
+
+    function drawRect(targetCtx, x1, y1, x2, y2, color, width, isFill) {
+      var rx = Math.min(x1, x2);
+      var ry = Math.min(y1, y2);
+      var rw = Math.abs(x2 - x1);
+      var rh = Math.abs(y2 - y1);
+      targetCtx.beginPath();
+      targetCtx.rect(rx, ry, rw, rh);
+      if (isFill) {
+        targetCtx.fillStyle = color;
+        targetCtx.fill();
+      }
+      targetCtx.strokeStyle = color;
+      targetCtx.lineWidth = width;
+      targetCtx.stroke();
+    }
+
+    function drawCircle(targetCtx, x1, y1, x2, y2, color, width, isFill) {
+      var rx = Math.abs(x2 - x1) / 2;
+      var ry = Math.abs(y2 - y1) / 2;
+      var cx = (x1 + x2) / 2;
+      var cy = (y1 + y2) / 2;
+      targetCtx.beginPath();
+      targetCtx.ellipse(cx, cy, Math.max(rx, 1), Math.max(ry, 1), 0, 0, Math.PI * 2);
+      if (isFill) {
+        targetCtx.fillStyle = color;
+        targetCtx.fill();
+      }
+      targetCtx.strokeStyle = color;
+      targetCtx.lineWidth = width;
+      targetCtx.stroke();
+    }
+
+    function drawArrow(targetCtx, x1, y1, x2, y2, color, width) {
+      var headLength = Math.max(14, width * 3);
+      var angle = Math.atan2(y2 - y1, x2 - x1);
+      targetCtx.beginPath();
+      targetCtx.strokeStyle = color;
+      targetCtx.lineWidth = width;
+      targetCtx.lineCap = "round";
+      targetCtx.moveTo(x1, y1);
+      targetCtx.lineTo(x2, y2);
+      targetCtx.stroke();
+
+      targetCtx.beginPath();
+      targetCtx.fillStyle = color;
+      targetCtx.moveTo(x2, y2);
+      targetCtx.lineTo(
+        x2 - headLength * Math.cos(angle - Math.PI / 7),
+        y2 - headLength * Math.sin(angle - Math.PI / 7)
+      );
+      targetCtx.lineTo(
+        x2 - headLength * Math.cos(angle + Math.PI / 7),
+        y2 - headLength * Math.sin(angle + Math.PI / 7)
+      );
+      targetCtx.closePath();
+      targetCtx.fill();
+    }
+
+    // Flood Fill (BFS)
+    function floodFill(startX, startY, fillHex) {
+      var width = canvas.width;
+      var height = canvas.height;
+      startX = Math.floor(startX);
+      startY = Math.floor(startY);
+      if (startX < 0 || startX >= width || startY < 0 || startY >= height) return;
+
+      var imgData = ctx.getImageData(0, 0, width, height);
+      var data32 = new Uint32Array(imgData.data.buffer);
+
+      var fillR = parseInt(fillHex.substr(1, 2), 16);
+      var fillG = parseInt(fillHex.substr(3, 2), 16);
+      var fillB = parseInt(fillHex.substr(5, 2), 16);
+      var fillColor32 = (255 << 24) | (fillB << 16) | (fillG << 8) | fillR;
+
+      var targetIdx = startY * width + startX;
+      var targetColor = data32[targetIdx];
+      if (targetColor === fillColor32) return;
+
+      var tR = targetColor & 0xff;
+      var tG = (targetColor >> 8) & 0xff;
+      var tB = (targetColor >> 16) & 0xff;
+
+      function match(idx) {
+        var c = data32[idx];
+        var cR = c & 0xff;
+        var cG = (c >> 8) & 0xff;
+        var cB = (c >> 16) & 0xff;
+        return Math.abs(cR - tR) + Math.abs(cG - tG) + Math.abs(cB - tB) < 36;
+      }
+
+      var queue = [startX, startY];
+      var visited = new Uint8Array(width * height);
+      visited[targetIdx] = 1;
+
+      var head = 0;
+      while (head < queue.length) {
+        var x = queue[head++];
+        var y = queue[head++];
+        var idx = y * width + x;
+        data32[idx] = fillColor32;
+
+        if (x > 0 && !visited[idx - 1] && match(idx - 1)) {
+          visited[idx - 1] = 1; queue.push(x - 1, y);
+        }
+        if (x < width - 1 && !visited[idx + 1] && match(idx + 1)) {
+          visited[idx + 1] = 1; queue.push(x + 1, y);
+        }
+        if (y > 0 && !visited[idx - width] && match(idx - width)) {
+          visited[idx - width] = 1; queue.push(x, y - 1);
+        }
+        if (y < height - 1 && !visited[idx + width] && match(idx + width)) {
+          visited[idx + width] = 1; queue.push(x, y + 1);
+        }
+      }
+
+      ctx.putImageData(imgData, 0, 0);
+      saveState();
+    }
+
+    // Text Tool Overlay Logic (with dedicated color picker & crystal clear contrast)
+    function showTextOverlay(canvasX, canvasY, clientX, clientY) {
+      textPos = { x: canvasX, y: canvasY };
+      var inner = document.getElementById("paintCanvasInner");
+      var rect = inner.getBoundingClientRect();
+      var relX = clientX - rect.left;
+      var relY = clientY - rect.top;
+
+      relX = Math.max(10, Math.min(rect.width - 300, relX));
+      relY = Math.max(10, Math.min(rect.height - 120, relY));
+
+      textOverlay.style.left = relX + "px";
+      textOverlay.style.top = relY + "px";
+      textOverlay.style.display = "flex";
+
+      textSelectedColor = currentColor;
+      if (textColorInput) textColorInput.value = textSelectedColor;
+      if (textColorPreview) textColorPreview.style.backgroundColor = textSelectedColor;
+      if (textInput) {
+        textInput.style.color = textSelectedColor;
+        textInput.value = "";
+      }
+      setTimeout(function () { if (textInput) textInput.focus(); }, 50);
+    }
+
+    function hideTextOverlay() {
+      if (textOverlay) textOverlay.style.display = "none";
+    }
+
+    if (textColorInput) {
+      textColorInput.addEventListener("input", function () {
+        textSelectedColor = this.value;
+        if (textColorPreview) textColorPreview.style.backgroundColor = this.value;
+        if (textInput) textInput.style.color = this.value;
+        setColor(this.value);
+      });
+    }
+
+    function applyTextToCanvas() {
+      var text = (textInput.value || "").trim();
+      if (!text) {
+        hideTextOverlay();
+        return;
+      }
+      var fSize = parseInt(textFontSize.value, 10) || 24;
+      var fFamily = textFontFamily.value || "Pretendard, sans-serif";
+      var fWeight = textIsBold ? "bold " : "normal ";
+
+      ctx.font = fWeight + fSize + "px " + fFamily;
+      ctx.fillStyle = textSelectedColor || currentColor;
+      ctx.textBaseline = "top";
+
+      var lines = text.split("\n");
+      var lineHeight = fSize * 1.35;
+      for (var i = 0; i < lines.length; i++) {
+        ctx.fillText(lines[i], textPos.x, textPos.y + i * lineHeight);
+      }
+
+      saveState();
+      hideTextOverlay();
+      toast("텍스트가 캔버스에 추가되었습니다!");
+    }
+
+    if (textApplyBtn) textApplyBtn.addEventListener("click", applyTextToCanvas);
+    if (textCancelBtn) textCancelBtn.addEventListener("click", hideTextOverlay);
+    if (textBoldBtn) {
+      textBoldBtn.addEventListener("click", function () {
+        textIsBold = !textIsBold;
+        textBoldBtn.classList.toggle("active", textIsBold);
+        textInput.style.fontWeight = textIsBold ? "bold" : "normal";
+      });
+    }
+    if (textFontSize) {
+      textFontSize.addEventListener("change", function () {
+        textInput.style.fontSize = this.value + "px";
+      });
+    }
+    if (textInput) {
+      textInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+          applyTextToCanvas();
+        } else if (e.key === "Escape") {
+          hideTextOverlay();
+        }
+      });
+    }
+
+    /* ==========================================================================
+       IMAGE TRANSFORM / DRAG TO RESIZE & MOVE (이미지 드래그 크기 조절 & 이동)
+       ========================================================================== */
+    function openTransformBox(dataUrl, natW, natH, initX, initY, originalItem) {
+      hideTextOverlay();
+      closeCropBox();
+
+      var img = new Image();
+      img.onload = function () {
+        var w, h, x, y;
+        if (initX !== undefined && initY !== undefined) {
+          x = initX;
+          y = initY;
+          w = natW;
+          h = natH;
+        } else {
+          var maxW = Math.round(canvas.width * 0.75);
+          var maxH = Math.round(canvas.height * 0.75);
+          w = img.naturalWidth || natW || 320;
+          h = img.naturalHeight || natH || 220;
+
+          if (w > maxW || h > maxH) {
+            var ratio = Math.min(maxW / w, maxH / h);
+            w = Math.round(w * ratio);
+            h = Math.round(h * ratio);
+          }
+          w = Math.max(60, w);
+          h = Math.max(40, h);
+
+          x = Math.round((canvas.width - w) / 2);
+          y = Math.round((canvas.height - h) / 2);
+        }
+
+        transformState.active = true;
+        transformState.x = x;
+        transformState.y = y;
+        transformState.w = w;
+        transformState.h = h;
+        transformState.img = img;
+        transformState.dataUrl = dataUrl;
+        transformState.aspectRatio = (img.naturalWidth && img.naturalHeight) ? (img.naturalWidth / img.naturalHeight) : (w / h);
+        transformState.originalItem = originalItem || null;
+
+        if (transformImg) transformImg.src = dataUrl;
+        updateTransformBoxDOM(false);
+        if (transformBox) transformBox.style.display = "block";
+        toast("💡 모서리 꼭짓점을 드래그하여 크기 조절, Shift를 누르고 드래그하면 원본 비율이 유지됩니다.");
+      };
+      img.src = dataUrl;
+    }
+
+    function updateTransformBoxDOM(isShift) {
+      if (!transformBox) return;
+      transformBox.style.left = transformState.x + "px";
+      transformBox.style.top = transformState.y + "px";
+      transformBox.style.width = transformState.w + "px";
+      transformBox.style.height = transformState.h + "px";
+      if (transformDim) {
+        var shiftLabel = isShift ? " 🔒 비율고정" : "";
+        transformDim.textContent = Math.round(transformState.w) + " × " + Math.round(transformState.h) + " px" + shiftLabel;
+      }
+    }
+
+    function closeTransformBox(isCancelled) {
+      if (isCancelled && transformState.originalItem) {
+        ctx.drawImage(
+          transformState.originalItem.img,
+          transformState.originalItem.x,
+          transformState.originalItem.y,
+          transformState.originalItem.w,
+          transformState.originalItem.h
+        );
+        placedImages.push(transformState.originalItem);
+      }
+      transformState.active = false;
+      transformState.dragMode = null;
+      transformState.originalItem = null;
+      if (transformBox) transformBox.style.display = "none";
+    }
+
+    function applyTransform() {
+      if (!transformState.active || !transformState.img) return;
+      var snapBefore = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(transformState.img, transformState.x, transformState.y, transformState.w, transformState.h);
+
+      placedImages.push({
+        id: "img_" + Date.now(),
+        dataUrl: transformState.dataUrl || (transformImg ? transformImg.src : ""),
+        img: transformState.img,
+        x: transformState.x,
+        y: transformState.y,
+        w: transformState.w,
+        h: transformState.h,
+        snapBefore: snapBefore
+      });
+
+      saveState();
+      closeTransformBox(false);
+      toast("이미지가 캔버스에 고정되었습니다. 그림을 클릭하면 언제든 다시 크기와 위치를 조절할 수 있습니다.");
+    }
+
+    if (transformApplyBtn) transformApplyBtn.addEventListener("click", applyTransform);
+    if (transformCancelBtn) {
+      transformCancelBtn.addEventListener("click", function () {
+        closeTransformBox(true);
+      });
+    }
+
+    if (transformBox) {
+      transformBox.querySelectorAll(".paint-handle").forEach(function (handle) {
+        handle.addEventListener("pointerdown", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          transformState.dragMode = handle.getAttribute("data-handle");
+          transformState.startClientX = e.clientX;
+          transformState.startClientY = e.clientY;
+          transformState.origX = transformState.x;
+          transformState.origY = transformState.y;
+          transformState.origW = transformState.w;
+          transformState.origH = transformState.h;
+          transformState.aspectRatio = (transformState.origW && transformState.origH) ? (transformState.origW / transformState.origH) : 1;
+          try { handle.setPointerCapture(e.pointerId); } catch (err) {}
+        });
+      });
+    }
+
+    if (transformWrapper) {
+      transformWrapper.addEventListener("pointerdown", function (e) {
+        if (e.target.classList.contains("paint-handle")) return;
+        e.preventDefault();
+        transformState.dragMode = "move";
+        transformState.startClientX = e.clientX;
+        transformState.startClientY = e.clientY;
+        transformState.origX = transformState.x;
+        transformState.origY = transformState.y;
+        try { transformWrapper.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+    }
+
+    window.addEventListener("pointermove", function (e) {
+      if (!transformState.dragMode) return;
+      var rect = canvas.getBoundingClientRect();
+      var scaleX = canvas.width / rect.width;
+      var scaleY = canvas.height / rect.height;
+      var dx = (e.clientX - transformState.startClientX) * scaleX;
+      var dy = (e.clientY - transformState.startClientY) * scaleY;
+      var mode = transformState.dragMode;
+      var isShift = e.shiftKey;
+      var aspect = transformState.aspectRatio || (transformState.origW / transformState.origH) || 1;
+
+      if (mode === "move") {
+        transformState.x = Math.round(transformState.origX + dx);
+        transformState.y = Math.round(transformState.origY + dy);
+      } else if (mode === "se") {
+        var newW, newH;
+        if (isShift) {
+          if (Math.abs(dx) >= Math.abs(dy * aspect)) {
+            newW = Math.max(20, Math.round(transformState.origW + dx));
+            newH = Math.max(20, Math.round(newW / aspect));
+          } else {
+            newH = Math.max(20, Math.round(transformState.origH + dy));
+            newW = Math.max(20, Math.round(newH * aspect));
+          }
+        } else {
+          newW = Math.max(20, Math.round(transformState.origW + dx));
+          newH = Math.max(20, Math.round(transformState.origH + dy));
+        }
+        transformState.w = newW;
+        transformState.h = newH;
+        transformState.x = transformState.origX;
+        transformState.y = transformState.origY;
+      } else if (mode === "sw") {
+        var newW, newH;
+        if (isShift) {
+          if (Math.abs(dx) >= Math.abs(dy * aspect)) {
+            newW = Math.max(20, Math.round(transformState.origW - dx));
+            newH = Math.max(20, Math.round(newW / aspect));
+          } else {
+            newH = Math.max(20, Math.round(transformState.origH + dy));
+            newW = Math.max(20, Math.round(newH * aspect));
+          }
+        } else {
+          newW = Math.max(20, Math.round(transformState.origW - dx));
+          newH = Math.max(20, Math.round(transformState.origH + dy));
+        }
+        transformState.w = newW;
+        transformState.h = newH;
+        transformState.x = Math.round(transformState.origX + (transformState.origW - newW));
+        transformState.y = transformState.origY;
+      } else if (mode === "ne") {
+        var newW, newH;
+        if (isShift) {
+          if (Math.abs(dx) >= Math.abs(dy * aspect)) {
+            newW = Math.max(20, Math.round(transformState.origW + dx));
+            newH = Math.max(20, Math.round(newW / aspect));
+          } else {
+            newH = Math.max(20, Math.round(transformState.origH - dy));
+            newW = Math.max(20, Math.round(newH * aspect));
+          }
+        } else {
+          newW = Math.max(20, Math.round(transformState.origW + dx));
+          newH = Math.max(20, Math.round(transformState.origH - dy));
+        }
+        transformState.w = newW;
+        transformState.h = newH;
+        transformState.x = transformState.origX;
+        transformState.y = Math.round(transformState.origY + (transformState.origH - newH));
+      } else if (mode === "nw") {
+        var newW, newH;
+        if (isShift) {
+          if (Math.abs(dx) >= Math.abs(dy * aspect)) {
+            newW = Math.max(20, Math.round(transformState.origW - dx));
+            newH = Math.max(20, Math.round(newW / aspect));
+          } else {
+            newH = Math.max(20, Math.round(transformState.origH - dy));
+            newW = Math.max(20, Math.round(newH * aspect));
+          }
+        } else {
+          newW = Math.max(20, Math.round(transformState.origW - dx));
+          newH = Math.max(20, Math.round(transformState.origH - dy));
+        }
+        transformState.w = newW;
+        transformState.h = newH;
+        transformState.x = Math.round(transformState.origX + (transformState.origW - newW));
+        transformState.y = Math.round(transformState.origY + (transformState.origH - newH));
+      } else if (mode === "e") {
+        var newW = Math.max(20, Math.round(transformState.origW + dx));
+        if (isShift) {
+          var newH = Math.max(20, Math.round(newW / aspect));
+          transformState.w = newW;
+          transformState.h = newH;
+          transformState.y = Math.round(transformState.origY + (transformState.origH - newH) / 2);
+        } else {
+          transformState.w = newW;
+        }
+      } else if (mode === "w") {
+        var newW = Math.max(20, Math.round(transformState.origW - dx));
+        if (isShift) {
+          var newH = Math.max(20, Math.round(newW / aspect));
+          transformState.w = newW;
+          transformState.h = newH;
+          transformState.x = Math.round(transformState.origX + (transformState.origW - newW));
+          transformState.y = Math.round(transformState.origY + (transformState.origH - newH) / 2);
+        } else {
+          transformState.w = newW;
+          transformState.x = Math.round(transformState.origX + (transformState.origW - newW));
+        }
+      } else if (mode === "s") {
+        var newH = Math.max(20, Math.round(transformState.origH + dy));
+        if (isShift) {
+          var newW = Math.max(20, Math.round(newH * aspect));
+          transformState.w = newW;
+          transformState.h = newH;
+          transformState.x = Math.round(transformState.origX + (transformState.origW - newW) / 2);
+        } else {
+          transformState.h = newH;
+        }
+      } else if (mode === "n") {
+        var newH = Math.max(20, Math.round(transformState.origH - dy));
+        if (isShift) {
+          var newW = Math.max(20, Math.round(newH * aspect));
+          transformState.w = newW;
+          transformState.h = newH;
+          transformState.x = Math.round(transformState.origX + (transformState.origW - newW) / 2);
+          transformState.y = Math.round(transformState.origY + (transformState.origH - newH));
+        } else {
+          transformState.h = newH;
+          transformState.y = Math.round(transformState.origY + (transformState.origH - newH));
+        }
+      }
+      updateTransformBoxDOM(isShift);
+    });
+
+    window.addEventListener("pointerup", function () {
+      if (transformState.dragMode) {
+        transformState.dragMode = null;
+      }
+    });
+
+    /* ==========================================================================
+       CROP TOOL (자르기 기능)
+       ========================================================================== */
+    function closeCropBox() {
+      cropState.active = false;
+      if (cropBox) cropBox.style.display = "none";
+      overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+    }
+
+    function applyCrop() {
+      if (cropState.w < 15 || cropState.h < 15) {
+        toast("자를 영역이 너무 작습니다.");
+        closeCropBox();
+        return;
+      }
+      placedImages = [];
+      var cropData = ctx.getImageData(cropState.x, cropState.y, cropState.w, cropState.h);
+
+      canvas.width = cropState.w;
+      canvas.height = cropState.h;
+      overlayCanvas.width = cropState.w;
+      overlayCanvas.height = cropState.h;
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, cropState.w, cropState.h);
+      ctx.putImageData(cropData, 0, 0);
+
+      if (canvasDimEl) canvasDimEl.textContent = cropState.w + " × " + cropState.h + " px";
+      closeCropBox();
+      saveState();
+      setTool("brush");
+      toast("선택한 영역(" + cropState.w + "×" + cropState.h + "px)으로 캔버스가 잘렸습니다!");
+    }
+
+    if (cropApplyBtn) cropApplyBtn.addEventListener("click", applyCrop);
+    if (cropCancelBtn) cropCancelBtn.addEventListener("click", closeCropBox);
+
+    // Canvas Pointer Events for Drawing & Cropping & Selecting Placed Images
+    canvas.addEventListener("pointerdown", function (e) {
+      if (e.button !== 0) return;
+      var pos = getCanvasPos(e);
+
+      // If transform box is currently open, clicking outside it commits the transform
+      if (transformState.active) {
+        applyTransform();
+      }
+
+      // Check if user clicked on any previously placed image on canvas
+      if (currentTool !== "crop" && currentTool !== "text") {
+        var hitIndex = -1;
+        for (var i = placedImages.length - 1; i >= 0; i--) {
+          var p = placedImages[i];
+          if (pos.x >= p.x && pos.x <= p.x + p.w && pos.y >= p.y && pos.y <= p.y + p.h) {
+            hitIndex = i;
+            break;
+          }
+        }
+        if (hitIndex !== -1) {
+          var clickedItem = placedImages.splice(hitIndex, 1)[0];
+          // Erase this image from canvas so it becomes floating interactive box
+          if (clickedItem.snapBefore) {
+            ctx.putImageData(clickedItem.snapBefore, 0, 0);
+          }
+          openTransformBox(clickedItem.dataUrl, clickedItem.w, clickedItem.h, clickedItem.x, clickedItem.y, clickedItem);
+          return;
+        }
+      }
+
+      if (currentTool === "crop") {
+        closeCropBox();
+        closeTransformBox();
+        hideTextOverlay();
+        cropState.active = true;
+        cropState.startX = pos.x;
+        cropState.startY = pos.y;
+        try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+        return;
+      }
+
+      if (currentTool === "text") {
+        showTextOverlay(pos.x, pos.y, e.clientX, e.clientY);
+        return;
+      }
+
+      if (currentTool === "fill") {
+        floodFill(pos.x, pos.y, currentColor);
+        return;
+      }
+
+      isDrawing = true;
+      startX = pos.x;
+      startY = pos.y;
+      lastX = pos.x;
+      lastY = pos.y;
+
+      if (currentTool === "pencil" || currentTool === "brush" || currentTool === "eraser") {
+        ctx.beginPath();
+        ctx.strokeStyle = currentTool === "eraser" ? "#ffffff" : currentColor;
+        ctx.lineWidth = currentTool === "pencil" ? 1 : strokeWidth;
+        ctx.lineCap = currentTool === "pencil" ? "butt" : "round";
+        ctx.lineJoin = currentTool === "pencil" ? "miter" : "round";
+        ctx.moveTo(pos.x, pos.y);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+      }
+
+      try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+
+    canvas.addEventListener("pointermove", function (e) {
+      var pos = getCanvasPos(e);
+
+      if (currentTool === "crop" && cropState.active) {
+        overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+        var rx = Math.min(cropState.startX, pos.x);
+        var ry = Math.min(cropState.startY, pos.y);
+        var rw = Math.abs(pos.x - cropState.startX);
+        var rh = Math.abs(pos.y - cropState.startY);
+
+        // Dim background outside crop
+        overlayCtx.fillStyle = "rgba(0, 0, 0, 0.4)";
+        overlayCtx.fillRect(0, 0, overlayCanvas.width, ry);
+        overlayCtx.fillRect(0, ry + rh, overlayCanvas.width, overlayCanvas.height - (ry + rh));
+        overlayCtx.fillRect(0, ry, rx, rh);
+        overlayCtx.fillRect(rx + rw, ry, overlayCanvas.width - (rx + rw), rh);
+
+        // Border
+        overlayCtx.setLineDash([6, 4]);
+        overlayCtx.strokeStyle = "#f59e0b";
+        overlayCtx.lineWidth = 2;
+        overlayCtx.strokeRect(rx, ry, rw, rh);
+        overlayCtx.setLineDash([]);
+        return;
+      }
+
+      if (!isDrawing) {
+        if (!transformState.active && (currentTool === "brush" || currentTool === "pencil")) {
+          var isOverImage = false;
+          for (var pi = placedImages.length - 1; pi >= 0; pi--) {
+            var item = placedImages[pi];
+            if (pos.x >= item.x && pos.x <= item.x + item.w && pos.y >= item.y && pos.y <= item.y + item.h) {
+              isOverImage = true;
+              break;
+            }
+          }
+          if (isOverImage) {
+            canvas.style.cursor = "pointer";
+            canvas.title = "그림을 클릭하면 크기 조절 선과 꼭짓점이 나타납니다 (Shift: 비율고정)";
+          } else {
+            canvas.style.cursor = "crosshair";
+            canvas.title = "";
+          }
+        }
+        return;
+      }
+
+      if (currentTool === "pencil" || currentTool === "brush" || currentTool === "eraser") {
+        ctx.beginPath();
+        ctx.strokeStyle = currentTool === "eraser" ? "#ffffff" : currentColor;
+        ctx.lineWidth = currentTool === "pencil" ? 1 : strokeWidth;
+        ctx.lineCap = currentTool === "pencil" ? "butt" : "round";
+        ctx.lineJoin = currentTool === "pencil" ? "miter" : "round";
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        lastX = pos.x;
+        lastY = pos.y;
+      } else {
+        // Shapes preview on overlayCanvas
+        overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+        if (currentTool === "line") {
+          drawLine(overlayCtx, startX, startY, pos.x, pos.y, currentColor, strokeWidth);
+        } else if (currentTool === "rect") {
+          drawRect(overlayCtx, startX, startY, pos.x, pos.y, currentColor, strokeWidth, isShapeFill);
+        } else if (currentTool === "circle") {
+          drawCircle(overlayCtx, startX, startY, pos.x, pos.y, currentColor, strokeWidth, isShapeFill);
+        } else if (currentTool === "arrow") {
+          drawArrow(overlayCtx, startX, startY, pos.x, pos.y, currentColor, strokeWidth);
+        }
+      }
+    });
+
+    function finishDrawing(e) {
+      var pos = getCanvasPos(e);
+
+      if (currentTool === "crop" && cropState.active) {
+        cropState.active = false;
+        var rx = Math.min(cropState.startX, pos.x);
+        var ry = Math.min(cropState.startY, pos.y);
+        var rw = Math.abs(pos.x - cropState.startX);
+        var rh = Math.abs(pos.y - cropState.startY);
+
+        if (rw >= 15 && rh >= 15) {
+          cropState.x = Math.round(rx);
+          cropState.y = Math.round(ry);
+          cropState.w = Math.round(rw);
+          cropState.h = Math.round(rh);
+
+          cropBox.style.left = rx + "px";
+          cropBox.style.top = ry + "px";
+          cropBox.style.width = rw + "px";
+          cropBox.style.height = rh + "px";
+          cropBox.style.display = "block";
+          if (cropDim) cropDim.textContent = Math.round(rw) + " × " + Math.round(rh) + " px";
+        } else {
+          overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+        }
+        try { canvas.releasePointerCapture(e.pointerId); } catch (err) {}
+        return;
+      }
+
+      if (!isDrawing) return;
+      isDrawing = false;
+
+      if (currentTool !== "pencil" && currentTool !== "brush" && currentTool !== "eraser" && currentTool !== "crop") {
+        overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+        if (currentTool === "line") {
+          drawLine(ctx, startX, startY, pos.x, pos.y, currentColor, strokeWidth);
+        } else if (currentTool === "rect") {
+          drawRect(ctx, startX, startY, pos.x, pos.y, currentColor, strokeWidth, isShapeFill);
+        } else if (currentTool === "circle") {
+          drawCircle(ctx, startX, startY, pos.x, pos.y, currentColor, strokeWidth, isShapeFill);
+        } else if (currentTool === "arrow") {
+          drawArrow(ctx, startX, startY, pos.x, pos.y, currentColor, strokeWidth);
+        }
+      }
+      saveState();
+      try { canvas.releasePointerCapture(e.pointerId); } catch (err) {}
+    }
+
+    canvas.addEventListener("pointerup", finishDrawing);
+    canvas.addEventListener("pointercancel", finishDrawing);
+
+    // Toolbar Listeners
+    toolButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setTool(btn.getAttribute("data-tool"));
+      });
+    });
+
+    sizeChips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        setStrokeSize(chip.getAttribute("data-size"));
+      });
+    });
+
+    if (strokeRange) {
+      strokeRange.addEventListener("input", function () {
+        setStrokeSize(this.value);
+      });
+    }
+
+    if (shapeFillCheck) {
+      shapeFillCheck.addEventListener("change", function () {
+        isShapeFill = this.checked;
+      });
+    }
+
+    swatches.forEach(function (sw) {
+      sw.addEventListener("click", function () {
+        setColor(sw.getAttribute("data-color"));
+      });
+    });
+
+    if (colorPicker) {
+      colorPicker.addEventListener("input", function () {
+        setColor(this.value);
+      });
+    }
+
+    presetButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var w = parseInt(btn.getAttribute("data-w"), 10);
+        var h = parseInt(btn.getAttribute("data-h"), 10);
+        setCanvasPreset(w, h);
+      });
+    });
+
+    if (undoBtn) undoBtn.addEventListener("click", undo);
+    if (redoBtn) redoBtn.addEventListener("click", redo);
+    if (clearBtn) clearBtn.addEventListener("click", clearCanvas);
+
+    // Keyboard Shortcuts (Ctrl+Z, Ctrl+Y, Enter, Esc)
+    window.addEventListener("keydown", function (e) {
+      var paintSec = document.getElementById("paint");
+      if (!paintSec || paintSec.classList.contains("hidden")) return;
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+      if ((e.ctrlKey || e.metaKey) && (e.key === "z" || e.key === "Z")) {
+        e.preventDefault();
+        if (e.shiftKey) redo();
+        else undo();
+      } else if ((e.ctrlKey || e.metaKey) && (e.key === "y" || e.key === "Y")) {
+        e.preventDefault();
+        redo();
+      } else if (e.key === "Enter") {
+        if (transformState.active) {
+          e.preventDefault();
+          applyTransform();
+        } else if (cropBox && cropBox.style.display !== "none") {
+          e.preventDefault();
+          applyCrop();
+        }
+      } else if (e.key === "Escape") {
+        if (transformState.active) closeTransformBox();
+        if (cropBox && cropBox.style.display !== "none") closeCropBox();
+        hideTextOverlay();
+      }
+    });
+
+    /* ==========================================================================
+       ASSET BOARD (오른쪽 에셋 보드 기능)
+       ========================================================================== */
+    function saveAssets() {
+      try {
+        localStorage.setItem("ilsang_paint_assets", JSON.stringify(assets.slice(0, 30)));
+      } catch (e) {}
+    }
+
+    function renderAssets() {
+      if (!assetListEl) return;
+      if (assetCountEl) assetCountEl.textContent = assets.length + "개";
+
+      if (assets.length === 0) {
+        if (assetEmptyEl) assetEmptyEl.style.display = "flex";
+        assetListEl.querySelectorAll(".paint-asset-card").forEach(function (card) { card.remove(); });
+        return;
+      }
+
+      if (assetEmptyEl) assetEmptyEl.style.display = "none";
+      assetListEl.querySelectorAll(".paint-asset-card").forEach(function (card) { card.remove(); });
+
+      assets.forEach(function (asset) {
+        var card = document.createElement("div");
+        card.className = "paint-asset-card";
+        card.setAttribute("data-asset-id", asset.id);
+
+        card.innerHTML =
+          '<div class="paint-asset-card-top">' +
+            '<img src="' + asset.dataUrl + '" alt="에셋" class="paint-asset-thumb">' +
+            '<div class="paint-asset-meta">' +
+              '<span class="paint-asset-size">' + asset.width + ' × ' + asset.height + ' px</span>' +
+              '<span class="paint-asset-time">' + (asset.time || "방금 전") + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="paint-asset-actions">' +
+            '<button type="button" class="paint-asset-btn-insert" data-asset-id="' + asset.id + '">' +
+              '<span>➕</span>캔버스에 삽입' +
+            '</button>' +
+            '<button type="button" class="paint-asset-btn-del" data-asset-id="' + asset.id + '" title="에셋 삭제">' +
+              '<span>🗑️</span>삭제' +
+            '</button>' +
+          '</div>';
+
+        assetListEl.appendChild(card);
+      });
+
+      // Bind Card Actions
+      assetListEl.querySelectorAll(".paint-asset-btn-insert").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var id = btn.getAttribute("data-asset-id");
+          insertAssetToCanvas(id);
+        });
+      });
+
+      assetListEl.querySelectorAll(".paint-asset-btn-del").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var id = btn.getAttribute("data-asset-id");
+          deleteAsset(id);
+        });
+      });
+    }
+
+    function addAssetFromDataUrl(dataUrl) {
+      var img = new Image();
+      img.onload = function () {
+        var w = img.naturalWidth || img.width || 300;
+        var h = img.naturalHeight || img.height || 200;
+        var now = new Date();
+        var timeStr = now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes() + ":" + (now.getSeconds() < 10 ? "0" : "") + now.getSeconds();
+
+        var assetItem = {
+          id: "asset_" + Date.now() + "_" + Math.floor(Math.random() * 1000),
+          dataUrl: dataUrl,
+          width: w,
+          height: h,
+          time: timeStr
+        };
+
+        assets.unshift(assetItem);
+        if (assets.length > 25) assets.pop();
+        saveAssets();
+        renderAssets();
+        // Also open transform box on canvas for immediate resize and placement
+        openTransformBox(dataUrl, w, h);
+        toast("📋 새로운 이미지 에셋이 등록되었습니다! 드래그하여 크기와 위치를 조절하세요.");
+      };
+      img.src = dataUrl;
+    }
+
+    function insertAssetToCanvas(assetId) {
+      var target = assets.find(function (a) { return a.id === assetId; });
+      if (!target) return;
+      openTransformBox(target.dataUrl, target.width, target.height);
+    }
+
+    function deleteAsset(assetId) {
+      assets = assets.filter(function (a) { return a.id !== assetId; });
+      saveAssets();
+      renderAssets();
+      toast("에셋이 삭제되었습니다.");
+    }
+
+    if (assetClearAllBtn) {
+      assetClearAllBtn.addEventListener("click", function () {
+        if (assets.length === 0) return;
+        if (!confirm("보드에 등록된 모든 에셋을 삭제하시겠습니까?")) return;
+        assets = [];
+        saveAssets();
+        renderAssets();
+        toast("에셋 목록이 모두 삭제되었습니다.");
+      });
+    }
+
+    // Global / Window Clipboard Paste Listener
+    window.addEventListener("paste", function (e) {
+      var paintSec = document.getElementById("paint");
+      if (!paintSec || paintSec.classList.contains("hidden")) return;
+
+      var clipboardItems = e.clipboardData ? e.clipboardData.items : null;
+      if (!clipboardItems) return;
+
+      for (var i = 0; i < clipboardItems.length; i++) {
+        var item = clipboardItems[i];
+        if (item.type.indexOf("image") !== -1) {
+          var file = item.getAsFile();
+          if (file) {
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+              addAssetFromDataUrl(evt.target.result);
+            };
+            reader.readAsDataURL(file);
+            e.preventDefault();
+            break;
+          }
+        }
+      }
+    });
+
+    // Drag and Drop to Asset Dropzone
+    if (assetDropzone) {
+      ["dragenter", "dragover"].forEach(function (eventName) {
+        assetDropzone.addEventListener(eventName, function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          assetDropzone.classList.add("drag-over");
+        });
+      });
+      ["dragleave", "drop"].forEach(function (eventName) {
+        assetDropzone.addEventListener(eventName, function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          assetDropzone.classList.remove("drag-over");
+        });
+      });
+      assetDropzone.addEventListener("drop", function (e) {
+        var files = e.dataTransfer.files;
+        if (files && files.length > 0) {
+          for (var i = 0; i < files.length; i++) {
+            if (files[i].type.indexOf("image") !== -1) {
+              var reader = new FileReader();
+              reader.onload = function (evt) {
+                addAssetFromDataUrl(evt.target.result);
+              };
+              reader.readAsDataURL(files[i]);
+            }
+          }
+        }
+      });
+    }
+
+    if (assetUploadTrigger && assetFileInput) {
+      assetUploadTrigger.addEventListener("click", function () {
+        assetFileInput.click();
+      });
+      assetFileInput.addEventListener("change", function () {
+        var files = this.files;
+        if (files && files.length > 0) {
+          for (var i = 0; i < files.length; i++) {
+            if (files[i].type.indexOf("image") !== -1) {
+              var reader = new FileReader();
+              reader.onload = function (evt) {
+                addAssetFromDataUrl(evt.target.result);
+              };
+              reader.readAsDataURL(files[i]);
+            }
+          }
+          this.value = "";
+        }
+      });
+    }
+
+    /* ==========================================================================
+       DOWNLOAD & SHARE MODAL
+       ========================================================================== */
+    function openShareModal() {
+      if (!shareModal) return;
+      var dataUrl = canvas.toDataURL("image/png");
+      if (modalPreviewImg) modalPreviewImg.src = dataUrl;
+      shareModal.style.display = "flex";
+    }
+
+    function closeShareModal() {
+      if (shareModal) shareModal.style.display = "none";
+    }
+
+    if (downloadBtn) downloadBtn.addEventListener("click", openShareModal);
+    if (shareBtn) shareBtn.addEventListener("click", openShareModal);
+    if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeShareModal);
+    if (shareModal) {
+      shareModal.addEventListener("click", function (e) {
+        if (e.target === shareModal) closeShareModal();
+      });
+    }
+
+    // Direct Download
+    function executeDownload() {
+      var formatRadio = document.querySelector('input[name="paintExportFormat"]:checked');
+      var format = formatRadio ? formatRadio.value : "png";
+      var mimeType = format === "jpg" ? "image/jpeg" : "image/png";
+      var ext = format === "jpg" ? "jpg" : "png";
+
+      var now = new Date();
+      var pad = function (n) { return n < 10 ? "0" + n : n; };
+      var filename = "ilsang_paint_" + now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate()) + "_" + pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds()) + "." + ext;
+
+      var exportCanvas = canvas;
+      if (format === "jpg") {
+        exportCanvas = document.createElement("canvas");
+        exportCanvas.width = canvas.width;
+        exportCanvas.height = canvas.height;
+        var expCtx = exportCanvas.getContext("2d");
+        expCtx.fillStyle = "#ffffff";
+        expCtx.fillRect(0, 0, canvas.width, canvas.height);
+        expCtx.drawImage(canvas, 0, 0);
+      }
+
+      var link = document.createElement("a");
+      link.download = filename;
+      link.href = exportCanvas.toDataURL(mimeType, 0.92);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      closeShareModal();
+      toast("내 컴퓨터에 그림 파일(" + filename + ")이 다운로드되었습니다!");
+    }
+
+    // Clipboard Copy
+    function executeCopy() {
+      if (!navigator.clipboard || !navigator.clipboard.write || !window.ClipboardItem) {
+        toast("현재 브라우저에서는 이미지 클립보드 직접 복사를 지원하지 않습니다. 다운로드를 이용해주세요.");
+        return;
+      }
+      canvas.toBlob(function (blob) {
+        if (!blob) return;
+        var item = new ClipboardItem({ "image/png": blob });
+        navigator.clipboard.write([item]).then(function () {
+          closeShareModal();
+          toast("그림이 클립보드에 복사되었습니다! 카톡이나 문서에 바로 붙여넣기(Ctrl+V) 하세요.");
+        }).catch(function () {
+          toast("클립보드 복사 권한이 거부되었습니다.");
+        });
+      }, "image/png");
+    }
+
+    // Native Web Share API
+    function executeShare() {
+      if (navigator.share) {
+        canvas.toBlob(function (blob) {
+          if (!blob) return;
+          var file = new File([blob], "ilsang_drawing.png", { type: "image/png" });
+          if (navigator.canShare && !navigator.canShare({ files: [file] })) {
+            executeCopy();
+            return;
+          }
+          navigator.share({
+            title: "일상툴 그림판 작품",
+            text: "일상툴 그림판에서 완성한 그림입니다.",
+            files: [file]
+          }).then(function () {
+            closeShareModal();
+            toast("그림이 성공적으로 공유되었습니다!");
+          }).catch(function (err) {
+            if (err.name !== "AbortError") {
+              executeCopy();
+            }
+          });
+        }, "image/png");
+      } else {
+        executeCopy();
+      }
+    }
+
+    if (modalDownloadBtn) modalDownloadBtn.addEventListener("click", executeDownload);
+    if (modalCopyBtn) modalCopyBtn.addEventListener("click", executeCopy);
+    if (modalShareBtn) modalShareBtn.addEventListener("click", executeShare);
+
+    // Initial setup
+    initCanvasBackground();
+    renderAssets();
+
+    window.onShowPaintTool = function () {
+      updateUndoRedoUI();
+      renderAssets();
+    };
+  })();
 
   function renderAdSlot(el) {
     if (!el || el.getAttribute("data-ad-rendered") === "true") return;
