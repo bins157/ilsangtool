@@ -3638,101 +3638,133 @@ td {
 }
 
 /* ==========================================================================
-   Apple Game (Fruit Box Game / 사과게임) Styles
+   Apple Game (Fruit Box Game / 사과게임) Styles - Toss & Apple Glass Aesthetics
    ========================================================================== */
 .apple-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 920px;
+  gap: 16px;
+  max-width: 1180px;
   margin: 0 auto;
+  width: 100%;
 }
 
-.apple-header-panel {
+/* Compact Intro Header */
+.apple-intro-panel {
+  padding: 12px 18px !important;
+  margin-bottom: 0 !important;
+}
+
+.apple-intro-panel .feedback-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.apple-intro-subtag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.apple-intro-desc {
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+  margin-bottom: 0 !important;
+  color: var(--text-secondary);
+}
+
+/* 2-Column Game Workspace: Left Controls + Right Board */
+.apple-game-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Left Side Control & Stats Panel
+   ========================================================================== */
+.apple-side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   background: var(--glass-card);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  padding: 20px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  padding: 16px;
   box-shadow: var(--shadow-card);
+  position: sticky;
+  top: 16px;
 }
 
-.apple-stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.apple-stat-card {
-  background: rgba(14, 19, 32, 0.65);
-  border: 1px solid var(--glass-border);
+/* Timer Box */
+.apple-side-card.apple-side-timer {
+  background: rgba(14, 19, 32, 0.8);
+  border: 1px solid rgba(245, 158, 11, 0.35);
   border-radius: var(--radius-md);
   padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-.apple-stat-card:hover {
-  border-color: rgba(244, 63, 94, 0.3);
-  transform: translateY(-2px);
-}
-
-.apple-stat-card.accent-time {
-  border-left: 3px solid #f59e0b;
-}
-
-.apple-stat-card.accent-score {
-  border-left: 3px solid #ef4444;
-}
-
-.apple-stat-card.accent-rem {
-  border-left: 3px solid #10b981;
-}
-
-.apple-stat-card.accent-best {
-  border-left: 3px solid #8b5cf6;
-}
-
-.apple-stat-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 500;
+.apple-side-card-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 5px;
   margin-bottom: 4px;
 }
 
-.apple-stat-val {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--text-title);
-  font-family: var(--font-numeric, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
-  line-height: 1.1;
+.apple-side-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
-.apple-stat-val.low-time {
+.apple-time-badge {
+  font-size: 10.5px;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.apple-timer-big {
+  font-size: 34px;
+  font-weight: 900;
+  color: #f59e0b;
+  font-family: var(--font-numeric, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 4px 0 8px;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s ease;
+}
+
+.apple-timer-big.low-time {
   color: #ef4444;
   animation: appleTimerPulse 0.8s infinite alternate;
 }
 
 @keyframes appleTimerPulse {
-  0% { transform: scale(1); text-shadow: 0 0 4px rgba(239, 68, 68, 0.4); }
-  100% { transform: scale(1.1); text-shadow: 0 0 16px rgba(239, 68, 68, 0.9); }
+  0% { transform: scale(1); text-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
+  100% { transform: scale(1.08); text-shadow: 0 0 18px rgba(239, 68, 68, 0.95); }
 }
 
-/* Timer progress bar */
+/* Timer Bar */
 .apple-timer-bar-wrap {
   width: 100%;
-  height: 8px;
+  height: 7px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-full);
   overflow: hidden;
@@ -3749,30 +3781,89 @@ td {
 
 .apple-timer-bar.urgent {
   background: #ef4444;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.8);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
 }
 
-/* Control buttons bar */
-.apple-actions-bar {
+/* Stats 2x2 Grid */
+.apple-side-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.apple-side-stat {
+  background: rgba(14, 19, 32, 0.65);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.2s ease;
 }
 
+.apple-side-stat.accent-score {
+  border-left: 3px solid #ef4444;
+}
+
+.apple-side-stat.accent-rem {
+  border-left: 3px solid #10b981;
+}
+
+.apple-side-stat.accent-best {
+  border-left: 3px solid #8b5cf6;
+}
+
+.apple-side-stat.accent-combo {
+  border-left: 3px solid #f97316;
+}
+
+.apple-side-stat-lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.apple-side-stat-num {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-title);
+  font-family: var(--font-numeric, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Live combo streak pulse in left panel */
+.apple-side-stat.accent-combo.active-streak {
+  background: rgba(249, 115, 22, 0.15);
+  border-color: rgba(249, 115, 22, 0.5);
+  animation: streakPulse 0.5s ease;
+}
+
+@keyframes streakPulse {
+  0% { transform: scale(0.96); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Mode Toggle */
 .apple-mode-toggle {
-  display: inline-flex;
-  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
   padding: 3px;
   gap: 4px;
+  width: 100%;
 }
 
 .apple-mode-btn {
-  padding: 6px 14px;
-  font-size: 13px;
+  flex: 1;
+  padding: 6px 4px;
+  font-size: 12px;
   font-weight: 600;
   border: none;
   background: transparent;
@@ -3780,6 +3871,8 @@ td {
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all 0.2s ease;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .apple-mode-btn.active {
@@ -3788,26 +3881,34 @@ td {
   box-shadow: var(--toss-blue-glow);
 }
 
-.apple-btn-group {
+/* Side Action Buttons */
+.apple-side-actions {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 8px;
-  flex-wrap: wrap;
+}
+
+.apple-side-btn-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
 .apple-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 14px;
-  font-size: 13px;
+  padding: 8px 12px;
+  font-size: 12.5px;
   font-weight: 600;
   border-radius: var(--radius-md);
   border: 1px solid var(--glass-border);
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
+  white-space: nowrap;
 }
 
 .apple-btn:hover {
@@ -3821,6 +3922,8 @@ td {
   color: #ffffff;
   border-color: rgba(239, 68, 68, 0.4);
   box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+  font-weight: 700;
+  padding: 10px 14px;
 }
 
 .apple-btn.btn-restart:hover {
@@ -3829,52 +3932,98 @@ td {
 }
 
 .apple-btn.btn-hint {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.22) 100%);
   border-color: rgba(245, 158, 11, 0.4);
   color: #fbbf24;
 }
 
 .apple-btn.btn-hint:hover {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.32) 100%);
   border-color: #fbbf24;
 }
 
+.apple-btn.btn-rank-view {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(124, 58, 237, 0.22) 100%);
+  border-color: rgba(139, 92, 246, 0.4);
+  color: #c4b5fd;
+}
+
+.apple-btn.btn-rank-view:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.25) 0%, rgba(124, 58, 237, 0.35) 100%);
+  border-color: #c4b5fd;
+}
+
+/* Today's King Preview Box */
+.apple-king-preview {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(239, 68, 68, 0.06) 100%);
+  border: 1px dashed rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.apple-king-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.apple-king-preview-date {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.apple-king-preview-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apple-king-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.apple-king-score {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fde047;
+  font-family: var(--font-numeric, sans-serif);
+}
+
 /* ==========================================================================
-   Apple Game Board
+   Apple Game Board (Right Column)
    ========================================================================== */
+.apple-board-column {
+  min-width: 0;
+  width: 100%;
+}
+
 .apple-board-container {
   background: var(--glass-panel);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  padding: 38px 16px 18px; /* generous top padding so top row badge never clips */
-  margin-top: 8px;
+  padding: 34px 14px 16px; /* Generous top padding for sum badge */
   position: relative;
   box-shadow: var(--shadow-card);
-  overflow: visible; /* NO CLIPPING: allows sum badge to be 100% visible */
+  overflow: visible; /* Allows sum badge & centered toast to show cleanly */
   user-select: none;
   -webkit-user-select: none;
-  transition: transform 0.15s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-/* Dopamine Screen Shake */
-@keyframes dopamineScreenShake {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  20% { transform: translate(-5px, 3px) rotate(-0.5deg); }
-  40% { transform: translate(5px, -3px) rotate(0.5deg); }
-  60% { transform: translate(-4px, -2px) rotate(-0.3deg); }
-  80% { transform: translate(3px, 2px) rotate(0.3deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-.apple-board-container.combo-shake {
-  animation: dopamineScreenShake 0.35s ease-out;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  /* NO SCREEN SHAKE! Stability guaranteed */
 }
 
 .apple-board-container.fever-glow {
   border-color: rgba(245, 158, 11, 0.85);
-  box-shadow: 0 0 35px rgba(245, 158, 11, 0.6), 0 0 70px rgba(239, 68, 68, 0.35), var(--shadow-card);
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.5), 0 0 60px rgba(239, 68, 68, 0.3), var(--shadow-card);
 }
 
 .apple-board-wrapper {
@@ -3969,7 +4118,7 @@ td {
 }
 
 .apple-num {
-  font-size: clamp(11px, 2.2vw, 20px);
+  font-size: clamp(11px, 2.1vw, 20px);
   font-weight: 800;
   color: #ffffff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
@@ -4032,7 +4181,7 @@ td {
 /* Floating Sum Badge (follows the drag box) */
 .apple-sum-badge {
   position: absolute;
-  top: -36px;
+  top: -34px;
   left: 50%;
   transform: translateX(-50%);
   padding: 5px 14px;
@@ -4082,80 +4231,40 @@ td {
   100% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.9); border-color: #fde047; }
 }
 
-/* Board Overlays (Pause / Game Over) */
-.apple-board-overlay {
+/* ==========================================================================
+   Combo Toast - Positioned Centered Above the Board Outside Apple Cells!
+   Never blocks top-right numbers!
+   ========================================================================== */
+.apple-combo-toast {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(8, 11, 17, 0.88);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  text-align: center;
-  animation: fadeIn 0.2s ease;
-}
-
-.apple-overlay-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 8px;
-}
-
-.apple-overlay-sub {
-  font-size: 15px;
-  color: var(--text-secondary);
-  max-width: 400px;
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
-
-.apple-overlay-stats {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.apple-overlay-stat {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  padding: 12px 20px;
-  text-align: center;
-}
-
-.apple-overlay-stat-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-
-.apple-overlay-stat-val {
-  font-size: 24px;
-  font-weight: 800;
-  color: #ffffff;
-}
-
-.apple-rank-badge {
-  display: inline-block;
-  padding: 6px 16px;
+  top: -46px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px) scale(0.85);
+  padding: 8px 22px;
   border-radius: var(--radius-full);
-  font-size: 14px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #ff0844 0%, #f59e0b 50%, #e11d48 100%);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
-  margin-bottom: 18px;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.7), 0 6px 20px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.22s var(--ease-spring);
+  z-index: 35;
+  white-space: nowrap;
+}
+
+.apple-combo-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+  animation: comboDopaminePulse 0.4s infinite alternate;
+}
+
+@keyframes comboDopaminePulse {
+  0% { transform: translateX(-50%) scale(1) rotate(-1deg); filter: brightness(1); }
+  100% { transform: translateX(-50%) scale(1.06) rotate(1deg); filter: brightness(1.25); }
 }
 
 /* Floating Score Popper (+N점!) */
@@ -4178,48 +4287,312 @@ td {
   100% { opacity: 0; transform: translate(-50%, -55px) scale(0.9); }
 }
 
-/* Dopamine Mega Combo Toast */
-.apple-combo-toast {
+/* ==========================================================================
+   Board Overlays (Game Over / Pause / Daily Leaderboard)
+   ========================================================================== */
+.apple-board-overlay {
   position: absolute;
-  top: 14px;
-  right: 20px;
-  padding: 10px 22px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, #ff0844 0%, #f59e0b 50%, #e11d48 100%);
-  color: #ffffff;
-  font-size: 17px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 11, 17, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+  overflow-y: auto;
+}
+
+.apple-overlay-scroll-box {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.apple-overlay-title {
+  font-size: 26px;
   font-weight: 900;
-  letter-spacing: -0.02em;
-  box-shadow: 0 0 25px rgba(239, 68, 68, 0.7), 0 6px 20px rgba(0, 0, 0, 0.6);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(-16px) scale(0.7) rotate(-5deg);
-  transition: all 0.22s var(--ease-spring);
-  z-index: 35;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 
-.apple-combo-toast.show {
-  opacity: 1;
-  transform: translateY(0) scale(1) rotate(0deg);
-  animation: comboDopaminePulse 0.4s infinite alternate;
+.apple-overlay-sub {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  max-width: 440px;
+  margin-bottom: 14px;
+  line-height: 1.45;
 }
 
-@keyframes comboDopaminePulse {
-  0% { transform: scale(1) rotate(-1.5deg); filter: brightness(1); }
-  100% { transform: scale(1.08) rotate(1.5deg); filter: brightness(1.25); }
+.apple-rank-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  font-size: 14.5px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.45);
+  margin-bottom: 14px;
 }
 
-/* Responsive adjustments */
+.apple-rank-badge.rank-god {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
+  box-shadow: 0 0 24px rgba(236, 72, 153, 0.8), 0 0 40px rgba(139, 92, 246, 0.5);
+  animation: godBadgeShine 1.5s infinite alternate;
+}
+
+@keyframes godBadgeShine {
+  0% { transform: scale(1); filter: brightness(1); }
+  100% { transform: scale(1.05); filter: brightness(1.3); }
+}
+
+.apple-overlay-stats {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.apple-overlay-stat {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+}
+
+.apple-overlay-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.apple-overlay-stat-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--font-numeric, sans-serif);
+}
+
+/* Nickname Input & Daily Leaderboard Registration Card */
+.apple-rank-register-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.apple-rank-reg-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.apple-rank-reg-desc {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.apple-rank-reg-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.apple-nick-input {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.apple-nick-input:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+.apple-rank-reg-msg {
+  font-size: 11.5px;
+  margin-top: 6px;
+  min-height: 16px;
+}
+
+.apple-rank-reg-msg.success {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.apple-rank-reg-msg.error {
+  color: #f87171;
+}
+
+/* Today's Top 10 Leaderboard Table */
+.apple-daily-leaderboard {
+  width: 100%;
+  background: rgba(14, 19, 32, 0.85);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: left;
+}
+
+.apple-leaderboard-title {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--glass-border);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apple-leaderboard-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.apple-leaderboard-table-wrap {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.apple-leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.apple-leaderboard-table th {
+  padding: 8px 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.apple-leaderboard-table td {
+  padding: 7px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+}
+
+.apple-leaderboard-table tr:last-child td {
+  border-bottom: none;
+}
+
+.apple-leaderboard-table tr.top-1 td {
+  color: #fbbf24;
+  font-weight: 700;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.apple-leaderboard-table tr.top-2 td {
+  color: #e2e8f0;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.apple-leaderboard-table tr.top-3 td {
+  color: #f97316;
+  font-weight: 600;
+  background: rgba(249, 115, 22, 0.04);
+}
+
+.apple-leaderboard-table tr.my-rank-row td {
+  background: rgba(49, 130, 246, 0.16) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-left: 3px solid #3182f6;
+}
+
+.apple-rank-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.apple-user-pill {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #3182f6;
+  color: #ffffff;
+  margin-left: 5px;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 900px) {
+  .apple-game-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .apple-side-panel {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 12px;
+  }
+  .apple-side-card.apple-side-timer {
+    grid-column: span 2;
+  }
+  .apple-side-stats {
+    grid-column: span 2;
+  }
+  .apple-mode-toggle {
+    grid-column: span 2;
+  }
+  .apple-side-actions {
+    grid-column: span 2;
+  }
+  .apple-king-preview {
+    grid-column: span 2;
+  }
+}
+
 @media (max-width: 768px) {
-  .apple-stats-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .apple-stat-val {
-    font-size: 20px;
-  }
   .apple-board-container {
-    padding: 28px 8px 12px;
+    padding: 24px 8px 10px;
   }
   .apple-board {
     gap: 1.5px;
@@ -4239,13 +4612,15 @@ td {
   .apple-sum-badge {
     font-size: 11px;
     padding: 3px 8px;
-    top: -28px;
+    top: -26px;
   }
   .apple-combo-toast {
     font-size: 13px;
-    padding: 6px 14px;
-    top: 8px;
-    right: 10px;
+    padding: 5px 14px;
+    top: -36px;
+  }
+  .apple-timer-big {
+    font-size: 28px;
   }
 }
 

@@ -33,6 +33,12 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Favicon
+Allow: /
+
 User-agent: Yeti
 Allow: /
 

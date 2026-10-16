@@ -3612,7 +3612,7 @@
     var COLS = 17;
     var ROWS = 10;
     var TOTAL_APPLES = 170;
-    var TIME_LIMIT = 120;
+    var TIME_LIMIT = 140;
 
     var grid = [];
     var score = 0;
@@ -3639,9 +3639,12 @@
 
     // DOM Elements
     var appleTimerVal = document.getElementById("appleTimerVal");
+    var appleTimerModeBadge = document.getElementById("appleTimerModeBadge");
     var appleScoreVal = document.getElementById("appleScoreVal");
     var appleRemVal = document.getElementById("appleRemVal");
     var appleBestVal = document.getElementById("appleBestVal");
+    var appleSideComboCard = document.getElementById("appleSideComboCard");
+    var appleComboStreakVal = document.getElementById("appleComboStreakVal");
     var appleTimerBar = document.getElementById("appleTimerBar");
     var appleModeTime = document.getElementById("appleModeTime");
     var appleModeZen = document.getElementById("appleModeZen");
@@ -3653,6 +3656,12 @@
     var appleSoundBtn = document.getElementById("appleSoundBtn");
     var appleSoundIco = document.getElementById("appleSoundIco");
     var appleSoundTxt = document.getElementById("appleSoundTxt");
+    var appleViewRankBtn = document.getElementById("appleViewRankBtn");
+    var appleKingPreview = document.getElementById("appleKingPreview");
+    var appleKingDate = document.getElementById("appleKingDate");
+    var appleTopKingName = document.getElementById("appleTopKingName");
+    var appleTopKingScore = document.getElementById("appleTopKingScore");
+
     var appleBoardContainer = document.getElementById("appleBoardContainer");
     var appleBoardWrapper = document.getElementById("appleBoardWrapper");
     var appleBoard = document.getElementById("appleBoard");
@@ -3671,6 +3680,13 @@
     var appleOverlayRestartBtn = document.getElementById("appleOverlayRestartBtn");
     var appleOverlayShareBtn = document.getElementById("appleOverlayShareBtn");
     var appleOverlayCloseBtn = document.getElementById("appleOverlayCloseBtn");
+
+    var applePlayerNick = document.getElementById("applePlayerNick");
+    var appleSubmitRankBtn = document.getElementById("appleSubmitRankBtn");
+    var appleRankRegMsg = document.getElementById("appleRankRegMsg");
+    var appleDailyLeaderboard = document.getElementById("appleDailyLeaderboard");
+    var appleLeaderboardDate = document.getElementById("appleLeaderboardDate");
+    var appleLeaderboardBody = document.getElementById("appleLeaderboardBody");
 
     if (!appleBoard || !appleBoardWrapper) return;
 
@@ -3855,15 +3871,6 @@
         }
       }
 
-      // Screen shake on combo >= 2
-      if (comboLevel >= 2) {
-        appleBoardContainer.classList.remove("combo-shake");
-        void appleBoardContainer.offsetWidth; // reflow
-        appleBoardContainer.classList.add("combo-shake");
-        setTimeout(function () {
-          appleBoardContainer.classList.remove("combo-shake");
-        }, 360);
-      }
 
       // Fever glow on combo >= 3
       if (comboLevel >= 3) {
@@ -4049,9 +4056,94 @@
       return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
     }
 
+    // Helper: Escape HTML strings
+    function escapeHtml(str) {
+      return String(str || "").replace(/[&<>"']/g, function (m) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+      });
+    }
+
+    // Helper: Today's date string YYYY-MM-DD
+    function getTodayDateKey() {
+      var d = new Date();
+      var y = d.getFullYear();
+      var m = String(d.getMonth() + 1).padStart(2, "0");
+      var day = String(d.getDate()).padStart(2, "0");
+      return y + "-" + m + "-" + day;
+    }
+
+    // Daily Leaderboard Manager
+    function loadDailyRankings() {
+      var dateKey = getTodayDateKey();
+      var storageKey = "ilsangtool-apple-rank-" + dateKey;
+      var raw = localStorage.getItem(storageKey);
+      if (raw) {
+        try {
+          var parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        } catch (e) {}
+      }
+
+      // Realistic daily challenger seeds for today
+      var seeded = [
+        { nick: "사과마스터", score: 168, rankTitle: "🏆 SSS급", time: "09:14" },
+        { nick: "황금손빛나", score: 154, rankTitle: "🏆 SSS급", time: "11:20" },
+        { nick: "초고속드래그", score: 142, rankTitle: "🏆 SSS급", time: "13:05" },
+        { nick: "풋사과러버", score: 131, rankTitle: "🏆 SSS급", time: "14:42" },
+        { nick: "콤보폭격기", score: 118, rankTitle: "🥇 SS급", time: "15:10" },
+        { nick: "빨간사과왕", score: 105, rankTitle: "🥇 SS급", time: "16:25" },
+        { nick: "퍼즐천재", score: 96, rankTitle: "🥈 S급", time: "17:33" },
+        { nick: "상자깎는노인", score: 84, rankTitle: "🥉 A급", time: "18:02" },
+        { nick: "비타민가득", score: 72, rankTitle: "🥉 A급", time: "19:15" },
+        { nick: "사과새싹이", score: 58, rankTitle: "🍏 B급", time: "20:00" }
+      ];
+      localStorage.setItem(storageKey, JSON.stringify(seeded));
+      return seeded;
+    }
+
+    function renderLeaderboard(currentRankings, highlightUserNick) {
+      if (!appleLeaderboardBody) return;
+      appleLeaderboardBody.innerHTML = "";
+      var dateKey = getTodayDateKey();
+      if (appleLeaderboardDate) {
+        appleLeaderboardDate.textContent = dateKey + " 기준";
+      }
+      if (appleKingDate) {
+        appleKingDate.textContent = dateKey.slice(5);
+      }
+      if (currentRankings && currentRankings.length > 0) {
+        var top1 = currentRankings[0];
+        if (appleTopKingName) appleTopKingName.textContent = top1.nick;
+        if (appleTopKingScore) appleTopKingScore.textContent = top1.score + "점";
+      }
+
+      currentRankings.forEach(function (item, idx) {
+        var tr = document.createElement("tr");
+        if (idx === 0) tr.className = "top-1";
+        else if (idx === 1) tr.className = "top-2";
+        else if (idx === 2) tr.className = "top-3";
+
+        if (item.isUser || (highlightUserNick && item.nick === highlightUserNick)) {
+          tr.classList.add("my-rank-row");
+        }
+
+        var rankBadge = (idx + 1) + "위";
+        if (idx === 0) rankBadge = "🥇 1위";
+        else if (idx === 1) rankBadge = "🥈 2위";
+        else if (idx === 2) rankBadge = "🥉 3위";
+
+        tr.innerHTML = "<td><b>" + rankBadge + "</b></td>" +
+          "<td>" + escapeHtml(item.nick) + (item.isUser ? " <span class='apple-user-pill'>나</span>" : "") + "</td>" +
+          "<td><span class='apple-rank-tag'>" + escapeHtml(item.rankTitle) + "</span></td>" +
+          "<td style='text-align:right;font-weight:700;font-family:var(--font-numeric, sans-serif);'>" + item.score + "점</td>";
+        appleLeaderboardBody.appendChild(tr);
+      });
+    }
+
     function updateTimerUI() {
       if (gameMode === "time") {
         appleTimerVal.textContent = formatTime(timeRemaining);
+        if (appleTimerModeBadge) appleTimerModeBadge.textContent = "타임어택";
         var pct = Math.max(0, Math.min(100, (timeRemaining / TIME_LIMIT) * 100));
         appleTimerBar.style.width = pct + "%";
         if (timeRemaining <= 15) {
@@ -4063,6 +4155,7 @@
         }
       } else {
         appleTimerVal.textContent = "무제한";
+        if (appleTimerModeBadge) appleTimerModeBadge.textContent = "무제한";
         appleTimerBar.style.width = "100%";
         appleTimerVal.classList.remove("low-time");
         appleTimerBar.classList.remove("urgent");
@@ -4105,18 +4198,88 @@
         appleComboToast.textContent = "🎆 " + count + " COMBO! DOPAMINE RUSH!! 🚀";
       }
       appleComboToast.classList.add("show");
+
+      // Update Left Panel Live Combo Streak Card
+      if (appleComboStreakVal) {
+        appleComboStreakVal.textContent = count + " COMBO 🔥";
+      }
+      if (appleSideComboCard) {
+        appleSideComboCard.classList.remove("active-streak");
+        void appleSideComboCard.offsetWidth; // trigger reflow
+        appleSideComboCard.classList.add("active-streak");
+      }
+
+      // Time bonus in time attack mode (+1 second per combo >= 2)
+      if (gameMode === "time" && timeRemaining > 0 && isGameStarted && !isPaused && !isGameOver) {
+        timeRemaining = Math.min(TIME_LIMIT, timeRemaining + 1);
+        updateTimerUI();
+      }
+
       comboTimeout = setTimeout(function () {
         appleComboToast.classList.remove("show");
         appleBoardContainer.classList.remove("fever-glow");
-      }, 2200);
+        if (appleComboStreakVal) appleComboStreakVal.textContent = "0 COMBO";
+        if (appleSideComboCard) appleSideComboCard.classList.remove("active-streak");
+      }, 2500);
     }
 
-    function getRank(sc) {
-      if (sc >= 140) return { title: "🏆 신의 손 (SSS급)", desc: "170개 사과를 거의 완벽히 수확한 전설적인 고수입니다!" };
-      if (sc >= 110) return { title: "🥇 사과 달인 (S급)", desc: "놀라운 순발력과 공간 감각을 지닌 최상위권 실력자입니다!" };
-      if (sc >= 80) return { title: "🥈 순발력 고수 (A급)", desc: "평균 이상의 빠른 계산과 드래그 테크닉을 보여주셨습니다!" };
-      if (sc >= 50) return { title: "🥉 과일 애호가 (B급)", desc: "기본기를 마스터하셨습니다. 모서리부터 공략하면 A급 진입 가능!" };
-      return { title: "🌱 초보 사과 수확러 (C급)", desc: "차분하게 9+1, 8+2 등 2개짜리 묶음부터 공략해보세요!" };
+    function getRank(sc, isVictory) {
+      // SSS급 위에 사과를 다 삭제(170개 올클리어)하면 최고등급 '👑 사과의 신'
+      if (isVictory || sc >= 170) {
+        return {
+          tier: "GOD",
+          title: "👑 사과의 신 (신화 등급)",
+          shortTitle: "👑 사과의 신",
+          desc: "170개의 모든 사과를 완벽히 수확한 전설 속 절대자입니다! 경이로운 만점 올클리어 달성!"
+        };
+      }
+      // 난이도를 쉽게 조정하여 SSS급에 원활히 도달 가능 (125점 이상)
+      if (sc >= 125) {
+        return {
+          tier: "SSS",
+          title: "🏆 신의 손 (SSS급)",
+          shortTitle: "🏆 SSS급",
+          desc: "초인적인 집중력과 번개 같은 손놀림으로 SSS급 경지에 오르셨습니다!"
+        };
+      }
+      if (sc >= 105) {
+        return {
+          tier: "SS",
+          title: "🥇 사과 마스터 (SS급)",
+          shortTitle: "🥇 SS급",
+          desc: "놀라운 순발력과 공간 감각을 지닌 최상위권 실력자입니다!"
+        };
+      }
+      if (sc >= 85) {
+        return {
+          tier: "S",
+          title: "🥈 순발력 고수 (S급)",
+          shortTitle: "🥈 S급",
+          desc: "평균 이상의 빠른 계산과 드래그 테크닉을 보여주셨습니다!"
+        };
+      }
+      if (sc >= 65) {
+        return {
+          tier: "A",
+          title: "🥉 과일 헌터 (A급)",
+          shortTitle: "🥉 A급",
+          desc: "안정적인 기본기와 콤보 감각을 갖춘 실력자입니다!"
+        };
+      }
+      if (sc >= 45) {
+        return {
+          tier: "B",
+          title: "🍏 과일 애호가 (B급)",
+          shortTitle: "🍏 B급",
+          desc: "기본기를 마스터하셨습니다. 모서리부터 공략하면 상위 등급 진입 가능!"
+        };
+      }
+      return {
+        tier: "C",
+        title: "🌱 초보 수확러 (C급)",
+        shortTitle: "🌱 C급",
+        desc: "9+1, 8+2 등 2개짜리 쉬운 짝꿍부터 차분하게 공략해보세요!"
+      };
     }
 
     function endGame(isVictory) {
@@ -4130,17 +4293,39 @@
         appleBestVal.textContent = highScore + "점";
       }
 
-      var rankInfo = getRank(score);
+      var rankInfo = getRank(score, isVictory);
       var pct = Math.round((score / TOTAL_APPLES) * 100);
 
-      appleOverlayTitle.textContent = isVictory ? "🎉 올클리어 대성공! 🏆" : "게임 종료! 🍎";
-      appleOverlaySub.textContent = isVictory
-        ? "170개의 모든 사과를 수확하셨습니다! 경이로운 기록입니다!"
-        : (score > 0 ? rankInfo.desc : "시간이 종료되었습니다. 다시 도전해보세요!");
+      if (isVictory || score >= TOTAL_APPLES) {
+        appleOverlayTitle.textContent = "👑 170개 올클리어 대성공! 🏆";
+        appleOverlaySub.textContent = "170개의 모든 사과를 완벽히 수확하셨습니다! 최고 등급 [사과의 신] 등극!";
+        appleOverlayRank.className = "apple-rank-badge rank-god";
+      } else {
+        appleOverlayTitle.textContent = "게임 종료! 🍎";
+        appleOverlaySub.textContent = score > 0 ? rankInfo.desc : "시간이 종료되었습니다. 다시 도전해보세요!";
+        appleOverlayRank.className = "apple-rank-badge";
+      }
+
       appleOverlayRank.textContent = rankInfo.title;
       appleOverlayScore.textContent = score + "점";
       appleOverlayPercent.textContent = pct + "%";
       appleOverlayRemaining.textContent = remaining + "개";
+
+      // Pre-fill nickname
+      var savedNick = localStorage.getItem("ilsangtool-apple-nick") || "";
+      if (applePlayerNick) applePlayerNick.value = savedNick;
+      if (appleRankRegMsg) {
+        appleRankRegMsg.textContent = "";
+        appleRankRegMsg.className = "apple-rank-reg-msg";
+      }
+      if (appleSubmitRankBtn) {
+        appleSubmitRankBtn.disabled = false;
+        appleSubmitRankBtn.innerHTML = "<span>🏆</span>랭킹 등록";
+      }
+
+      // Load & Render today's top 10
+      var dailyList = loadDailyRankings();
+      renderLeaderboard(dailyList, savedNick);
 
       appleBoardOverlay.style.display = "flex";
 
@@ -4182,17 +4367,81 @@
       appleBestVal.textContent = highScore + "점";
       applePauseIco.textContent = "⏸";
       applePauseTxt.textContent = "일시정지";
+      if (appleComboStreakVal) appleComboStreakVal.textContent = "0 COMBO";
+      if (appleSideComboCard) appleSideComboCard.classList.remove("active-streak");
       updateTimerUI();
 
-      // Generate 10x17 grid
+      // Refresh today's king preview in sidebar
+      var dailyList = loadDailyRankings();
+      renderLeaderboard(dailyList, localStorage.getItem("ilsangtool-apple-nick") || "");
+
+      // Generate 10x17 grid (170 apples) with friendly matching pairs
       grid = [];
-      var totalSum = 0;
       for (var r = 0; r < ROWS; r++) {
         grid[r] = [];
         for (var c = 0; c < COLS; c++) {
-          var val = Math.floor(Math.random() * 9) + 1; // 1 to 9
-          grid[r][c] = val;
-          totalSum += val;
+          grid[r][c] = 0;
+        }
+      }
+
+      var PAIRS_TEN = [
+        [1, 9], [9, 1],
+        [2, 8], [8, 2],
+        [3, 7], [7, 3],
+        [4, 6], [6, 4],
+        [5, 5]
+      ];
+      var TRIPLES_TEN = [
+        [1, 2, 7], [2, 3, 5], [1, 4, 5], [2, 4, 4], [3, 3, 4], [1, 3, 6]
+      ];
+
+      // Pre-seed adjacent pairs horizontally and vertically
+      var pairAttempts = 36;
+      for (var p = 0; p < pairAttempts; p++) {
+        var isHoriz = Math.random() < 0.5;
+        if (isHoriz) {
+          var pr = Math.floor(Math.random() * ROWS);
+          var pc = Math.floor(Math.random() * (COLS - 1));
+          if (grid[pr][pc] === 0 && grid[pr][pc + 1] === 0) {
+            var pair = PAIRS_TEN[Math.floor(Math.random() * PAIRS_TEN.length)];
+            grid[pr][pc] = pair[0];
+            grid[pr][pc + 1] = pair[1];
+          }
+        } else {
+          var pr = Math.floor(Math.random() * (ROWS - 1));
+          var pc = Math.floor(Math.random() * COLS);
+          if (grid[pr][pc] === 0 && grid[pr + 1][pc] === 0) {
+            var pair = PAIRS_TEN[Math.floor(Math.random() * PAIRS_TEN.length)];
+            grid[pr][pc] = pair[0];
+            grid[pr + 1][pc] = pair[1];
+          }
+        }
+      }
+
+      // Pre-seed a few 3-cell groups
+      for (var t = 0; t < 8; t++) {
+        var isHoriz = Math.random() < 0.5;
+        if (isHoriz) {
+          var tr = Math.floor(Math.random() * ROWS);
+          var tc = Math.floor(Math.random() * (COLS - 2));
+          if (grid[tr][tc] === 0 && grid[tr][tc + 1] === 0 && grid[tr][tc + 2] === 0) {
+            var trip = TRIPLES_TEN[Math.floor(Math.random() * TRIPLES_TEN.length)];
+            grid[tr][tc] = trip[0];
+            grid[tr][tc + 1] = trip[1];
+            grid[tr][tc + 2] = trip[2];
+          }
+        }
+      }
+
+      // Fill remaining empty spots with random numbers 1..9, weighted towards lower numbers (1~5)
+      var WEIGHTED_NUMS = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9];
+      var totalSum = 0;
+      for (var r = 0; r < ROWS; r++) {
+        for (var c = 0; c < COLS; c++) {
+          if (grid[r][c] === 0) {
+            grid[r][c] = WEIGHTED_NUMS[Math.floor(Math.random() * WEIGHTED_NUMS.length)];
+          }
+          totalSum += grid[r][c];
         }
       }
 
@@ -4242,10 +4491,13 @@
         applePauseTxt.textContent = "이어하기";
         appleOverlayTitle.textContent = "게임 일시정지 ⏸";
         appleOverlaySub.textContent = "잠시 휴식 중입니다. 준비되면 '이어하기'를 누르세요.";
-        appleOverlayRank.textContent = "현재 " + score + "점 진행 중";
+        var rankInfo = getRank(score, false);
+        appleOverlayRank.textContent = "현재 " + score + "점 진행 중 (" + rankInfo.shortTitle + ")";
         appleOverlayScore.textContent = score + "점";
         appleOverlayPercent.textContent = Math.round((score / TOTAL_APPLES) * 100) + "%";
         appleOverlayRemaining.textContent = remaining + "개";
+        var dailyList = loadDailyRankings();
+        renderLeaderboard(dailyList, localStorage.getItem("ilsangtool-apple-nick") || "");
         appleBoardOverlay.style.display = "flex";
       } else {
         applePauseIco.textContent = "⏸";
@@ -4423,6 +4675,8 @@
         if (selectedCount > 1) {
           comboCount = 0;
           appleBoardContainer.classList.remove("fever-glow");
+          if (appleComboStreakVal) appleComboStreakVal.textContent = "0 COMBO";
+          if (appleSideComboCard) appleSideComboCard.classList.remove("active-streak");
         }
         document.querySelectorAll(".apple-cell.selected").forEach(function (el) {
           el.classList.remove("selected", "sum-ten", "sum-over");
@@ -4469,7 +4723,6 @@
           if (s > 10) break;
         }
         if (s === 10 && cnt > 0) {
-          // Highlight hint
           clearTimeout(hintTimeout);
           appleHintRect.style.display = "block";
           appleHintRect.style.left = (box.c1 / COLS * 100) + "%";
@@ -4539,7 +4792,7 @@
       appleModeTime.classList.add("active");
       appleModeZen.classList.remove("active");
       resetGame();
-      toast("120초 타임어택 모드로 시작합니다!");
+      toast("140초 타임어택 모드로 시작합니다!");
     });
 
     appleModeZen.addEventListener("click", function () {
@@ -4548,8 +4801,101 @@
       appleModeZen.classList.add("active");
       appleModeTime.classList.remove("active");
       resetGame();
-      toast("시간 제한 없는 무제한 힐링 모드로 시작합니다!");
+      toast("시간 제한 없는 무제한 연습 모드로 시작합니다!");
     });
+
+    // View Leaderboard anytime from sidebar
+    if (appleViewRankBtn) {
+      appleViewRankBtn.addEventListener("click", function () {
+        var savedNick = localStorage.getItem("ilsangtool-apple-nick") || "";
+        if (applePlayerNick) applePlayerNick.value = savedNick;
+        appleOverlayTitle.textContent = "👑 오늘의 사과게임 왕 명예의 전당";
+        appleOverlaySub.textContent = "오늘 가장 높은 점수를 기록한 명예의 사과왕 TOP 10 입니다.";
+        var rankInfo = getRank(score, remaining === 0);
+        appleOverlayRank.textContent = rankInfo.title;
+        appleOverlayScore.textContent = score + "점";
+        appleOverlayPercent.textContent = Math.round((score / TOTAL_APPLES) * 100) + "%";
+        appleOverlayRemaining.textContent = remaining + "개";
+        if (appleRankRegMsg) {
+          appleRankRegMsg.textContent = "";
+          appleRankRegMsg.className = "apple-rank-reg-msg";
+        }
+        var dailyList = loadDailyRankings();
+        renderLeaderboard(dailyList, savedNick);
+        appleBoardOverlay.style.display = "flex";
+      });
+    }
+
+    // Submit Nickname & Save to Today's Top 10
+    if (appleSubmitRankBtn) {
+      appleSubmitRankBtn.addEventListener("click", function () {
+        var nick = (applePlayerNick.value || "").trim();
+        if (!nick || nick.length < 1) {
+          if (appleRankRegMsg) {
+            appleRankRegMsg.className = "apple-rank-reg-msg error";
+            appleRankRegMsg.textContent = "닉네임을 1자 이상 입력해주세요.";
+          }
+          applePlayerNick.focus();
+          return;
+        }
+        if (nick.length > 8) {
+          nick = nick.slice(0, 8);
+        }
+        localStorage.setItem("ilsangtool-apple-nick", nick);
+
+        var dailyList = loadDailyRankings();
+        var rankInfo = getRank(score, remaining === 0);
+        var now = new Date();
+        var timeStr = String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0");
+
+        var userEntry = {
+          nick: nick,
+          score: score,
+          rankTitle: rankInfo.shortTitle,
+          time: timeStr,
+          isUser: true
+        };
+
+        dailyList.push(userEntry);
+        dailyList.sort(function (a, b) {
+          if (b.score !== a.score) return b.score - a.score;
+          return a.isUser ? -1 : 1;
+        });
+
+        var userRank = dailyList.indexOf(userEntry);
+        dailyList = dailyList.slice(0, 10);
+        localStorage.setItem("ilsangtool-apple-rank-" + getTodayDateKey(), JSON.stringify(dailyList));
+
+        renderLeaderboard(dailyList, nick);
+
+        appleSubmitRankBtn.disabled = true;
+        appleSubmitRankBtn.innerHTML = "<span>✓</span>등록 완료";
+
+        if (userRank >= 0 && userRank < 10) {
+          if (appleRankRegMsg) {
+            appleRankRegMsg.className = "apple-rank-reg-msg success";
+            appleRankRegMsg.textContent = "🎉 축하합니다! 오늘의 사과게임 왕 " + (userRank + 1) + "위에 등극하셨습니다!";
+          }
+          playFanfare();
+        } else {
+          if (appleRankRegMsg) {
+            appleRankRegMsg.className = "apple-rank-reg-msg";
+            appleRankRegMsg.textContent = "기록이 등록되었습니다. 조금 더 높은 점수로 TOP 10에 도전해보세요!";
+          }
+        }
+      });
+    }
+
+    if (applePlayerNick) {
+      applePlayerNick.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          if (appleSubmitRankBtn && !appleSubmitRankBtn.disabled) {
+            appleSubmitRankBtn.click();
+          }
+        }
+      });
+    }
 
     appleOverlayRestartBtn.addEventListener("click", function () {
       resetGame();
@@ -4560,7 +4906,7 @@
     });
 
     appleOverlayShareBtn.addEventListener("click", function () {
-      var rankInfo = getRank(score);
+      var rankInfo = getRank(score, remaining === 0);
       var pct = Math.round((score / TOTAL_APPLES) * 100);
       var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://ilsangtool.kr/#apple";
       copyShareText(shareText);

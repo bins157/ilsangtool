@@ -47,14 +47,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/style.css?v=42">
+  <link rel="stylesheet" href="css/style.css?v=43">
 
   <!-- Google Search Favicon & Apple Touch Icon -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
 
   <!-- Google AdSense Official Script (Verification & Ad Serving) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827"
@@ -1942,111 +1943,186 @@
 
       <section id="apple" class="view hidden" data-title="사과게임">
         <div class="apple-container">
-          <div class="card panel feedback-panel">
+          <div class="card panel feedback-panel apple-intro-panel">
             <div class="feedback-header">
               <span class="badge-dot" aria-hidden="true" style="background:#ef4444;box-shadow:0 0 8px #ef4444;"></span>
               <span>온라인 사과게임 · 과일박스 퍼즐 (Fruit Box Game)</span>
+              <span class="apple-intro-subtag">합이 10이 되는 상자를 드래그하세요!</span>
             </div>
-            <p class="desc">
-              마우스나 손가락으로 드래그하여 <b>직사각형 영역 안의 사과 숫자 합이 정확히 10</b>이 되도록 상자를 만드세요!
-              이미 없앤 빈 공간은 0으로 취급되어 가로질러 선택할 수 있습니다. 120초 동안 170개의 사과를 최대한 많이 수확해보세요! 🍎
+            <p class="desc apple-intro-desc">
+              마우스나 손가락으로 드래그하여 <b>직사각형 영역 안의 사과 숫자 합이 정확히 10</b>이 되도록 수확하세요!
+              빈 공간은 0으로 취급되어 가로질러 선택할 수 있습니다. 170개 사과를 모두 제거하면 최고 등급 <b>👑 사과의 신 (신화 등급)</b> 달성! 🍎
             </p>
           </div>
 
-          <!-- Header & Stats Panel -->
-          <div class="apple-header-panel">
-            <div class="apple-stats-row">
-              <div class="apple-stat-card accent-time">
-                <span class="apple-stat-label">⏱ 남은 시간</span>
-                <span class="apple-stat-val" id="appleTimerVal">02:00</span>
+          <!-- Main Game Area: Left Control Panel + Right Board -->
+          <div class="apple-game-layout">
+            <!-- Left Side Control & Stats Panel -->
+            <aside class="apple-side-panel">
+              <!-- Timer Section -->
+              <div class="apple-side-card apple-side-timer">
+                <div class="apple-side-card-header">
+                  <span class="apple-side-label">⏱ 남은 시간</span>
+                  <span class="apple-time-badge" id="appleTimerModeBadge">타임어택</span>
+                </div>
+                <div class="apple-timer-big" id="appleTimerVal">02:20</div>
+                <div class="apple-timer-bar-wrap">
+                  <div class="apple-timer-bar" id="appleTimerBar" style="width: 100%;"></div>
+                </div>
               </div>
-              <div class="apple-stat-card accent-score">
-                <span class="apple-stat-label">🍎 현재 점수</span>
-                <span class="apple-stat-val" id="appleScoreVal">0점</span>
-              </div>
-              <div class="apple-stat-card accent-rem">
-                <span class="apple-stat-label">🎯 남은 사과</span>
-                <span class="apple-stat-val" id="appleRemVal">170개</span>
-              </div>
-              <div class="apple-stat-card accent-best">
-                <span class="apple-stat-label">🏆 최고 기록</span>
-                <span class="apple-stat-val" id="appleBestVal">0점</span>
-              </div>
-            </div>
 
-            <!-- Timer Bar -->
-            <div class="apple-timer-bar-wrap">
-              <div class="apple-timer-bar" id="appleTimerBar" style="width: 100%;"></div>
-            </div>
+              <!-- Stats Grid -->
+              <div class="apple-side-stats">
+                <div class="apple-side-stat accent-score">
+                  <span class="apple-side-stat-lbl">🍎 현재 점수</span>
+                  <span class="apple-side-stat-num" id="appleScoreVal">0점</span>
+                </div>
+                <div class="apple-side-stat accent-rem">
+                  <span class="apple-side-stat-lbl">🎯 남은 사과</span>
+                  <span class="apple-side-stat-num" id="appleRemVal">170개</span>
+                </div>
+                <div class="apple-side-stat accent-best">
+                  <span class="apple-side-stat-lbl">🏆 최고 기록</span>
+                  <span class="apple-side-stat-num" id="appleBestVal">0점</span>
+                </div>
+                <div class="apple-side-stat accent-combo" id="appleSideComboCard">
+                  <span class="apple-side-stat-lbl">🔥 콤보 스트릭</span>
+                  <span class="apple-side-stat-num" id="appleComboStreakVal">0 COMBO</span>
+                </div>
+              </div>
 
-            <!-- Actions Bar -->
-            <div class="apple-actions-bar">
+              <!-- Mode Toggle -->
               <div class="apple-mode-toggle" role="group" aria-label="게임 모드">
-                <button type="button" class="apple-mode-btn active" id="appleModeTime">⏱ 120초 타임어택</button>
+                <button type="button" class="apple-mode-btn active" id="appleModeTime">⏱ 140초 타임어택</button>
                 <button type="button" class="apple-mode-btn" id="appleModeZen">♾ 무제한 연습</button>
               </div>
 
-              <div class="apple-btn-group">
+              <!-- Action Buttons -->
+              <div class="apple-side-actions">
                 <button type="button" class="apple-btn btn-restart" id="appleRestartBtn" title="새 게임 시작">
-                  <span>🔄</span>새 게임
+                  <span>🔄</span>새 게임 시작
                 </button>
-                <button type="button" class="apple-btn" id="applePauseBtn" title="일시정지">
-                  <span id="applePauseIco">⏸</span><span id="applePauseTxt">일시정지</span>
-                </button>
-                <button type="button" class="apple-btn btn-hint" id="appleHintBtn" title="합이 10이 되는 상자 찾기">
-                  <span>💡</span>힌트 찾기
-                </button>
-                <button type="button" class="apple-btn" id="appleSoundBtn" title="효과음 ON/OFF">
-                  <span id="appleSoundIco">🔊</span><span id="appleSoundTxt">소리 켜짐</span>
-                </button>
+                <div class="apple-side-btn-row">
+                  <button type="button" class="apple-btn" id="applePauseBtn" title="일시정지">
+                    <span id="applePauseIco">⏸</span><span id="applePauseTxt">일시정지</span>
+                  </button>
+                  <button type="button" class="apple-btn btn-hint" id="appleHintBtn" title="합이 10이 되는 상자 찾기">
+                    <span>💡</span>힌트 찾기
+                  </button>
+                </div>
+                <div class="apple-side-btn-row">
+                  <button type="button" class="apple-btn" id="appleSoundBtn" title="효과음 ON/OFF">
+                    <span id="appleSoundIco">🔊</span><span id="appleSoundTxt">소리 켜짐</span>
+                  </button>
+                  <button type="button" class="apple-btn btn-rank-view" id="appleViewRankBtn" title="오늘의 사과게임 왕 랭킹 보기">
+                    <span>👑</span>오늘의 왕 (TOP 10)
+                  </button>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Board Container -->
-          <div class="apple-board-container" id="appleBoardContainer">
-            <div class="apple-combo-toast" id="appleComboToast">2 Combo! 🔥</div>
-            <div class="apple-board-wrapper" id="appleBoardWrapper">
-              <div class="apple-board" id="appleBoard" aria-label="사과게임 17x10 보드"></div>
-              <div class="apple-drag-rect" id="appleDragRect">
-                <div class="apple-sum-badge" id="appleSumBadge">합: 0</div>
+              <!-- Today's King Preview -->
+              <div class="apple-king-preview" id="appleKingPreview">
+                <div class="apple-king-preview-header">
+                  <span>👑 오늘의 사과게임 1위 왕</span>
+                  <span class="apple-king-preview-date" id="appleKingDate">오늘</span>
+                </div>
+                <div class="apple-king-preview-body">
+                  <span class="apple-king-name" id="appleTopKingName">사과마스터</span>
+                  <span class="apple-king-score" id="appleTopKingScore">168점</span>
+                </div>
               </div>
-              <div class="apple-hint-rect" id="appleHintRect"></div>
-              <canvas id="appleFireworkCanvas" class="apple-firework-canvas"></canvas>
-            </div>
+            </aside>
 
-            <!-- Game Over / Pause Overlay -->
-            <div class="apple-board-overlay" id="appleBoardOverlay" style="display: none;">
-              <h3 class="apple-overlay-title" id="appleOverlayTitle">게임 종료! 🍎</h3>
-              <p class="apple-overlay-sub" id="appleOverlaySub">수고하셨습니다! 결과를 확인해보세요.</p>
-              <div class="apple-rank-badge" id="appleOverlayRank">🥇 사과 달인 (S급)</div>
-              <div class="apple-overlay-stats">
-                <div class="apple-overlay-stat">
-                  <div class="apple-overlay-stat-label">최종 수확 점수</div>
-                  <div class="apple-overlay-stat-val" id="appleOverlayScore">0점</div>
+            <!-- Right Board Column -->
+            <div class="apple-board-column">
+              <div class="apple-board-container" id="appleBoardContainer">
+                <!-- Combo Toast: Centered above board outside numbers -->
+                <div class="apple-combo-toast" id="appleComboToast">2 Combo! 🔥</div>
+                <div class="apple-board-wrapper" id="appleBoardWrapper">
+                  <div class="apple-board" id="appleBoard" aria-label="사과게임 17x10 보드"></div>
+                  <div class="apple-drag-rect" id="appleDragRect">
+                    <div class="apple-sum-badge" id="appleSumBadge">합: 0</div>
+                  </div>
+                  <div class="apple-hint-rect" id="appleHintRect"></div>
+                  <canvas id="appleFireworkCanvas" class="apple-firework-canvas"></canvas>
                 </div>
-                <div class="apple-overlay-stat">
-                  <div class="apple-overlay-stat-label">사과 제거율</div>
-                  <div class="apple-overlay-stat-val" id="appleOverlayPercent">0%</div>
+
+                <!-- Game Over / Pause / Leaderboard Overlay -->
+                <div class="apple-board-overlay" id="appleBoardOverlay" style="display: none;">
+                  <div class="apple-overlay-scroll-box">
+                    <h3 class="apple-overlay-title" id="appleOverlayTitle">게임 종료! 🍎</h3>
+                    <p class="apple-overlay-sub" id="appleOverlaySub">수고하셨습니다! 결과를 확인해보세요.</p>
+                    <div class="apple-rank-badge" id="appleOverlayRank">🥇 사과 마스터 (SS급)</div>
+                    <div class="apple-overlay-stats">
+                      <div class="apple-overlay-stat">
+                        <div class="apple-overlay-stat-label">최종 수확 점수</div>
+                        <div class="apple-overlay-stat-val" id="appleOverlayScore">0점</div>
+                      </div>
+                      <div class="apple-overlay-stat">
+                        <div class="apple-overlay-stat-label">사과 제거율</div>
+                        <div class="apple-overlay-stat-val" id="appleOverlayPercent">0%</div>
+                      </div>
+                      <div class="apple-overlay-stat">
+                        <div class="apple-overlay-stat-label">남은 사과</div>
+                        <div class="apple-overlay-stat-val" id="appleOverlayRemaining">170개</div>
+                      </div>
+                    </div>
+
+                    <!-- Nickname Input & Daily Leaderboard Registration Card -->
+                    <div class="apple-rank-register-card" id="appleRankRegisterCard">
+                      <div class="apple-rank-reg-header">
+                        <span>👑 오늘의 사과게임 왕 (TOP 10) 명예의 전당</span>
+                      </div>
+                      <p class="apple-rank-reg-desc">닉네임을 입력하고 오늘 1위~10위 랭킹에 내 기록을 등록하세요!</p>
+                      <div class="apple-rank-reg-form">
+                        <input type="text" id="applePlayerNick" class="apple-nick-input" placeholder="닉네임 입력 (2~8자)"
+                          maxlength="8" autocomplete="off" />
+                        <button type="button" class="apple-btn btn-restart" id="appleSubmitRankBtn">
+                          <span>🏆</span>랭킹 등록
+                        </button>
+                      </div>
+                      <div class="apple-rank-reg-msg" id="appleRankRegMsg"></div>
+                    </div>
+
+                    <!-- Today's Top 10 Leaderboard Table -->
+                    <div class="apple-daily-leaderboard" id="appleDailyLeaderboard">
+                      <div class="apple-leaderboard-title">
+                        <span>👑 오늘의 사과게임 왕 TOP 10</span>
+                        <span class="apple-leaderboard-date" id="appleLeaderboardDate"></span>
+                      </div>
+                      <div class="apple-leaderboard-table-wrap">
+                        <table class="apple-leaderboard-table">
+                          <thead>
+                            <tr>
+                              <th style="width:50px;">순위</th>
+                              <th>닉네임</th>
+                              <th>획득 등급</th>
+                              <th style="text-align:right;">점수</th>
+                            </tr>
+                          </thead>
+                          <tbody id="appleLeaderboardBody">
+                            <!-- Populated dynamically via JS -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="apple-btn-group" style="justify-content:center;margin-top:16px;">
+                      <button type="button" class="apple-btn btn-restart" id="appleOverlayRestartBtn"
+                        style="padding:10px 20px;font-size:14px;">
+                        <span>🔄</span>다시 도전하기
+                      </button>
+                      <button type="button" class="apple-btn" id="appleOverlayShareBtn"
+                        style="padding:10px 20px;font-size:14px;">
+                        <span>📋</span>결과 복사하기
+                      </button>
+                      <button type="button" class="apple-btn" id="appleOverlayCloseBtn"
+                        style="padding:10px 16px;font-size:14px;">
+                        닫기
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div class="apple-overlay-stat">
-                  <div class="apple-overlay-stat-label">남은 사과</div>
-                  <div class="apple-overlay-stat-val" id="appleOverlayRemaining">170개</div>
-                </div>
-              </div>
-              <div class="apple-btn-group" style="justify-content:center;">
-                <button type="button" class="apple-btn btn-restart" id="appleOverlayRestartBtn"
-                  style="padding:10px 20px;font-size:14px;">
-                  <span>🔄</span>다시 도전하기
-                </button>
-                <button type="button" class="apple-btn" id="appleOverlayShareBtn"
-                  style="padding:10px 20px;font-size:14px;">
-                  <span>📋</span>결과 복사하기
-                </button>
-                <button type="button" class="apple-btn" id="appleOverlayCloseBtn"
-                  style="padding:10px 16px;font-size:14px;">
-                  닫기
-                </button>
               </div>
             </div>
           </div>
@@ -2535,7 +2611,7 @@
   <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="js/daily.js?v=45"></script>
+  <script src="js/daily.js?v=46"></script>
 </body>
 
 </html>
