@@ -32,7 +32,6 @@
     { id: "apple", name: "사과게임", ico: "🍎", blurb: "합이 10이 되는 사과를 드래그!", title: "사과게임 (과일박스 게임) - 합이 10이 되는 상자 만들기 - 일상툴", desc: "인기 웹 두뇌 퍼즐 사과게임(Fruit Box Game). 17x10 격자에서 직사각형으로 드래그하여 합이 10이 되는 사과들을 수확하세요! 120초 타임어택과 무제한 연습 모드, 힌트 기능, 최고 기록 저장 지원." },
     { id: "omok", name: "오목게임", ico: "⚪⚫", blurb: "2인 대전 & 스마트 AI · 렌주룰", title: "오목게임 (Gomoku) - 2인 대전 & 스마트 AI 대국, 렌주룰 바둑판 - 일상툴", desc: "웹에서 바로 즐기는 정통 15x15 오목게임(Gomoku). 친구와 한 화면에서 두는 2인 맞대국 및 3단계 난이도 스마트 AI 대전, 정통 렌주룰(3-3 금수 판정)과 자유룰, 실감나는 착수음과 비자나무/사이버 다크 테마, 한 수 무르기와 AI 추천수 힌트를 제공합니다." },
     { id: "paint", name: "그림판", ico: "🎨", blurb: "윈도우 스타일 그림판 · 에셋 보드 · 공유", title: "그림판 - 윈도우 스타일 웹 그림판, 복사 에셋 보드, 텍스트 입력, 이미지 다운로드 & 공유 - 일상툴", desc: "윈도우 기본 그림판 스타일의 무료 온라인 그림판 도구. 연필, 브러시, 지우개, 도형, 페인트통, 텍스트 도구 지원. 복사한 이미지 자료(Ctrl+V)를 즉시 보관하는 우측 에셋 보드와 캔버스 스탬프 기능, 고화질 이미지 다운로드 및 원클릭 공유 기능을 제공합니다." },
-    { id: "hair", name: "헤어스타일", ico: "💇", blurb: "AI 얼굴형 진단 & 맞춤 헤어 추천", title: "AI 얼굴형 헤어스타일 추천기 - 내 얼굴에 어울리는 머리 찾기 - 일상툴", desc: "얼굴 사진을 찍거나 업로드하면 6가지 얼굴형을 AI로 분석하여 가장 잘 어울리는 여성·남성 헤어스타일, 앞머리, 가르마, 미용실 주문 멘트를 추천합니다." },
     { id: "board", name: "도구 요청", ico: "글", blurb: "만들고 싶은 도구를 남기세요", title: "도구 요청 게시판 - 일상툴", desc: "만들고 싶은 계산기나 웹 도구를 요청하는 게시판입니다." }
   ];
 
@@ -140,8 +139,6 @@
     if (id === "omok" && window.onShowOmokGame) window.onShowOmokGame();
     else if (id !== "omok" && window.onHideOmokGame) window.onHideOmokGame();
     if (id === "paint" && window.onShowPaintTool) window.onShowPaintTool();
-    if (id === "hair" && window.hairAppInstance) window.hairAppInstance.init();
-    else if (id !== "hair" && window.hairAppInstance) window.hairAppInstance.stopCamera();
     window.scrollTo({ top: 0, behavior: "smooth" });
     closeDrawer();
     setTimeout(function () {
@@ -158,16 +155,6 @@
     quickMoreBtn.addEventListener("click", openDrawer);
   }
 
-  var homeHairBanner = document.getElementById("homeHairBanner");
-  if (homeHairBanner) {
-    homeHairBanner.addEventListener("click", function () { show("hair"); });
-    homeHairBanner.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        show("hair");
-      }
-    });
-  }
 
   document.querySelectorAll(".tool-card[data-tool]").forEach(function (card) {
     card.addEventListener("click", function () { show(card.getAttribute("data-tool")); });
