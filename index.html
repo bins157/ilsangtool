@@ -61,146 +61,477 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827"
     crossorigin="anonymous"></script>
 
+  
+  <script id="seo-early-query-sync">
+    (function() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var qTool = params.get('tool');
+        if (qTool && !window.location.hash) {
+          window.history.replaceState(null, '', window.location.pathname + '?tool=' + encodeURIComponent(qTool) + '#' + encodeURIComponent(qTool));
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <script src="js/config.js"></script>
 
   <!-- Schema.org Rich Structured Data (JSON-LD) for SEO & GEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://ilsangtool.kr/#website",
-        "name": "일상툴",
-        "alternateName": "IlsangTool",
-        "url": "https://ilsangtool.kr/",
-        "inLanguage": "ko-KR",
-        "description": "공학용계산기, 단위변환, PDF변환, 환갑칠순, 온라인 메모장, BMI, 환율, 연봉 실수령 등 일상 생활 웹 도구 30가지",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://ilsangtool.kr/#{search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "Organization",
-        "name": "일상툴",
-        "url": "https://ilsangtool.kr/"
-      },
-      {
-        "@type": "WebApplication",
-        "@id": "https://ilsangtool.kr/#webapp",
-        "name": "일상툴 (IlsangTool)",
-        "url": "https://ilsangtool.kr/",
-        "applicationCategory": "UtilityApplication",
-        "operatingSystem": "All",
-        "inLanguage": "ko-KR",
-        "description": "30가지 한국어 일상 계산·변환·편의 도구 모음. 클라이언트 로컬 연산으로 안전하고 빠릅니다.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "KRW"
-        },
-        "featureList": [
-          "공학용 계산기", "단위 변환기", "BMI 계산기", "환율 환산기", "연봉 실수령액 계산기",
-          "연말정산·주휴·실업급여 계산기", "부가세 계산기", "더치페이 계산기", "칼로리 계산기",
-          "온라인 메모장 (줄노트·모눈종이·포스트잇)", "QR코드 생성기", "글자수 세기", "만나이 계산기",
-          "환갑·칠순·팔순 계산기", "디데이 계산기", "대출이자 계산기", "복리이자 계산기",
-          "퍼센트 할인 계산기", "비밀번호 생성기", "알람 타이머", "세계 시계", "컬러 피커",
-          "임신 주수 계산기", "스톱워치", "날짜 계산기", "우편번호 검색", "영문 주소 변환기", "PDF 변환기", "도구 요청"
-        ]
-      },
-      {
-        "@type": "ItemList",
-        "name": "일상 웹 도구 30가지 전체 목록",
-        "itemListElement": [
-          {"@type":"ListItem","position":1,"name":"공학용계산기","url":"https://ilsangtool.kr/#calc"},
-          {"@type":"ListItem","position":2,"name":"단위 변환","url":"https://ilsangtool.kr/#unit"},
-          {"@type":"ListItem","position":3,"name":"BMI 계산기","url":"https://ilsangtool.kr/#bmi"},
-          {"@type":"ListItem","position":4,"name":"환율 환산","url":"https://ilsangtool.kr/#fx"},
-          {"@type":"ListItem","position":5,"name":"연봉 실수령 계산기","url":"https://ilsangtool.kr/#salary"},
-          {"@type":"ListItem","position":6,"name":"연말정산·세금 계산기","url":"https://ilsangtool.kr/#tax"},
-          {"@type":"ListItem","position":7,"name":"부가세 계산기","url":"https://ilsangtool.kr/#vat"},
-          {"@type":"ListItem","position":8,"name":"더치페이 계산기","url":"https://ilsangtool.kr/#split"},
-          {"@type":"ListItem","position":9,"name":"칼로리 계산기","url":"https://ilsangtool.kr/#calorie"},
-          {"@type":"ListItem","position":10,"name":"온라인 메모장","url":"https://ilsangtool.kr/#notepad"},
-          {"@type":"ListItem","position":11,"name":"QR코드 생성","url":"https://ilsangtool.kr/#qr"},
-          {"@type":"ListItem","position":12,"name":"글자수 세기","url":"https://ilsangtool.kr/#counter"},
-          {"@type":"ListItem","position":13,"name":"나이 계산기","url":"https://ilsangtool.kr/#age"},
-          {"@type":"ListItem","position":14,"name":"환갑·칠순·팔순 계산기","url":"https://ilsangtool.kr/#hwangap"},
-          {"@type":"ListItem","position":15,"name":"디데이","url":"https://ilsangtool.kr/#dday"},
-          {"@type":"ListItem","position":16,"name":"대출 이자 계산기","url":"https://ilsangtool.kr/#loan"},
-          {"@type":"ListItem","position":17,"name":"복리이자 계산기","url":"https://ilsangtool.kr/#compound"},
-          {"@type":"ListItem","position":18,"name":"퍼센트 할인 계산","url":"https://ilsangtool.kr/#percent"},
-          {"@type":"ListItem","position":19,"name":"비밀번호 생성기","url":"https://ilsangtool.kr/#password"},
-          {"@type":"ListItem","position":20,"name":"알람 타이머","url":"https://ilsangtool.kr/#alarm"},
-          {"@type":"ListItem","position":21,"name":"세계 시계","url":"https://ilsangtool.kr/#worldclock"},
-          {"@type":"ListItem","position":22,"name":"컬러 피커","url":"https://ilsangtool.kr/#color"},
-          {"@type":"ListItem","position":23,"name":"임신 주수 계산기","url":"https://ilsangtool.kr/#preg"},
-          {"@type":"ListItem","position":24,"name":"스톱워치","url":"https://ilsangtool.kr/#stopwatch"},
-          {"@type":"ListItem","position":25,"name":"날짜 계산기","url":"https://ilsangtool.kr/#datecalc"},
-          {"@type":"ListItem","position":26,"name":"우편번호 검색","url":"https://ilsangtool.kr/#postcode"},
-          {"@type":"ListItem","position":27,"name":"영문 주소 변환","url":"https://ilsangtool.kr/#enaddr"},
-          {"@type":"ListItem","position":28,"name":"PDF 변환기","url":"https://ilsangtool.kr/#pdf"},
-          {"@type":"ListItem","position":29,"name":"도구 요청","url":"https://ilsangtool.kr/#board"}
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "환갑, 칠순, 팔순은 몇 살에 하고 계산 기준이 어떻게 되나요?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "환갑(회갑)은 만 60세(세는나이 61세) 생일에 치릅니다. 반면 칠순(고희)과 팔순(산수)은 한국 전통 관습에 따라 세는나이(한국 나이) 70세, 80세(만으로는 69세, 79세가 되는 해)에 잔치를 하고 기념합니다. 일상툴 환갑칠순 계산기에 생년월일을 넣으면 연도와 남은 날짜를 바로 확인할 수 있습니다."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "온라인 메모장은 내용이 안전하게 저장되나요? 외부 공유는 어떻게 하나요?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "일상툴 온라인 메모장은 사용자의 브라우저 로컬 저장소(localStorage)에 실시간으로 자동 저장되므로 서버로 메모 내용이 전송되지 않아 안전합니다. 줄노트, 모눈종이, 포스트잇 3가지 테마를 제공하며, 상단 '공유' 버튼을 누르면 메모 내용이 포함된 URL 링크가 생성되어 다른 사람에게 전달할 수 있습니다."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "일상툴은 무료인가요? 개인정보가 서버로 전송되나요?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "일상툴의 29가지 모든 웹 도구는 회원가입이나 로그인 없이 100% 무료로 사용할 수 있습니다. 모든 연산과 데이터 처리는 사용자 기기의 웹 브라우저 안에서만 실행되므로 개인정보가 외부 서버로 전송되지 않습니다."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "BMI 정상 범위 기준은 어떻게 되나요?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "대한비만학회 및 세계보건기구(WHO) 아시아-태평양 진단 기준에 따라 BMI 18.5 이상 22.9 이하를 정상으로 판정합니다. 23.0~24.9는 비만 전단계(과체중), 25.0 이상은 비만으로 분류됩니다."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "연봉 실수령액 계산 기준은 무엇인가요?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "세전 연봉 또는 월급을 기준으로 국민연금(4.5%), 건강보험(3.545%), 장기요양보험(건보료의 12.95%), 고용보험(0.9%), 그리고 국세청 간이세액표 기반 소득세와 지방소득세를 차감하여 실수령액을 추정합니다."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "부가가치세(VAT) 기본세율은 몇 퍼센트인가요?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "대한민국 부가가치세 기본세율은 10%입니다. 공급가액에 10%를 더하면 총 결제금액이 되며, 총 결제금액에서 1.1로 나누면 공급가액을 역산할 수 있습니다."
-            }
-          }
-        ]
+  <script id="dynamic-json-ld" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://ilsangtool.kr/#website",
+      "name": "일상툴",
+      "alternateName": "IlsangTool",
+      "url": "https://ilsangtool.kr/",
+      "inLanguage": "ko-KR",
+      "description": "그림판, 사과게임, 오목게임, 공학용계산기, 단위변환, PDF변환, 환갑칠순, 온라인 메모장, BMI, 환율, 연봉 실수령 등 일상 생활 필수 웹 도구 33가지",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ilsangtool.kr/?tool={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Organization",
+      "name": "일상툴",
+      "url": "https://ilsangtool.kr/",
+      "logo": "https://ilsangtool.kr/favicon.png"
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://ilsangtool.kr/#webapp",
+      "name": "일상툴 (IlsangTool)",
+      "url": "https://ilsangtool.kr/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "inLanguage": "ko-KR",
+      "description": "33가지 한국어 일상 계산·변환·편의 도구 및 웹 게임 모음. 클라이언트 로컬 연산으로 안전하고 빠릅니다.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "featureList": [
+        "공학용계산기",
+        "단위 변환기",
+        "BMI 비만도 계산기",
+        "환율 환산기",
+        "연봉 실수령액 계산기",
+        "연말정산·세금 계산기",
+        "부가세 계산기",
+        "더치페이 계산기",
+        "칼로리 계산기",
+        "온라인 메모장",
+        "QR코드 생성기",
+        "글자수 세기",
+        "만나이 계산기",
+        "환갑·칠순·팔순 계산기",
+        "디데이 계산기",
+        "대출 이자 계산기",
+        "복리이자 계산기",
+        "퍼센트 / 할인 계산기",
+        "비밀번호 생성기",
+        "알람 / 타이머",
+        "세계 시계",
+        "컬러 피커",
+        "임신 주수 계산기",
+        "스톱워치",
+        "날짜 계산기",
+        "우편번호 검색",
+        "영문 주소 변환기",
+        "PDF 변환기",
+        "사과게임",
+        "오목게임",
+        "그림판",
+        "도구 요청 게시판"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "일상툴 33가지 필수 생활 웹 도구 전체 목록",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "공학용계산기",
+          "url": "https://ilsangtool.kr/?tool=calc"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "단위 변환기",
+          "url": "https://ilsangtool.kr/?tool=unit"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "BMI 비만도 계산기",
+          "url": "https://ilsangtool.kr/?tool=bmi"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "환율 환산기",
+          "url": "https://ilsangtool.kr/?tool=fx"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "연봉 실수령액 계산기",
+          "url": "https://ilsangtool.kr/?tool=salary"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "연말정산·세금 계산기",
+          "url": "https://ilsangtool.kr/?tool=tax"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "부가세 계산기",
+          "url": "https://ilsangtool.kr/?tool=vat"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "더치페이 계산기",
+          "url": "https://ilsangtool.kr/?tool=split"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "칼로리 계산기",
+          "url": "https://ilsangtool.kr/?tool=calorie"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "온라인 메모장",
+          "url": "https://ilsangtool.kr/?tool=notepad"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "QR코드 생성기",
+          "url": "https://ilsangtool.kr/?tool=qr"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "글자수 세기",
+          "url": "https://ilsangtool.kr/?tool=counter"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "만나이 계산기",
+          "url": "https://ilsangtool.kr/?tool=age"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "환갑·칠순·팔순 계산기",
+          "url": "https://ilsangtool.kr/?tool=hwangap"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "디데이 계산기",
+          "url": "https://ilsangtool.kr/?tool=dday"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "대출 이자 계산기",
+          "url": "https://ilsangtool.kr/?tool=loan"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "name": "복리이자 계산기",
+          "url": "https://ilsangtool.kr/?tool=compound"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "퍼센트 / 할인 계산기",
+          "url": "https://ilsangtool.kr/?tool=percent"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "비밀번호 생성기",
+          "url": "https://ilsangtool.kr/?tool=password"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "알람 / 타이머",
+          "url": "https://ilsangtool.kr/?tool=alarm"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "세계 시계",
+          "url": "https://ilsangtool.kr/?tool=worldclock"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "컬러 피커",
+          "url": "https://ilsangtool.kr/?tool=color"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "임신 주수 계산기",
+          "url": "https://ilsangtool.kr/?tool=preg"
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "name": "스톱워치",
+          "url": "https://ilsangtool.kr/?tool=stopwatch"
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "name": "날짜 계산기",
+          "url": "https://ilsangtool.kr/?tool=datecalc"
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "name": "우편번호 검색",
+          "url": "https://ilsangtool.kr/?tool=postcode"
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "name": "영문 주소 변환기",
+          "url": "https://ilsangtool.kr/?tool=enaddr"
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "name": "PDF 변환기",
+          "url": "https://ilsangtool.kr/?tool=pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "name": "사과게임",
+          "url": "https://ilsangtool.kr/?tool=apple"
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "name": "오목게임",
+          "url": "https://ilsangtool.kr/?tool=omok"
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "name": "그림판",
+          "url": "https://ilsangtool.kr/?tool=paint"
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "name": "도구 요청 게시판",
+          "url": "https://ilsangtool.kr/?tool=board"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "환갑, 칠순, 팔순은 몇 살에 하고 계산 기준이 어떻게 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "환갑(회갑)은 만 60세(세는나이 61세) 생일에 치릅니다. 반면 칠순(고희)과 팔순(산수)은 한국 전통 관습에 따라 세는나이(한국 나이) 70세, 80세(만으로는 69세, 79세가 되는 해)에 잔치를 하고 기념합니다. 일상툴 환갑칠순 계산기(https://ilsangtool.kr/?tool=hwangap)에 생년월일을 넣으면 연도와 남은 날짜를 바로 확인할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "2026년 연봉 실수령액 계산 시 비과세 식대와 4대보험 기준은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "세전 연봉에서 비과세 식대(월 최대 20만 원)를 제외한 과세 급여를 기준으로 국민연금(4.5%), 건강보험(3.545%), 장기요양보험(건보료의 12.95%), 고용보험(0.9%), 그리고 국세청 간이세액표 기반 소득세와 지방소득세를 차감하여 월 실수령액을 산출합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "일상툴 PDF 변환기와 온라인 메모장은 개인정보가 서버로 전송되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요, 일상툴의 PDF 변환기(이미지↔PDF, 병합, 분할, 압축)와 온라인 메모장, 그림판 등 33가지 모든 도구는 사용자의 기기 브라우저 내부(WebAssembly 및 localStorage)에서만 100% 로컬 처리되므로 문서나 개인정보가 외부 서버로 전송되지 않습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "사과게임(과일박스 게임)에서 170점 만점을 받는 공략법은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "사과게임(https://ilsangtool.kr/?tool=apple)은 직사각형 드래그 영역 안의 숫자 합이 정확히 10이 되도록 제거하는 게임입니다. 이미 제거된 빈 칸은 0으로 취급되므로, 초반에 2개짜리 조합(9+1, 8+2)을 먼저 없애 중앙에 빈 통로를 만든 뒤 멀리 떨어진 사과를 관통 드래그하는 것이 고득점 핵심 전략입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "오목게임의 렌주룰(Renju Rule) 금수 규정이란 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "오목에서 먼저 두는 흑(선공)의 절대적 유리를 방지하기 위해 흑에게만 삼삼(3-3), 사사(4-4), 6목 이상(장목) 착수를 금지하는 국제 공식 규칙입니다. 백(후공)은 금수 제한 없이 3-3이나 4-4를 둘 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "부가가치세(VAT) 10% 포함 금액에서 공급가액을 역산하는 공식은?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "부가세 포함 합계금액을 1.1로 나누면 공급가액이 산출되며, 합계금액에서 공급가액을 뺀 나머지 금액이 부가가치세(10%)입니다."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
+
+  <style id="ilsangtool-seo-upgrade-styles">
+    .seo-share-bar {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(30, 41, 59, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .seo-share-info {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    .seo-share-info strong {
+      color: #f8fafc;
+      font-weight: 700;
+    }
+    .seo-share-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .seo-share-btn {
+      cursor: pointer;
+      padding: 8px 13px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.8);
+      color: #f8fafc;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .seo-share-btn:hover {
+      border-color: #60a5fa;
+      background: rgba(37, 99, 235, 0.25);
+    }
+    .seo-share-btn.primary-share {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0f172a;
+      border-color: transparent;
+    }
+    .seo-share-btn.primary-share:hover {
+      filter: brightness(1.07);
+    }
+    .seo-related-wrap {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+    .seo-related-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .seo-related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 10px;
+    }
+    .seo-related-card {
+      display: block;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      color: #f8fafc;
+      transition: all 0.16s ease;
+    }
+    .seo-related-card:hover {
+      border-color: #60a5fa;
+      transform: translateY(-2px);
+      background: rgba(37, 99, 235, 0.18);
+    }
+    .seo-related-card h4 {
+      margin: 0 0 4px 0;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #93c5fd;
+    }
+    .seo-related-card p {
+      margin: 0;
+      font-size: 11.5px;
+      color: #cbd5e1;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .seo-crawl-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+    }
+    .seo-crawl-link {
+      font-size: 12px;
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 4px 9px;
+      border-radius: 8px;
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      transition: all 0.15s ease;
+    }
+    .seo-crawl-link:hover {
+      color: #ffffff;
+      border-color: #60a5fa;
+      background: rgba(37, 99, 235, 0.25);
+    }
+  </style>
+
 </head>
 
 <body>
@@ -709,6 +1040,25 @@
           <h3 class="board-history-title">최근 등록된 요청 목록</h3>
           <div id="bdList" class="board-list"></div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>💬 일상툴(ilsangtool.kr) 도구 요청 및 업데이트 안내</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🚀 1. 사용자 요청으로 탄생한 인기 도구들</h4>
+                <ul>
+                  <li>일상툴의 <strong>사과게임, 정통 오목게임(AI·렌주룰), 윈도우 스타일 그림판, 올인원 PDF 변환기, 환갑·칠순 계산기</strong>는 모두 사용자분들의 소중한 제안으로 제작되었습니다.</li>
+                  <li>평소 엑셀로 불편하게 계산하던 수식이나 필요한 웹 도구가 있다면 언제든 남겨주세요.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🔒 2. 개인정보 보호 및 무료 운영 원칙</h4>
+                <ul>
+                  <li>일상툴의 모든 계산기와 유틸리티는 별도의 회원가입 없이 평생 무료로 제공되며, 입력하신 민감 데이터는 브라우저 내부에서만 처리됩니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -943,6 +1293,26 @@
           </div>
           <div class="result" id="alarmStatus">설정된 알람이 없습니다.</div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>⏰ 브라우저 웹 알람 시계 사용법 및 뽀모도로(Pomodoro) 집중 기법</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🔔 1. 브라우저 알람이 정상 작동하기 위한 설정</h4>
+                <ul>
+                  <li>웹 알람은 서버가 아닌 현재 열려 있는 브라우저 탭에서 시각을 감지하여 사운드와 알림창을 띄웁니다.</li>
+                  <li>알람을 설정한 뒤에는 <strong>현재 브라우저 탭을 닫지 말고 열어 두세요</strong> (다른 탭에서 작업하셔도 소리가 울립니다).</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🍅 2. 업무 효율을 2배 높이는 시간 관리 팁</h4>
+                <ul>
+                  <li><strong>25분 집중 + 5분 휴식</strong>: 다음 정각이나 30분 단위로 알람을 맞춰 두고 한 가지 핵심 업무에만 몰입해 보세요.</li>
+                  <li>장시간 모니터 작업 시 50분마다 스트레칭·안구 휴식 알람을 설정하면 거북목과 눈 피로를 예방할 수 있습니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -957,6 +1327,27 @@
           </div>
           <div class="result"><strong id="unitOut">-</strong><span id="unitHint"></span></div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>📏 자주 쓰는 부동산 평수·직구 사이즈·요리 단위 환산표</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🏠 1. 부동산 전용면적(㎡) ↔ 평수 암산 공식</h4>
+                <ul>
+                  <li><strong>1평 = 약 3.305785㎡</strong> / <strong>1㎡ = 약 0.3025평</strong></li>
+                  <li><strong>3초 암산법</strong>: 제곱미터(㎡) 숫자에서 끝자리를 버리고 <strong>3을 곱하면</strong> 대략적인 평수가 나옵니다 (예: 84㎡ → 8 × 3 = 약 24~25평 / 59㎡ → 6 × 3 = 약 18평).</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>✈️ 2. 해외직구 &amp; 일상 필수 단위 기준</h4>
+                <ul>
+                  <li><strong>길이</strong>: 1 inch(인치) = 2.54 cm / 1 ft(피트) = 30.48 cm / 1 mile(마일) = 1.609 km</li>
+                  <li><strong>무게</strong>: 1 lb(파운드) = 0.4536 kg / 1 oz(온스) = 28.35 g / 금 1돈 = 3.75 g / 고기 1근 = 600 g</li>
+                  <li><strong>온도</strong>: 화씨(℉) = (섭씨 ℃ × 1.8) + 32 (예: 0℃ = 32℉, 100℃ = 212℉)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -976,6 +1367,28 @@
             <p class="bmi-tip" id="bmiTip"></p>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🏃 대한비만학회(아시아-태평양) BMI 비만도 판정 기준 및 건강 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📊 1. 체질량지수(BMI) 계산 공식 및 단계별 기준</h4>
+                <ul>
+                  <li><strong>공식</strong>: <code>BMI = 체중(kg) ÷ [신장(m) × 신장(m)]</code></li>
+                  <li><strong>저체중</strong>: 18.5 미만 / <strong>정상 체중</strong>: 18.5 ~ 22.9</li>
+                  <li><strong>비만 전단계 (과체중)</strong>: 23.0 ~ 24.9</li>
+                  <li><strong>1단계 비만</strong>: 25.0 ~ 29.9 / <strong>2단계 비만</strong>: 30.0 ~ 34.9 / <strong>3단계 고도비만</strong>: 35.0 이상</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>💡 2. BMI 지수 해석 시 유의사항</h4>
+                <ul>
+                  <li>서구권(WHO 글로벌 기준 비만 30 이상)과 달리 한국인을 포함한 아시아인은 같은 BMI에서도 내장지방과 대사질환 위험이 높아 <strong>BMI 25.0 이상을 비만</strong>으로 판정합니다.</li>
+                  <li>근육량이 많은 운동선수는 체지방이 적어도 BMI가 높게 나올 수 있으므로 허리둘레(남성 90cm, 여성 85cm 이상 시 복부비만)를 함께 점검하는 것이 정확합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -993,6 +1406,27 @@
             <div><span>다음 생일</span><b id="ageNext">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🎂 대한민국 만 나이 통일법 계산 기준과 연 나이 적용 예외 안내</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📌 1. 만 나이 vs 세는나이 vs 연 나이 차이</h4>
+                <ul>
+                  <li><strong>만 나이 (법적 표준)</strong>: 출생 직후 0세로 시작하여 생일이 돌아올 때마다 1세씩 증가합니다. 올해 생일이 지났으면 <code>현재연도 - 출생연도</code>, 안 지났으면 <code>현재연도 - 출생연도 - 1</code>입니다.</li>
+                  <li><strong>세는나이 (전통 한국 나이)</strong>: 태어나자마자 1세로 시작해 매년 1월 1일에 1세씩 늘어납니다 (<code>현재연도 - 출생연도 + 1</code>).</li>
+                  <li><strong>연 나이</strong>: 생일과 무관하게 <code>현재연도 - 출생연도</code>로만 계산합니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>⚖️ 2. 일상에서 연 나이가 그대로 적용되는 대표 사례</h4>
+                <ul>
+                  <li><strong>청소년보호법 (술·담배 구매)</strong>: 만 19세가 되는 해의 1월 1일(연 나이 19세)부터 성인으로 인정됩니다.</li>
+                  <li><strong>병역법 및 공무원 시험, 초등학교 취학(만 6세가 되는 해 3월)</strong> 등 일부 행정 법령은 일괄 관리를 위해 연 나이 기준을 유지합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1324,6 +1758,27 @@
             <div><span>A에서 B 증감</span><b id="pDelta">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>📊 실무 보고서 증감률(성장률) 공식 &amp; 쇼핑 할인율 계산 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📐 1. 직장인·학생 필수 퍼센트(%) 공식 3가지</h4>
+                <ul>
+                  <li><strong>비중 계산 (A는 B의 몇 %)</strong>: <code>(A ÷ B) × 100</code> — 전체 예산 중 지출 비중이나 목표 달성률을 구할 때 사용합니다.</li>
+                  <li><strong>증감률 계산 (A에서 B로 몇 % 변화)</strong>: <code>((B - A) ÷ A) × 100</code> — 전년 동기 대비 매출 성장률(YoY)이나 전월 대비 증감률(MoM) 계산의 표준 공식입니다.</li>
+                  <li><strong>할인가 계산</strong>: <code>정가 × (1 - 할인율 ÷ 100)</code></li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🛍️ 2. 퍼센트(%)와 퍼센트포인트(%p)의 차이</h4>
+                <ul>
+                  <li>금리나 지지율처럼 <strong>이미 퍼센트(%)로 표시된 두 수치의 단순 차이</strong>를 말할 때는 <strong>%p(퍼센트포인트)</strong>를 사용합니다.</li>
+                  <li>예: 대출 금리가 3%에서 4%로 올랐다면 "1%p 상승"한 것이며, 비율(증감률)로 따지면 33.3% 인상된 것입니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1344,6 +1799,26 @@
             <div><span>총 이자</span><b id="loanInt">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🏦 대출 상환 방식(원리금균등·원금균등·만기일시) 비교 및 이자 절감 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📊 1. 원리금균등분할상환의 특징</h4>
+                <ul>
+                  <li>대출 기간 동안 <strong>매월 납부하는 (원금 + 이자) 합계액이 동일</strong>하여 직장인이 매달 고정 지출 계획을 세우기에 가장 편리한 방식입니다.</li>
+                  <li>초기에는 월 납입금 중 이자 비중이 높고, 만기가 다가올수록 원금 상환 비중이 점차 높아집니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>💡 2. 대출 총이자를 줄이는 실전 금융 팁</h4>
+                <ul>
+                  <li><strong>중도상환수수료 면제 활용</strong>: 통상 대출 실행 후 3년이 지나면 중도상환수수료가 면제되므로, 여유 자금이 생길 때마다 원금을 일부 상환하면 이후 매달 부과되는 이자가 즉시 줄어듭니다.</li>
+                  <li><strong>금리인하요구권 신청</strong>: 취업, 승진, 연봉 상승, 신용점수 개선 시 은행 앱에서 비대면으로 금리인하요구권을 신청하세요.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1366,6 +1841,26 @@
           </div>
           <button class="btn ghost" id="pwCopy" type="button" style="margin-top:10px">복사</button>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🔐 해킹 불가능한 강력한 비밀번호 생성 기준 및 보안 수칙</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🛡️ 1. Web Crypto API 기반 암호학적 난수 사용</h4>
+                <ul>
+                  <li>일반적인 단순 난수(<code>Math.random</code>)가 아닌 브라우저 보안 표준인 <strong>Web Crypto API(<code>crypto.getRandomValues</code>)</strong>를 사용하여 예측이 불가능한 보안 비밀번호를 생성합니다.</li>
+                  <li>생성된 비밀번호는 서버로 절대 전송되지 않고 오직 현재 화면에서만 만들어집니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🔑 2. 무차별 대입 공격(Brute-force) 방어 권장 설정</h4>
+                <ul>
+                  <li><strong>최소 12~16자리 이상 권장</strong>: 영문 대문자, 소문자, 숫자, 특수문자 4가지를 모두 포함해 16자리로 설정하면 슈퍼컴퓨터로도 해독에 수십억 년이 걸립니다.</li>
+                  <li>포털 사이트, 금융권, 이메일 계정은 반드시 서로 다른 고유 비밀번호를 설정해 크레덴셜 스터핑 공격을 예방하세요.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1380,6 +1875,26 @@
             <div><span>읽기 시간</span><b id="cRead">0분</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>✍️ 자기소개서·블로그 글자수 세기 기준 및 적정 분량 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📝 1. 채용 자기소개서 공백 포함 vs 공백 제외 기준</h4>
+                <ul>
+                  <li>대부분의 기업 및 공공기관 채용 시스템은 <strong>공백(띄어쓰기 및 줄바꿈) 포함 글자수</strong>를 기준으로 입력 한도를 제한합니다.</li>
+                  <li>500자 제한 문항은 <strong>450~490자(90~98%)</strong>, 1,000자 제한 문항은 <strong>880~980자</strong>를 채우는 것이 가독성과 성실성 측면에서 가장 좋은 평가를 받습니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>📈 2. 네이버 블로그·티스토리 SEO 적정 글자수</h4>
+                <ul>
+                  <li>검색엔진이 양질의 정보성 문서로 평가하는 블로그 본문 분량은 <strong>공백 제외 1,200자~2,500자(공백 포함 1,600~3,200자)</strong> 수준입니다.</li>
+                  <li>예상 읽기 시간은 한국인 평균 묵독 속도(분당 약 500자)를 기준으로 산출되어 발표 대본이나 영상 내레이션 길이 조절에도 유용합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1393,6 +1908,26 @@
           </div>
           <div class="result"><strong id="ddOut">D-DAY</strong><span id="ddSub"></span></div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>📆 디데이(D-Day) 산출 기준 (기준일 0일 vs 당일 1일 포함) 안내</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🎯 1. 시험·수능·마감일 D-Day 계산 방식</h4>
+                <ul>
+                  <li>수능, 자격증 시험, 프로젝트 마감일, 여행 출발일 등은 <strong>당일을 D-Day(0일)</strong>로 두고 오늘부터 순수하게 남은 일수를 <code>D-N</code>으로 표기합니다.</li>
+                  <li>예를 들어 내일이 시험일이라면 오늘은 <strong>D-1</strong>이 됩니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>💝 2. 커플 기념일·출생일 일수 계산 팁</h4>
+                <ul>
+                  <li>커플 100일·1주년이나 아기 출생 일수는 보통 <strong>처음 만난 날(출생 당일)을 1일째</strong>로 포함하여 셉니다.</li>
+                  <li>특정 시작일로부터 정확히 100일 후, 365일 후 날짜를 찾으실 때는 좌측 메뉴의 <strong>[날짜 계산]</strong> 도구를 함께 활용하시면 더욱 편리합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1412,6 +1947,28 @@
             </table>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🌐 주요 국가별 표준 시간대(Time Zone) 및 서머타임(DST) 완벽 정리</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🕒 1. 한국(KST, UTC+9) 기준 주요 도시 시차</h4>
+                <ul>
+                  <li><strong>도쿄 (일본)</strong>: 시차 없음 (한국과 동일, UTC+9)</li>
+                  <li><strong>베이징·상하이·홍콩·싱가포르</strong>: 한국보다 1시간 느림 (UTC+8)</li>
+                  <li><strong>런던 (영국)</strong>: 평시 9시간 느림 / 서머타임 시 8시간 느림</li>
+                  <li><strong>뉴욕 (미국 동부)</strong>: 평시 14시간 느림 / 서머타임 시 13시간 느림</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>☀️ 2. 서머타임(일광절약시간제, DST) 자동 반영 안내</h4>
+                <ul>
+                  <li>미국과 유럽 등 서머타임을 시행하는 국가는 매년 3월~11월 사이 표준시를 1시간 앞당깁니다.</li>
+                  <li>일상툴 세계 시계는 국제 표준 IANA Timezone 데이터베이스를 사용하여 각 도시의 <strong>서머타임 적용 여부를 자동으로 감지해 정확한 현지 시각</strong>을 표시합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1441,6 +1998,26 @@
           </div>
           <div class="result"><strong id="fxOut">-</strong><span id="fxNote"></span></div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>💱 해외여행·해외직구 환율 환산 및 환전 수수료 절약 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🌍 1. 매매기준율과 환율 우대(스프레드) 이해하기</h4>
+                <ul>
+                  <li><strong>매매기준율</strong>: 외환 시장에서 거래되는 기준 환율입니다. 실제 은행에서 현찰을 살 때는 환전 수수료(현찰 살 때 스프레드, 달러 약 1.75%)가 가산됩니다.</li>
+                  <li><strong>환율 우대 90%란?</strong>: 은행이 가져가는 환전 수수료의 90%를 할인해 준다는 뜻입니다. 트래블로그, 트래블월렛 등 외화 선불카드를 쓰면 주요 통화 100% 환율 우대를 받을 수 있습니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🛍️ 2. 해외직구 &amp; 현지 카드 결제 시 주의점 (DCC 차단)</h4>
+                <ul>
+                  <li>해외 쇼핑몰(아마존 등)이나 해외 현지 단말기에서 결제할 때 <strong>원화(KRW)가 아닌 현지 통화(USD, JPY, EUR)</strong>로 결제해야 이중 환전 수수료(DCC, 약 3~8%)를 피할 수 있습니다.</li>
+                  <li>일본 엔화(JPY)는 통상 100엔 단위로 고시되므로 엔화 가격에 약 9~10을 곱하면 대략적인 원화 가치를 빠르게 어림잡을 수 있습니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1456,6 +2033,27 @@
           </div>
           <div class="result"><strong id="splitOut">-</strong><span id="splitSub"></span></div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🍻 깔끔한 모임 총무 정산(1/N 더치페이) 및 해외 팁(Tip) 계산 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📌 1. 센스 있는 모임·회식 1/N 정산 팁</h4>
+                <ul>
+                  <li><strong>백 원 단위 절사/올림</strong>: 1인당 정산 금액이 21,500원이나 18,333원처럼 나누어떨어지지 않을 때는 십 원·백 원 단위를 올림하여 남은 짜투리 금액을 2차 커피값이나 공금으로 활용하면 송금이 훨씬 간편해집니다.</li>
+                  <li><strong>참석 시간·음주 여부 차등 정산</strong>: 늦게 합류했거나 술을 마시지 않은 인원이 있다면 주류비를 먼저 뺀 뒤 식사비만 1/N로 나누고 주류비는 음주자끼리 나누면 모두가 만족합니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🌎 2. 해외여행 국가별 레스토랑 팁(Tip) 비율</h4>
+                <ul>
+                  <li><strong>미국·캐나다</strong>: 점심 15~18%, 저녁 18~20%가 표준입니다 (영수증에 Gratuity/Service Charge가 이미 포함되어 있는지 확인).</li>
+                  <li><strong>유럽</strong>: 서비스료가 포함된 경우가 많으나 총액의 5~10% 정도 잔돈을 남기는 것이 관례입니다.</li>
+                  <li><strong>일본·한국</strong>: 별도의 팁 문화가 없으므로 팁 비율을 0%로 두고 계산하시면 됩니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1488,6 +2086,27 @@
             <div><span>감량(-500)</span><b id="calLoss">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🥗 기초대사량(BMR)과 활동대사량(TDEE) 기반 과학적 식단 설계법</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🔥 1. Mifflin-St Jeor 기초대사량(BMR) 공식</h4>
+                <ul>
+                  <li><strong>기초대사량(BMR)</strong>: 숨쉬기, 체온 유지, 심장 박동 등 생명 유지를 위해 가만히 있어도 소모되는 최소 에너지입니다.</li>
+                  <li><strong>남성</strong>: <code>(10 × 체중kg) + (6.25 × 키cm) - (5 × 나이) + 5</code></li>
+                  <li><strong>여성</strong>: <code>(10 × 체중kg) + (6.25 × 키cm) - (5 × 나이) - 161</code></li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>⚖️ 2. 건강한 체중 감량 칼로리 설정 원칙</h4>
+                <ul>
+                  <li>체지방 1kg을 감량하려면 약 <strong>7,700 kcal</strong>의 에너지 적자가 필요합니다.</li>
+                  <li>일일 유지 칼로리(TDEE)에서 하루 <strong>500 kcal를 줄이면</strong> 근손실 없이 일주일에 약 0.45~0.5kg씩 건강하게 감량할 수 있습니다. 단, 기초대사량(BMR) 이하로 섭취를 제한하는 초절식 다이어트는 요요현상을 유발하므로 피하세요.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1499,6 +2118,26 @@
           <button class="btn gold" id="qrBtn" type="button" style="margin-top:12px">QR 생성</button>
           <div class="qr-box" id="qrBox"></div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>📱 무료 QR코드 생성 원리와 매장·마케팅 실전 활용 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🔗 1. 영구 무료 &amp; 만료 기간 없는 정적 QR코드</h4>
+                <ul>
+                  <li>일상툴에서 생성하는 QR코드는 중간 광고 경유 서버를 거치지 않고 입력한 URL·텍스트를 QR 패턴에 직접 인코딩하는 <strong>정적(Static) QR코드</strong>입니다.</li>
+                  <li>따라서 스캔 횟수 제한이나 사용 기간 만료가 전혀 없으며, 인쇄물·명함·전단지에 영구적으로 사용할 수 있습니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>💡 2. QR코드 인식률을 높이는 제작 팁</h4>
+                <ul>
+                  <li><strong>짧은 URL 사용 권장</strong>: 입력 텍스트가 짧을수록 QR코드의 격자 무늬가 단순해져 작은 크기로 인쇄해도 스마트폰 카메라가 훨씬 빠르게 인식합니다.</li>
+                  <li>웹사이트 주소는 반드시 <code>https://</code>를 포함하여 입력해야 스캔 즉시 브라우저가 열립니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1516,6 +2155,26 @@
             <div><span>HSL</span><b id="colorHsl">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🎨 웹 디자인·퍼블리싱 필수 색상 코드(HEX, RGB, HSL) 완벽 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>💻 1. HEX · RGB · HSL 표기법의 차이</h4>
+                <ul>
+                  <li><strong>HEX (#RRGGBB)</strong>: 빨강(R), 초록(G), 파랑(B)의 강도를 00~FF까지의 16진수 6자리로 표현하는 웹/CSS 표준 코드입니다 (예: <code>#FFFFFF</code>는 흰색).</li>
+                  <li><strong>RGB (Red, Green, Blue)</strong>: 빛의 삼원색을 0~255 사이 숫자로 표시하며 투명도(Alpha) 조절 시 <code>rgba()</code>로 자주 쓰입니다.</li>
+                  <li><strong>HSL (Hue, Saturation, Lightness)</strong>: 색상(0~360°), 채도(%), 명도(%)로 표현해 버튼의 호버(Hover) 색상이나 다크모드 팔레트를 만들 때 가장 직관적입니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>✨ 2. UI/UX 가독성을 높이는 명도 대비(Contrast) 팁</h4>
+                <ul>
+                  <li>배경색과 본문 글자색의 명도 대비는 웹 접근성 표준(WCAG AA 등급) 기준 <strong>4.5:1 이상</strong>을 확보해야 모바일과 어두운 환경에서도 눈이 피로하지 않습니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1537,6 +2196,27 @@
             <div><span>합계</span><b id="vatSum">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🧮 부가가치세(VAT 10%) 공급가액·세액 정산 및 역산 공식 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📐 1. 부가세 별도 vs 부가세 포함 계산 공식</h4>
+                <ul>
+                  <li><strong>부가세 별도 (공급가액 기준)</strong>: 부가세 = 공급가액 × 10% (0.1) / 합계금액 = 공급가액 × 1.1</li>
+                  <li><strong>부가세 포함 (합계금액에서 역산)</strong>: 공급가액 = 합계금액 ÷ 1.1 (소수점 반올림) / 부가세 = 합계금액 - 공급가액</li>
+                  <li>예: 부가세 포함 총 110,000원을 결제받았다면 공급가액은 100,000원, 부가가치세는 10,000원입니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🏢 2. 세금계산서 발행 및 사업자 실무 체크포인트</h4>
+                <ul>
+                  <li><strong>견적서 작성 시 주의사항</strong>: 기업 간(B2B) 거래 견적서에는 반드시 '부가세 별도(VAT 별도)' 여부를 명시해야 정산 분쟁을 예방할 수 있습니다.</li>
+                  <li><strong>전자세금계산서 의무 발행</strong>: 공급시기가 속하는 달의 다음 달 10일까지 홈택스를 통해 발행해야 가산세 불이익이 없습니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1557,6 +2237,28 @@
           </div>
           <p class="seo-copy">국민연금 4.5%, 건강보험 3.545%, 장기요양(건보의 12.95%), 고용보험 0.9%를 적용한 간이 계산입니다. 실제 원천징수와 다를 수 있습니다.</p>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>💼 2026 연봉 실수령액 계산 기준 및 4대보험·세금 절세 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📌 1. 4대보험 근로자 부담 요율 상세</h4>
+                <ul>
+                  <li><strong>국민연금 (4.5%)</strong>: 비과세 소득을 제외한 기준소득월액의 4.5%를 근로자가 부담합니다 (상·하한액 기준 적용).</li>
+                  <li><strong>건강보험 (3.545%) &amp; 장기요양보험</strong>: 과세 월급여의 3.545%가 부과되며, 장기요양보험료는 산출된 건강보험료의 12.95%가 추가 합산됩니다.</li>
+                  <li><strong>고용보험 (0.9%)</strong>: 실업급여 및 고용안정 재원을 위해 과세 급여의 0.9%가 원천징수됩니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>💡 2. 비과세 식대(월 20만 원)가 실수령액에 미치는 영향</h4>
+                <ul>
+                  <li>소득세법 개정에 따라 식대 비과세 한도가 <strong>월 20만 원(연 240만 원)</strong>으로 적용됩니다.</li>
+                  <li>연봉 계약 시 급여 명세서에 식대 20만 원이 비과세 항목으로 분리되어 있으면, 과세 대상 급여가 줄어들어 <strong>매월 4대보험료와 소득세를 약 2만 5천 원~4만 원 절감</strong>할 수 있습니다.</li>
+                  <li>이직 협상 시에는 퇴직금 별도(1/12)인지 퇴직금 포함(1/13)인지 반드시 확인하세요.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1588,6 +2290,27 @@
           <ul class="tax-tips" id="txTips"></ul>
           <p class="seo-copy">근로소득공제·인적공제·국민연금·근로소득세액공제만 반영한 간이 추정입니다. 의료비, 카드, 주택자금, 연금계좌 등은 전략 안내에만 쓰입니다.</p>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🧾 연말정산(13월의 월급) 환급액 계산 구조와 핵심 절세 팁</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📊 1. 과세표준과 결정세액 산출 원리</h4>
+                <ul>
+                  <li><strong>총급여액 → 근로소득금액</strong>: 세전 연봉(비과세 제외)에서 근로소득공제를 차감합니다.</li>
+                  <li><strong>과세표준 산출</strong>: 인적공제(본인·배우자·부양가족 1인당 150만 원), 국민연금 보험료 공제, 신용카드·체크카드·현금영수증 소득공제를 뺀 금액입니다.</li>
+                  <li><strong>환급 vs 추가납부</strong>: 산출세액에서 세액공제(연금계좌, 의료비, 교육비, 월세 등)를 뺀 <strong>결정세액</strong>이 1년간 매달 낸 <strong>기납부세액</strong>보다 적으면 차액을 환급받습니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>💰 2. 직장인 필수 세액공제 (연금저축 + IRP)</h4>
+                <ul>
+                  <li><strong>연금저축(연 600만 원) + IRP(합산 연 900만 원 한도)</strong>: 총급여 5,500만 원 이하는 납입액의 <strong>16.5%</strong>(최대 148만 5천 원), 초과자는 <strong>13.2%</strong>(최대 118만 8천 원)를 세액공제받습니다.</li>
+                  <li><strong>신용카드 vs 체크카드 황금비율</strong>: 총급여의 25%까지는 혜택이 좋은 신용카드를 쓰고, 25% 초과분부터는 공제율이 2배 높은 체크카드·현금영수증(30%)을 사용하는 것이 유리합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1604,6 +2327,27 @@
             <div><span>남은 날</span><b id="pregLeft">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🤰 임신 주수 계산 원리(네겔레 법칙)와 시기별 주요 산전 검사 일정</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📅 1. 출산 예정일 산출 기준 (Naegele's Rule)</h4>
+                <ul>
+                  <li>의학적으로 임신 주수는 실제 수정일이 아닌 <strong>마지막 생리 시작일(LMP)을 0주 0일</strong>로 하여 총 <strong>280일(40주)</strong>을 기준으로 계산합니다.</li>
+                  <li><strong>네겔레 공식</strong>: 마지막 생리 시작 달에서 3개월을 빼고(또는 9개월을 더하고), 날짜에 7일을 더합니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🏥 2. 임신 초기·중기·후기 주요 체크리스트</h4>
+                <ul>
+                  <li><strong>임신 초기 (1~12주)</strong>: 임신 확인 및 아기집·심장소리 확인(5~7주), 보건소 엽산제 수령 및 임산부 등록, 1차 기형아 검사(11~13주).</li>
+                  <li><strong>임신 중기 (13~27주)</strong>: 2차 기형아 검사(16~18주), 정밀 초음파(20~24주), 임신성 당뇨 검사(24~28주).</li>
+                  <li><strong>임신 후기 (28~40주)</strong>: 태동 검사(32주 이후), 백일해 예방접종, 출산 가방 준비.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1622,6 +2366,25 @@
             </table>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>⏱️ 온라인 웹 스톱워치 활용법 (공부 순공시간·인터벌 운동·발표 연습)</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📚 1. 수험생 순공시간 &amp; 발표 스크립트 측정</h4>
+                <ul>
+                  <li>공무원 시험, 수능, 자격증 공부 시 책상에 앉아 실제로 집중한 <strong>순수 공부 시간(순공시간)</strong>을 측정하고 휴식할 때 일시정지해 기록을 이어갈 수 있습니다.</li>
+                  <li>면접 1분 자기소개나 PT 발표 연습 시 단락별로 <strong>[랩(Lap)]</strong> 버튼을 누르면 각 파트별 소요 시간을 한눈에 점검할 수 있습니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🏋️ 2. 홈트레이닝(타바타·플랭크) &amp; 요리 타이밍</h4>
+                <ul>
+                  <li>0.01초 단위로 작동하여 플랭크 버티기, 세트 간 휴식 시간(60~90초), 커피 핸드드립 브루잉이나 스테이크 시어링 시간 측정에 유용합니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1675,6 +2438,26 @@
             <div><span>월적립 없이 필요 원금</span><b id="tgLump">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>📈 복리의 마법(72의 법칙)과 목표 종잣돈 적립 전략</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📐 1. 단리 vs 복리 수익 구조와 72의 법칙</h4>
+                <ul>
+                  <li><strong>단리(Simple Interest)</strong>: 오직 최초 원금에 대해서만 약정 이자가 붙는 방식입니다.</li>
+                  <li><strong>복리(Compound Interest)</strong>: 발생한 이자가 다시 원금에 합산되어 '이자에 이자가 붙는' 눈덩이(스노우볼) 효과를 만듭니다.</li>
+                  <li><strong>72의 법칙</strong>: 원금이 2배가 되는 데 걸리는 기간(년) ≈ <code>72 ÷ 연 복리 수익률(%)</code> (예: 연 6% 복리 시 약 12년 소요).</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>💰 2. 월 적립식 복리 투자 실전 팁</h4>
+                <ul>
+                  <li><strong>비과세·저율과세 계좌 활용</strong>: 일반 예·적금은 이자소득세(15.4%)가 차감되므로, ISA(개인종합자산관리계좌)나 연금저축 계좌를 활용하면 세금 없이 원리금 전체를 재투자해 복리 효과를 극대화할 수 있습니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1692,6 +2475,26 @@
             <div><span>N일 후</span><b id="dcLater">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>🗓️ 두 날짜 사이 일수 계산 및 계약·근속 기간 산출 가이드</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📌 1. 윤년(2월 29일) 및 월별 대소월 자동 반영</h4>
+                <ul>
+                  <li>일상툴 날짜 계산기는 4년마다 돌아오는 윤년(2월 29일)과 각 달의 일수(28일, 30일, 31일)를 표준 달력 알고리즘으로 정확하게 반영합니다.</li>
+                  <li>전월세 임대차 계약 기간, 퇴직금 산정을 위한 재직 일수(365일 이상 여부), 군 복무 기간 계산에 바로 활용할 수 있습니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>💡 2. 민법상 기간 계산 원칙 (초일불산입)</h4>
+                <ul>
+                  <li>법률 및 계약서에서 일수를 계산할 때는 원칙적으로 첫날을 넣지 않는 <strong>초일불산입</strong>(시작일 제외, 종료일 포함)을 적용합니다.</li>
+                  <li>반면 근무 기간이나 숙박 박수/일수를 셀 때는 시작 당일 포함 여부를 기준에 맞게 확인하세요.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1714,6 +2517,27 @@
             </div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>📮 대한민국 5자리 우편번호(국가기초구역번호) 체계 및 도로명주소 검색 팁</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>🗺️ 1. 5자리 신우편번호 구조 이해하기</h4>
+                <ul>
+                  <li>2015년 8월부터 도입된 <strong>5자리 우편번호(국가기초구역번호)</strong>는 앞 3자리가 시·군·자치구를 나타내고, 뒤 2자리가 해당 구역 내 일련번호를 의미합니다.</li>
+                  <li>예: 서울특별시는 <code>01~09</code>, 경기도는 <code>10~18</code>, 부산광역시는 <code>46~49</code>로 시작합니다.</li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🔍 2. 빠르고 정확한 도로명·지번 검색 요령</h4>
+                <ul>
+                  <li><strong>도로명 + 건물번호</strong>: 예) <code>테헤란로 152</code>, <code>세종대로 209</code></li>
+                  <li><strong>동/읍/면/리 이름 + 번지</strong>: 예) <code>역삼동 737</code>, <code>정자동 178-1</code></li>
+                  <li>검색 결과에서 <strong>[영문 변환 도구로]</strong> 버튼을 누르면 해외직구용 영문 주소 변환기로 바로 연결됩니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -1733,6 +2557,27 @@
             <div><span>우편번호 포함</span><b id="enOutZip">-</b></div>
           </div>
         </div>
+
+          <div class="calc-help" style="margin-top:24px">
+            <h3>✈️ 해외직구·아마존·알리익스프레스 영문 주소 작성법 완벽 정리</h3>
+            <div class="calc-help-grid">
+              <div class="calc-help-card">
+                <h4>📦 1. 한글 주소 vs 영문 주소 표기 순서 (작은 단위 → 큰 단위)</h4>
+                <ul>
+                  <li>영문 주소는 한글 주소와 반대로 <strong>동·호수(상세주소) → 건물번호 및 도로명 → 구·군 → 시·도 → 우편번호 → 국가(South Korea)</strong> 순서로 작성합니다.</li>
+                  <li>예: <code>101-dong 1204-ho, 152, Teheran-ro, Gangnam-gu, Seoul, 06236, Republic of Korea</code></li>
+                </ul>
+              </div>
+              <div class="calc-help-card">
+                <h4>🛍️ 2. 해외 쇼핑몰 입력칸(Address Line 1 &amp; 2) 작성법</h4>
+                <ul>
+                  <li><strong>Street Address / Address Line 1</strong>: 도로명 주소와 건물번호 (예: <code>152, Teheran-ro</code>)</li>
+                  <li><strong>Apt, Suite, Unit / Address Line 2</strong>: 아파트 동·호수 또는 층수 (예: <code>101-1204</code> 또는 <code>Apt 101-1204</code>)</li>
+                  <li>국내 택배 기사님이 최종 배송하므로 도로명 로마자와 우편번호(Zip Code)만 정확하면 아파트 동·호수는 <code>101-1204</code>처럼 숫자로만 적어도 100% 정확히 배송됩니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div class="ad-slot ad-tool" data-ad="toolIncontent"></div>
       </section>
 
@@ -2864,6 +3709,71 @@
 
 
       <div class="ad-slot ad-banner" data-ad="incontent" style="margin-top:22px"></div>
+      
+      
+      <!-- 구글 애드센스(AdSense) 승인 가속화 & 검색엔진(SEO/GEO) 심층 가이드 + 자주 묻는 질문(FAQ) 허브 -->
+      <section class="card panel adsense-editorial-hub" aria-labelledby="editorial-hub-title" style="margin-top:24px; padding:22px 22px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
+          <h2 id="editorial-hub-title" style="font-size:17px; font-weight:800; margin:0; color:#ffffff;">📚 일상툴 핵심 계산 공식 &amp; 분야별 실무 활용 백서 (FAQ)</h2>
+          <span style="font-size:12px; color:#93c5fd; background:rgba(37,99,235,0.2); border:1px solid rgba(96,165,250,0.3); padding:3px 10px; border-radius:999px; font-weight:600;">2026 최신 법령·표준 공식 반영</span>
+        </div>
+        <p style="font-size:13.5px; color:#cbd5e1; line-height:1.7; margin:0 0 16px 0;">
+          일상툴(<strong>ilsangtool.kr</strong>)은 단순한 수치 계산을 넘어, 사용자가 왜 그러한 결과가 나왔는지 원리와 공식을 명확히 이해하고 실무 의사결정에 활용할 수 있도록 각 도구별 표준 산출 기준과 가이드를 함께 제공합니다. 모든 도구는 <strong>100% 브라우저 로컬 연산(Client-Side Processing)</strong>으로 작동하여 개인정보 유출 걱정 없이 안전합니다.
+        </p>
+
+        <div class="calc-help-grid" style="margin-bottom:18px;">
+          <div class="calc-help-card">
+            <h4>📊 2026 급여·세무·금융 산출 표준</h4>
+            <ul>
+              <li><strong>4대보험 근로자 부담분:</strong> 과세 기준소득월액(세전 월급 - 비과세 식대 최대 20만 원)을 기준으로 국민연금(4.5%), 건강보험(3.545%), 장기요양보험(건강보험료의 12.95%), 고용보험(0.9%)을 정밀 산출합니다.</li>
+              <li><strong>부가가치세(VAT 10%) 역산:</strong> 부가세 포함 합계금액에서 공급가액을 구할 때는 단순 10% 차감이 아닌 <code>합계금액 ÷ 1.1</code> 공식을 적용하여 세금계산서 발행 오차를 방지합니다.</li>
+              <li><strong>원리금균등 상환 &amp; 복리:</strong> 월 이자율 <code>r = 연이율 ÷ 12</code>를 기반으로 매월 동일한 원리금 상환액과 만기 복리 수익(<code>A = P(1+r/n)^(nt)</code>)을 도출합니다.</li>
+            </ul>
+          </div>
+          <div class="calc-help-card">
+            <h4>🩺 건강·나이·문서 변환 기술 표준</h4>
+            <ul>
+              <li><strong>아시아-태평양 BMI &amp; BMR 기준:</strong> 서구권(BMI 30 비만)과 다른 한국인 체형 특성을 반영하여 대한비만학회 기준(BMI 23.0 이상 과체중, 25.0 이상 비만)과 Mifflin-St Jeor 기초대사량 공식을 적용합니다.</li>
+              <li><strong>만 나이 통일법 &amp; 한국 전통 수연(壽宴):</strong> 법령·공문서 표준인 만 나이(출생일 0세, 생일마다 +1세)와 가족 행사 관습인 칠순(고희·세는나이 70세)·팔순(산수·세는나이 80세)을 구분하여 계산합니다.</li>
+              <li><strong>WebAssembly 로컬 PDF 처리:</strong> 서버 업로드 없이 브라우저 메모리에서 이미지→PDF 생성, 병합, 분할, 90°/180° 회전, 용량 압축, 텍스트 추출을 즉시 수행합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(148,163,184,0.16); padding-top:16px;">
+          <h3 style="font-size:15px; font-weight:700; color:#f8fafc; margin:0 0 12px 0;">💬 자주 묻는 질문 (Search &amp; AI FAQ)</h3>
+          <div style="display:grid; gap:10px;">
+            <details style="background:rgba(30,41,59,0.55); border:1px solid rgba(148,163,184,0.18); border-radius:12px; padding:12px 14px;" open>
+              <summary style="cursor:pointer; font-weight:700; font-size:13.5px; color:#93c5fd;">Q1. 일상툴 PDF 변환기나 메모장에 입력한 문서가 외부 서버에 저장되나요?</summary>
+              <p style="margin:8px 0 0 0; font-size:13px; color:#cbd5e1; line-height:1.6;">아니요, 절대 전송되거나 저장되지 않습니다. 일상툴의 PDF 변환기, 온라인 메모장, 그림판, 비밀번호 생성기 등 33가지 모든 도구는 사용자의 PC·스마트폰 브라우저 내부에서만 실행됩니다. 민감한 계약서나 개인 메모도 100% 안전하게 작업하실 수 있습니다.</p>
+            </details>
+            <details style="background:rgba(30,41,59,0.55); border:1px solid rgba(148,163,184,0.18); border-radius:12px; padding:12px 14px;">
+              <summary style="cursor:pointer; font-weight:700; font-size:13.5px; color:#93c5fd;">Q2. 환갑, 칠순, 팔순은 만 나이와 세는나이 중 어떤 기준으로 계산하나요?</summary>
+              <p style="margin:8px 0 0 0; font-size:13px; color:#cbd5e1; line-height:1.6;">환갑(회갑)은 60갑자가 돌아오는 해이므로 출생연도+60년(만 60세 생일, 세는나이 61세)에 기념합니다. 반면 칠순(고희)과 팔순(산수)은 한국 전통 가족 문화에 따라 세는나이 70세(출생연도+69년, 만 69세)와 80세(출생연도+79년, 만 79세)에 챙기는 것이 일반적이며, 일상툴 <a href="?tool=hwangap" data-id="hwangap" class="seo-inline-link">환갑·칠순 계산기</a>에서 두 기준을 모두 비교할 수 있습니다.</p>
+            </details>
+            <details style="background:rgba(30,41,59,0.55); border:1px solid rgba(148,163,184,0.18); border-radius:12px; padding:12px 14px;">
+              <summary style="cursor:pointer; font-weight:700; font-size:13.5px; color:#93c5fd;">Q3. 연봉 실수령액 계산 시 비과세 식대 20만 원이 왜 중요한가요?</summary>
+              <p style="margin:8px 0 0 0; font-size:13px; color:#cbd5e1; line-height:1.6;">비과세 식대(월 최대 20만 원)에는 4대보험과 근로소득세가 부과되지 않습니다. 동일한 세전 연봉이라도 비과세 식대가 분리되어 있으면 과세표준이 낮아져 매월 실수령액이 약 2만 5천 원~4만 원가량 증가합니다.</p>
+            </details>
+            <details style="background:rgba(30,41,59,0.55); border:1px solid rgba(148,163,184,0.18); border-radius:12px; padding:12px 14px;">
+              <summary style="cursor:pointer; font-weight:700; font-size:13.5px; color:#93c5fd;">Q4. 특정 계산기 페이지 주소를 단톡방이나 블로그에 바로 링크할 수 있나요?</summary>
+              <p style="margin:8px 0 0 0; font-size:13px; color:#cbd5e1; line-height:1.6;">네, 각 도구 하단의 [계산 결과 + 링크 복사] 또는 [도구 주소 복사] 버튼을 누르면 <code>https://ilsangtool.kr/?tool=salary</code> 형태의 도구별 고유 URL이 복사되어 카카오톡, 네이버 블로그, 티스토리 등에서 해당 도구 화면으로 바로 연결됩니다.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 검색엔진 크롤러(Googlebot·네이버 Yeti) 색인 및 내부 링크 순환용 전체 도구 디렉토리 -->
+      <nav class="card panel seo-crawl-directory" aria-label="전체 33가지 일상 도구 바로가기 사이트맵" style="margin-top:24px; padding:18px 20px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+          <h2 style="font-size:15px; font-weight:700; margin:0; color:#f8fafc;">🗂️ 일상툴 33가지 전체 도구 바로가기 (검색 색인 사이트맵)</h2>
+          <span style="font-size:12px; color:#94a3b8;">원하는 도구를 클릭하면 고유 주소(?tool=)로 즉시 이동합니다</span>
+        </div>
+        <div class="seo-crawl-grid">
+          <a href="?tool=calc" data-id="calc" class="seo-crawl-link" title="온라인 공학용 계산기 (카시오 fx 스타일) - 삼각함수·로그·순열조합 | 일상툴">공학용계산기</a> <a href="?tool=unit" data-id="unit" class="seo-crawl-link" title="단위 변환기 - 평·㎡, cm·인치(inch), kg·파운드(lb), 섭씨·화씨 변환 | 일상툴">단위 변환기</a> <a href="?tool=bmi" data-id="bmi" class="seo-crawl-link" title="BMI 계산기 (아시아-태평양 대한비만학회 기준 체질량지수·표준체중) | 일상툴">BMI 비만도 계산기</a> <a href="?tool=fx" data-id="fx" class="seo-crawl-link" title="실시간 환율 계산기 - 원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) | 일상툴">환율 환산기</a> <a href="?tool=salary" data-id="salary" class="seo-crawl-link" title="2026 연봉 실수령액 계산기 - 4대보험·근로소득세·비과세 식대 반영 | 일상툴">연봉 실수령액 계산기</a> <a href="?tool=tax" data-id="tax" class="seo-crawl-link" title="연말정산 환급금 계산기 - 과세표준·결정세액·IRP 연금저축 세액공제 추정 | 일상툴">연말정산·세금 계산기</a> <a href="?tool=vat" data-id="vat" class="seo-crawl-link" title="부가세(VAT 10%) 계산기 - 공급가액·부가세 별도/포함 역산 계산 | 일상툴">부가세 계산기</a> <a href="?tool=split" data-id="split" class="seo-crawl-link" title="더치페이(1/N) 정산 계산기 - 모임 회비·팁(봉사료) 인원별 나눔 | 일상툴">더치페이 계산기</a> <a href="?tool=calorie" data-id="calorie" class="seo-crawl-link" title="기초대사량(BMR) & 일일 권장 칼로리(TDEE) 계산기 - 다이어트 식단 | 일상툴">칼로리 계산기</a> <a href="?tool=notepad" data-id="notepad" class="seo-crawl-link" title="온라인 메모장 - 줄노트·모눈종이·포스트잇 자동저장 & 링크 공유 | 일상툴">온라인 메모장</a> <a href="?tool=qr" data-id="qr" class="seo-crawl-link" title="무료 QR코드 생성기 - URL 링크·와이파이·텍스트 고화질 QR 이미지 제작 | 일상툴">QR코드 생성기</a> <a href="?tool=counter" data-id="counter" class="seo-crawl-link" title="글자수 세기 & 공백 포함/제외·단어수·읽기 시간 실시간 계산기 | 일상툴">글자수 세기</a> <a href="?tool=age" data-id="age" class="seo-crawl-link" title="만나이 계산기 - 생년월일 기준 법적 만나이·세는나이·살아온 날수 | 일상툴">만나이 계산기</a> <a href="?tool=hwangap" data-id="hwangap" class="seo-crawl-link" title="환갑·칠순·팔순 계산기 - 부모님 생신 연도·고희연·산수연 날짜 계산 | 일상툴">환갑·칠순·팔순 계산기</a> <a href="?tool=dday" data-id="dday" class="seo-crawl-link" title="디데이(D-Day) 계산기 - 수능·시험·커플 기념일·여행 남은 날짜 | 일상툴">디데이 계산기</a> <a href="?tool=loan" data-id="loan" class="seo-crawl-link" title="대출 이자 계산기 - 원리금균등 상환 월 납입금·총 대출이자 계산 | 일상툴">대출 이자 계산기</a> <a href="?tool=compound" data-id="compound" class="seo-crawl-link" title="복리 계산기 & 목표 금액 월 적립액 계산기 - 예금·적금·ETF 수익률 | 일상툴">복리이자 계산기</a> <a href="?tool=percent" data-id="percent" class="seo-crawl-link" title="퍼센트(%) 계산기 & 할인율 계산기 - 할인가·비율·증감률 계산 | 일상툴">퍼센트 / 할인 계산기</a> <a href="?tool=password" data-id="password" class="seo-crawl-link" title="안전한 랜덤 비밀번호 생성기 - Web Crypto 암호학 난수 패스워드 | 일상툴">비밀번호 생성기</a> <a href="?tool=alarm" data-id="alarm" class="seo-crawl-link" title="온라인 알람 시계 & 웹 타이머 - 브라우저 알림음·시간 관리 | 일상툴">알람 / 타이머</a> <a href="?tool=worldclock" data-id="worldclock" class="seo-crawl-link" title="세계 시계 (World Clock) - 서울·도쿄·뉴욕·런던·파리 실시간 시차 확인 | 일상툴">세계 시계</a> <a href="?tool=color" data-id="color" class="seo-crawl-link" title="컬러 피커 (Color Picker) - HEX·RGB·HSL 색상 코드 실시간 변환 | 일상툴">컬러 피커</a> <a href="?tool=preg" data-id="preg" class="seo-crawl-link" title="임신 주수 계산기 & 출산 예정일 계산기 (마지막 생리일 LMP 기준) | 일상툴">임신 주수 계산기</a> <a href="?tool=stopwatch" data-id="stopwatch" class="seo-crawl-link" title="온라인 웹 스톱워치 (Stopwatch) - 0.01초 정밀 측정 & 랩타임 기록 | 일상툴">스톱워치</a> <a href="?tool=datecalc" data-id="datecalc" class="seo-crawl-link" title="날짜 계산기 - 두 날짜 사이 일수·개월수 & 특정일 N일 후 계산 | 일상툴">날짜 계산기</a> <a href="?tool=postcode" data-id="postcode" class="seo-crawl-link" title="도로명 우편번호 검색 - 5자리 신우편번호·지번·영문주소 조회 | 일상툴">우편번호 검색</a> <a href="?tool=enaddr" data-id="enaddr" class="seo-crawl-link" title="영문 주소 변환기 - 해외직구·페이팔용 한글 도로명주소 영문 변환 | 일상툴">영문 주소 변환기</a> <a href="?tool=pdf" data-id="pdf" class="seo-crawl-link" title="무료 PDF 변환기 - 이미지↔PDF, 합치기(병합), 분할, 회전, 용량 압축 | 일상툴">PDF 변환기</a> <a href="?tool=apple" data-id="apple" class="seo-crawl-link" title="온라인 사과게임 (과일박스 게임) - 합 10 만들기 두뇌 퍼즐 & 랭킹전 | 일상툴">사과게임</a> <a href="?tool=omok" data-id="omok" class="seo-crawl-link" title="온라인 오목게임 (Gomoku) - 2인 대전 & 스마트 AI 대국·렌주룰 바둑판 | 일상툴">오목게임</a> <a href="?tool=paint" data-id="paint" class="seo-crawl-link" title="온라인 그림판 (MS Paint 스타일) - 이미지 붙여넣기(Ctrl+V) 에셋 보드 & 자르기 | 일상툴">그림판</a> <a href="?tool=board" data-id="board" class="seo-crawl-link" title="도구 요청 & 피드백 게시판 - 필요한 계산기·기능 제안 | 일상툴">도구 요청 게시판</a>
+        </div>
+      </nav>
+
       <footer class="footer">
         <span>일상툴 · 계산은 브라우저에서만 처리됩니다. BMI·칼로리·임신·세금은 참고용입니다.</span>
         <span><a href="https://ilsangtool.kr/llms.txt">llms.txt</a> · <a
@@ -2935,6 +3845,260 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="js/daily.js?v=50"></script>
+
+  <script id="ilsangtool-seo-traffic-engine">
+    (function() {
+      const TOOLS_SEO_MAP = {"home": {"name": "일상툴 홈", "cat": "all", "title": "일상툴 - 그림판, 사과게임, 오목게임, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환 등 33가지 생활 도구", "desc": "그림판, 사과게임, 오목게임(2인대전·AI), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환, 환갑·칠순 등 33가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용.", "related": ["salary", "apple", "omok", "paint"]}, "calc": {"name": "공학용계산기", "cat": "calc", "title": "온라인 공학용 계산기 (카시오 fx 스타일) - 삼각함수·로그·순열조합 | 일상툴", "desc": "설치 없이 브라우저에서 바로 쓰는 카시오 fx 스타일 무료 공학용 계산기. sin, cos, tan 삼각함수, 역삼각함수, 상용·자연로그, 거듭제곱, 팩토리얼(n!), 순열(nPr)·조합(nCr) 및 키보드 입력을 지원합니다.", "related": ["unit", "percent", "compound", "counter"]}, "unit": {"name": "단위 변환기", "cat": "calc", "title": "단위 변환기 - 평·㎡, cm·인치(inch), kg·파운드(lb), 섭씨·화씨 변환 | 일상툴", "desc": "아파트 평수(평 ↔ ㎡), 길이(cm, m, inch, ft), 무게(kg, lb, oz), 온도(℃, ℉), 부피(L, gal), 데이터 용량(MB, GB, TB)을 실시간으로 양방향 변환하세요.", "related": ["calc", "percent", "fx", "bmi"]}, "bmi": {"name": "BMI 비만도 계산기", "cat": "health", "title": "BMI 계산기 (아시아-태평양 대한비만학회 기준 체질량지수·표준체중) | 일상툴", "desc": "키(cm)와 몸무게(kg)를 입력하면 대한비만학회 기준 체질량지수(BMI)와 정상 체중 범위, 비만도 단계를 3초 만에 판정합니다.", "related": ["calorie", "age", "preg", "unit"]}, "fx": {"name": "환율 환산기", "cat": "finance", "title": "실시간 환율 계산기 - 원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) | 일상툴", "desc": "해외여행·직구·외화 투자 시 필요한 원화(KRW), 미국 달러(USD), 일본 엔(JPY), 유럽 유로(EUR), 중국 위안(CNY) 환율을 양방향으로 즉시 환산합니다.", "related": ["percent", "vat", "split", "unit"]}, "salary": {"name": "연봉 실수령액 계산기", "cat": "finance", "title": "2026 연봉 실수령액 계산기 - 4대보험·근로소득세·비과세 식대 반영 | 일상툴", "desc": "세전 연봉과 비과세 식대(월 20만 원 등)를 입력하면 국민연금, 건강보험, 장기요양보험, 고용보험 및 근로소득세·지방소득세를 공제한 실제 월 실수령액을 즉시 계산합니다.", "related": ["tax", "loan", "compound", "vat"]}, "tax": {"name": "연말정산·세금 계산기", "cat": "finance", "title": "연말정산 환급금 계산기 - 과세표준·결정세액·IRP 연금저축 세액공제 추정 | 일상툴", "desc": "세전 연봉, 부양가족 수, 기납부 소득세와 IRP·연금저축 납입액을 바탕으로 올해 연말정산 예상 환급액 또는 추가납부 세액과 절세 전략을 확인하세요.", "related": ["salary", "vat", "compound", "loan"]}, "vat": {"name": "부가세 계산기", "cat": "finance", "title": "부가세(VAT 10%) 계산기 - 공급가액·부가세 별도/포함 역산 계산 | 일상툴", "desc": "세금계산서 발행 및 견적서 작성 필수 도구. 대한민국 부가가치세 10% 기준 공급가액에서 부가세 포함 합계 계산, 총 결제금액에서 공급가액 역산을 한 번에 해결합니다.", "related": ["salary", "tax", "percent", "split"]}, "split": {"name": "더치페이 계산기", "cat": "finance", "title": "더치페이(1/N) 정산 계산기 - 모임 회비·팁(봉사료) 인원별 나눔 | 일상툴", "desc": "회식, 모임, 여행 경비 정산 시 총 결제 금액과 참석 인원, 팁(%)을 입력하면 1인당 정확히 내야 할 금액을 즉시 계산해 드립니다.", "related": ["vat", "percent", "fx", "notepad"]}, "calorie": {"name": "칼로리 계산기", "cat": "health", "title": "기초대사량(BMR) & 일일 권장 칼로리(TDEE) 계산기 - 다이어트 식단 | 일상툴", "desc": "성별, 나이, 키, 몸무게와 평소 활동량을 바탕으로 Mifflin-St Jeor 공식 기반 기초대사량(BMR), 체중 유지 칼로리, 다이어트 감량 목표 칼로리를 계산합니다.", "related": ["bmi", "age", "stopwatch", "alarm"]}, "notepad": {"name": "온라인 메모장", "cat": "util", "title": "온라인 메모장 - 줄노트·모눈종이·포스트잇 자동저장 & 링크 공유 | 일상툴", "desc": "설치나 로그인 없이 브라우저에서 바로 쓰는 감성 온라인 메모장. 줄노트, 모눈종이, 포스트잇 테마와 실시간 자동 저장, TXT 다운로드, 외부 URL 공유를 지원합니다.", "related": ["counter", "paint", "pdf", "qr"]}, "qr": {"name": "QR코드 생성기", "cat": "util", "title": "무료 QR코드 생성기 - URL 링크·와이파이·텍스트 고화질 QR 이미지 제작 | 일상툴", "desc": "웹사이트 주소(URL), 매장 와이파이 안내, 명함 연락처, 텍스트를 스캔 가능한 고해상도 QR코드 이미지로 즉시 무료 생성합니다.", "related": ["password", "notepad", "pdf", "color"]}, "counter": {"name": "글자수 세기", "cat": "calc", "title": "글자수 세기 & 공백 포함/제외·단어수·읽기 시간 실시간 계산기 | 일상툴", "desc": "자기소개서(자소서), 블로그 포스팅, 리포트, 경력기술서 작성 시 공백 포함 글자수, 공백 제외 글자수, 단어 수, 예상 읽기 시간을 실시간으로 확인하세요.", "related": ["notepad", "pdf", "dday", "age"]}, "age": {"name": "만나이 계산기", "cat": "health", "title": "만나이 계산기 - 생년월일 기준 법적 만나이·세는나이·살아온 날수 | 일상툴", "desc": "생년월일을 입력하면 대한민국 법적 표준 만나이, 전통 세는나이, 태어난 후 살아온 총 일수, 다음 생일까지 남은 날짜를 정확하게 계산합니다.", "related": ["hwangap", "dday", "datecalc", "bmi"]}, "hwangap": {"name": "환갑·칠순·팔순 계산기", "cat": "time", "title": "환갑·칠순·팔순 계산기 - 부모님 생신 연도·고희연·산수연 날짜 계산 | 일상툴", "desc": "부모님 생년월일을 입력하면 환갑(만 60세), 칠순(고희, 세는나이 70세/만 69세), 팔순(산수), 구순 연도와 정확한 생신 날짜, 남은 D-Day를 한눈에 계산합니다.", "related": ["age", "dday", "datecalc", "split"]}, "dday": {"name": "디데이 계산기", "cat": "time", "title": "디데이(D-Day) 계산기 - 수능·시험·커플 기념일·여행 남은 날짜 | 일상툴", "desc": "수능, 자격증 시험, 결혼기념일, 커플 100일, 입대·전역일, 해외여행까지 남은 일수(D-)와 지난 일수(D+)를 간편하게 계산하세요.", "related": ["datecalc", "age", "hwangap", "alarm"]}, "loan": {"name": "대출 이자 계산기", "cat": "finance", "title": "대출 이자 계산기 - 원리금균등 상환 월 납입금·총 대출이자 계산 | 일상툴", "desc": "주택담보대출, 전세대출, 신용대출 실행 전 대출 원금과 연 이자율(%), 상환 기간(년)을 입력해 매월 납입할 원리금과 총 이자 부담액을 계산하세요.", "related": ["compound", "salary", "tax", "percent"]}, "compound": {"name": "복리이자 계산기", "cat": "finance", "title": "복리 계산기 & 목표 금액 월 적립액 계산기 - 예금·적금·ETF 수익률 | 일상툴", "desc": "초기 원금과 매월 추가 적립금, 연 복리 수익률, 투자 기간에 따른 만기 원리금과 복리 이자 효과, 1억 모으기 등 목표 금액 달성을 위한 월 필요 적립액을 계산합니다.", "related": ["loan", "salary", "tax", "percent"]}, "percent": {"name": "퍼센트 / 할인 계산기", "cat": "calc", "title": "퍼센트(%) 계산기 & 할인율 계산기 - 할인가·비율·증감률 계산 | 일상툴", "desc": "쇼핑몰 할인 가격과 절약 금액 계산, 전체 대비 비율(A는 B의 몇 %), 매출·수치 증감률(성장률 %)을 암산 없이 즉시 계산합니다.", "related": ["vat", "calc", "split", "fx"]}, "password": {"name": "비밀번호 생성기", "cat": "util", "title": "안전한 랜덤 비밀번호 생성기 - Web Crypto 암호학 난수 패스워드 | 일상툴", "desc": "해킹 예방을 위해 브라우저 암호학 난수(Web Crypto API)를 활용하여 대문자, 소문자, 숫자, 특수문자가 조합된 강력한 랜덤 비밀번호를 즉시 생성합니다.", "related": ["qr", "notepad", "counter", "color"]}, "alarm": {"name": "알람 / 타이머", "cat": "time", "title": "온라인 알람 시계 & 웹 타이머 - 브라우저 알림음·시간 관리 | 일상툴", "desc": "업무 집중(뽀모도로), 휴식, 요리, 약 복용 시간에 맞춰 지정한 시각에 브라우저 알림과 사운드를 울려주는 무료 웹 알람 시계입니다.", "related": ["stopwatch", "worldclock", "dday", "notepad"]}, "worldclock": {"name": "세계 시계", "cat": "time", "title": "세계 시계 (World Clock) - 서울·도쿄·뉴욕·런던·파리 실시간 시차 확인 | 일상툴", "desc": "해외 출장, 글로벌 화상회의, 직구, 스포츠 중계 시청 시 필요한 서울, 도쿄, 뉴욕, 런던, 파리, 시드니 등 주요 도시의 현재 시각과 날짜를 한눈에 비교하세요.", "related": ["fx", "alarm", "stopwatch", "datecalc"]}, "color": {"name": "컬러 피커", "cat": "util", "title": "컬러 피커 (Color Picker) - HEX·RGB·HSL 색상 코드 실시간 변환 | 일상툴", "desc": "웹 디자인, CSS 퍼블리싱, PPT 제작 시 필요한 색상을 선택하고 HEX 코드, RGB, HSL 색상 값을 실시간으로 상호 변환합니다.", "related": ["paint", "qr", "pdf", "notepad"]}, "preg": {"name": "임신 주수 계산기", "cat": "health", "title": "임신 주수 계산기 & 출산 예정일 계산기 (마지막 생리일 LMP 기준) | 일상툴", "desc": "마지막 생리 시작일(LMP)을 입력하면 네겔레 법칙(Naegele's rule)을 적용해 현재 임신 주수(몇 주 몇 일), 출산 예정일, 출산까지 남은 날짜를 계산합니다.", "related": ["dday", "datecalc", "age", "bmi"]}, "stopwatch": {"name": "스톱워치", "cat": "time", "title": "온라인 웹 스톱워치 (Stopwatch) - 0.01초 정밀 측정 & 랩타임 기록 | 일상툴", "desc": "공부 시간 측정, 운동 인터벌, 요리, 발표 연습에 바로 쓸 수 있는 고정밀 온라인 스톱워치입니다. 무제한 구간 기록(Lap)을 지원합니다.", "related": ["alarm", "worldclock", "dday", "calorie"]}, "datecalc": {"name": "날짜 계산기", "cat": "time", "title": "날짜 계산기 - 두 날짜 사이 일수·개월수 & 특정일 N일 후 계산 | 일상툴", "desc": "계약 기간, 프로젝트 일정, 입사 근무 일수 등 두 날짜 사이의 정확한 총 일수와 개월 수를 구하고, 시작일로부터 N일 후(100일, 365일 등) 날짜를 계산합니다.", "related": ["dday", "age", "hwangap", "preg"]}, "postcode": {"name": "우편번호 검색", "cat": "util", "title": "도로명 우편번호 검색 - 5자리 신우편번호·지번·영문주소 조회 | 일상툴", "desc": "카카오(다음) 우편번호 서비스를 연동하여 도로명 주소나 지번 주소로 5자리 국가기초구역번호(우편번호)와 영문 주소를 빠르고 정확하게 검색합니다.", "related": ["enaddr", "notepad", "pdf", "qr"]}, "enaddr": {"name": "영문 주소 변환기", "cat": "util", "title": "영문 주소 변환기 - 해외직구·페이팔용 한글 도로명주소 영문 변환 | 일상툴", "desc": "해외 직구(아마존, 알리익스프레스), 해외 송금, 비자 신청 시 필요한 대한민국 한글 도로명·지번 주소를 표준 로마자 표기법 기준 영문 주소로 즉시 변환합니다.", "related": ["postcode", "fx", "percent", "notepad"]}, "pdf": {"name": "PDF 변환기", "cat": "util", "title": "무료 PDF 변환기 - 이미지↔PDF, 합치기(병합), 분할, 회전, 용량 압축 | 일상툴", "desc": "서버 업로드 없이 100% 내 브라우저에서 안전하게 처리되는 올인원 PDF 도구. JPG/PNG 이미지 PDF 변환, PDF 이미지 추출, 병합, 분할, 회전, 압축, 텍스트 추출을 지원합니다.", "related": ["paint", "notepad", "counter", "qr"]}, "apple": {"name": "사과게임", "cat": "util", "title": "온라인 사과게임 (과일박스 게임) - 합 10 만들기 두뇌 퍼즐 & 랭킹전 | 일상툴", "desc": "드래그하여 직사각형 안의 사과 숫자 합이 10이 되도록 수확하는 중독성 만점 무료 웹 사과게임(Fruit Box). 140초 타임어택, 무제한 연습 모드, 힌트 기능, 오늘의 TOP 10 랭킹을 지원합니다.", "related": ["omok", "paint", "stopwatch", "calc"]}, "omok": {"name": "오목게임", "cat": "util", "title": "온라인 오목게임 (Gomoku) - 2인 대전 & 스마트 AI 대국·렌주룰 바둑판 | 일상툴", "desc": "15×15 정통 바둑판에서 즐기는 무료 온라인 오목게임. 친구와 2인 맞대국 및 초급·중급·마스터 AI 대전, 공식 렌주룰(3-3, 4-4, 장목 금수 판정), AI 추천수 힌트를 지원합니다.", "related": ["apple", "paint", "stopwatch", "notepad"]}, "paint": {"name": "그림판", "cat": "util", "title": "온라인 그림판 (MS Paint 스타일) - 이미지 붙여넣기(Ctrl+V) 에셋 보드 & 자르기 | 일상툴", "desc": "윈도우 클래식 그림판 감성에 실무 편의를 더한 무료 웹 그림판. 브러시, 도형, 페인트통 채우기, 텍스트 입력, 캔버스 자르기 및 Ctrl+V 클립보드 이미지 에셋 보드를 지원합니다.", "related": ["pdf", "color", "notepad", "apple"]}, "board": {"name": "도구 요청 게시판", "cat": "util", "title": "도구 요청 & 피드백 게시판 - 필요한 계산기·기능 제안 | 일상툴", "desc": "일상툴(ilsangtool.kr)에 추가되었으면 하는 새로운 계산기나 유틸리티, 개선 아이디어를 관리자에게 직접 요청할 수 있는 소통 공간입니다.", "related": ["home", "salary", "pdf", "apple"]}};
+
+      function showSeoToast(msg) {
+        const toastEl = document.getElementById('toast');
+        if (toastEl) {
+          toastEl.textContent = msg;
+          toastEl.classList.add('show');
+          toastEl.style.opacity = '1';
+          toastEl.style.visibility = 'visible';
+          setTimeout(() => {
+            toastEl.classList.remove('show');
+          }, 2600);
+        }
+      }
+
+      function copyToClip(text, msg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => showSeoToast(msg)).catch(() => fallbackCopyText(text, msg));
+        } else {
+          fallbackCopyText(text, msg);
+        }
+      }
+
+      function fallbackCopyText(text, msg) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showSeoToast(msg);
+        } catch (e) {}
+        document.body.removeChild(ta);
+      }
+
+      // 현재 활성 도구의 실시간 계산 결과 요약 추출
+      function extractCurrentResultSummary(toolId) {
+        const meta = TOOLS_SEO_MAP[toolId] || TOOLS_SEO_MAP.home;
+        const sec = document.getElementById(toolId);
+        const url = 'https://ilsangtool.kr/?tool=' + toolId;
+        if (!sec || toolId === 'home') {
+          return '[일상툴] ' + meta.title + ' 👉 ' + url;
+        }
+        const kpis = [];
+        sec.querySelectorAll('.kpi > div').forEach(div => {
+          const lbl = div.querySelector('span');
+          const val = div.querySelector('b');
+          if (lbl && val && val.textContent.trim() !== '-') {
+            kpis.push(lbl.textContent.trim() + ': ' + val.textContent.trim());
+          }
+        });
+        const strongOut = sec.querySelector('.result strong');
+        if (strongOut && strongOut.textContent.trim() !== '-') {
+          kpis.unshift('결과: ' + strongOut.textContent.trim());
+        }
+        const summaryStr = kpis.length > 0 ? kpis.join(' | ') : meta.desc;
+        return '📌 [일상툴 ' + meta.name + ' 결과]\n' + summaryStr + '\n👉 바로 계산해보기: ' + url;
+      }
+
+      // 도구별 메타태그, Canonical URL, Open Graph 동적 갱신
+      function applyToolSeoMeta(toolId) {
+        const key = TOOLS_SEO_MAP[toolId] ? toolId : 'home';
+        const meta = TOOLS_SEO_MAP[key];
+        const canonicalUrl = key === 'home' ? 'https://ilsangtool.kr/' : 'https://ilsangtool.kr/?tool=' + key;
+
+        document.title = meta.title;
+
+        const descMeta = document.querySelector('meta[name="description"]');
+        if (descMeta) descMeta.setAttribute('content', meta.desc);
+
+        const canonLink = document.querySelector('link[rel="canonical"]');
+        if (canonLink) canonLink.setAttribute('href', canonicalUrl);
+
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', meta.title);
+
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', meta.desc);
+
+        const ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+
+        // 주소창을 검색엔진 친화적인 ?tool=<id>#<id> 형태로 동기화
+        try {
+          if (key === 'home') {
+            if (window.location.search.includes('tool=')) {
+              window.history.replaceState(null, '', window.location.pathname);
+            }
+          } else {
+            const targetUrl = window.location.pathname + '?tool=' + key + '#' + key;
+            if (window.location.search !== '?tool=' + key) {
+              window.history.replaceState(null, '', targetUrl);
+            }
+          }
+        } catch (e) {}
+      }
+
+      // 모든 도구 섹션에 바이럴 공유 바 & 연관 도구 내부 링크 자동 주입
+      function injectViralAndRelatedBlocks() {
+        Object.keys(TOOLS_SEO_MAP).forEach(toolId => {
+          if (toolId === 'home') return;
+          const sec = document.getElementById(toolId);
+          if (!sec || sec.querySelector('.seo-share-bar')) return;
+
+          const meta = TOOLS_SEO_MAP[toolId];
+          const adSlot = sec.querySelector('.ad-slot.ad-tool');
+
+          // 1. 바이럴 결과 공유 바
+          const shareBar = document.createElement('div');
+          shareBar.className = 'seo-share-bar';
+          shareBar.innerHTML = `
+            <div class="seo-share-info">
+              <strong>💡 방금 계산한 ${meta.name} 결과를 공유하거나 저장해 보세요!</strong><br>
+              <span>카카오톡·단톡방에 계산 결과를 바로 붙여넣거나 전용 링크를 복사할 수 있습니다.</span>
+            </div>
+            <div class="seo-share-btns">
+              <button type="button" class="seo-share-btn primary-share" data-share-result="${toolId}">
+                <span>💬</span><span>계산 결과 + 링크 복사</span>
+              </button>
+              <button type="button" class="seo-share-btn" data-share-url="${toolId}">
+                <span>🔗</span><span>도구 주소 복사</span>
+              </button>
+              <button type="button" class="seo-share-btn" data-bookmark-tip="${toolId}">
+                <span>⭐</span><span>즐겨찾기(Ctrl+D)</span>
+              </button>
+            </div>
+          `;
+
+          // 2. 연관 도구 내부 링크 추천 박스 (PV 및 크롤링 깊이 증대)
+          const relatedWrap = document.createElement('div');
+          relatedWrap.className = 'seo-related-wrap';
+          const relCardsHtml = (meta.related || []).map(rid => {
+            const rMeta = TOOLS_SEO_MAP[rid];
+            if (!rMeta) return '';
+            return `
+              <a href="?tool=${rid}" data-id="${rid}" class="seo-related-card">
+                <h4>${rMeta.name} →</h4>
+                <p>${rMeta.desc}</p>
+              </a>
+            `;
+          }).join('');
+
+          relatedWrap.innerHTML = `
+            <div class="seo-related-title">
+              <span>🔥 ${meta.name}와(과) 함께 많이 쓰는 연관 도구</span>
+              <span style="font-size:11.5px; color:#94a3b8; font-weight:500;">클릭 시 즉시 이동</span>
+            </div>
+            <div class="seo-related-grid">
+              ${relCardsHtml}
+            </div>
+          `;
+
+          if (adSlot) {
+            sec.insertBefore(shareBar, adSlot);
+            sec.insertBefore(relatedWrap, adSlot);
+          } else {
+            sec.appendChild(shareBar);
+            sec.appendChild(relatedWrap);
+          }
+        });
+
+        // 공유 버튼 이벤트 위임
+        document.body.addEventListener('click', (e) => {
+          const resBtn = e.target.closest('[data-share-result]');
+          if (resBtn) {
+            const tid = resBtn.getAttribute('data-share-result');
+            const summary = extractCurrentResultSummary(tid);
+            copyToClip(summary, '계산 결과와 바로가기 링크가 복사되었습니다! 메신저에 붙여넣어 보세요.');
+            return;
+          }
+          const urlBtn = e.target.closest('[data-share-url]');
+          if (urlBtn) {
+            const tid = urlBtn.getAttribute('data-share-url');
+            const url = 'https://ilsangtool.kr/?tool=' + tid;
+            copyToClip(url, '도구 고유 주소(' + url + ')가 복사되었습니다!');
+            return;
+          }
+          const bmBtn = e.target.closest('[data-bookmark-tip]');
+          if (bmBtn) {
+            showSeoToast('키보드에서 Ctrl + D (모바일은 공유 → 홈 화면에 추가)를 누르면 1초 만에 다시 열 수 있습니다!');
+            return;
+          }
+          const seoLink = e.target.closest('a[data-id]');
+          if (seoLink) {
+            const targetId = seoLink.getAttribute('data-id');
+            if (targetId && TOOLS_SEO_MAP[targetId]) {
+              e.preventDefault();
+              const existingBtn = document.querySelector('nav#nav button[data-id="' + targetId + '"]') ||
+                                  document.querySelector('button[data-id="' + targetId + '"]');
+              if (existingBtn) {
+                existingBtn.click();
+              } else {
+                window.location.hash = '#' + targetId;
+              }
+              applyToolSeoMeta(targetId);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }
+        });
+      }
+
+      // 도구 전환 감지 및 메타태그 자동 반영
+      function initSeoRouter() {
+        injectViralAndRelatedBlocks();
+
+        const params = new URLSearchParams(window.location.search);
+        const queryTool = params.get('tool');
+        const hashTool = window.location.hash ? window.location.hash.replace('#', '') : '';
+        const initialTool = (queryTool && TOOLS_SEO_MAP[queryTool]) ? queryTool :
+                            ((hashTool && TOOLS_SEO_MAP[hashTool]) ? hashTool : 'home');
+
+        if (initialTool !== 'home') {
+          setTimeout(() => {
+            const targetSec = document.getElementById(initialTool);
+            if (targetSec && targetSec.classList.contains('hidden')) {
+              const navBtn = document.querySelector('#nav button[data-id="' + initialTool + '"]') ||
+                             document.querySelector('button[data-id="' + initialTool + '"]');
+              if (navBtn) navBtn.click();
+            }
+            applyToolSeoMeta(initialTool);
+          }, 60);
+        } else {
+          applyToolSeoMeta('home');
+        }
+
+        window.addEventListener('hashchange', () => {
+          const h = window.location.hash.replace('#', '') || 'home';
+          if (TOOLS_SEO_MAP[h]) applyToolSeoMeta(h);
+        });
+
+        document.body.addEventListener('click', (e) => {
+          const trigger = e.target.closest('[data-id], [data-tool]');
+          if (trigger) {
+            const tid = trigger.getAttribute('data-id') || trigger.getAttribute('data-tool');
+            if (tid && TOOLS_SEO_MAP[tid]) {
+              setTimeout(() => applyToolSeoMeta(tid), 30);
+            }
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSeoRouter);
+      } else {
+        initSeoRouter();
+      }
+    })();
+  </script>
+
 </body>
 
 </html>

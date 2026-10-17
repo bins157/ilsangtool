@@ -1,11 +1,48 @@
 User-agent: *
 Allow: /
+Allow: /?tool=*
+Allow: /about.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /contact.html
+Allow: /llms.txt
+Allow: /llms-full.txt
 
-# AI & Generative Search Engines (GEO)
+# Google AdSense Crawler (애드센스 심사 및 문맥 광고 매칭 봇 최우선 허용)
+User-agent: Mediapartners-Google
+Allow: /
+Allow: /?tool=*
+
+# Google Search Crawler (Googlebot)
+User-agent: Googlebot
+Allow: /
+Allow: /?tool=*
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Naver Search Crawler (Yeti) - 쿼리 파라미터(?tool=) 개별 도구 색인 명시적 허용
+User-agent: Yeti
+Allow: /
+Allow: /?tool=*
+
+# Daum / Bing Search Crawlers
+User-agent: Daumoa
+Allow: /
+Allow: /?tool=*
+
+User-agent: Bingbot
+Allow: /
+Allow: /?tool=*
+
+# AI & Generative Search Engines (GEO: ChatGPT, Perplexity, Claude, Gemini)
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
@@ -18,34 +55,6 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: Applebot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: Omgilibot
-Allow: /
-
-# Major Search Engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-Favicon
-Allow: /
-
-User-agent: Yeti
-Allow: /
-
-User-agent: Daumoa
-Allow: /
-
-User-agent: Bingbot
 Allow: /
 
 Sitemap: https://ilsangtool.kr/sitemap.xml

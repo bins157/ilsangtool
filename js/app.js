@@ -59,7 +59,7 @@
     var ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", tool.desc || "");
     var ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/#" + tool.id);
+    if (ogUrl) ogUrl.setAttribute("content", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/?tool=" + tool.id);
   }
 
   var drawer = document.getElementById("mobileDrawer");
@@ -131,7 +131,11 @@
       ? '<span class="live-dot" aria-hidden="true"></span>홈'
       : '<span class="live-dot" aria-hidden="true"></span>홈 / ' + tool.name;
     setSeo(tool);
-    if (history.replaceState) history.replaceState(null, "", id === "home" ? location.pathname : "#" + id);
+    if (history.replaceState) {
+      var nextUrl = id === "home" ? location.pathname : (location.pathname + "?tool=" + id + "#" + id);
+      history.replaceState(null, "", nextUrl);
+    }
+    if (window.__applyIlsangSeoMeta__) window.__applyIlsangSeoMeta__(id);
     else location.hash = id === "home" ? "" : id;
     if (id === "postcode") initPostcode();
     if (id === "apple" && window.onShowAppleGame) window.onShowAppleGame();
@@ -4933,7 +4937,7 @@
     appleOverlayShareBtn.addEventListener("click", function () {
       var rankInfo = getRank(score, remaining === 0);
       var pct = Math.round((score / TOTAL_APPLES) * 100);
-      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://ilsangtool.kr/#apple";
+      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://ilsangtool.kr/?tool=apple";
       copyShareText(shareText);
     });
 
@@ -7716,7 +7720,7 @@
     if (modalShareBtn) {
       modalShareBtn.addEventListener("click", function () {
         var winStr = winner === 1 ? "흑 승리" : (winner === 2 ? "백 승리" : "무승부");
-        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://ilsangtool.kr/#omok";
+        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://ilsangtool.kr/?tool=omok";
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(shareTxt).then(function () {
             if (toast) toast("🔗 승리 결과가 클립보드에 복사되었습니다!");
