@@ -30,6 +30,7 @@
     { id: "enaddr", name: "영문 주소 변환", ico: "EN", blurb: "한글 주소를 영문으로", title: "영문 주소 변환기 한글주소 로마자 - 일상툴", desc: "한글 도로명·지번 주소를 영문으로 변환합니다. 해외 배송·입국신고서용." },
     { id: "pdf", name: "PDF 변환기", ico: "PDF", blurb: "이미지↔PDF, 합치기, 분할, 회전, 압축", title: "PDF 변환기 - 이미지 PDF 변환, 합치기, 분할, 회전, 압축 - 일상툴", desc: "Smallpdf 스타일의 무료 온라인 PDF 솔루션. 이미지 to PDF, PDF to 이미지(JPG/PNG), PDF 병합(합치기), 분할/추출, 페이지 회전, 용량 압축, 텍스트 추출을 100% 브라우저 메모리 연산으로 안전하고 빠르게 제공합니다." },
     { id: "apple", name: "사과게임", ico: "🍎", blurb: "합이 10이 되는 사과를 드래그!", title: "사과게임 (과일박스 게임) - 합이 10이 되는 상자 만들기 - 일상툴", desc: "인기 웹 두뇌 퍼즐 사과게임(Fruit Box Game). 17x10 격자에서 직사각형으로 드래그하여 합이 10이 되는 사과들을 수확하세요! 120초 타임어택과 무제한 연습 모드, 힌트 기능, 최고 기록 저장 지원." },
+    { id: "omok", name: "오목게임", ico: "⚪⚫", blurb: "2인 대전 & 스마트 AI · 렌주룰", title: "오목게임 (Gomoku) - 2인 대전 & 스마트 AI 대국, 렌주룰 바둑판 - 일상툴", desc: "웹에서 바로 즐기는 정통 15x15 오목게임(Gomoku). 친구와 한 화면에서 두는 2인 맞대국 및 3단계 난이도 스마트 AI 대전, 정통 렌주룰(3-3 금수 판정)과 자유룰, 실감나는 착수음과 비자나무/사이버 다크 테마, 한 수 무르기와 AI 추천수 힌트를 제공합니다." },
     { id: "paint", name: "그림판", ico: "🎨", blurb: "윈도우 스타일 그림판 · 에셋 보드 · 공유", title: "그림판 - 윈도우 스타일 웹 그림판, 복사 에셋 보드, 텍스트 입력, 이미지 다운로드 & 공유 - 일상툴", desc: "윈도우 기본 그림판 스타일의 무료 온라인 그림판 도구. 연필, 브러시, 지우개, 도형, 페인트통, 텍스트 도구 지원. 복사한 이미지 자료(Ctrl+V)를 즉시 보관하는 우측 에셋 보드와 캔버스 스탬프 기능, 고화질 이미지 다운로드 및 원클릭 공유 기능을 제공합니다." },
     { id: "board", name: "도구 요청", ico: "글", blurb: "만들고 싶은 도구를 남기세요", title: "도구 요청 게시판 - 일상툴", desc: "만들고 싶은 계산기나 웹 도구를 요청하는 게시판입니다." }
   ];
@@ -129,6 +130,8 @@
     if (id === "postcode") initPostcode();
     if (id === "apple" && window.onShowAppleGame) window.onShowAppleGame();
     else if (id !== "apple" && window.onHideAppleGame) window.onHideAppleGame();
+    if (id === "omok" && window.onShowOmokGame) window.onShowOmokGame();
+    else if (id !== "omok" && window.onHideOmokGame) window.onHideOmokGame();
     if (id === "paint" && window.onShowPaintTool) window.onShowPaintTool();
     window.scrollTo({ top: 0, behavior: "smooth" });
     closeDrawer();
@@ -3646,6 +3649,7 @@
     var appleSideComboCard = document.getElementById("appleSideComboCard");
     var appleComboStreakVal = document.getElementById("appleComboStreakVal");
     var appleTimerBar = document.getElementById("appleTimerBar");
+    var appleTimerPctVal = document.getElementById("appleTimerPctVal");
     var appleModeTime = document.getElementById("appleModeTime");
     var appleModeZen = document.getElementById("appleModeZen");
     var appleRestartBtn = document.getElementById("appleRestartBtn");
@@ -4142,23 +4146,31 @@
 
     function updateTimerUI() {
       if (gameMode === "time") {
-        appleTimerVal.textContent = formatTime(timeRemaining);
+        if (appleTimerVal) appleTimerVal.textContent = formatTime(timeRemaining);
         if (appleTimerModeBadge) appleTimerModeBadge.textContent = "타임어택";
         var pct = Math.max(0, Math.min(100, (timeRemaining / TIME_LIMIT) * 100));
-        appleTimerBar.style.width = pct + "%";
+        if (appleTimerBar) {
+          appleTimerBar.style.height = pct + "%";
+          appleTimerBar.style.width = "100%";
+        }
+        if (appleTimerPctVal) appleTimerPctVal.textContent = Math.round(pct) + "%";
         if (timeRemaining <= 15) {
-          appleTimerVal.classList.add("low-time");
-          appleTimerBar.classList.add("urgent");
+          if (appleTimerVal) appleTimerVal.classList.add("low-time");
+          if (appleTimerBar) appleTimerBar.classList.add("urgent");
         } else {
-          appleTimerVal.classList.remove("low-time");
-          appleTimerBar.classList.remove("urgent");
+          if (appleTimerVal) appleTimerVal.classList.remove("low-time");
+          if (appleTimerBar) appleTimerBar.classList.remove("urgent");
         }
       } else {
-        appleTimerVal.textContent = "무제한";
+        if (appleTimerVal) appleTimerVal.textContent = "무제한";
         if (appleTimerModeBadge) appleTimerModeBadge.textContent = "무제한";
-        appleTimerBar.style.width = "100%";
-        appleTimerVal.classList.remove("low-time");
-        appleTimerBar.classList.remove("urgent");
+        if (appleTimerBar) {
+          appleTimerBar.style.height = "100%";
+          appleTimerBar.style.width = "100%";
+        }
+        if (appleTimerPctVal) appleTimerPctVal.textContent = "♾";
+        if (appleTimerVal) appleTimerVal.classList.remove("low-time");
+        if (appleTimerBar) appleTimerBar.classList.remove("urgent");
       }
     }
 
@@ -6349,6 +6361,1384 @@
       updateUndoRedoUI();
       renderAssets();
     };
+  })();
+
+  /* ==========================================================================
+     Omok (Gomoku) 15x15 Engine - 2-Player Local PvP & Smart AI Battle
+     ========================================================================== */
+  (function initOmokGame() {
+    var BOARD_SIZE = 15;
+    var board = [];
+    var history = [];
+    var curTurn = 1; // 1: Black (흑), 2: White (백)
+    var mode = "pvp"; // "pvp" | "ai"
+    var playerColor = 1; // 1: Black, 2: White (in AI mode)
+    var aiDiff = "med"; // "easy" | "med" | "hard"
+    var rule = "renju"; // "renju" | "free"
+    var timeLimit = 0; // 0: unlimited, 15, 30, 60
+    var timerRemaining = 0;
+    var timerInterval = null;
+    var gameOver = false;
+    var winner = 0; // 0: none, 1: black, 2: white, 3: draw
+    var winStones = null;
+    var theme = "wood"; // "wood" | "dark"
+    var showNumbers = false;
+    var showFouls = true;
+    var soundEnabled = true;
+    var hoverPos = null;
+    var hintPos = null;
+    var isAiThinking = false;
+    var gameStartTime = null;
+
+    // DOM Elements
+    var canvas = document.getElementById("omokCanvas");
+    if (!canvas) return;
+    var ctx = canvas.getContext("2d");
+    var boardWrapper = document.getElementById("omokBoardWrapper");
+    var turnBadge = document.getElementById("omokTurnBadge");
+    var turnName = document.getElementById("omokTurnName");
+    var turnSub = document.getElementById("omokTurnSub");
+    var stonePreview = document.getElementById("omokStonePreview");
+    var timerVal = document.getElementById("omokTimerVal");
+    var timerBar = document.getElementById("omokTimerBar");
+    var statusPill = document.getElementById("omokStatusPill");
+    var statusText = document.getElementById("omokStatusText");
+    var lastMoveText = document.getElementById("omokLastMoveText");
+    var aiSettings = document.getElementById("omokAiSettings");
+
+    // Modal Elements
+    var modalBackdrop = document.getElementById("omokModalBackdrop");
+    var modalIcon = document.getElementById("omokModalIcon");
+    var modalTitle = document.getElementById("omokModalTitle");
+    var modalDesc = document.getElementById("omokModalDesc");
+    var modalMoves = document.getElementById("omokModalMoves");
+    var modalDuration = document.getElementById("omokModalDuration");
+    var modalRule = document.getElementById("omokModalRule");
+
+    // Web Audio Synthesizer
+    var omokAudioCtx = null;
+    function getAudio() {
+      if (!omokAudioCtx) {
+        var AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) omokAudioCtx = new AudioContext();
+      }
+      if (omokAudioCtx && omokAudioCtx.state === "suspended") {
+        omokAudioCtx.resume();
+      }
+      return omokAudioCtx;
+    }
+
+    function playStoneSound() {
+      if (!soundEnabled) return;
+      try {
+        var actx = getAudio();
+        if (!actx) return;
+        var t0 = actx.currentTime;
+        var osc = actx.createOscillator();
+        var gain = actx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(820, t0);
+        osc.frequency.exponentialRampToValueAtTime(110, t0 + 0.065);
+        gain.gain.setValueAtTime(0.4, t0);
+        gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.065);
+
+        var osc2 = actx.createOscillator();
+        var gain2 = actx.createGain();
+        osc2.type = "triangle";
+        osc2.frequency.setValueAtTime(240, t0);
+        osc2.frequency.exponentialRampToValueAtTime(70, t0 + 0.08);
+        gain2.gain.setValueAtTime(0.3, t0);
+        gain2.gain.exponentialRampToValueAtTime(0.001, t0 + 0.08);
+
+        osc.connect(gain);
+        gain.connect(actx.destination);
+        osc2.connect(gain2);
+        gain2.connect(actx.destination);
+
+        osc.start(t0);
+        osc.stop(t0 + 0.07);
+        osc2.start(t0);
+        osc2.stop(t0 + 0.085);
+      } catch (e) {}
+    }
+
+    function playFoulSound() {
+      if (!soundEnabled) return;
+      try {
+        var actx = getAudio();
+        if (!actx) return;
+        var t0 = actx.currentTime;
+        var osc = actx.createOscillator();
+        var gain = actx.createGain();
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(180, t0);
+        gain.gain.setValueAtTime(0.25, t0);
+        gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.16);
+        osc.connect(gain);
+        gain.connect(actx.destination);
+        osc.start(t0);
+        osc.stop(t0 + 0.16);
+      } catch (e) {}
+    }
+
+    function playWinSound() {
+      if (!soundEnabled) return;
+      try {
+        var actx = getAudio();
+        if (!actx) return;
+        var notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach(function (freq, idx) {
+          var t0 = actx.currentTime + idx * 0.09;
+          var osc = actx.createOscillator();
+          var gain = actx.createGain();
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(freq, t0);
+          gain.gain.setValueAtTime(0.25, t0);
+          gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.32);
+          osc.connect(gain);
+          gain.connect(actx.destination);
+          osc.start(t0);
+          osc.stop(t0 + 0.33);
+        });
+      } catch (e) {}
+    }
+
+    function playTickSound() {
+      if (!soundEnabled) return;
+      try {
+        var actx = getAudio();
+        if (!actx) return;
+        var t0 = actx.currentTime;
+        var osc = actx.createOscillator();
+        var gain = actx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(1200, t0);
+        gain.gain.setValueAtTime(0.12, t0);
+        gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.03);
+        osc.connect(gain);
+        gain.connect(actx.destination);
+        osc.start(t0);
+        osc.stop(t0 + 0.035);
+      } catch (e) {}
+    }
+
+    // Stats Management
+    var STATS_KEY = "ilsang_omok_stats_v1";
+    function getStats() {
+      try {
+        var raw = localStorage.getItem(STATS_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch (e) {}
+      return { total: 0, blackWins: 0, whiteWins: 0, draws: 0 };
+    }
+
+    function saveStats(s) {
+      try {
+        localStorage.setItem(STATS_KEY, JSON.stringify(s));
+      } catch (e) {}
+      renderStats();
+    }
+
+    function renderStats() {
+      var s = getStats();
+      var totEl = document.getElementById("omokStatTotal");
+      var bEl = document.getElementById("omokStatBlack");
+      var wEl = document.getElementById("omokStatWhite");
+      var rEl = document.getElementById("omokStatRate");
+      if (totEl) totEl.textContent = s.total;
+      if (bEl) bEl.textContent = s.blackWins;
+      if (wEl) wEl.textContent = s.whiteWins;
+      if (rEl) {
+        var winCount = (mode === "ai" && playerColor === 2) ? s.whiteWins : s.blackWins;
+        var rate = s.total > 0 ? Math.round((winCount / s.total) * 100) : 0;
+        rEl.textContent = rate + "%";
+      }
+    }
+
+    // Board Initialization
+    function resetBoard() {
+      board = [];
+      for (var y = 0; y < BOARD_SIZE; y++) {
+        var row = [];
+        for (var x = 0; x < BOARD_SIZE; x++) {
+          row.push(0);
+        }
+        board.push(row);
+      }
+      history = [];
+      curTurn = 1;
+      gameOver = false;
+      winner = 0;
+      winStones = null;
+      hoverPos = null;
+      hintPos = null;
+      isAiThinking = false;
+      gameStartTime = Date.now();
+      resetTimer();
+      updateUI();
+      renderBoard();
+
+      // If AI mode and AI plays Black (선공), trigger AI move
+      if (mode === "ai" && playerColor === 2) {
+        setTimeout(makeAiMove, 450);
+      }
+    }
+
+    // Blitz Timer Logic
+    function resetTimer() {
+      clearInterval(timerInterval);
+      if (timeLimit <= 0 || gameOver) {
+        if (timerVal) {
+          timerVal.textContent = "무제한";
+          timerVal.classList.remove("warning");
+        }
+        if (timerBar) {
+          timerBar.style.width = "100%";
+          timerBar.classList.remove("warning");
+        }
+        return;
+      }
+      timerRemaining = timeLimit;
+      updateTimerUI();
+      timerInterval = setInterval(function () {
+        if (gameOver) {
+          clearInterval(timerInterval);
+          return;
+        }
+        timerRemaining--;
+        if (timerRemaining <= 5 && timerRemaining > 0) {
+          playTickSound();
+        }
+        updateTimerUI();
+        if (timerRemaining <= 0) {
+          clearInterval(timerInterval);
+          handleTimeout();
+        }
+      }, 1000);
+    }
+
+    function updateTimerUI() {
+      if (!timerVal || !timerBar) return;
+      if (timeLimit <= 0) {
+        timerVal.textContent = "무제한";
+        timerBar.style.width = "100%";
+        return;
+      }
+      timerVal.textContent = timerRemaining + "초";
+      var pct = Math.max(0, (timerRemaining / timeLimit) * 100);
+      timerBar.style.width = pct + "%";
+      if (timerRemaining <= 5) {
+        timerVal.classList.add("warning");
+        timerBar.classList.add("warning");
+      } else {
+        timerVal.classList.remove("warning");
+        timerBar.classList.remove("warning");
+      }
+    }
+
+    function handleTimeout() {
+      if (gameOver) return;
+      var timedOutPlayer = curTurn;
+      var winP = timedOutPlayer === 1 ? 2 : 1;
+      endGame(winP, null, (timedOutPlayer === 1 ? "흑" : "백") + " 착수 시간 초과 (시간패)");
+    }
+
+    // Coordinate conversion: 0..14 -> A..O, 1..15
+    var COL_LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"];
+    function coordName(x, y) {
+      return COL_LETTERS[x] + (15 - y);
+    }
+
+    // Win Checker
+    function checkWin(b, x, y, p, r) {
+      var dirs = [[1, 0], [0, 1], [1, 1], [1, -1]];
+      for (var d = 0; d < dirs.length; d++) {
+        var dx = dirs[d][0];
+        var dy = dirs[d][1];
+        var count = 1;
+        var stones = [{ x: x, y: y }];
+
+        var fx = x + dx, fy = y + dy;
+        while (fx >= 0 && fx < BOARD_SIZE && fy >= 0 && fy < BOARD_SIZE && b[fy][fx] === p) {
+          count++;
+          stones.push({ x: fx, y: fy });
+          fx += dx;
+          fy += dy;
+        }
+
+        var bx = x - dx, by = y - dy;
+        while (bx >= 0 && bx < BOARD_SIZE && by >= 0 && by < BOARD_SIZE && b[by][bx] === p) {
+          count++;
+          stones.push({ x: bx, y: by });
+          bx -= dx;
+          by -= dy;
+        }
+
+        if (r === "renju" && p === 1) {
+          if (count === 5) return { win: true, stones: stones };
+        } else {
+          if (count >= 5) return { win: true, stones: stones };
+        }
+      }
+      return { win: false, stones: null };
+    }
+
+    // Renju Foul Logic for Black (1)
+    function isOpenThree(b, x, y, dx, dy) {
+      var line = [];
+      for (var i = -4; i <= 4; i++) {
+        var cx = x + i * dx;
+        var cy = y + i * dy;
+        if (cx < 0 || cx >= BOARD_SIZE || cy < 0 || cy >= BOARD_SIZE) {
+          line.push(3); // wall
+        } else if (i === 0) {
+          line.push(1); // the placed black stone
+        } else {
+          line.push(b[cy][cx]);
+        }
+      }
+
+      // An Open 3 can become an Open 4: [0, 1, 1, 1, 1, 0]
+      for (var i = 0; i < line.length; i++) {
+        if (line[i] === 0) {
+          line[i] = 1;
+          for (var j = 0; j <= line.length - 6; j++) {
+            if (line[j] === 0 && line[j + 1] === 1 && line[j + 2] === 1 && line[j + 3] === 1 && line[j + 4] === 1 && line[j + 5] === 0) {
+              line[i] = 0;
+              return true;
+            }
+          }
+          line[i] = 0;
+        }
+      }
+      return false;
+    }
+
+    function countFours(b, x, y, dx, dy) {
+      var line = [];
+      for (var i = -4; i <= 4; i++) {
+        var cx = x + i * dx;
+        var cy = y + i * dy;
+        if (cx < 0 || cx >= BOARD_SIZE || cy < 0 || cy >= BOARD_SIZE) {
+          line.push(3);
+        } else if (i === 0) {
+          line.push(1);
+        } else {
+          line.push(b[cy][cx]);
+        }
+      }
+
+      var fourCount = 0;
+      for (var i = 0; i < line.length; i++) {
+        if (line[i] === 0) {
+          line[i] = 1;
+          for (var j = 0; j <= line.length - 5; j++) {
+            if (line[j] === 1 && line[j + 1] === 1 && line[j + 2] === 1 && line[j + 3] === 1 && line[j + 4] === 1) {
+              var before = j > 0 ? line[j - 1] : 3;
+              var after = j + 5 < line.length ? line[j + 5] : 3;
+              if (before !== 1 && after !== 1) {
+                fourCount++;
+                break;
+              }
+            }
+          }
+          line[i] = 0;
+        }
+      }
+      return fourCount > 0 ? 1 : 0;
+    }
+
+    function checkRenjuFoul(b, x, y) {
+      // 1. Overline (장목: 6 or more contiguous stones)
+      var dirs = [[1, 0], [0, 1], [1, 1], [1, -1]];
+      for (var d = 0; d < dirs.length; d++) {
+        var dx = dirs[d][0];
+        var dy = dirs[d][1];
+        var count = 1;
+        var fx = x + dx, fy = y + dy;
+        while (fx >= 0 && fx < BOARD_SIZE && fy >= 0 && fy < BOARD_SIZE && b[fy][fx] === 1) {
+          count++; fx += dx; fy += dy;
+        }
+        var bx = x - dx, by = y - dy;
+        while (bx >= 0 && bx < BOARD_SIZE && by >= 0 && by < BOARD_SIZE && b[by][bx] === 1) {
+          count++; bx -= dx; by -= dy;
+        }
+        if (count > 5) return { isFoul: true, type: "overline", msg: "6목 이상 장목 금수" };
+        if (count === 5) return { isFoul: false }; // 5 in a row is WIN, never a foul
+      }
+
+      // 2. Double Four (4-4 사사)
+      var totalFours = 0;
+      for (var d = 0; d < dirs.length; d++) {
+        totalFours += countFours(b, x, y, dirs[d][0], dirs[d][1]);
+      }
+      if (totalFours >= 2) return { isFoul: true, type: "4-4", msg: "사사(4-4) 금수" };
+
+      // 3. Double Three (3-3 삼삼)
+      var totalThrees = 0;
+      for (var d = 0; d < dirs.length; d++) {
+        if (isOpenThree(b, x, y, dirs[d][0], dirs[d][1])) totalThrees++;
+      }
+      if (totalThrees >= 2) return { isFoul: true, type: "3-3", msg: "삼삼(3-3) 금수" };
+
+      return { isFoul: false };
+    }
+
+    // AI Move Evaluator
+    function evaluateLinePattern(b, x, y, dx, dy, player) {
+      var line = [];
+      for (var i = -5; i <= 5; i++) {
+        var cx = x + i * dx;
+        var cy = y + i * dy;
+        if (cx < 0 || cx >= BOARD_SIZE || cy < 0 || cy >= BOARD_SIZE) {
+          line.push(3); // wall
+        } else if (i === 0) {
+          line.push(player);
+        } else {
+          line.push(b[cy][cx]);
+        }
+      }
+
+      var maxConsecutive = 0, cur = 0;
+      for (var i = 0; i < line.length; i++) {
+        if (line[i] === player) {
+          cur++;
+          if (cur > maxConsecutive) maxConsecutive = cur;
+        } else {
+          cur = 0;
+        }
+      }
+      if (maxConsecutive >= 5) return 100000;
+
+      var score = 0;
+      // Open four [0, p, p, p, p, 0]
+      for (var i = 0; i <= line.length - 6; i++) {
+        if (line[i] === 0 && line[i + 1] === player && line[i + 2] === player && line[i + 3] === player && line[i + 4] === player && line[i + 5] === 0) {
+          score += 25000;
+        }
+      }
+
+      // Closed four
+      for (var i = 0; i <= line.length - 5; i++) {
+        var pCount = 0, oppCount = 0;
+        for (var j = 0; j < 5; j++) {
+          if (line[i + j] === player) pCount++;
+          else if (line[i + j] !== 0) oppCount++;
+        }
+        if (oppCount === 0 && pCount === 4) score += 4500;
+      }
+
+      // Open three
+      for (var i = 0; i <= line.length - 5; i++) {
+        var pCount = 0, oppCount = 0;
+        for (var j = 0; j < 5; j++) {
+          if (line[i + j] === player) pCount++;
+          else if (line[i + j] !== 0) oppCount++;
+        }
+        if (oppCount === 0 && pCount === 3) {
+          var leftEmpty = i > 0 && line[i - 1] === 0;
+          var rightEmpty = i + 5 < line.length && line[i + 5] === 0;
+          if (leftEmpty && rightEmpty) score += 3200;
+          else score += 600;
+        }
+      }
+
+      // Open two
+      for (var i = 0; i <= line.length - 5; i++) {
+        var pCount = 0, oppCount = 0;
+        for (var j = 0; j < 5; j++) {
+          if (line[i + j] === player) pCount++;
+          else if (line[i + j] !== 0) oppCount++;
+        }
+        if (oppCount === 0 && pCount === 2) {
+          var leftEmpty = i > 0 && line[i - 1] === 0;
+          var rightEmpty = i + 5 < line.length && line[i + 5] === 0;
+          if (leftEmpty && rightEmpty) score += 400;
+        }
+      }
+
+      return score;
+    }
+
+    function evaluatePoint(b, x, y, p) {
+      var dirs = [[1, 0], [0, 1], [1, 1], [1, -1]];
+      var total = 0;
+      for (var d = 0; d < dirs.length; d++) {
+        total += evaluateLinePattern(b, x, y, dirs[d][0], dirs[d][1], p);
+      }
+      return total;
+    }
+
+    function getBestMove(forPlayer) {
+      var opp = forPlayer === 1 ? 2 : 1;
+      var moves = [];
+
+      var hasAny = false;
+      for (var y = 0; y < BOARD_SIZE; y++) {
+        for (var x = 0; x < BOARD_SIZE; x++) {
+          if (board[y][x] !== 0) {
+            hasAny = true;
+            break;
+          }
+        }
+        if (hasAny) break;
+      }
+
+      if (!hasAny) {
+        return { x: 7, y: 7 }; // Center tengen
+      }
+
+      for (var y = 0; y < BOARD_SIZE; y++) {
+        for (var x = 0; x < BOARD_SIZE; x++) {
+          if (board[y][x] !== 0) continue;
+
+          // Check if within distance 2 of any stone
+          var isNear = false;
+          for (var dy = -2; dy <= 2; dy++) {
+            for (var dx = -2; dx <= 2; dx++) {
+              var ny = y + dy, nx = x + dx;
+              if (ny >= 0 && ny < BOARD_SIZE && nx >= 0 && nx < BOARD_SIZE && board[ny][nx] !== 0) {
+                isNear = true;
+                break;
+              }
+            }
+            if (isNear) break;
+          }
+          if (!isNear) continue;
+
+          // If Renju rule and forPlayer is Black, skip foul positions
+          if (rule === "renju" && forPlayer === 1) {
+            var foul = checkRenjuFoul(board, x, y);
+            if (foul.isFoul) continue;
+          }
+
+          var attack = evaluatePoint(board, x, y, forPlayer);
+          var defense = evaluatePoint(board, x, y, opp);
+
+          // Center bias (prefer center over corners)
+          var centerDist = Math.abs(7 - x) + Math.abs(7 - y);
+          var centerBonus = 14 - centerDist;
+
+          var total = attack + defense * 1.2 + centerBonus;
+          moves.push({ x: x, y: y, score: total, attack: attack, defense: defense });
+        }
+      }
+
+      if (moves.length === 0) return { x: 7, y: 7 };
+      moves.sort(function (a, b) { return b.score - a.score; });
+
+      if (aiDiff === "easy") {
+        // Casual: pick randomly among top 4 moves
+        var top = moves.slice(0, Math.min(4, moves.length));
+        return top[Math.floor(Math.random() * top.length)];
+      } else if (aiDiff === "med") {
+        // Medium: pick top move with 15% chance of second move
+        if (moves.length > 1 && Math.random() < 0.15) return moves[1];
+        return moves[0];
+      } else {
+        // Master: always top evaluated move
+        return moves[0];
+      }
+    }
+
+    function makeAiMove() {
+      if (gameOver || !isAiThinking) return;
+      var move = getBestMove(curTurn);
+      isAiThinking = false;
+      if (move) {
+        placeStone(move.x, move.y);
+      }
+    }
+
+    // Place Stone
+    function placeStone(x, y) {
+      if (gameOver || board[y][x] !== 0) return false;
+
+      // Check Renju foul for Black
+      if (rule === "renju" && curTurn === 1) {
+        var foul = checkRenjuFoul(board, x, y);
+        if (foul.isFoul) {
+          playFoulSound();
+          if (statusPill) statusPill.classList.add("foul");
+          if (statusText) statusText.textContent = "⚠️ 렌주룰 금수 자리입니다! (" + foul.msg + ")";
+          setTimeout(function () {
+            if (statusPill) statusPill.classList.remove("foul");
+            updateTurnText();
+          }, 2400);
+          return false;
+        }
+      }
+
+      // Execute Move
+      board[y][x] = curTurn;
+      var moveNum = history.length + 1;
+      history.push({ x: x, y: y, player: curTurn, num: moveNum, time: Date.now() });
+      playStoneSound();
+      hintPos = null;
+
+      // Update Last Move Badge
+      if (lastMoveText) {
+        var pName = curTurn === 1 ? "⚫ 흑" : "⚪ 백";
+        lastMoveText.textContent = pName + ": " + coordName(x, y) + " (제 " + moveNum + "수)";
+      }
+
+      // Check Win
+      var winResult = checkWin(board, x, y, curTurn, rule);
+      if (winResult.win) {
+        endGame(curTurn, winResult.stones, (curTurn === 1 ? "흑" : "백") + "이 5목을 완성하여 승리했습니다!");
+        renderBoard();
+        return true;
+      }
+
+      // Check Draw (Board Full)
+      if (history.length >= BOARD_SIZE * BOARD_SIZE) {
+        endGame(3, null, "바둑판이 가득 차 무승부로 종료되었습니다!");
+        renderBoard();
+        return true;
+      }
+
+      // Switch Turn
+      curTurn = curTurn === 1 ? 2 : 1;
+      resetTimer();
+      updateUI();
+      renderBoard();
+
+      // Trigger AI if in AI mode and it's AI's turn
+      if (mode === "ai" && curTurn !== playerColor && !gameOver) {
+        isAiThinking = true;
+        if (statusText) statusText.textContent = "🤖 AI가 최선의 수를 생각하고 있습니다...";
+        var delay = aiDiff === "easy" ? 300 : (aiDiff === "med" ? 400 : 500);
+        setTimeout(makeAiMove, delay);
+      }
+
+      return true;
+    }
+
+    // End Game
+    function endGame(winP, stones, desc) {
+      gameOver = true;
+      winner = winP;
+      winStones = stones;
+      clearInterval(timerInterval);
+
+      var stats = getStats();
+      stats.total++;
+      if (winP === 1) stats.blackWins++;
+      else if (winP === 2) stats.whiteWins++;
+      else stats.draws++;
+      saveStats(stats);
+
+      if (winP !== 3) {
+        playWinSound();
+      }
+
+      if (statusPill) statusPill.classList.add("win");
+      var winTitle = "";
+      if (winP === 1) winTitle = "🎉 흑(Black)의 완승!";
+      else if (winP === 2) winTitle = "🎉 백(White)의 완승!";
+      else winTitle = "🤝 무승부 (Draw)";
+
+      if (mode === "ai") {
+        if (winP === playerColor) winTitle = "🏆 축하합니다! AI를 꺾고 승리하셨습니다!";
+        else if (winP !== 3) winTitle = "🤖 스마트 AI의 승리!";
+      }
+
+      if (statusText) statusText.textContent = winTitle + " " + desc;
+
+      // Show Modal
+      var elapsedSec = gameStartTime ? Math.round((Date.now() - gameStartTime) / 1000) : 0;
+      var min = Math.floor(elapsedSec / 60);
+      var sec = elapsedSec % 60;
+      var durStr = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
+
+      if (modalIcon) modalIcon.textContent = winP === playerColor || (mode === "pvp" && winP !== 3) ? "🏆" : (winP === 3 ? "🤝" : "🤖");
+      if (modalTitle) modalTitle.textContent = winTitle;
+      if (modalDesc) modalDesc.textContent = desc;
+      if (modalMoves) modalMoves.textContent = history.length + "수";
+      if (modalDuration) modalDuration.textContent = durStr;
+      if (modalRule) modalRule.textContent = rule === "renju" ? "정통 렌주룰" : "자유룰";
+      if (modalBackdrop) modalBackdrop.classList.remove("hidden");
+    }
+
+    // Update UI Elements
+    function updateTurnText() {
+      if (gameOver) return;
+      var isBlack = curTurn === 1;
+      if (turnBadge) turnBadge.textContent = isBlack ? "흑돌 (선공)" : "백돌 (후공)";
+      if (turnName) turnName.textContent = isBlack ? "흑(Black)의 차례" : "백(White)의 차례";
+      if (turnSub) {
+        if (mode === "ai") {
+          turnSub.textContent = curTurn === playerColor ? "당신의 차례입니다 (착수)" : "AI가 생각 중입니다...";
+        } else {
+          turnSub.textContent = "빈 교차점을 클릭하거나 터치하세요";
+        }
+      }
+      if (stonePreview) {
+        stonePreview.className = "omok-stone-preview " + (isBlack ? "black" : "white");
+      }
+      if (statusText && !isAiThinking) {
+        statusText.textContent = (isBlack ? "⚫ 흑(Black)" : "⚪ 백(White)") + "의 차례입니다. 바둑판의 빈 교차점을 선택하세요.";
+      }
+    }
+
+    function updateUI() {
+      updateTurnText();
+      var undoBtn = document.getElementById("omokUndoBtn");
+      if (undoBtn) undoBtn.disabled = history.length === 0 || isAiThinking;
+      var hintBtn = document.getElementById("omokHintBtn");
+      if (hintBtn) hintBtn.disabled = gameOver || isAiThinking;
+    }
+
+    // Render Canvas Board
+    function renderBoard() {
+      var dpr = window.devicePixelRatio || 1;
+      var rect = canvas.getBoundingClientRect();
+      var size = rect.width || 560;
+
+      if (canvas.width !== Math.round(size * dpr) || canvas.height !== Math.round(size * dpr)) {
+        canvas.width = Math.round(size * dpr);
+        canvas.height = Math.round(size * dpr);
+      }
+
+      ctx.save();
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, size, size);
+
+      // Cell Size & Margin
+      var cellSize = size / 16;
+      var margin = cellSize;
+
+      // Board Background Fill
+      if (theme === "wood") {
+        var woodGrad = ctx.createLinearGradient(0, 0, size, size);
+        woodGrad.addColorStop(0, "#e6ab6a");
+        woodGrad.addColorStop(0.5, "#dc9b54");
+        woodGrad.addColorStop(1, "#cd8a43");
+        ctx.fillStyle = woodGrad;
+        ctx.fillRect(0, 0, size, size);
+
+        // Subtle wood grain lines
+        ctx.strokeStyle = "rgba(100, 50, 10, 0.05)";
+        ctx.lineWidth = 1;
+        for (var i = 0; i < size; i += 8) {
+          ctx.beginPath();
+          ctx.moveTo(0, i);
+          ctx.lineTo(size, i);
+          ctx.stroke();
+        }
+      } else {
+        var darkGrad = ctx.createRadialGradient(size / 2, size / 2, 20, size / 2, size / 2, size * 0.7);
+        darkGrad.addColorStop(0, "#162032");
+        darkGrad.addColorStop(1, "#0c1320");
+        ctx.fillStyle = darkGrad;
+        ctx.fillRect(0, 0, size, size);
+      }
+
+      // Coordinates text style
+      ctx.font = "bold " + Math.max(9, Math.round(cellSize * 0.28)) + "px Pretendard, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = theme === "wood" ? "rgba(80, 45, 15, 0.75)" : "rgba(148, 163, 184, 0.7)";
+
+      // Top & Bottom Letter Coordinates (A..O)
+      for (var x = 0; x < BOARD_SIZE; x++) {
+        var px = margin + x * cellSize;
+        ctx.fillText(COL_LETTERS[x], px, margin * 0.45);
+        ctx.fillText(COL_LETTERS[x], px, size - margin * 0.45);
+      }
+
+      // Left & Right Number Coordinates (15..1)
+      for (var y = 0; y < BOARD_SIZE; y++) {
+        var py = margin + y * cellSize;
+        var numStr = String(15 - y);
+        ctx.fillText(numStr, margin * 0.45, py);
+        ctx.fillText(numStr, size - margin * 0.45, py);
+      }
+
+      // Grid Lines
+      ctx.strokeStyle = theme === "wood" ? "rgba(65, 35, 10, 0.85)" : "rgba(70, 120, 200, 0.35)";
+      ctx.lineWidth = 1;
+
+      // Outer boundary frame
+      ctx.strokeRect(margin, margin, (BOARD_SIZE - 1) * cellSize, (BOARD_SIZE - 1) * cellSize);
+
+      // Inner grid lines
+      for (var i = 0; i < BOARD_SIZE; i++) {
+        var p = margin + i * cellSize;
+        // Horizontal line
+        ctx.beginPath();
+        ctx.moveTo(margin, p);
+        ctx.lineTo(margin + (BOARD_SIZE - 1) * cellSize, p);
+        ctx.stroke();
+
+        // Vertical line
+        ctx.beginPath();
+        ctx.moveTo(p, margin);
+        ctx.lineTo(p, margin + (BOARD_SIZE - 1) * cellSize);
+        ctx.stroke();
+      }
+
+      // Star Points (화점 - Hoshi): (3,3), (11,3), (7,7), (3,11), (11,11)
+      var hoshi = [
+        { x: 3, y: 3 }, { x: 11, y: 3 },
+        { x: 7, y: 7 },
+        { x: 3, y: 11 }, { x: 11, y: 11 }
+      ];
+      ctx.fillStyle = theme === "wood" ? "#3b1e07" : "#60a5fa";
+      var hoshiR = Math.max(3, cellSize * 0.1);
+      for (var h = 0; h < hoshi.length; h++) {
+        var hx = margin + hoshi[h].x * cellSize;
+        var hy = margin + hoshi[h].y * cellSize;
+        ctx.beginPath();
+        ctx.arc(hx, hy, hoshiR, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Stone Radius
+      var stoneR = cellSize * 0.44;
+
+      // Draw Placed Stones
+      for (var y = 0; y < BOARD_SIZE; y++) {
+        for (var x = 0; x < BOARD_SIZE; x++) {
+          var val = board[y][x];
+          if (val === 0) continue;
+
+          var sx = margin + x * cellSize;
+          var sy = margin + y * cellSize;
+
+          // Shadow
+          ctx.beginPath();
+          ctx.arc(sx + stoneR * 0.12, sy + stoneR * 0.14, stoneR, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(0, 0, 0, 0.42)";
+          ctx.fill();
+
+          // Stone Sphere
+          ctx.beginPath();
+          ctx.arc(sx, sy, stoneR, 0, Math.PI * 2);
+
+          if (val === 1) {
+            // Black stone
+            var bGrad = ctx.createRadialGradient(sx - stoneR * 0.35, sy - stoneR * 0.35, stoneR * 0.05, sx, sy, stoneR);
+            bGrad.addColorStop(0, "#525763");
+            bGrad.addColorStop(0.35, "#252930");
+            bGrad.addColorStop(0.85, "#101216");
+            bGrad.addColorStop(1, "#050608");
+            ctx.fillStyle = bGrad;
+            ctx.fill();
+            ctx.strokeStyle = "#08090b";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          } else {
+            // White stone
+            var wGrad = ctx.createRadialGradient(sx - stoneR * 0.35, sy - stoneR * 0.35, stoneR * 0.05, sx, sy, stoneR);
+            wGrad.addColorStop(0, "#ffffff");
+            wGrad.addColorStop(0.55, "#f1f4f9");
+            wGrad.addColorStop(0.88, "#d5dbe6");
+            wGrad.addColorStop(1, "#a8b2c2");
+            ctx.fillStyle = wGrad;
+            ctx.fill();
+            ctx.strokeStyle = "rgba(120, 130, 150, 0.5)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+
+          // Move Number (Optional)
+          if (showNumbers) {
+            for (var m = 0; m < history.length; m++) {
+              if (history[m].x === x && history[m].y === y) {
+                ctx.font = "bold " + Math.max(9, Math.round(stoneR * 0.9)) + "px Pretendard, sans-serif";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillStyle = val === 1 ? "#ffffff" : "#0f172a";
+                ctx.fillText(String(history[m].num), sx, sy);
+                break;
+              }
+            }
+          }
+        }
+      }
+
+      // Latest Move Marker (Glowing Gold Ring)
+      if (history.length > 0 && !gameOver) {
+        var last = history[history.length - 1];
+        var lx = margin + last.x * cellSize;
+        var ly = margin + last.y * cellSize;
+
+        ctx.beginPath();
+        ctx.arc(lx, ly, stoneR * 0.4, 0, Math.PI * 2);
+        ctx.strokeStyle = "#facc15";
+        ctx.lineWidth = Math.max(2, cellSize * 0.06);
+        ctx.shadowColor = "#facc15";
+        ctx.shadowBlur = 8;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
+
+      // Winning 5-in-a-row highlight beam
+      if (winStones && winStones.length >= 5) {
+        ctx.save();
+        ctx.strokeStyle = "#f59e0b";
+        ctx.lineWidth = Math.max(4, cellSize * 0.12);
+        ctx.shadowColor = "#fbbf24";
+        ctx.shadowBlur = 12;
+
+        ctx.beginPath();
+        for (var w = 0; w < winStones.length; w++) {
+          var wx = margin + winStones[w].x * cellSize;
+          var wy = margin + winStones[w].y * cellSize;
+          if (w === 0) ctx.moveTo(wx, wy);
+          else ctx.lineTo(wx, wy);
+        }
+        ctx.stroke();
+
+        // Star points on winning stones
+        ctx.fillStyle = "#ffffff";
+        for (var w = 0; w < winStones.length; w++) {
+          var wx = margin + winStones[w].x * cellSize;
+          var wy = margin + winStones[w].y * cellSize;
+          ctx.beginPath();
+          ctx.arc(wx, wy, Math.max(4, stoneR * 0.35), 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      // AI Hint Marker
+      if (hintPos && !gameOver) {
+        var hx = margin + hintPos.x * cellSize;
+        var hy = margin + hintPos.y * cellSize;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(hx, hy, stoneR * 0.75, 0, Math.PI * 2);
+        ctx.strokeStyle = "#eab308";
+        ctx.lineWidth = 3;
+        ctx.setLineDash([4, 3]);
+        ctx.shadowColor = "#facc15";
+        ctx.shadowBlur = 10;
+        ctx.stroke();
+
+        ctx.font = "bold " + Math.round(cellSize * 0.45) + "px sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("💡", hx, hy);
+        ctx.restore();
+      }
+
+      // Hover Ghost Stone & Foul Warning
+      if (hoverPos && !gameOver && !isAiThinking) {
+        var hx = margin + hoverPos.x * cellSize;
+        var hy = margin + hoverPos.y * cellSize;
+
+        if (board[hoverPos.y][hoverPos.x] === 0) {
+          var isFoul = false;
+          if (rule === "renju" && curTurn === 1) {
+            var foulCheck = checkRenjuFoul(board, hoverPos.x, hoverPos.y);
+            isFoul = foulCheck.isFoul;
+          }
+
+          if (isFoul && showFouls) {
+            // Red Foul ❌
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(hx, hy, stoneR * 0.7, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(239, 68, 68, 0.25)";
+            ctx.fill();
+            ctx.strokeStyle = "#ef4444";
+            ctx.lineWidth = 3;
+            var crossR = stoneR * 0.45;
+            ctx.beginPath();
+            ctx.moveTo(hx - crossR, hy - crossR);
+            ctx.lineTo(hx + crossR, hy + crossR);
+            ctx.moveTo(hx + crossR, hy - crossR);
+            ctx.lineTo(hx - crossR, hy + crossR);
+            ctx.stroke();
+            ctx.restore();
+          } else {
+            // Semi-transparent ghost stone
+            ctx.save();
+            ctx.globalAlpha = 0.55;
+            ctx.beginPath();
+            ctx.arc(hx, hy, stoneR, 0, Math.PI * 2);
+            ctx.fillStyle = curTurn === 1 ? "#111827" : "#f8fafc";
+            ctx.fill();
+            ctx.strokeStyle = curTurn === 1 ? "#374151" : "#cbd5e1";
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+      }
+
+      ctx.restore();
+    }
+
+    // Canvas Pointer / Touch Coordinates
+    function getGridPos(evt) {
+      var rect = canvas.getBoundingClientRect();
+      var clientX = evt.clientX;
+      var clientY = evt.clientY;
+
+      if (evt.touches && evt.touches.length > 0) {
+        clientX = evt.touches[0].clientX;
+        clientY = evt.touches[0].clientY;
+      } else if (evt.changedTouches && evt.changedTouches.length > 0) {
+        clientX = evt.changedTouches[0].clientX;
+        clientY = evt.changedTouches[0].clientY;
+      }
+
+      var px = clientX - rect.left;
+      var py = clientY - rect.top;
+      var size = rect.width;
+      var cellSize = size / 16;
+      var margin = cellSize;
+
+      var col = Math.round((px - margin) / cellSize);
+      var row = Math.round((py - margin) / cellSize);
+
+      if (col >= 0 && col < BOARD_SIZE && row >= 0 && row < BOARD_SIZE) {
+        return { x: col, y: row };
+      }
+      return null;
+    }
+
+    // Canvas Event Listeners
+    canvas.addEventListener("mousemove", function (e) {
+      if (gameOver || isAiThinking) return;
+      var pos = getGridPos(e);
+      if (!pos) {
+        if (hoverPos) { hoverPos = null; renderBoard(); }
+        return;
+      }
+      if (!hoverPos || hoverPos.x !== pos.x || hoverPos.y !== pos.y) {
+        hoverPos = pos;
+        renderBoard();
+      }
+    });
+
+    canvas.addEventListener("mouseleave", function () {
+      if (hoverPos) {
+        hoverPos = null;
+        renderBoard();
+      }
+    });
+
+    canvas.addEventListener("click", function (e) {
+      if (gameOver || isAiThinking) return;
+      if (mode === "ai" && curTurn !== playerColor) return;
+      var pos = getGridPos(e);
+      if (pos) {
+        placeStone(pos.x, pos.y);
+      }
+    });
+
+    // Touch support with touch-action: none
+    canvas.addEventListener("touchstart", function (e) {
+      if (gameOver || isAiThinking) return;
+      if (mode === "ai" && curTurn !== playerColor) return;
+      var pos = getGridPos(e);
+      if (pos) {
+        e.preventDefault();
+        placeStone(pos.x, pos.y);
+      }
+    }, { passive: false });
+
+    // Mode Toggle (PvP vs AI)
+    var modePvpBtn = document.getElementById("omokModePvp");
+    var modeAiBtn = document.getElementById("omokModeAi");
+
+    if (modePvpBtn) {
+      modePvpBtn.addEventListener("click", function () {
+        if (mode === "pvp") return;
+        mode = "pvp";
+        modePvpBtn.classList.add("active");
+        if (modeAiBtn) modeAiBtn.classList.remove("active");
+        if (aiSettings) aiSettings.classList.add("hidden");
+        resetBoard();
+      });
+    }
+
+    if (modeAiBtn) {
+      modeAiBtn.addEventListener("click", function () {
+        if (mode === "ai") return;
+        mode = "ai";
+        modeAiBtn.classList.add("active");
+        if (modePvpBtn) modePvpBtn.classList.remove("active");
+        if (aiSettings) aiSettings.classList.remove("hidden");
+        resetBoard();
+      });
+    }
+
+    // Player Color Buttons (in AI mode)
+    var pBlackBtn = document.getElementById("omokPlayerBlack");
+    var pWhiteBtn = document.getElementById("omokPlayerWhite");
+
+    if (pBlackBtn) {
+      pBlackBtn.addEventListener("click", function () {
+        playerColor = 1;
+        pBlackBtn.classList.add("active");
+        if (pWhiteBtn) pWhiteBtn.classList.remove("active");
+        resetBoard();
+      });
+    }
+
+    if (pWhiteBtn) {
+      pWhiteBtn.addEventListener("click", function () {
+        playerColor = 2;
+        pWhiteBtn.classList.add("active");
+        if (pBlackBtn) pBlackBtn.classList.remove("active");
+        resetBoard();
+      });
+    }
+
+    // AI Difficulty Buttons
+    document.querySelectorAll(".omok-diff-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.querySelectorAll(".omok-diff-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        aiDiff = btn.dataset.diff || "med";
+      });
+    });
+
+    // Rule Selector Buttons
+    var ruleRenjuBtn = document.getElementById("omokRuleRenju");
+    var ruleFreeBtn = document.getElementById("omokRuleFree");
+
+    if (ruleRenjuBtn) {
+      ruleRenjuBtn.addEventListener("click", function () {
+        rule = "renju";
+        ruleRenjuBtn.classList.add("active");
+        if (ruleFreeBtn) ruleFreeBtn.classList.remove("active");
+        renderBoard();
+      });
+    }
+
+    if (ruleFreeBtn) {
+      ruleFreeBtn.addEventListener("click", function () {
+        rule = "free";
+        ruleFreeBtn.classList.add("active");
+        if (ruleRenjuBtn) ruleRenjuBtn.classList.remove("active");
+        renderBoard();
+      });
+    }
+
+    // Blitz Timer Selector Buttons
+    document.querySelectorAll(".omok-time-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.querySelectorAll(".omok-time-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        timeLimit = parseInt(btn.dataset.time || "0", 10);
+        resetTimer();
+      });
+    });
+
+    // Action Controls
+    var hintBtn = document.getElementById("omokHintBtn");
+    if (hintBtn) {
+      hintBtn.addEventListener("click", function () {
+        if (gameOver || isAiThinking) return;
+        var best = getBestMove(curTurn);
+        if (best) {
+          hintPos = { x: best.x, y: best.y };
+          playStoneSound();
+          if (statusText) statusText.textContent = "💡 AI 추천수: " + coordName(best.x, best.y) + " 자리를 확인하세요!";
+          renderBoard();
+        }
+      });
+    }
+
+    var undoBtn = document.getElementById("omokUndoBtn");
+    if (undoBtn) {
+      undoBtn.addEventListener("click", function () {
+        if (history.length === 0 || isAiThinking) return;
+        if (gameOver) {
+          modalBackdrop.classList.add("hidden");
+          gameOver = false;
+          winner = 0;
+          winStones = null;
+        }
+
+        if (mode === "ai") {
+          // In AI mode, undo 2 moves (AI move + player move) so turn returns to player
+          if (history.length >= 2) {
+            var m1 = history.pop();
+            board[m1.y][m1.x] = 0;
+            var m2 = history.pop();
+            board[m2.y][m2.x] = 0;
+            curTurn = playerColor;
+          } else if (history.length === 1) {
+            var m = history.pop();
+            board[m.y][m.x] = 0;
+            curTurn = 1;
+          }
+        } else {
+          // In PvP, undo 1 move
+          var m = history.pop();
+          board[m.y][m.x] = 0;
+          curTurn = m.player;
+        }
+
+        hintPos = null;
+        resetTimer();
+        updateUI();
+        renderBoard();
+      });
+    }
+
+    var newBtn = document.getElementById("omokNewBtn");
+    if (newBtn) {
+      newBtn.addEventListener("click", function () {
+        resetBoard();
+      });
+    }
+
+    var resignBtn = document.getElementById("omokResignBtn");
+    if (resignBtn) {
+      resignBtn.addEventListener("click", function () {
+        if (gameOver) return;
+        if (confirm("정말 기권하시겠습니까?")) {
+          var winP = curTurn === 1 ? 2 : 1;
+          endGame(winP, null, (curTurn === 1 ? "흑" : "백") + "이 기권하였습니다.");
+        }
+      });
+    }
+
+    // Theme Toggle
+    var themeWoodBtn = document.getElementById("omokThemeWood");
+    var themeDarkBtn = document.getElementById("omokThemeDark");
+
+    if (themeWoodBtn) {
+      themeWoodBtn.addEventListener("click", function () {
+        theme = "wood";
+        themeWoodBtn.classList.add("active");
+        if (themeDarkBtn) themeDarkBtn.classList.remove("active");
+        if (boardWrapper) {
+          boardWrapper.classList.add("omok-theme-wood");
+          boardWrapper.classList.remove("omok-theme-dark");
+        }
+        renderBoard();
+      });
+    }
+
+    if (themeDarkBtn) {
+      themeDarkBtn.addEventListener("click", function () {
+        theme = "dark";
+        themeDarkBtn.classList.add("active");
+        if (themeWoodBtn) themeWoodBtn.classList.remove("active");
+        if (boardWrapper) {
+          boardWrapper.classList.add("omok-theme-dark");
+          boardWrapper.classList.remove("omok-theme-wood");
+        }
+        renderBoard();
+      });
+    }
+
+    // Preferences Checkboxes
+    var showNumbersCb = document.getElementById("omokShowNumbers");
+    if (showNumbersCb) {
+      showNumbersCb.addEventListener("change", function () {
+        showNumbers = showNumbersCb.checked;
+        renderBoard();
+      });
+    }
+
+    var showFoulsCb = document.getElementById("omokShowFouls");
+    if (showFoulsCb) {
+      showFoulsCb.addEventListener("change", function () {
+        showFouls = showFoulsCb.checked;
+        renderBoard();
+      });
+    }
+
+    var soundToggleCb = document.getElementById("omokSoundToggle");
+    if (soundToggleCb) {
+      soundToggleCb.addEventListener("change", function () {
+        soundEnabled = soundToggleCb.checked;
+      });
+    }
+
+    // Copy Kibo & Reset Stats
+    var copyKiboBtn = document.getElementById("omokCopyKiboBtn");
+    if (copyKiboBtn) {
+      copyKiboBtn.addEventListener("click", function () {
+        if (history.length === 0) {
+          if (toast) toast("복사할 수순(기보)이 없습니다.");
+          return;
+        }
+        var lines = ["[일상툴 오목 대국 기보]"];
+        lines.push("규칙: " + (rule === "renju" ? "렌주룰" : "자유룰") + " · 총 " + history.length + "수");
+        for (var i = 0; i < history.length; i++) {
+          var h = history[i];
+          lines.push((h.player === 1 ? "⚫ 흑 " : "⚪ 백 ") + h.num + "수: " + coordName(h.x, h.y));
+        }
+        var text = lines.join("\n");
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            if (toast) toast("📋 기보(수순)가 클립보드에 복사되었습니다!");
+          });
+        }
+      });
+    }
+
+    var resetStatBtn = document.getElementById("omokResetStatBtn");
+    if (resetStatBtn) {
+      resetStatBtn.addEventListener("click", function () {
+        if (confirm("전적 기록을 모두 초기화하시겠습니까?")) {
+          saveStats({ total: 0, blackWins: 0, whiteWins: 0, draws: 0 });
+          if (toast) toast("전적 기록이 초기화되었습니다.");
+        }
+      });
+    }
+
+    // Modal Actions
+    var modalRematchBtn = document.getElementById("omokModalRematchBtn");
+    if (modalRematchBtn) {
+      modalRematchBtn.addEventListener("click", function () {
+        modalBackdrop.classList.add("hidden");
+        resetBoard();
+      });
+    }
+
+    var modalShareBtn = document.getElementById("omokModalShareBtn");
+    if (modalShareBtn) {
+      modalShareBtn.addEventListener("click", function () {
+        var winStr = winner === 1 ? "흑 승리" : (winner === 2 ? "백 승리" : "무승부");
+        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://ilsangtool.kr/#omok";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(shareTxt).then(function () {
+            if (toast) toast("🔗 승리 결과가 클립보드에 복사되었습니다!");
+          });
+        }
+      });
+    }
+
+    var modalCloseBtn = document.getElementById("omokModalCloseBtn");
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener("click", function () {
+        modalBackdrop.classList.add("hidden");
+      });
+    }
+
+    // Window Resize Observer for Board
+    window.addEventListener("resize", function () {
+      renderBoard();
+    });
+
+    // Lifecycle Hooks
+    window.onShowOmokGame = function () {
+      setTimeout(function () {
+        renderStats();
+        renderBoard();
+      }, 50);
+    };
+
+    window.onHideOmokGame = function () {
+      clearInterval(timerInterval);
+    };
+
+    // Initial Start
+    renderStats();
+    resetBoard();
   })();
 
   function renderAdSlot(el) {

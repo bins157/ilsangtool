@@ -1913,9 +1913,9 @@ td {
 }
 
 /* --------------------------------------------------------------------------
-   13. Responsive Media Queries (< 900px)
+   13. Responsive Media Queries (< 1080px Tablet / Pad & Mobile)
    -------------------------------------------------------------------------- */
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .app {
     display: flex;
     flex-direction: column;
@@ -3680,166 +3680,104 @@ td {
   color: var(--text-secondary);
 }
 
-/* 2-Column Game Workspace: Left Controls + Right Board */
-.apple-game-layout {
-  display: grid;
-  grid-template-columns: 270px minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
-  width: 100%;
-}
-
 /* ==========================================================================
-   Left Side Control & Stats Panel
+   Apple Game Layout: Top Dashboard + Play Zone (Slim Vertical Timer + Giant Board)
    ========================================================================== */
-.apple-side-panel {
+.apple-container {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.apple-game-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Top Dashboard: Live Stats & Action Controls
+   -------------------------------------------------------------------------- */
+.apple-top-dashboard {
   background: var(--glass-card);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  padding: 16px;
-  box-shadow: var(--shadow-card);
-  position: sticky;
-  top: 16px;
-}
-
-/* Timer Box */
-.apple-side-card.apple-side-timer {
-  background: rgba(14, 19, 32, 0.8);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  border-radius: var(--radius-md);
-  padding: 12px 14px;
-  text-align: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-}
-
-.apple-side-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-.apple-side-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.apple-time-badge {
-  font-size: 10.5px;
-  padding: 2px 7px;
-  border-radius: var(--radius-full);
-  background: rgba(245, 158, 11, 0.18);
-  color: #fbbf24;
-  font-weight: 700;
-}
-
-.apple-timer-big {
-  font-size: 34px;
-  font-weight: 900;
-  color: #f59e0b;
-  font-family: var(--font-numeric, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin: 4px 0 8px;
-  font-variant-numeric: tabular-nums;
-  transition: color 0.2s ease;
-}
-
-.apple-timer-big.low-time {
-  color: #ef4444;
-  animation: appleTimerPulse 0.8s infinite alternate;
-}
-
-@keyframes appleTimerPulse {
-  0% { transform: scale(1); text-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
-  100% { transform: scale(1.08); text-shadow: 0 0 18px rgba(239, 68, 68, 0.95); }
-}
-
-/* Timer Bar */
-.apple-timer-bar-wrap {
-  width: 100%;
-  height: 7px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-  position: relative;
-}
-
-.apple-timer-bar {
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(90deg, #10b981 0%, #3b82f6 50%, #f59e0b 80%, #ef4444 100%);
-  border-radius: var(--radius-full);
-  transition: width 0.3s linear;
-}
-
-.apple-timer-bar.urgent {
-  background: #ef4444;
-  box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
-}
-
-/* Stats 2x2 Grid */
-.apple-side-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.apple-side-stat {
-  background: rgba(14, 19, 32, 0.65);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  padding: 8px 10px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--shadow-card);
+}
+
+.apple-dash-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+}
+
+.apple-dash-stat {
+  flex: 1;
+  min-width: 100px;
+  background: rgba(14, 19, 32, 0.75);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
   transition: all 0.2s ease;
 }
 
-.apple-side-stat.accent-score {
-  border-left: 3px solid #ef4444;
-}
-
-.apple-side-stat.accent-rem {
-  border-left: 3px solid #10b981;
-}
-
-.apple-side-stat.accent-best {
-  border-left: 3px solid #8b5cf6;
-}
-
-.apple-side-stat.accent-combo {
-  border-left: 3px solid #f97316;
-}
-
-.apple-side-stat-lbl {
+.apple-dash-lbl {
   font-size: 11px;
   color: var(--text-muted);
-  font-weight: 500;
-  margin-bottom: 2px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.apple-side-stat-num {
-  font-size: 17px;
+.apple-dash-val {
+  font-size: 14.5px;
   font-weight: 800;
   color: var(--text-title);
   font-family: var(--font-numeric, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-/* Live combo streak pulse in left panel */
-.apple-side-stat.accent-combo.active-streak {
-  background: rgba(249, 115, 22, 0.15);
-  border-color: rgba(249, 115, 22, 0.5);
+.apple-dash-stat.accent-score { border-left: 3px solid #ef4444; }
+.apple-dash-stat.accent-score .apple-dash-val { color: #f43f5e; }
+
+.apple-dash-stat.accent-rem { border-left: 3px solid #10b981; }
+.apple-dash-stat.accent-rem .apple-dash-val { color: #38bdf8; }
+
+.apple-dash-stat.accent-best { border-left: 3px solid #8b5cf6; }
+.apple-dash-stat.accent-best .apple-dash-val { color: #fbbf24; }
+
+.apple-dash-stat.accent-combo { border-left: 3px solid #f97316; }
+.apple-dash-stat.accent-combo .apple-dash-val { color: #f97316; }
+
+.apple-dash-stat.accent-king {
+  border-left: 3px solid #f59e0b;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(239, 68, 68, 0.08) 100%);
+  flex: 1.2;
+  min-width: 140px;
+}
+.apple-dash-stat.accent-king .apple-dash-val {
+  color: #facc15;
+  font-size: 13px;
+}
+
+.apple-dash-stat.accent-combo.active-streak {
+  background: rgba(249, 115, 22, 0.18);
+  border-color: rgba(249, 115, 22, 0.6);
   animation: streakPulse 0.5s ease;
 }
 
@@ -3849,21 +3787,29 @@ td {
   100% { transform: scale(1); }
 }
 
-/* Mode Toggle */
-.apple-mode-toggle {
+/* Action Controls & Mode Bar */
+.apple-dash-actions {
   display: flex;
-  background: rgba(0, 0, 0, 0.4);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.apple-mode-toggle {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.45);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
   padding: 3px;
-  gap: 4px;
-  width: 100%;
+  gap: 3px;
 }
 
 .apple-mode-btn {
-  flex: 1;
-  padding: 6px 4px;
-  font-size: 12px;
+  padding: 5px 10px;
+  font-size: 11.5px;
   font-weight: 600;
   border: none;
   background: transparent;
@@ -3871,7 +3817,6 @@ td {
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all 0.2s ease;
-  text-align: center;
   white-space: nowrap;
 }
 
@@ -3881,26 +3826,20 @@ td {
   box-shadow: var(--toss-blue-glow);
 }
 
-/* Side Action Buttons */
-.apple-side-actions {
+.apple-dash-btns {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.apple-side-btn-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
 }
 
 .apple-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 8px 12px;
-  font-size: 12.5px;
+  gap: 5px;
+  padding: 6px 10px;
+  font-size: 12px;
   font-weight: 600;
   border-radius: var(--radius-md);
   border: 1px solid var(--glass-border);
@@ -3921,14 +3860,13 @@ td {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: #ffffff;
   border-color: rgba(239, 68, 68, 0.4);
-  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
   font-weight: 700;
-  padding: 10px 14px;
 }
 
 .apple-btn.btn-restart:hover {
   background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
-  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.45);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.45);
 }
 
 .apple-btn.btn-hint {
@@ -3953,56 +3891,138 @@ td {
   border-color: #c4b5fd;
 }
 
-/* Today's King Preview Box */
-.apple-king-preview {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(239, 68, 68, 0.06) 100%);
-  border: 1px dashed rgba(245, 158, 11, 0.35);
+/* --------------------------------------------------------------------------
+   Main Play Zone: Ultra-Slim Vertical Timer on Left + Giant Board on Right
+   -------------------------------------------------------------------------- */
+.apple-play-zone {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Left Vertical Timer Strip */
+.apple-v-timer-strip {
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  background: rgba(14, 19, 32, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.35);
   border-radius: var(--radius-md);
-  padding: 10px 12px;
+  padding: 8px 3px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-}
-
-.apple-king-preview-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: #fbbf24;
-}
-
-.apple-king-preview-date {
-  font-size: 10px;
-  color: var(--text-muted);
-}
-
-.apple-king-preview-body {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  user-select: none;
+  flex-shrink: 0;
 }
 
-.apple-king-name {
+.apple-v-timer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+}
+
+.apple-v-timer-ico {
   font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
+  line-height: 1;
 }
 
-.apple-king-score {
-  font-size: 14px;
+.apple-v-timer-val {
+  font-size: 11px;
   font-weight: 800;
-  color: #fde047;
-  font-family: var(--font-numeric, sans-serif);
+  color: #f59e0b;
+  font-family: var(--font-numeric, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
-/* ==========================================================================
-   Apple Game Board (Right Column)
-   ========================================================================== */
+.apple-v-timer-val.low-time {
+  color: #ef4444;
+  animation: appleTimerPulse 0.8s infinite alternate;
+}
+
+@keyframes appleTimerPulse {
+  0% { transform: scale(1); text-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
+  100% { transform: scale(1.08); text-shadow: 0 0 16px rgba(239, 68, 68, 0.95); }
+}
+
+.apple-v-timer-badge {
+  font-size: 8.5px;
+  padding: 1px 3px;
+  border-radius: 4px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  font-weight: 700;
+  white-space: nowrap;
+  transform: scale(0.9);
+}
+
+/* Vertical Liquid Timer Track & Fill Bar */
+.apple-v-timer-track {
+  flex: 1;
+  width: 12px;
+  min-height: 120px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  margin: 6px 0;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.apple-v-timer-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #38bdf8 0%, #2563eb 50%, #f59e0b 100%);
+  border-radius: 999px;
+  transition: height 0.3s linear, background 0.2s ease;
+}
+
+.apple-v-timer-bar.urgent {
+  background: linear-gradient(180deg, #f59e0b 0%, #ef4444 100%);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.85);
+  animation: appleTimerGlow 0.6s infinite alternate;
+}
+
+@keyframes appleTimerGlow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.35); }
+}
+
+.apple-v-timer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.apple-v-timer-pct {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Giant Apple Board Column (Right)
+   -------------------------------------------------------------------------- */
 .apple-board-column {
   min-width: 0;
-  width: 100%;
+  flex: 1;
+  width: calc(100% - 52px);
 }
 
 .apple-board-container {
@@ -4562,37 +4582,61 @@ td {
    Responsive Adaptations
    ========================================================================== */
 @media (max-width: 900px) {
-  .apple-game-layout {
-    grid-template-columns: 1fr;
-    gap: 14px;
+  .apple-top-dashboard {
+    padding: 8px 10px;
+    gap: 6px;
   }
-  .apple-side-panel {
-    position: static;
+  .apple-dash-stats {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+    gap: 6px;
   }
-  .apple-side-card.apple-side-timer {
+  .apple-dash-stat {
+    min-width: 0;
+    padding: 5px 8px;
+  }
+  .apple-dash-stat.accent-king {
     grid-column: span 2;
   }
-  .apple-side-stats {
-    grid-column: span 2;
+  .apple-dash-actions {
+    gap: 6px;
+    padding-top: 5px;
   }
-  .apple-mode-toggle {
-    grid-column: span 2;
+  .apple-dash-btns {
+    gap: 4px;
   }
-  .apple-side-actions {
-    grid-column: span 2;
-  }
-  .apple-king-preview {
-    grid-column: span 2;
+  .apple-btn {
+    padding: 5px 8px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 768px) {
+  .apple-play-zone {
+    gap: 6px;
+  }
+  .apple-v-timer-strip {
+    width: 38px;
+    min-width: 38px;
+    max-width: 38px;
+    padding: 6px 2px;
+  }
+  .apple-v-timer-val {
+    font-size: 10px;
+    letter-spacing: -0.05em;
+  }
+  .apple-v-timer-badge {
+    display: none;
+  }
+  .apple-v-timer-track {
+    width: 10px;
+    margin: 4px 0;
+  }
+  .apple-board-column {
+    width: calc(100% - 44px);
+  }
   .apple-board-container {
-    padding: 24px 8px 10px;
+    padding: 22px 6px 8px;
   }
   .apple-board {
     gap: 1.5px;
@@ -4612,15 +4656,33 @@ td {
   .apple-sum-badge {
     font-size: 11px;
     padding: 3px 8px;
-    top: -26px;
+    top: -24px;
   }
   .apple-combo-toast {
     font-size: 13px;
     padding: 5px 14px;
     top: -36px;
   }
-  .apple-timer-big {
-    font-size: 28px;
+}
+
+@media (max-width: 480px) {
+  .apple-v-timer-strip {
+    width: 34px;
+    min-width: 34px;
+    max-width: 34px;
+    padding: 4px 1px;
+  }
+  .apple-v-timer-val {
+    font-size: 9px;
+  }
+  .apple-v-timer-pct {
+    font-size: 8.5px;
+  }
+  .apple-board-column {
+    width: calc(100% - 38px);
+  }
+  .apple-dash-stat.accent-king {
+    grid-column: 1 / -1;
   }
 }
 
@@ -5669,3 +5731,756 @@ td {
     padding: 8px;
   }
 }
+
+/* ==========================================================================
+   Omok (Gomoku) Game Styles
+   ========================================================================== */
+.omok-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.omok-intro-subtag {
+  margin-left: auto;
+  font-size: 12px;
+  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+}
+
+.omok-game-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .omok-game-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Side Control Panel */
+.omok-side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.omok-side-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.omok-turn-card {
+  border-color: rgba(59, 130, 246, 0.35);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%);
+}
+
+.omok-turn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.omok-side-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.omok-turn-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(59, 130, 246, 0.16);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.omok-turn-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.omok-turn-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.omok-stone-preview {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.omok-stone-preview.black {
+  background: radial-gradient(circle at 35% 35%, #4b5563 0%, #1f2937 60%, #030712 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  border: 1px solid #111827;
+}
+
+.omok-stone-preview.white {
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #e2e8f0 60%, #94a3b8 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  border: 1px solid #cbd5e1;
+}
+
+.omok-turn-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.omok-turn-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.omok-turn-sub {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+/* Blitz Timer Bar */
+.omok-timer-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.omok-timer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.omok-timer-label {
+  color: var(--text-sub);
+}
+
+.omok-timer-val {
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+.omok-timer-val.warning {
+  color: #ef4444;
+  animation: pulse-warn 0.6s infinite alternate;
+}
+
+@keyframes pulse-warn {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.08); opacity: 0.8; }
+}
+
+.omok-timer-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.omok-timer-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #2563eb);
+  border-radius: var(--radius-full);
+  transition: width 0.2s linear, background-color 0.2s ease;
+}
+
+.omok-timer-bar.warning {
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+
+/* Card Section Titles */
+.omok-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+.omok-sub-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Button Groups */
+.omok-btn-group {
+  display: flex;
+  gap: 6px;
+}
+
+.omok-tab-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-sub);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.omok-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.omok-tab-btn.active {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #60a5fa;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+}
+
+.omok-mini-btn {
+  flex: 1;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-sub);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.omok-mini-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.omok-mini-btn.active {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #60a5fa;
+}
+
+.omok-diff-group {
+  display: flex;
+  gap: 5px;
+}
+
+.omok-diff-btn {
+  flex: 1;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-sub);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.omok-diff-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.omok-diff-btn.active {
+  background: rgba(234, 179, 8, 0.16);
+  border-color: rgba(234, 179, 8, 0.5);
+  color: #facc15;
+  box-shadow: 0 0 10px rgba(234, 179, 8, 0.2);
+}
+
+.omok-timer-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.omok-time-btn {
+  padding: 5px 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-sub);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.omok-time-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.omok-time-btn.active {
+  background: rgba(14, 165, 233, 0.16);
+  border-color: rgba(14, 165, 233, 0.5);
+  color: #38bdf8;
+}
+
+/* Action Controls Grid */
+.omok-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.omok-action-btn {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 9px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.omok-action-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.omok-action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.omok-hint-btn {
+  background: rgba(234, 179, 8, 0.12);
+  border-color: rgba(234, 179, 8, 0.35);
+  color: #fde047;
+}
+
+.omok-hint-btn:hover:not(:disabled) {
+  background: rgba(234, 179, 8, 0.22);
+  border-color: rgba(234, 179, 8, 0.5);
+}
+
+.omok-new-btn {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+}
+
+.omok-new-btn:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.22);
+}
+
+.omok-resign-btn {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.omok-resign-btn:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.18);
+}
+
+/* Switches & Toggles */
+.omok-toggles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.omok-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.omok-theme-pills {
+  display: flex;
+  gap: 4px;
+}
+
+.omok-theme-btn {
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.omok-theme-btn.active {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #60a5fa;
+}
+
+.omok-switch-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-sub);
+  cursor: pointer;
+  user-select: none;
+}
+
+.omok-switch-label input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.omok-switch-slider {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 18px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.omok-switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.omok-switch-label input:checked + .omok-switch-slider {
+  background-color: #3b82f6;
+}
+
+.omok-switch-label input:checked + .omok-switch-slider:before {
+  transform: translateX(16px);
+}
+
+/* Stats Grid */
+.omok-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.omok-stat-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.omok-stat-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.omok-stat-lbl {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.omok-stat-box.accent-black .omok-stat-val { color: #94a3b8; }
+.omok-stat-box.accent-white .omok-stat-val { color: #f8fafc; }
+.omok-stat-box.accent-rate .omok-stat-val { color: #38bdf8; }
+
+.omok-stats-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.omok-copy-kibo-btn,
+.omok-reset-stat-btn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.omok-copy-kibo-btn:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+.omok-reset-stat-btn:hover {
+  color: #f87171;
+  text-decoration: underline;
+}
+
+/* Right Board Area */
+.omok-board-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.omok-status-pill {
+  width: 100%;
+  max-width: 580px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.omok-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 8px #3b82f6;
+  flex-shrink: 0;
+}
+
+.omok-status-pill.foul .omok-status-dot {
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+.omok-status-pill.win .omok-status-dot {
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.omok-board-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  border-radius: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+  user-select: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.omok-board-wrapper.omok-theme-wood {
+  background: linear-gradient(135deg, #e5aa67 0%, #db9a53 50%, #cb8942 100%);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.35), inset 0 -3px 8px rgba(60, 30, 0, 0.45);
+  border: 3px solid #8c5620;
+}
+
+.omok-board-wrapper.omok-theme-dark {
+  background: radial-gradient(circle at 50% 50%, #151e2e 0%, #0c121d 100%);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 30px rgba(59, 130, 246, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+#omokCanvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.omok-last-move-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-sub);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.omok-last-move-badge .omok-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #facc15;
+}
+
+/* Victory Overlay Modal */
+.omok-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.omok-modal-backdrop.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.omok-modal-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: var(--radius-xl);
+  padding: 28px 24px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(59, 130, 246, 0.2);
+  animation: modal-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modal-pop {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.omok-modal-icon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.omok-modal-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+
+.omok-modal-desc {
+  font-size: 14px;
+  color: var(--text-sub);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.omok-modal-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 6px;
+  margin: 4px 0;
+}
+
+.omok-modal-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.omok-modal-detail-item .lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.omok-modal-detail-item .val {
+  font-size: 14px;
+  font-weight: 800;
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
+}
+
+.omok-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.omok-modal-btn {
+  width: 100%;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 600px) {
+  .omok-board-wrapper {
+    padding: 6px;
+  }
+  .omok-status-pill {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
