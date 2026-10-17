@@ -47,8 +47,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/style.css?v=48">
-  <link rel="stylesheet" href="css/hair.css?v=1">
+  <link rel="stylesheet" href="css/style.css?v=49">
+  <link rel="stylesheet" href="css/hair.css?v=2">
 
   <!-- Google Search Favicon & Apple Touch Icon -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -235,6 +235,77 @@
     </div>
   </header>
 
+  <!-- Mobile Quick Tools Strip (Always Visible Horizontal Scroll Bar) -->
+  <nav class="mobile-quick-strip" id="mobileQuickStrip" aria-label="모바일 도구 빠른 실행">
+    <div class="mobile-quick-scroll" id="mobileQuickScroll">
+      <button type="button" class="quick-chip active" data-id="home">
+        <span class="chip-ico">⌂</span>
+        <span class="chip-txt">홈</span>
+      </button>
+      <button type="button" class="quick-chip hot" data-id="hair">
+        <span class="chip-ico">💇</span>
+        <span class="chip-txt">AI 헤어</span>
+        <span class="chip-badge">HOT</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="apple">
+        <span class="chip-ico">🍎</span>
+        <span class="chip-txt">사과게임</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="paint">
+        <span class="chip-ico">🎨</span>
+        <span class="chip-txt">그림판</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="omok">
+        <span class="chip-ico">⚪⚫</span>
+        <span class="chip-txt">오목</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="calc">
+        <span class="chip-ico">fx</span>
+        <span class="chip-txt">계산기</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="salary">
+        <span class="chip-ico">₩</span>
+        <span class="chip-txt">실수령</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="unit">
+        <span class="chip-ico">↔</span>
+        <span class="chip-txt">단위</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="bmi">
+        <span class="chip-ico">BMI</span>
+        <span class="chip-txt">BMI</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="vat">
+        <span class="chip-ico">10%</span>
+        <span class="chip-txt">부가세</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="split">
+        <span class="chip-ico">1/N</span>
+        <span class="chip-txt">더치페이</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="hwangap">
+        <span class="chip-ico">壽</span>
+        <span class="chip-txt">환갑칠순</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="dday">
+        <span class="chip-ico">D-</span>
+        <span class="chip-txt">디데이</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="notepad">
+        <span class="chip-ico">메모</span>
+        <span class="chip-txt">메모장</span>
+      </button>
+      <button type="button" class="quick-chip" data-id="pdf">
+        <span class="chip-ico">PDF</span>
+        <span class="chip-txt">PDF변환</span>
+      </button>
+      <button type="button" class="quick-chip more-btn" id="quickMoreBtn">
+        <span class="chip-ico">🗂</span>
+        <span class="chip-txt">전체 (34)</span>
+      </button>
+    </div>
+  </nav>
+
   <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="모바일 도구 메뉴">
     <div class="drawer-handle" aria-hidden="true"></div>
@@ -266,6 +337,8 @@
       <button type="button" class="drawer-cat-pill" data-cat="util">🛠 편의·유틸</button>
     </div>
     <div class="drawer-tools-wrap" id="drawerToolsWrap">
+      <button type="button" data-id="hair" data-cat="health"><span class="ico app-ico-hair">💇</span><span
+          class="app-name">AI 헤어</span></button>
       <button type="button" data-id="calc" data-cat="calc"><span class="ico app-ico-calc">fx</span><span
           class="app-name">공학용계산기</span></button>
       <button type="button" data-id="salary" data-cat="finance"><span class="ico app-ico-salary">₩</span><span
@@ -422,6 +495,22 @@
             사용하세요.</p>
         </div>
 
+        <!-- Spotlight Featured New Tool Banner -->
+        <div class="featured-tool-banner" id="homeHairBanner" data-id="hair" role="button" tabindex="0"
+          aria-label="AI 얼굴형 헤어스타일 진단 열기">
+          <div class="featured-badge"><span>🔥 NEW</span> AI 비전 페이스 테크 · 스마트폰 셀카 지원</div>
+          <div class="featured-content">
+            <div class="featured-ico">💇</div>
+            <div class="featured-text">
+              <h3>AI 얼굴형 분석 & 맞춤 헤어스타일 추천</h3>
+              <p>내 얼굴 사진 찍고 6가지 얼굴형과 인생 머리스타일, 가르마, 미용실 주문 멘트 즉시 확인!</p>
+            </div>
+            <button type="button" class="btn primary btn-sm featured-btn">
+              <span>진단 시작</span> →
+            </button>
+          </div>
+        </div>
+
         <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="도구 카테고리">
           <button type="button" class="cat-chip active" data-cat="all" role="tab" aria-selected="true">
             <span>전체</span><span class="chip-count">34</span>
@@ -446,6 +535,17 @@
         <div class="ad-slot ad-home" data-ad="homeMid"></div>
 
         <div class="grid" id="homeGrid">
+          <article class="card tool-card" data-tool="hair" data-cat="health" role="button" tabindex="0"
+            style="border-color: rgba(236,72,153,0.4); background: linear-gradient(135deg, rgba(236,72,153,0.08) 0%, rgba(139,92,246,0.08) 100%);">
+            <div class="mark" style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); color: #fff;">💇
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+              <h3 style="margin:0;">AI 헤어스타일</h3>
+              <span
+                style="font-size:9px;font-weight:900;background:#ec4899;color:#fff;padding:1px 5px;border-radius:4px;">NEW</span>
+            </div>
+            <p>사진 촬영 · 6가지 얼굴형 진단 · 맞춤 헤어 추천</p>
+          </article>
           <article class="card tool-card" data-tool="calc" data-cat="calc" role="button" tabindex="0">
             <div class="mark mark-blue">fx</div>
             <h3>공학용계산기</h3>
@@ -600,11 +700,6 @@
             <div class="mark mark-amber">🎨</div>
             <h3>그림판</h3>
             <p>윈도우 스타일 그림판 · 에셋 보드</p>
-          </article>
-          <article class="card tool-card" data-tool="hair" data-cat="health" role="button" tabindex="0">
-            <div class="mark mark-rose">💇</div>
-            <h3>AI 헤어스타일</h3>
-            <p>사진 촬영 · 얼굴형 분석 · 헤어 추천</p>
           </article>
           <article class="card tool-card" data-tool="board" data-cat="util" role="button" tabindex="0">
             <div class="mark mark-purple">글</div>
@@ -2874,10 +2969,16 @@
                 <div class="hair-upload-icon">📥</div>
                 <div class="hair-upload-title">얼굴 사진을 끌어다 놓거나 클릭하세요</div>
                 <div class="hair-upload-sub">정면 사진 권장 · JPG, PNG, WebP 지원 · 모바일 카메라 즉시 촬영 가능</div>
-                <input type="file" id="hairFileInput" accept="image/*" capture="user" style="display: none;">
-                <button type="button" class="btn primary btn-sm" style="margin-top: 10px; border-radius: 20px;">
-                  <span>🖼️</span> 내 기기에서 사진 선택
-                </button>
+                <input type="file" id="hairFileInput" accept="image/*" style="display: none;">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 12px;">
+                  <button type="button" class="btn primary btn-sm" id="hairSelectFileBtn" style="border-radius: 20px;">
+                    <span>🖼️</span> 앨범/사진 선택
+                  </button>
+                  <button type="button" class="btn secondary btn-sm" id="hairNativeUploadCamBtn"
+                    style="border-radius: 20px; background: rgba(236, 72, 153, 0.2); border-color: rgba(236, 72, 153, 0.4); color: #fff;">
+                    <span>📱</span> 카메라로 셀카 찍기
+                  </button>
+                </div>
               </div>
 
               <!-- Camera Controls Toolbar -->
@@ -2891,6 +2992,15 @@
                 <button type="button" class="hair-sub-btn" id="hairSwitchCamBtn" title="전면/후면 카메라 전환">
                   <span>🔄</span> 카메라 전환
                 </button>
+              </div>
+
+              <!-- Mobile Dedicated Native Camera Helper -->
+              <div class="hair-mobile-cam-helper" style="margin-top: 10px;">
+                <button type="button" class="btn secondary btn-sm" id="hairNativeCamBtn"
+                  style="width: 100%; border-radius: 12px; padding: 10px 14px; background: rgba(236, 72, 153, 0.16); border: 1px solid rgba(236, 72, 153, 0.45); color: #ffffff; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <span>📱</span> 스마트폰 기본 카메라로 셀카 찍기
+                </button>
+                <input type="file" id="hairNativeCamInput" accept="image/*" capture="user" style="display: none;">
               </div>
             </div>
 
@@ -3099,6 +3209,11 @@
       <span class="dock-ico">⌂</span>
       <span class="dock-txt">홈</span>
     </button>
+    <button type="button" class="dock-btn" data-id="hair" aria-label="AI 헤어스타일">
+      <span class="dock-badge">NEW</span>
+      <span class="dock-ico">💇</span>
+      <span class="dock-txt">AI헤어</span>
+    </button>
     <button type="button" class="dock-btn" data-id="calc" aria-label="계산기">
       <span class="dock-ico">fx</span>
       <span class="dock-txt">계산기</span>
@@ -3110,10 +3225,6 @@
     <button type="button" class="dock-btn" id="dockMenuTrigger" aria-label="전체 도구 열기">
       <span class="dock-ico">🗂</span>
       <span class="dock-txt">전체도구</span>
-    </button>
-    <button type="button" class="dock-btn" data-id="board" aria-label="도구 요청">
-      <span class="dock-ico">✍️</span>
-      <span class="dock-txt">요청</span>
     </button>
   </nav>
 
@@ -3157,8 +3268,8 @@
   <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="js/hair.js?v=1"></script>
-  <script src="js/daily.js?v=49"></script>
+  <script src="js/hair.js?v=2"></script>
+  <script src="js/daily.js?v=50"></script>
 </body>
 
 </html>

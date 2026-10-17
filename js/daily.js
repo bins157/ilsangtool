@@ -117,8 +117,14 @@
     document.querySelectorAll(".view").forEach(function (el) {
       el.classList.toggle("hidden", el.id !== id);
     });
-    document.querySelectorAll(".nav button, .mobile-nav button, .drawer-tools-wrap button, .dock-btn[data-id]").forEach(function (btn) {
-      btn.classList.toggle("active", btn.dataset.id === id);
+    document.querySelectorAll(".nav button, .mobile-nav button, .drawer-tools-wrap button, .dock-btn[data-id], .quick-chip[data-id]").forEach(function (btn) {
+      var match = btn.dataset.id === id;
+      btn.classList.toggle("active", match);
+      if (match && btn.classList.contains("quick-chip")) {
+        try {
+          btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        } catch(e) {}
+      }
     });
     var tool = TOOLS.find(function (t) { return t.id === id; }) || TOOLS[0];
     pageTitle.textContent = tool.name;
@@ -143,9 +149,26 @@
     }, 60);
   }
 
-  document.querySelectorAll(".nav button, .mobile-nav button, .drawer-tools-wrap button, .dock-btn[data-id], .brand[data-id], .mobile-brand[data-id]").forEach(function (btn) {
+  document.querySelectorAll(".nav button, .mobile-nav button, .drawer-tools-wrap button, .dock-btn[data-id], .brand[data-id], .mobile-brand[data-id], .quick-chip[data-id]").forEach(function (btn) {
     btn.addEventListener("click", function () { show(btn.dataset.id); });
   });
+
+  var quickMoreBtn = document.getElementById("quickMoreBtn");
+  if (quickMoreBtn) {
+    quickMoreBtn.addEventListener("click", openDrawer);
+  }
+
+  var homeHairBanner = document.getElementById("homeHairBanner");
+  if (homeHairBanner) {
+    homeHairBanner.addEventListener("click", function () { show("hair"); });
+    homeHairBanner.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        show("hair");
+      }
+    });
+  }
+
   document.querySelectorAll(".tool-card[data-tool]").forEach(function (card) {
     card.addEventListener("click", function () { show(card.getAttribute("data-tool")); });
     card.addEventListener("keydown", function (e) {

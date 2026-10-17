@@ -868,11 +868,15 @@
       this.analysisResult = null;
       this.selectedPreset = null;
       this.audioCtx = null;
+      this.isInitialized = false;
     }
 
     init() {
       this.cacheDOMElements();
-      this.bindEvents();
+      if (!this.isInitialized) {
+        this.bindEvents();
+        this.isInitialized = true;
+      }
       // 기본으로 계란형 모델 프리셋 선택
       this.applyPreset('oval');
     }
@@ -896,9 +900,13 @@
       this.scanOverlay = document.getElementById('hairScanOverlay');
       this.faceGuide = document.getElementById('hairFaceGuide');
 
-      // 업로드 요소
+      // 업로드 & 모바일 기본 카메라 요소
       this.fileInput = document.getElementById('hairFileInput');
-      this.uploadBox = document.getElementById('hairUploadBox');
+      this.uploadBox = document.getElementById('hairUploadWrap') || document.getElementById('hairUploadBox');
+      this.selectFileBtn = document.getElementById('hairSelectFileBtn');
+      this.nativeCamBtn = document.getElementById('hairNativeCamBtn');
+      this.nativeCamInput = document.getElementById('hairNativeCamInput');
+      this.nativeUploadCamBtn = document.getElementById('hairNativeUploadCamBtn');
 
       // 결과 패널 요소
       this.resultSection = document.getElementById('hairResultSection');
@@ -948,9 +956,12 @@
         this.timerBtn.addEventListener('click', () => this.toggleTimer());
       }
 
-      // 파일 업로드
+      // 파일 업로드 및 드롭존
       if (this.uploadBox) {
-        this.uploadBox.addEventListener('click', () => this.fileInput && this.fileInput.click());
+        this.uploadBox.addEventListener('click', (e) => {
+          if (e.target.closest('button')) return; // 버튼 클릭은 자체 핸들러 처리
+          if (this.fileInput) this.fileInput.click();
+        });
         this.uploadBox.addEventListener('dragover', (e) => {
           e.preventDefault();
           this.uploadBox.classList.add('dragover');
@@ -966,6 +977,35 @@
       }
       if (this.fileInput) {
         this.fileInput.addEventListener('change', (e) => {
+          if (e.target.files && e.target.files[0]) {
+            this.handleFileSelected(e.target.files[0]);
+          }
+        });
+      }
+
+      // 갤러리 및 모바일 카메라 전용 트리거 버튼
+      if (this.selectFileBtn) {
+        this.selectFileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (this.fileInput) this.fileInput.click();
+        });
+      }
+      if (this.nativeCamBtn) {
+        this.nativeCamBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (this.nativeCamInput) this.nativeCamInput.click();
+          else if (this.fileInput) this.fileInput.click();
+        });
+      }
+      if (this.nativeUploadCamBtn) {
+        this.nativeUploadCamBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (this.nativeCamInput) this.nativeCamInput.click();
+          else if (this.fileInput) this.fileInput.click();
+        });
+      }
+      if (this.nativeCamInput) {
+        this.nativeCamInput.addEventListener('change', (e) => {
           if (e.target.files && e.target.files[0]) {
             this.handleFileSelected(e.target.files[0]);
           }
@@ -1012,7 +1052,7 @@
     // ------------------------------------------------------------------------
     async startCamera() {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        alert('이 브라우저에서는 실시간 카메라를 지원하지 않습니다. 사진 업로드 기능을 이용해주세요.');
+        console.warn('현재 환경에서는 WebRTC 실시간 비디오를 지원하지 않아 모바일 카메라 모드로 전환합니다.');
         this.switchInputMode('upload');
         return;
       }
@@ -1032,16 +1072,14 @@
         this.stream = await navigator.mediaDevices.getUserMedia(constraints);
         if (this.video) {
           this.video.srcObject = this.stream;
-          this.video.play();
+          try { await this.video.play(); } catch(e) {}
           this.video.style.display = 'block';
           if (this.canvas) this.canvas.style.display = 'none';
         }
       } catch (err) {
         console.warn('카메라 접근 권한이 거부되었거나 장치를 찾을 수 없습니다:', err);
-        // 사용자에게 친절한 가이드 제공
-        if (this.tabUpload) {
-          this.switchInputMode('upload');
-        }
+        // 모바일 환경 친화적 폴백: 업로드 및 기본 카메라 모드로 전환
+        this.switchInputMode('upload');
       }
     }
 
@@ -1128,6 +1166,16 @@
     }
 
     doCapture() {
+      // 카메라 스트림이 비활성 상태거나 모바일에서 클릭 시 스마트폰 기본 카메라 실행
+      if (!this.stream || !this.video || !this.video.videoWidth) {
+        if (this.nativeCamInput) {
+          this.nativeCamInput.click();
+        } else if (this.fileInput) {
+          this.fileInput.click();
+        }
+        return;
+      }
+
       this.playShutterSound();
       if (this.flashOverlay) {
         this.flashOverlay.classList.add('flash');

@@ -29,8 +29,8 @@
 
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/style.css?v=48">
-  <link rel="stylesheet" href="css/hair.css?v=1">
+  <link rel="stylesheet" href="css/style.css?v=49">
+  <link rel="stylesheet" href="css/hair.css?v=2">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -144,10 +144,15 @@
             <div class="hair-upload-icon">📥</div>
             <div class="hair-upload-title">얼굴 사진을 끌어다 놓거나 클릭하세요</div>
             <div class="hair-upload-sub">정면 사진 권장 · JPG, PNG, WebP 지원 · 모바일 카메라 즉시 촬영 가능</div>
-            <input type="file" id="hairFileInput" accept="image/*" capture="user" style="display: none;">
-            <button type="button" class="btn primary btn-sm" style="margin-top: 10px; border-radius: 20px;">
-              <span>🖼️</span> 내 기기에서 사진 선택
-            </button>
+            <input type="file" id="hairFileInput" accept="image/*" style="display: none;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 12px;">
+              <button type="button" class="btn primary btn-sm" id="hairSelectFileBtn" style="border-radius: 20px;">
+                <span>🖼️</span> 앨범/사진 선택
+              </button>
+              <button type="button" class="btn secondary btn-sm" id="hairNativeUploadCamBtn" style="border-radius: 20px; background: rgba(236, 72, 153, 0.2); border-color: rgba(236, 72, 153, 0.4); color: #fff;">
+                <span>📱</span> 카메라로 셀카 찍기
+              </button>
+            </div>
           </div>
 
           <!-- Camera Controls Toolbar -->
@@ -161,6 +166,14 @@
             <button type="button" class="hair-sub-btn" id="hairSwitchCamBtn" title="전면/후면 카메라 전환">
               <span>🔄</span> 카메라 전환
             </button>
+          </div>
+
+          <!-- Mobile Dedicated Native Camera Helper -->
+          <div class="hair-mobile-cam-helper" style="margin-top: 10px;">
+            <button type="button" class="btn secondary btn-sm" id="hairNativeCamBtn" style="width: 100%; border-radius: 12px; padding: 10px 14px; background: rgba(236, 72, 153, 0.16); border: 1px solid rgba(236, 72, 153, 0.45); color: #ffffff; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <span>📱</span> 스마트폰 기본 카메라로 셀카 찍기
+            </button>
+            <input type="file" id="hairNativeCamInput" accept="image/*" capture="user" style="display: none;">
           </div>
         </div>
 
@@ -362,7 +375,7 @@
     <span><a href="https://ilsangtool.kr/">홈으로</a> · <a href="https://ilsangtool.kr/llms.txt">llms.txt</a></span>
   </footer>
 
-  <script src="js/hair.js?v=1"></script>
+  <script src="js/hair.js?v=2"></script>
 </body>
 
 </html>

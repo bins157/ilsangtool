@@ -1187,3 +1187,72 @@
   display: flex;
   gap: 8px;
 }
+
+/* Mobile Responsive Tuning (< 640px) */
+@media (max-width: 640px) {
+  .hair-hero-bar {
+    padding: 16px 18px;
+  }
+  .hair-hero-title {
+    font-size: 20px;
+  }
+  .hair-stage-card {
+    padding: 14px 12px;
+  }
+  .hair-camera-toolbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .hair-shutter-btn {
+    width: 100%;
+    order: -1;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+  .hair-sub-btn {
+    flex: 1;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .hair-presets-card {
+    padding: 14px 12px;
+  }
+  .hair-presets-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .hair-preset-item {
+    padding: 10px 8px;
+  }
+  .hair-preset-face-ico {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+  .hair-report-card {
+    padding: 18px 14px;
+  }
+  .hair-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .hair-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .hair-export-bar {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .hair-export-btns {
+    justify-content: center;
+    width: 100%;
+  }
+  .hair-export-btns .btn {
+    flex: 1;
+  }
+}
+
