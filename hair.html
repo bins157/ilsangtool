@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 얼굴형 헤어스타일 진단 & 추천기 - 내 얼굴에 어울리는 머리 찾기 | 일상툴</title>
+  <meta name="description"
+    content="내 얼굴 사진을 찍거나 업로드하면 6가지 얼굴형(계란형, 둥근형, 각진형, 하트형, 긴얼굴형, 다이아몬드형)을 AI로 정밀 분석하고, 남녀 성별 및 기장별 인생 헤어스타일, 앞머리, 가르마, 미용실 주문 멘트를 추천합니다.">
+  <meta name="keywords"
+    content="헤어스타일추천, 얼굴형헤어스타일, 얼굴형분석, AI얼굴형, 계란형헤어, 둥근얼굴헤어, 각진얼굴헤어, 긴얼굴헤어, 하트형헤어, 다이아몬드얼굴, 레이어드컷, 태슬컷, 가일컷, 댄디컷, 리프컷, 빌드펌, 애즈펌, 일상툴">
+  <meta name="author" content="일상툴">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <link rel="canonical" href="https://ilsangtool.kr/hair.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="일상툴">
+  <meta property="og:title" content="AI 얼굴형 헤어스타일 진단 & 추천기 - 내 얼굴에 어울리는 머리 찾기">
+  <meta property="og:description"
+    content="얼굴 사진 한 장으로 6가지 얼굴형을 AI 정밀 진단! 계란형, 둥근형, 각진형, 하트형, 긴얼굴에 어울리는 최신 트렌드 헤어스타일과 미용실 주문 멘트를 즉시 확인하세요.">
+  <meta property="og:url" content="https://ilsangtool.kr/hair.html">
+  <meta property="og:image" content="https://ilsangtool.kr/favicon.png">
+
+  <meta name="theme-color" content="#080b11">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css?v=48">
+  <link rel="stylesheet" href="css/hair.css?v=1">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI 얼굴형 진단 & 맞춤 헤어스타일 추천기",
+    "url": "https://ilsangtool.kr/hair.html",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All",
+    "inLanguage": "ko-KR",
+    "description": "얼굴 사진을 찍거나 업로드하면 6가지 얼굴형을 분석하여 맞춤 헤어스타일을 제안하는 무료 웹 앱.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <header class="mobile-header" style="position: sticky; top: 0; z-index: 100;">
+    <a href="index.html" class="mobile-brand" aria-label="일상툴 홈으로 가기">
+      <div class="logo"><img src="favicon.png" alt="DT" class="logo-img"></div>
+      <span class="mobile-brand-title">일상툴 · AI 헤어추천</span>
+    </a>
+    <div class="mobile-header-actions">
+      <a href="index.html" class="btn ghost btn-sm" style="font-size:12px;padding:6px 12px;border-radius:20px;">
+        <span>⌂</span>전체 도구 보기
+      </a>
+    </div>
+  </header>
+
+  <main class="main" style="max-width: 1200px; margin: 0 auto; padding: 24px 16px 80px 16px;">
+    <!-- Top Hero Banner -->
+    <div class="hair-hero-bar">
+      <div class="hair-hero-info">
+        <div class="hair-badge"><span>✨</span>AI 비전 페이스 테크 · 6대 얼굴형 분석</div>
+        <h1 class="hair-hero-title">내 얼굴에 딱 맞는 인생 헤어스타일 찾기</h1>
+        <p class="hair-hero-desc">
+          카메라로 얼굴 사진을 찍거나 업로드하면 <b>6가지 대표 얼굴형(계란형, 둥근형, 각진형, 하트형, 긴얼굴형, 다이아몬드형)</b>과
+          황금비율을 정밀 진단하고, 얼굴의 단점을 커버해주는 <b>남녀 맞춤 헤어스타일, 가르마, 앞머리, 미용실 주문 멘트</b>를 제안합니다.
+        </p>
+        <div class="hair-privacy-tag">
+          <span>🔒</span> 100% 브라우저 메모리 연산 · 사진은 서버로 전송되지 않고 내 기기에서만 안전하게 분석됩니다.
+        </div>
+      </div>
+      <div class="hair-quick-links">
+        <a href="index.html" class="btn secondary btn-sm" style="border-radius:20px;">
+          <span>←</span> 일상툴 홈으로
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Workspace Container -->
+    <div class="hair-app-wrap" style="margin-top: 24px;">
+
+      <!-- Step 1: Input Section (Camera / Upload / Presets) -->
+      <section class="hair-input-grid">
+        <!-- Left: Stage Card (Camera & Upload Viewport) -->
+        <div class="hair-stage-card">
+          <!-- Mode Tabs -->
+          <div class="hair-tabs-row">
+            <button type="button" class="hair-tab-btn active" id="hairTabCamera">
+              <span>📷</span> 실시간 셀카 촬영
+            </button>
+            <button type="button" class="hair-tab-btn" id="hairTabUpload">
+              <span>📁</span> 사진 파일 업로드
+            </button>
+          </div>
+
+          <!-- Camera Stream / Canvas Viewport -->
+          <div class="hair-viewport-box" id="hairCameraWrap">
+            <!-- Video Stream -->
+            <video id="hairVideoStream" class="hair-video-stream" playsinline autoplay muted></video>
+            <!-- Canvas Preview -->
+            <canvas id="hairPreviewCanvas" class="hair-preview-canvas" style="display: none;"></canvas>
+
+            <!-- Face Alignment Guide Reticle -->
+            <div class="hair-face-guide" id="hairFaceGuide">
+              <div class="hair-guide-oval">
+                <div class="hair-guide-eye-line"></div>
+                <div class="hair-guide-center-line"></div>
+              </div>
+              <div class="hair-guide-msg">얼굴을 타원 안에 맞추고 정면을 응시하세요</div>
+            </div>
+
+            <!-- Laser Scan Sweep Animation -->
+            <div class="hair-scan-overlay" id="hairScanOverlay">
+              <div class="hair-scan-laser"></div>
+            </div>
+
+            <!-- Shutter Flash Overlay -->
+            <div class="hair-flash-overlay" id="hairFlashOverlay"></div>
+
+            <!-- Countdown Overlay -->
+            <div class="hair-countdown-overlay" id="hairCountdownOverlay">
+              <span class="hair-countdown-num" id="hairCountdownNum">3</span>
+            </div>
+          </div>
+
+          <!-- File Upload Dropzone (Hidden by default) -->
+          <div class="hair-upload-box" id="hairUploadWrap" style="display: none;">
+            <div class="hair-upload-icon">📥</div>
+            <div class="hair-upload-title">얼굴 사진을 끌어다 놓거나 클릭하세요</div>
+            <div class="hair-upload-sub">정면 사진 권장 · JPG, PNG, WebP 지원 · 모바일 카메라 즉시 촬영 가능</div>
+            <input type="file" id="hairFileInput" accept="image/*" capture="user" style="display: none;">
+            <button type="button" class="btn primary btn-sm" style="margin-top: 10px; border-radius: 20px;">
+              <span>🖼️</span> 내 기기에서 사진 선택
+            </button>
+          </div>
+
+          <!-- Camera Controls Toolbar -->
+          <div class="hair-camera-toolbar">
+            <button type="button" class="hair-sub-btn" id="hairTimerBtn">
+              <span>⏱️</span> 타이머
+            </button>
+            <button type="button" class="hair-shutter-btn" id="hairShutterBtn">
+              <span>📸</span> 얼굴 사진 촬영하기
+            </button>
+            <button type="button" class="hair-sub-btn" id="hairSwitchCamBtn" title="전면/후면 카메라 전환">
+              <span>🔄</span> 카메라 전환
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: 1-Click Preset Face Models -->
+        <div class="hair-presets-card">
+          <div class="hair-panel-header">
+            <h3 class="hair-panel-title">
+              <span>⚡</span> 1초 즉시 테스트 모델
+            </h3>
+            <span style="font-size: 11px; color: var(--text-muted);">사진이 없을 때 바로 확인</span>
+          </div>
+
+          <div class="hair-presets-grid">
+            <button type="button" class="hair-preset-item active" data-preset="oval">
+              <div class="hair-preset-face-ico">🥚</div>
+              <span class="hair-preset-name">계란형 (타원)</span>
+              <span class="hair-preset-desc">1:1.38 황금비율</span>
+            </button>
+            <button type="button" class="hair-preset-item" data-preset="round">
+              <div class="hair-preset-face-ico">⚪</div>
+              <span class="hair-preset-name">둥근형 (원형)</span>
+              <span class="hair-preset-desc">귀여운 동안 볼살</span>
+            </button>
+            <button type="button" class="hair-preset-item" data-preset="square">
+              <div class="hair-preset-face-ico">⏹️</div>
+              <span class="hair-preset-name">각진 사각형</span>
+              <span class="hair-preset-desc">도회적 94° 턱각</span>
+            </button>
+            <button type="button" class="hair-preset-item" data-preset="heart">
+              <div class="hair-preset-face-ico">💖</div>
+              <span class="hair-preset-name">하트형 (V라인)</span>
+              <span class="hair-preset-desc">날렵한 V턱선</span>
+            </button>
+            <button type="button" class="hair-preset-item" data-preset="oblong">
+              <div class="hair-preset-face-ico">⏳</div>
+              <span class="hair-preset-name">긴 얼굴형</span>
+              <span class="hair-preset-desc">지적이고 성숙함</span>
+            </button>
+            <button type="button" class="hair-preset-item" data-preset="diamond">
+              <div class="hair-preset-face-ico">💎</div>
+              <span class="hair-preset-name">다이아몬드형</span>
+              <span class="hair-preset-desc">입체적 광대 라인</span>
+            </button>
+          </div>
+
+          <div class="hair-tips-box">
+            <b>💡 정밀 분석을 위한 셀카 촬영 꿀팁:</b><br>
+            1. 앞머리가 이마를 가리지 않도록 살짝 넘겨주세요.<br>
+            2. 안경이나 마스크를 벗고 정면을 바라봐주세요.<br>
+            3. 밝은 조명 아래에서 턱선을 들어올리지 말고 정자세로 찍으세요.
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: Diagnosis Results & Ratios Section -->
+      <section class="hair-result-section" id="hairResultSection">
+        <div class="hair-report-card">
+          <!-- Main Shape Diagnosis Banner -->
+          <div class="hair-report-header">
+            <div class="hair-shape-highlight">
+              <div class="hair-shape-icon-large" id="hairShapeIcon">🥚</div>
+              <div class="hair-shape-titles">
+                <span class="hair-shape-badge" id="hairShapeBadge">이상적인 황금비율</span>
+                <h2 class="hair-shape-main-name" id="hairShapeName">계란형 (Oval)</h2>
+                <p class="hair-shape-tagline" id="hairShapeTagline">가로·세로 균형이 완벽하고 턱선이 부드러운 가장 이상적인 얼굴형</p>
+              </div>
+            </div>
+            <div>
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span style="font-size: 12px; font-weight: 700; color: #34d399;">AI 랜드마크 분석 완료</span>
+            </div>
+          </div>
+
+          <!-- 4-Metrics Grid -->
+          <div class="hair-metrics-grid">
+            <div class="hair-metric-box">
+              <span class="hair-metric-lbl">가로 : 세로 비율</span>
+              <span class="hair-metric-val" id="hairMetricRatio">1 : 1.38</span>
+              <span class="hair-metric-sub">황금비율 (1:1.3~1.45)</span>
+            </div>
+            <div class="hair-metric-box">
+              <span class="hair-metric-lbl">상안 : 중안 : 하안 삼분할</span>
+              <span class="hair-metric-val" id="hairMetricThirds">33:34:33</span>
+              <span class="hair-metric-sub">이상적 1:1:1 밸런스</span>
+            </div>
+            <div class="hair-metric-box">
+              <span class="hair-metric-lbl">턱선 각도 (하관 굴곡)</span>
+              <span class="hair-metric-val" id="hairMetricJaw">118°</span>
+              <span class="hair-metric-sub">부드러운 곡선 라인</span>
+            </div>
+            <div class="hair-metric-box">
+              <span class="hair-metric-lbl">얼굴형 매칭 적합도</span>
+              <span class="hair-metric-val" id="hairMetricMatch">98%</span>
+              <span class="hair-metric-sub" style="color: #f472b6;">최고 적합 판정</span>
+            </div>
+          </div>
+
+          <!-- Facial Contour & Expert Comment Section -->
+          <div class="hair-contour-wrap">
+            <div class="hair-contour-canvas-box">
+              <canvas id="hairContourCanvas" width="300" height="300"></canvas>
+            </div>
+            <div class="hair-analysis-points-desc">
+              <div>
+                <b>🌟 얼굴형 특성 및 장점:</b>
+                <p id="hairShapeStrengths" style="margin-top: 4px;">이마부터 턱선까지 모난 곳 없이 부드럽게 이어지며 거의 모든 헤어스타일을 소화할 수 있습니다.</p>
+              </div>
+              <div style="margin-top: 8px;">
+                <b>✂️ 수석 디자이너의 스타일링 포인트:</b>
+                <p id="hairShapeTips" style="margin-top: 4px;">얼굴선을 시원하게 드러내고, 사이드뱅으로 광대와 턱선을 가볍게 스쳐 입체감을 주는 스타일을 추천합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Worst Styles to Avoid Alert Card -->
+        <div class="hair-avoid-card">
+          <div class="hair-avoid-header">
+            <span>⚠️</span>
+            <span>이 얼굴형이 주의해야 할 비추천 헤어스타일</span>
+          </div>
+          <div class="hair-avoid-list" id="hairAvoidList">
+            <!-- Dynamically injected -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Personalized Hairstyle Recommendations Section -->
+      <section class="hair-recommend-section">
+        <!-- Filter Bar (Gender & Hair Length) -->
+        <div class="hair-filter-bar">
+          <div class="hair-gender-toggle">
+            <button type="button" class="hair-gender-btn active" id="hairGenderFemale">
+              <span>👩</span> 여성 헤어스타일
+            </button>
+            <button type="button" class="hair-gender-btn" id="hairGenderMale">
+              <span>👨</span> 남성 헤어스타일
+            </button>
+          </div>
+
+          <div class="hair-length-filters">
+            <button type="button" class="hair-length-pill active" data-length="all">전체 기장</button>
+            <button type="button" class="hair-length-pill" data-length="short">숏 (Short)</button>
+            <button type="button" class="hair-length-pill" data-length="medium">미디엄 / 중단발</button>
+            <button type="button" class="hair-length-pill" data-length="long">롱 (Long)</button>
+          </div>
+        </div>
+
+        <!-- Hairstyle Cards Grid -->
+        <div class="hair-cards-grid" id="hairCardsGrid">
+          <!-- Dynamically injected -->
+        </div>
+
+        <!-- Export & Share Action Card -->
+        <div class="hair-export-bar">
+          <div class="hair-export-info">
+            <span class="hair-export-title">📸 내 진단 결과 카드 다운로드 & 공유</span>
+            <span class="hair-export-desc">얼굴형 분석표와 베스트 헤어스타일 3가지가 담긴 고화질 카드를 저장하여 미용실에서 활용하세요.</span>
+          </div>
+          <div class="hair-export-btns">
+            <button type="button" class="btn secondary" id="hairShareCardBtn">
+              <span>📱</span> 친구에게 공유하기
+            </button>
+            <button type="button" class="btn primary" id="hairExportCardBtn">
+              <span>💾</span> 진단 카드 다운로드 (PNG)
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom FAQ & Styling Guide -->
+      <section class="card panel feedback-panel" style="margin-top: 30px;">
+        <div class="feedback-header">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>얼굴형 헤어스타일 FAQ &amp; 미용실 주문 노하우</span>
+        </div>
+        <div class="pdf-guide-content">
+          <div class="pdf-guide-col">
+            <h4>💡 얼굴형에 맞는 헤어스타일이 왜 중요한가요?</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+              헤어스타일은 얼굴의 윤곽선과 시선의 흐름을 결정하는 가장 강력한 프레임입니다.
+              광대가 돌출되거나 턱이 각진 경우, 사이드뱅이나 레이어드의 위치를 1~2cm만 조절해도 턱선이 갸름해 보이고 이목구비가 돋보이는 시각적 교정 효과를 얻을 수 있습니다.
+            </p>
+          </div>
+          <div class="pdf-guide-col">
+            <h4>💈 미용실에서 실패하지 않고 주문하는 방법</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+              단순히 연예인 사진만 보여주기보다, 본 도구에서 제공하는 <b>[미용실 맞춤 주문 멘트]</b>처럼
+              "사이드뱅 기장을 광대선에 맞추고", "하관 무게감을 덜기 위해 모끝 질감을 가볍게 쳐달라"는 구체적인 디테일을 요청하면 원하는 스타일에 훨씬 정확하게 도달할 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>일상툴 (IlsangTool) · AI 얼굴형 진단 & 맞춤 헤어 추천 · 100% 브라우저 로컬 안전 연산</span>
+    <span><a href="https://ilsangtool.kr/">홈으로</a> · <a href="https://ilsangtool.kr/llms.txt">llms.txt</a></span>
+  </footer>
+
+  <script src="js/hair.js?v=1"></script>
+</body>
+
+</html>
