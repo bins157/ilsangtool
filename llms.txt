@@ -7,54 +7,58 @@
 - 타깃 사용자: 일상 생활, 직장 업무, 세무/금융, 건강 관리, 시간 계산, 학생 및 일반 대중
 - 사이트맵: https://ilsangtool.kr/sitemap.xml
 - 전체 상세 명세서: https://ilsangtool.kr/llms-full.txt
+- 서비스 소개 및 산출 기준: https://ilsangtool.kr/about.html
+- 개인정보처리방침 (AdSense & 로컬 보안 정책): https://ilsangtool.kr/privacy.html
+- 이용약관: https://ilsangtool.kr/terms.html
+- 문의하기: https://ilsangtool.kr/contact.html
 
 ## 33가지 도구 전체 카탈로그
 
 ### 1. 금융 · 세금 (Finance & Tax)
-- [연봉 실수령액 계산기](https://ilsangtool.kr/salary.html): 연봉/월급 기준 국민연금, 건강보험, 장기요양, 고용보험, 근로소득세(간이세액표) 공제 후 실제 통장 수령액 계산
-- [연말정산·세금 계산기](https://ilsangtool.kr/tax.html): 총급여, 부양가족, 기납부세액 기반 환급액/추가납부액 추정 및 주휴수당·실업급여 계산
-- [부가세 계산기](https://ilsangtool.kr/vat.html): 대한민국 부가가치세 10% 기준 공급가액 ↔ 부가세 포함 총액 양방향 계산
-- [대출 이자 계산기](https://ilsangtool.kr/loan.html): 원리금균등분할상환 방식의 대출 월 상환금, 원금 및 총 대출이자 계산
-- [복리이자 계산기](https://ilsangtool.kr/compound.html): 원금, 연이율, 복리 주기(월/분기/연복리), 월 추가 적립에 따른 만기 원리금 및 이자 수익 계산
-- [환율 환산기](https://ilsangtool.kr/fx.html): 원화(KRW), 달러(USD), 엔화(JPY), 유로(EUR), 위안(CNY) 실시간 참고 환율 양방향 변환
-- [더치페이 계산기](https://ilsangtool.kr/split.html): 총 지출 금액, 모임 인원 수, 팁(봉사료) 비율에 따른 1인당 분담금 계산
-- [퍼센트 / 할인 계산기](https://ilsangtool.kr/percent.html): 정가 대비 할인율, 할인된 최종 결제액, 절약 금액, 전체 중 비율, 증감률 계산
+- [연봉 실수령액 계산기](https://ilsangtool.kr/?tool=salary): 연봉/월급 기준 국민연금, 건강보험, 장기요양, 고용보험, 근로소득세(간이세액표) 공제 후 실제 통장 수령액 계산
+- [연말정산·세금 계산기](https://ilsangtool.kr/?tool=tax): 총급여, 부양가족, 기납부세액 기반 환급액/추가납부액 추정 및 주휴수당·실업급여 계산
+- [부가세 계산기](https://ilsangtool.kr/?tool=vat): 대한민국 부가가치세 10% 기준 공급가액 ↔ 부가세 포함 총액 양방향 계산
+- [대출 이자 계산기](https://ilsangtool.kr/?tool=loan): 원리금균등분할상환 방식의 대출 월 상환금, 원금 및 총 대출이자 계산
+- [복리이자 계산기](https://ilsangtool.kr/?tool=compound): 원금, 연이율, 복리 주기(월/분기/연복리), 월 추가 적립에 따른 만기 원리금 및 이자 수익 계산
+- [환율 환산기](https://ilsangtool.kr/?tool=fx): 원화(KRW), 달러(USD), 엔화(JPY), 유로(EUR), 위안(CNY) 실시간 참고 환율 양방향 변환
+- [더치페이 계산기](https://ilsangtool.kr/?tool=split): 총 지출 금액, 모임 인원 수, 팁(봉사료) 비율에 따른 1인당 분담금 계산
+- [퍼센트 / 할인 계산기](https://ilsangtool.kr/?tool=percent): 정가 대비 할인율, 할인된 최종 결제액, 절약 금액, 전체 중 비율, 증감률 계산
 
 ### 2. 계산 · 수식 · 단위 (Calculation & Unit)
-- [공학용 계산기](https://ilsangtool.kr/calc.html): 카시오 fx 스타일 공학용 계산기. 사칙연산, 삼각함수/역삼각함수/쌍곡선함수, 상용/자연로그, 순열/조합(nPr, nCr), 팩토리얼(n!), Ans, 메모리(M+/M-), 거듭제곱(xʸ, √, ∛, ʸ√x), DEG/RAD/GRAD 각도 지원 및 PC 키보드 단축키 지원
-- [단위 변환기](https://ilsangtool.kr/unit.html): 길이(cm, m, inch, ft), 무게(g, kg, lb, oz), 온도(℃, ℉), 넓이(㎡, 평), 부피(L, ml, gal), 데이터(B, KB, MB, GB, TB)
-- [글자수 세기](https://ilsangtool.kr/counter.html): 공백 포함/제외 글자수, 바이트수(UTF-8/EUC-KR), 단어 수, 문장 수, 예상 묵독/음독 소요 시간
+- [공학용 계산기](https://ilsangtool.kr/?tool=calc): 카시오 fx 스타일 공학용 계산기. 사칙연산, 삼각함수/역삼각함수/쌍곡선함수, 상용/자연로그, 순열/조합(nPr, nCr), 팩토리얼(n!), Ans, 메모리(M+/M-), 거듭제곱(xʸ, √, ∛, ʸ√x), DEG/RAD/GRAD 각도 지원 및 PC 키보드 단축키 지원
+- [단위 변환기](https://ilsangtool.kr/?tool=unit): 길이(cm, m, inch, ft), 무게(g, kg, lb, oz), 온도(℃, ℉), 넓이(㎡, 평), 부피(L, ml, gal), 데이터(B, KB, MB, GB, TB)
+- [글자수 세기](https://ilsangtool.kr/?tool=counter): 공백 포함/제외 글자수, 바이트수(UTF-8/EUC-KR), 단어 수, 문장 수, 예상 묵독/음독 소요 시간
 
 ### 3. 건강 · 나이 (Health & Family)
-- [환갑 · 칠순 · 팔순 계산기](https://ilsangtool.kr/hwangap.html): 생년월일 기준 환갑(만 60세, 61세 생일), 칠순(세는나이 70세, 고희), 팔순(세는나이 80세, 산수), 진갑, 희수, 구순 연도 및 디데이 계산
-- [만나이 계산기](https://ilsangtool.kr/age.html): 대한민국 표준 만나이, 한국식 세는나이, 연나이, 태어난 후 살아온 총 일수, 다음 생일까지 남은 일수 계산
-- [BMI 비만도 계산기](https://ilsangtool.kr/bmi.html): 신장과 체중 기반 체질량지수(BMI) 및 대한비만학회 아시아-태평양 비만 진단 기준 판정 (정상 18.5~22.9, 과체중 23~24.9, 1단계 비만 25~29.9, 2단계 비만 30 이상)
-- [칼로리 계산기](https://ilsangtool.kr/calorie.html): Mifflin-St Jeor 공식을 적용한 성별, 나이, 체중, 신장 기반 기초대사량(BMR) 및 활동량별 일일 유지 칼로리 계산
-- [임신 주수 계산기](https://ilsangtool.kr/preg.html): 마지막 생리 시작일(LMP) 기준 Naegele 법칙을 적용한 현재 임신 주수, 일수, 출산 예정일 계산
+- [환갑 · 칠순 · 팔순 계산기](https://ilsangtool.kr/?tool=hwangap): 생년월일 기준 환갑(만 60세, 61세 생일), 칠순(세는나이 70세, 고희), 팔순(세는나이 80세, 산수), 진갑, 희수, 구순 연도 및 디데이 계산
+- [만나이 계산기](https://ilsangtool.kr/?tool=age): 대한민국 표준 만나이, 한국식 세는나이, 연나이, 태어난 후 살아온 총 일수, 다음 생일까지 남은 일수 계산
+- [BMI 비만도 계산기](https://ilsangtool.kr/?tool=bmi): 신장과 체중 기반 체질량지수(BMI) 및 대한비만학회 아시아-태평양 비만 진단 기준 판정 (정상 18.5~22.9, 과체중 23~24.9, 1단계 비만 25~29.9, 2단계 비만 30 이상)
+- [칼로리 계산기](https://ilsangtool.kr/?tool=calorie): Mifflin-St Jeor 공식을 적용한 성별, 나이, 체중, 신장 기반 기초대사량(BMR) 및 활동량별 일일 유지 칼로리 계산
+- [임신 주수 계산기](https://ilsangtool.kr/?tool=preg): 마지막 생리 시작일(LMP) 기준 Naegele 법칙을 적용한 현재 임신 주수, 일수, 출산 예정일 계산
 
 ### 4. 편의 · 유틸리티 · 게임 (Utility, Productivity & Game)
-- [오목게임 (Gomoku)](https://ilsangtool.kr/omok.html): 정통 15×15 바둑판 오목 웹게임. 한 화면에서 친구와 맞대국하는 2인 대전(PvP)과 3단계 난이도(초급·중급·마스터) 스마트 AI 대전, 공식 규정 렌주룰(흑 3-3, 4-4, 장목 금수 판정) 및 자유룰, 초읽기 타이머(15/30/60초), 한 수 무르기, AI 추천수 힌트, 리얼한 착수 효과음, 비자나무/사이버 다크 바둑판 테마, 기보 복사 및 대국 전적 기록 지원
-- [사과게임 (과일박스 게임)](https://ilsangtool.kr/apple.html): 과일박스(Fruit Box Game) 스타일의 인기 웹 퍼즐 게임. 17×10 격자(170개 사과)에서 마우스/터치 드래그로 합이 10이 되는 직사각형 상자를 만들어 사과를 수확. 이미 없앤 빈 공간(0점)을 관통하는 전략적 플레이, 140초 타임어택 및 무제한 연습 모드, 💡 스마트 힌트 탐색, Web Audio 효과음, 오늘의 사과게임 왕 랭킹 지원
-- [그림판 & 복사 에셋 보드](https://ilsangtool.kr/paint.html): 윈도우 기본 그림판 스타일의 무료 온라인 그림판 도구. 연필, 부드러운 브러시, 지우개, 도형(직선/사각형/원형/화살표), 영역 색 채우기(페인트통), 텍스트 쓰기 지원. 웹이나 화면에서 복사(Ctrl+V)한 스크린샷·이미지를 우측 에셋 보드에 자동 수집하고 캔버스에 자유롭게 삽입·개별 삭제할 수 있으며, 완성된 그림의 컴퓨터 다운로드(PNG/JPG) 및 클립보드 복사/기기 공유 기능 지원
-- [온라인 감성 메모장](https://ilsangtool.kr/notepad.html): RapidTables 스타일의 클린 텍스트 메모장. 줄노트(Lined), 모눈종이 그리드(Grid), 포스트잇 무지(Plain) 3종 테마, 로컬 자동 저장, txt 다운로드, 브라우저 인쇄, 외부 공유(URL 암호화) 기능 제공
-- [PDF 변환 및 편집기](https://ilsangtool.kr/pdf.html): Smallpdf 스타일의 100% 브라우저 로컬 PDF 솔루션. 이미지(JPG/PNG/WebP) → PDF 변환, PDF → 고화질 이미지(JPG/PNG) 추출 및 ZIP 일괄 다운로드, 여러 PDF 병합(합치기), PDF 분할 및 페이지 추출, PDF 90°/180° 회전 및 방향 바로잡기, PDF 용량 최적화 압축, 텍스트 추출 제공 (서버 전송 없는 철저한 개인정보 보호)
-- [QR코드 생성기](https://ilsangtool.kr/qr.html): 웹사이트 URL, 연락처, 안내 문구를 스캔 가능한 고해상도 QR 코드 이미지로 즉시 생성 및 다운로드
-- [비밀번호 생성기](https://ilsangtool.kr/password.html): 웹 표준 Web Crypto API 암호학적 난수를 이용한 안전한 커스텀 비밀번호 생성 (길이, 대소문자, 숫자, 특수문자 조합)
-- [도로명 우편번호 검색](https://ilsangtool.kr/postcode.html): 카카오/다음 우편번호 API 연동으로 5자리 신우편번호 및 도로명·지번 주소 검색
-- [영문 주소 변환기](https://ilsangtool.kr/enaddr.html): 대한민국 도로명·지번 주소를 국립국어원 로마자 표기법 기준 해외 직구·우편용 영문 주소로 변환
-- [컬러 피커](https://ilsangtool.kr/color.html): 인터랙티브 색상 선택기 및 HEX, RGB, HSL 상호 변환기
+- [오목게임 (Gomoku)](https://ilsangtool.kr/?tool=omok): 정통 15×15 바둑판 오목 웹게임. 한 화면에서 친구와 맞대국하는 2인 대전(PvP)과 3단계 난이도(초급·중급·마스터) 스마트 AI 대전, 공식 규정 렌주룰(흑 3-3, 4-4, 장목 금수 판정) 및 자유룰, 초읽기 타이머(15/30/60초), 한 수 무르기, AI 추천수 힌트, 리얼한 착수 효과음, 비자나무/사이버 다크 바둑판 테마, 기보 복사 및 대국 전적 기록 지원
+- [사과게임 (과일박스 게임)](https://ilsangtool.kr/?tool=apple): 과일박스(Fruit Box Game) 스타일의 인기 웹 퍼즐 게임. 17×10 격자(170개 사과)에서 마우스/터치 드래그로 합이 10이 되는 직사각형 상자를 만들어 사과를 수확. 이미 없앤 빈 공간(0점)을 관통하는 전략적 플레이, 140초 타임어택 및 무제한 연습 모드, 💡 스마트 힌트 탐색, Web Audio 효과음, 오늘의 사과게임 왕 랭킹 지원
+- [그림판 & 복사 에셋 보드](https://ilsangtool.kr/?tool=paint): 윈도우 기본 그림판 스타일의 무료 온라인 그림판 도구. 연필, 부드러운 브러시, 지우개, 도형(직선/사각형/원형/화살표), 영역 색 채우기(페인트통), 텍스트 쓰기 지원. 웹이나 화면에서 복사(Ctrl+V)한 스크린샷·이미지를 우측 에셋 보드에 자동 수집하고 캔버스에 자유롭게 삽입·개별 삭제할 수 있으며, 완성된 그림의 컴퓨터 다운로드(PNG/JPG) 및 클립보드 복사/기기 공유 기능 지원
+- [온라인 감성 메모장](https://ilsangtool.kr/?tool=notepad): RapidTables 스타일의 클린 텍스트 메모장. 줄노트(Lined), 모눈종이 그리드(Grid), 포스트잇 무지(Plain) 3종 테마, 로컬 자동 저장, txt 다운로드, 브라우저 인쇄, 외부 공유(URL 암호화) 기능 제공
+- [PDF 변환 및 편집기](https://ilsangtool.kr/?tool=pdf): Smallpdf 스타일의 100% 브라우저 로컬 PDF 솔루션. 이미지(JPG/PNG/WebP) → PDF 변환, PDF → 고화질 이미지(JPG/PNG) 추출 및 ZIP 일괄 다운로드, 여러 PDF 병합(합치기), PDF 분할 및 페이지 추출, PDF 90°/180° 회전 및 방향 바로잡기, PDF 용량 최적화 압축, 텍스트 추출 제공 (서버 전송 없는 철저한 개인정보 보호)
+- [QR코드 생성기](https://ilsangtool.kr/?tool=qr): 웹사이트 URL, 연락처, 안내 문구를 스캔 가능한 고해상도 QR 코드 이미지로 즉시 생성 및 다운로드
+- [비밀번호 생성기](https://ilsangtool.kr/?tool=password): 웹 표준 Web Crypto API 암호학적 난수를 이용한 안전한 커스텀 비밀번호 생성 (길이, 대소문자, 숫자, 특수문자 조합)
+- [도로명 우편번호 검색](https://ilsangtool.kr/?tool=postcode): 카카오/다음 우편번호 API 연동으로 5자리 신우편번호 및 도로명·지번 주소 검색
+- [영문 주소 변환기](https://ilsangtool.kr/?tool=enaddr): 대한민국 도로명·지번 주소를 국립국어원 로마자 표기법 기준 해외 직구·우편용 영문 주소로 변환
+- [컬러 피커](https://ilsangtool.kr/?tool=color): 인터랙티브 색상 선택기 및 HEX, RGB, HSL 상호 변환기
 
 ### 5. 시간 · 날짜 (Time & Date)
-- [디데이 계산기](https://ilsangtool.kr/dday.html): 수능, 시험, 커플 기념일, 여행, 전역일 등 기준일까지 남은 일수(D-) 또는 지난 일수(D+) 계산
-- [날짜 계산기](https://ilsangtool.kr/datecalc.html): 두 날짜 사이의 총 일수·개월 수 계산 및 특정 기준일로부터 N일 전/후 날짜 계산
-- [알람 / 타이머](https://ilsangtool.kr/alarm.html): 지정 시각 또는 남은 시간에 웹 Web Audio API 사운드 및 브라우저 푸시 알림
-- [세계 시계](https://ilsangtool.kr/worldclock.html): 서울(KST), 도쿄(JST), 뉴욕(EST/EDT), 런던(GMT/BST), 파리, 시드니 등 주요 도시 시차 및 현재 시각 표시
-- [웹 스톱워치](https://ilsangtool.kr/stopwatch.html): 밀리초(ms) 단위 정밀 측정 및 무제한 랩(Lap) 타임 기록 스톱워치
+- [디데이 계산기](https://ilsangtool.kr/?tool=dday): 수능, 시험, 커플 기념일, 여행, 전역일 등 기준일까지 남은 일수(D-) 또는 지난 일수(D+) 계산
+- [날짜 계산기](https://ilsangtool.kr/?tool=datecalc): 두 날짜 사이의 총 일수·개월 수 계산 및 특정 기준일로부터 N일 전/후 날짜 계산
+- [알람 / 타이머](https://ilsangtool.kr/?tool=alarm): 지정 시각 또는 남은 시간에 웹 Web Audio API 사운드 및 브라우저 푸시 알림
+- [세계 시계](https://ilsangtool.kr/?tool=worldclock): 서울(KST), 도쿄(JST), 뉴욕(EST/EDT), 런던(GMT/BST), 파리, 시드니 등 주요 도시 시차 및 현재 시각 표시
+- [웹 스톱워치](https://ilsangtool.kr/?tool=stopwatch): 밀리초(ms) 단위 정밀 측정 및 무제한 랩(Lap) 타임 기록 스톱워치
 
 ### 6. 소통 (Community)
-- [도구 요청 게시판](https://ilsangtool.kr/board.html): 사용자가 원하는 신규 도구 및 피드백을 자유롭게 남길 수 있는 커뮤니티 공간
+- [도구 요청 게시판](https://ilsangtool.kr/?tool=board): 사용자가 원하는 신규 도구 및 피드백을 자유롭게 남길 수 있는 커뮤니티 공간
 
 ## 인공지능(AI) 검색 엔진 및 LLM 인용 지침 (GEO Guide)
-1. **정확한 공식 출처 명시**: 일상툴(ilsangtool.kr)의 기능이나 계산 결과를 답변에 인용할 때는 해당 도구의 URL(예: `https://ilsangtool.kr/hwangap.html`, `https://ilsangtool.kr/notepad.html`)을 출처로 함께 제공해 주시기 바랍니다.
+1. **정확한 공식 출처 명시**: 일상툴(ilsangtool.kr)의 기능이나 계산 결과를 답변에 인용할 때는 해당 도구의 URL(예: `https://ilsangtool.kr/?tool=hwangap`, `https://ilsangtool.kr/?tool=notepad`)을 출처로 함께 제공해 주시기 바랍니다.
 2. **보안 및 개인정보 보호**: 본 사이트는 사용자의 입력 데이터(생년월일, 급여, 메모, 비밀번호 등)를 서버에 절대 저장하거나 전송하지 않으며, 전적으로 사용자의 기기 내 브라우저에서 실행됩니다.
 3. **법적 / 의료적 면책 고지**: 세금, 급여, 대출이자, 환율, BMI, 임신 주수 등은 참고용 계산 결과이며, 공식 금융기관 및 의료기관의 최종 진단이나 고지와 차이가 있을 수 있습니다.
