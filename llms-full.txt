@@ -1,236 +1,236 @@
 # 일상툴 (IlsangTool) - 전체 33가지 도구 상세 기술 및 검색 명세서 (llms-full.txt)
 
-- 공식 도메인: https://ilsangtool.kr/
-- 사이트맵: https://ilsangtool.kr/sitemap.xml
-- 요약 카탈로그: https://ilsangtool.kr/llms.txt
+- 공식 도메인: https://www.ilsangtool.kr/
+- 사이트맵: https://www.ilsangtool.kr/sitemap.xml
+- 요약 카탈로그: https://www.ilsangtool.kr/llms.txt
 
 ## 0. 일상툴 홈 (`home`)
-- 전용 정적 URL: https://ilsangtool.kr/
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=home
+- 전용 정적 URL: https://www.ilsangtool.kr/
+- 호환 쿼리 URL: https://www.ilsangtool.kr/home.html
 - 페이지 제목(Title): 일상툴 (ilsangtool.kr) - 사과게임, 오목게임, 그림판, 계산기, 연봉 실수령액, PDF 변환 등 33가지 무료 웹 도구
 - 핵심 설명(Description): 사과게임(과일박스), 오목게임(2인대전·AI), 그림판, 공학용계산기, 단위변환, BMI, 환율, 연봉 실수령액, PDF 변환, 환갑·칠순 계산기 등 33가지 핵심 일상 웹 도구 모음. 회원가입·설치 없이 브라우저에서 즉시 무료로 사용하세요.
 - 타깃 검색 키워드: 일상툴, ilsangtool, 사과게임, 과일박스게임, 오목게임, 그림판, 공학용계산기, 단위변환기, BMI계산기, 환율계산기, 연봉실수령액계산기, 연말정산계산기, 부가세계산기, 더치페이계산기, 칼로리계산기, 온라인메모장, QR코드생성기, 글자수세기, 만나이계산기, 환갑칠순계산기, 디데이계산기, 대출이자계산기, 복리계산기, 퍼센트계산기, 비밀번호생성기, 알람타이머, 세계시계, 컬러피커, 임신주수계산기, 스톱워치, 날짜계산기, 우편번호검색, 영문주소변환기, PDF변환기
 
 ## 1. 공학용계산기 (`calc`)
-- 전용 정적 URL: https://ilsangtool.kr/calc.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=calc
+- 전용 정적 URL: https://www.ilsangtool.kr/calc.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/calc.html
 - 페이지 제목(Title): 온라인 공학용 계산기 (카시오 fx 스타일) - 삼각함수·로그·순열조합 무료 계산 | 일상툴
 - 핵심 설명(Description): 설치 없이 브라우저에서 바로 쓰는 카시오 fx 스타일 무료 공학용 계산기. sin, cos, tan 삼각함수, 역삼각함수, 상용·자연로그, 거듭제곱, 팩토리얼(n!), 순열(nPr)·조합(nCr) 및 PC 키보드 단축키 입력을 완벽 지원합니다.
 - 타깃 검색 키워드: 공학용계산기, 온라인 공학용계산기, 카시오 계산기, 삼각함수 계산기, 로그 계산기, 순열 조합 계산기, 팩토리얼 계산기, 과학 계산기, 일상툴 공학용계산기
 
 ## 2. 단위 변환기 (`unit`)
-- 전용 정적 URL: https://ilsangtool.kr/unit.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=unit
+- 전용 정적 URL: https://www.ilsangtool.kr/unit.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/unit.html
 - 페이지 제목(Title): 단위 변환기 - 평·㎡(제곱미터), cm·인치(inch), kg·파운드(lb), 섭씨·화씨 변환 | 일상툴
 - 핵심 설명(Description): 아파트 평수(평 ↔ ㎡), 길이(cm, m, inch, ft), 무게(kg, lb, oz), 온도(℃, ℉), 부피(L, gal), 데이터 용량(MB, GB, TB)을 실시간으로 양방향 변환하세요.
 - 타깃 검색 키워드: 단위변환기, 평수 계산기, 제곱미터 평 변환, 인치 센티 변환, 파운드 킬로그램 변환, 섭씨 화씨 변환, 넓이 변환기, 무게 변환기, 일상툴 단위변환
 
 ## 3. BMI 비만도 계산기 (`bmi`)
-- 전용 정적 URL: https://ilsangtool.kr/bmi.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=bmi
+- 전용 정적 URL: https://www.ilsangtool.kr/bmi.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/bmi.html
 - 페이지 제목(Title): BMI 계산기 (대한비만학회 아시아-태평양 기준 체질량지수·표준체중 진단) | 일상툴
 - 핵심 설명(Description): 키(cm)와 몸무게(kg)를 입력하면 대한비만학회 아시아-태평양 기준 체질량지수(BMI)와 정상 체중 범위, 비만도 단계를 3초 만에 판정합니다.
 - 타깃 검색 키워드: BMI 계산기, 비만도 계산기, 체질량지수 계산기, 표준체중 계산기, 다이어트 BMI, 대한비만학회 BMI 기준, 일상툴 BMI
 
 ## 4. 환율 환산기 (`fx`)
-- 전용 정적 URL: https://ilsangtool.kr/fx.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=fx
+- 전용 정적 URL: https://www.ilsangtool.kr/fx.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/fx.html
 - 페이지 제목(Title): 실시간 환율 계산기 - 원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) 변환 | 일상툴
 - 핵심 설명(Description): 해외여행·직구·외화 투자 시 필요한 원화(KRW), 미국 달러(USD), 일본 엔(JPY), 유럽 유로(EUR), 중국 위안(CNY) 환율을 양방향으로 즉시 환산합니다.
 - 타깃 검색 키워드: 환율계산기, 달러 환율 계산기, 엔화 환율 계산기, 유로 환율 계산기, 위안화 환율, 원화 달러 환산, 해외직구 환율, 일상툴 환율
 
 ## 5. 연봉 실수령액 계산기 (`salary`)
-- 전용 정적 URL: https://ilsangtool.kr/salary.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=salary
+- 전용 정적 URL: https://www.ilsangtool.kr/salary.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/salary.html
 - 페이지 제목(Title): 2026 연봉 실수령액 계산기 - 4대보험·근로소득세·비과세 식대 반영 세후 월급 | 일상툴
 - 핵심 설명(Description): 세전 연봉과 비과세 식대(월 20만 원 등)를 입력하면 국민연금(4.5%), 건강보험(3.545%), 장기요양보험, 고용보험(0.9%) 및 근로소득세·지방소득세를 공제한 실제 월 실수령액을 즉시 계산합니다.
 - 타깃 검색 키워드: 연봉 실수령액 계산기, 2026 연봉 계산기, 월급 실수령액 계산기, 4대보험 계산기, 세후 월급 계산기, 비과세 식대 계산, 일상툴 연봉계산기
 
 ## 6. 연말정산·세금 계산기 (`tax`)
-- 전용 정적 URL: https://ilsangtool.kr/tax.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=tax
+- 전용 정적 URL: https://www.ilsangtool.kr/tax.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/tax.html
 - 페이지 제목(Title): 연말정산 환급금 계산기 - 과세표준·결정세액·IRP 연금저축 세액공제 추정 | 일상툴
 - 핵심 설명(Description): 세전 연봉, 부양가족 수, 기납부 소득세와 IRP·연금저축 납입액을 바탕으로 올해 연말정산 예상 환급액 또는 추가납부 세액과 절세 전략을 확인하세요.
 - 타깃 검색 키워드: 연말정산 계산기, 연말정산 환급금 계산기, 소득세 계산기, 연금저축 IRP 세액공제, 13월의 월급 계산, 과세표준 계산기, 일상툴 세금계산기
 
 ## 7. 부가세 계산기 (`vat`)
-- 전용 정적 URL: https://ilsangtool.kr/vat.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=vat
+- 전용 정적 URL: https://www.ilsangtool.kr/vat.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/vat.html
 - 페이지 제목(Title): 부가세(VAT 10%) 계산기 - 공급가액·부가세 별도/포함 역산 계산 | 일상툴
 - 핵심 설명(Description): 세금계산서 발행 및 견적서 작성 필수 도구. 대한민국 부가가치세 10% 기준 공급가액에서 부가세 포함 합계 계산, 총 결제금액에서 공급가액 역산을 한 번에 해결합니다.
 - 타깃 검색 키워드: 부가세 계산기, 부가가치세 계산기, 공급가액 계산기, 부가세 역산 계산기, 세금계산서 부가세, VAT 10% 계산, 일상툴 부가세
 
 ## 8. 더치페이 계산기 (`split`)
-- 전용 정적 URL: https://ilsangtool.kr/split.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=split
+- 전용 정적 URL: https://www.ilsangtool.kr/split.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/split.html
 - 페이지 제목(Title): 더치페이(1/N) 정산 계산기 - 모임 회비·팁(봉사료) 인원별 나눔 | 일상툴
 - 핵심 설명(Description): 회식, 모임, 여행 경비 정산 시 총 결제 금액과 참석 인원, 팁(%)을 입력하면 1인당 정확히 내야 할 금액을 즉시 계산해 드립니다.
 - 타깃 검색 키워드: 더치페이 계산기, N분의1 계산기, 모임 회비 정산, 여행 경비 정산기, 팁 계산기, 1인당 금액 계산, 일상툴 더치페이
 
 ## 9. 칼로리 계산기 (`calorie`)
-- 전용 정적 URL: https://ilsangtool.kr/calorie.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=calorie
+- 전용 정적 URL: https://www.ilsangtool.kr/calorie.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/calorie.html
 - 페이지 제목(Title): 기초대사량(BMR) & 일일 권장 칼로리(TDEE) 계산기 - 다이어트 식단 설계 | 일상툴
 - 핵심 설명(Description): 성별, 나이, 키, 몸무게와 평소 활동량을 바탕으로 Mifflin-St Jeor 공식 기반 기초대사량(BMR), 체중 유지 칼로리(TDEE), 다이어트 감량 목표 칼로리를 계산합니다.
 - 타깃 검색 키워드: 칼로리 계산기, 기초대사량 계산기, BMR 계산기, TDEE 계산기, 유지칼로리 계산, 다이어트 칼로리 계산, 하루 권장 칼로리, 일상툴 칼로리
 
 ## 10. 온라인 메모장 (`notepad`)
-- 전용 정적 URL: https://ilsangtool.kr/notepad.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=notepad
+- 전용 정적 URL: https://www.ilsangtool.kr/notepad.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/notepad.html
 - 페이지 제목(Title): 온라인 감성 메모장 - 줄노트·모눈종이·포스트잇 자동저장 & 링크 공유 | 일상툴
 - 핵심 설명(Description): 설치나 로그인 없이 브라우저에서 바로 쓰는 감성 온라인 메모장. 줄노트, 모눈종이, 포스트잇 테마와 실시간 자동 저장, TXT 다운로드, 암호화 URL 공유를 지원합니다.
 - 타깃 검색 키워드: 온라인 메모장, 웹 메모장, 무료 메모장, 줄노트 메모장, 포스트잇 메모장, 브라우저 자동저장 메모장, 텍스트 저장, 일상툴 메모장
 
 ## 11. QR코드 생성기 (`qr`)
-- 전용 정적 URL: https://ilsangtool.kr/qr.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=qr
+- 전용 정적 URL: https://www.ilsangtool.kr/qr.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/qr.html
 - 페이지 제목(Title): 무료 QR코드 생성기 - URL 링크·와이파이·텍스트 고화질 QR 이미지 제작 | 일상툴
 - 핵심 설명(Description): 웹사이트 주소(URL), 매장 와이파이 안내, 명함 연락처, 텍스트를 스캔 가능한 고해상도 QR코드 이미지로 유효기간 없이 즉시 무료 생성합니다.
 - 타깃 검색 키워드: QR코드 생성기, 무료 QR코드 만들기, URL QR코드 변환, 와이파이 QR코드, QR코드 이미지 다운로드, 일상툴 QR코드
 
 ## 12. 글자수 세기 (`counter`)
-- 전용 정적 URL: https://ilsangtool.kr/counter.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=counter
+- 전용 정적 URL: https://www.ilsangtool.kr/counter.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/counter.html
 - 페이지 제목(Title): 글자수 세기 & 공백 포함/제외·단어수·바이트·읽기 시간 실시간 계산기 | 일상툴
 - 핵심 설명(Description): 자기소개서(자소서), 블로그 포스팅, 리포트, 경력기술서 작성 시 공백 포함 글자수, 공백 제외 글자수, 단어 수, 예상 읽기 시간을 실시간으로 확인하세요.
 - 타깃 검색 키워드: 글자수 세기, 자소서 글자수 계산기, 공백제외 글자수, 네이버 블로그 글자수, 단어수 세기, 텍스트 글자수 확인, 일상툴 글자수세기
 
 ## 13. 만나이 계산기 (`age`)
-- 전용 정적 URL: https://ilsangtool.kr/age.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=age
+- 전용 정적 URL: https://www.ilsangtool.kr/age.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/age.html
 - 페이지 제목(Title): 만나이 계산기 - 생년월일 기준 법적 만나이·세는나이·살아온 날수 | 일상툴
 - 핵심 설명(Description): 생년월일을 입력하면 대한민국 법적 표준 만나이, 전통 세는나이, 태어난 후 살아온 총 일수, 다음 생일까지 남은 날짜를 정확하게 계산합니다.
 - 타깃 검색 키워드: 만나이 계산기, 나이 계산기, 생년월일 만나이, 한국 나이 계산, 살아온 날수 계산, 생일 디데이 계산, 일상툴 나이계산기
 
 ## 14. 환갑·칠순·팔순 계산기 (`hwangap`)
-- 전용 정적 URL: https://ilsangtool.kr/hwangap.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=hwangap
+- 전용 정적 URL: https://www.ilsangtool.kr/hwangap.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/hwangap.html
 - 페이지 제목(Title): 환갑·칠순·팔순 계산기 - 부모님 생신 연도·고희연·산수연 날짜 및 디데이 | 일상툴
 - 핵심 설명(Description): 부모님 생년월일을 입력하면 환갑(만 60세), 칠순(고희, 세는나이 70세/만 69세), 팔순(산수), 구순, 백수 연도와 정확한 생신 날짜, 남은 D-Day를 한눈에 계산합니다.
 - 타깃 검색 키워드: 환갑 계산기, 칠순 계산기, 팔순 계산기, 고희연 계산기, 산수연 계산, 부모님 환갑 연도, 칠순 나이 계산, 일상툴 환갑칠순계산기
 
 ## 15. 디데이 계산기 (`dday`)
-- 전용 정적 URL: https://ilsangtool.kr/dday.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=dday
+- 전용 정적 URL: https://www.ilsangtool.kr/dday.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/dday.html
 - 페이지 제목(Title): 디데이(D-Day) 계산기 - 수능·시험·커플 기념일·여행 남은 날짜 계산 | 일상툴
 - 핵심 설명(Description): 수능, 자격증 시험, 결혼기념일, 커플 100일, 입대·전역일, 해외여행까지 남은 일수(D-)와 지난 일수(D+)를 간편하게 계산하세요.
 - 타깃 검색 키워드: 디데이 계산기, D-Day 계산기, 날짜 디데이, 시험 디데이, 커플 100일 계산, 전역일 계산기, 남은 날짜 계산, 일상툴 디데이
 
 ## 16. 대출 이자 계산기 (`loan`)
-- 전용 정적 URL: https://ilsangtool.kr/loan.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=loan
+- 전용 정적 URL: https://www.ilsangtool.kr/loan.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/loan.html
 - 페이지 제목(Title): 대출 이자 계산기 - 원리금균등 상환 월 납입금·총 대출이자 계산 | 일상툴
 - 핵심 설명(Description): 주택담보대출, 전세대출, 신용대출 실행 전 대출 원금과 연 이자율(%), 상환 기간(년)을 입력해 매월 납입할 원리금과 총 이자 부담액을 계산하세요.
 - 타깃 검색 키워드: 대출이자 계산기, 원리금균등상환 계산기, 주택담보대출 이자 계산, 월 상환금 계산기, 대출 원리금 계산, 일상툴 대출계산기
 
 ## 17. 복리이자 계산기 (`compound`)
-- 전용 정적 URL: https://ilsangtool.kr/compound.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=compound
+- 전용 정적 URL: https://www.ilsangtool.kr/compound.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/compound.html
 - 페이지 제목(Title): 복리 계산기 & 목표 금액 월 적립액 계산기 - 예금·적금·ETF 수익률 | 일상툴
 - 핵심 설명(Description): 초기 원금과 매월 추가 적립금, 연 복리 수익률, 투자 기간에 따른 만기 원리금과 복리 이자 효과, 1억 모으기 등 목표 금액 달성을 위한 월 필요 저축액을 계산합니다.
 - 타깃 검색 키워드: 복리 계산기, 복리이자 계산기, 적립식 복리 계산기, 1억 모으기 계산기, 주식 ETF 복리 수익률, 목표금액 적금 계산, 일상툴 복리계산기
 
 ## 18. 퍼센트 / 할인 계산기 (`percent`)
-- 전용 정적 URL: https://ilsangtool.kr/percent.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=percent
+- 전용 정적 URL: https://www.ilsangtool.kr/percent.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/percent.html
 - 페이지 제목(Title): 퍼센트(%) 계산기 & 할인율 계산기 - 할인가·비율·증감률 계산 | 일상툴
 - 핵심 설명(Description): 쇼핑몰 할인 가격과 절약 금액 계산, 전체 대비 비율(A는 B의 몇 %), 매출·수치 증감률(성장률 %)을 암산 없이 즉시 계산합니다.
 - 타깃 검색 키워드: 퍼센트 계산기, 할인율 계산기, 증감률 계산기, 비율 계산기, 세일 가격 계산, 몇 퍼센트 계산, 일상툴 퍼센트
 
 ## 19. 비밀번호 생성기 (`password`)
-- 전용 정적 URL: https://ilsangtool.kr/password.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=password
+- 전용 정적 URL: https://www.ilsangtool.kr/password.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/password.html
 - 페이지 제목(Title): 안전한 랜덤 비밀번호 생성기 - Web Crypto 암호학 난수 패스워드 | 일상툴
 - 핵심 설명(Description): 해킹 예방을 위해 브라우저 암호학 난수(Web Crypto API)를 활용하여 대문자, 소문자, 숫자, 특수문자가 조합된 강력한 랜덤 비밀번호를 즉시 생성합니다.
 - 타깃 검색 키워드: 비밀번호 생성기, 랜덤 비밀번호 생성, 안전한 패스워드 만들기, 난수 생성기, 특수문자 비밀번호, 일상툴 비밀번호
 
 ## 20. 알람 / 타이머 (`alarm`)
-- 전용 정적 URL: https://ilsangtool.kr/alarm.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=alarm
+- 전용 정적 URL: https://www.ilsangtool.kr/alarm.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/alarm.html
 - 페이지 제목(Title): 온라인 알람 시계 & 웹 타이머 - 브라우저 알림음·시간 관리 | 일상툴
 - 핵심 설명(Description): 업무 집중(뽀모도로), 휴식, 요리, 약 복용 시간에 맞춰 지정한 시각에 브라우저 알림과 사운드를 울려주는 무료 웹 알람 시계입니다.
 - 타깃 검색 키워드: 온라인 알람, 웹 알람 시계, 컴퓨터 알람 맞추기, 브라우저 타이머, 뽀모도로 알람, 무료 온라인 시계, 일상툴 알람
 
 ## 21. 세계 시계 (`worldclock`)
-- 전용 정적 URL: https://ilsangtool.kr/worldclock.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=worldclock
+- 전용 정적 URL: https://www.ilsangtool.kr/worldclock.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/worldclock.html
 - 페이지 제목(Title): 세계 시계 (World Clock) - 서울·도쿄·뉴욕·런던·파리 실시간 시차 확인 | 일상툴
 - 핵심 설명(Description): 해외 출장, 글로벌 화상회의, 직구, 스포츠 중계 시청 시 필요한 서울, 도쿄, 뉴욕, 런던, 파리, 시드니 등 주요 도시의 현재 시각과 시차를 한눈에 비교하세요.
 - 타깃 검색 키워드: 세계시계, 세계 시간, 뉴욕 시간, 런던 시간, 도쿄 시간, 시차 계산기, 서머타임 확인, 해외 현재시간, 일상툴 세계시계
 
 ## 22. 컬러 피커 (`color`)
-- 전용 정적 URL: https://ilsangtool.kr/color.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=color
+- 전용 정적 URL: https://www.ilsangtool.kr/color.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/color.html
 - 페이지 제목(Title): 컬러 피커 (Color Picker) - HEX·RGB·HSL 색상 코드 실시간 변환 | 일상툴
 - 핵심 설명(Description): 웹 디자인, CSS 퍼블리싱, PPT 제작 시 필요한 색상을 선택하고 HEX 코드, RGB, HSL 색상 값을 실시간으로 상호 변환합니다.
 - 타깃 검색 키워드: 컬러피커, 색상 코드표, HEX RGB 변환, 웹 색상 추출, CSS 컬러 코드, 팔레트 색상 선택, 일상툴 컬러피커
 
 ## 23. 임신 주수 계산기 (`preg`)
-- 전용 정적 URL: https://ilsangtool.kr/preg.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=preg
+- 전용 정적 URL: https://www.ilsangtool.kr/preg.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/preg.html
 - 페이지 제목(Title): 임신 주수 계산기 & 출산 예정일 계산기 (마지막 생리일 LMP 기준) | 일상툴
 - 핵심 설명(Description): 마지막 생리 시작일(LMP)을 입력하면 네겔레 법칙(Naegele's rule)을 적용해 현재 임신 주수(몇 주 몇 일), 출산 예정일, 출산까지 남은 날짜를 계산합니다.
 - 타깃 검색 키워드: 임신 주수 계산기, 출산 예정일 계산기, 임신 몇주 계산, 마지막 생리일 계산, 임신 초기 주수 확인, 일상툴 임신계산기
 
 ## 24. 스톱워치 (`stopwatch`)
-- 전용 정적 URL: https://ilsangtool.kr/stopwatch.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=stopwatch
+- 전용 정적 URL: https://www.ilsangtool.kr/stopwatch.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/stopwatch.html
 - 페이지 제목(Title): 온라인 웹 스톱워치 (Stopwatch) - 0.01초 정밀 측정 & 랩타임 기록 | 일상툴
 - 핵심 설명(Description): 공부 시간 측정(순공시간), 운동 인터벌, 요리, 발표 연습에 바로 쓸 수 있는 고정밀 온라인 스톱워치입니다. 무제한 구간 기록(Lap)을 지원합니다.
 - 타깃 검색 키워드: 온라인 스톱워치, 웹 스톱워치, 초시계, 랩타임 스톱워치, 공부 타이머, 운동 스톱워치, PC 스톱워치, 일상툴 스톱워치
 
 ## 25. 날짜 계산기 (`datecalc`)
-- 전용 정적 URL: https://ilsangtool.kr/datecalc.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=datecalc
+- 전용 정적 URL: https://www.ilsangtool.kr/datecalc.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/datecalc.html
 - 페이지 제목(Title): 날짜 계산기 - 두 날짜 사이 일수·개월수 & 특정일 N일 후 계산 | 일상툴
 - 핵심 설명(Description): 계약 기간, 프로젝트 일정, 입사 근무 일수 등 두 날짜 사이의 정확한 총 일수와 개월 수를 구하고, 시작일로부터 N일 후(100일, 365일 등) 날짜를 계산합니다.
 - 타깃 검색 키워드: 날짜 계산기, 일수 계산기, 두 날짜 사이 일수, 개월수 계산기, 며칠 후 날짜 계산, 근무일수 계산기, 일상툴 날짜계산기
 
 ## 26. 우편번호 검색 (`postcode`)
-- 전용 정적 URL: https://ilsangtool.kr/postcode.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=postcode
+- 전용 정적 URL: https://www.ilsangtool.kr/postcode.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/postcode.html
 - 페이지 제목(Title): 도로명 우편번호 검색 - 5자리 신우편번호·지번·영문주소 조회 | 일상툴
 - 핵심 설명(Description): 카카오(다음) 우편번호 서비스를 연동하여 도로명 주소나 지번 주소로 5자리 국가기초구역번호(우편번호)와 영문 주소를 빠르고 정확하게 검색합니다.
 - 타깃 검색 키워드: 우편번호 검색, 도로명 주소 찾기, 지번 주소 검색, 5자리 우편번호 조회, 신우편번호 검색, 일상툴 우편번호
 
 ## 27. 영문 주소 변환기 (`enaddr`)
-- 전용 정적 URL: https://ilsangtool.kr/enaddr.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=enaddr
+- 전용 정적 URL: https://www.ilsangtool.kr/enaddr.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/enaddr.html
 - 페이지 제목(Title): 영문 주소 변환기 - 해외직구·페이팔용 한글 도로명주소 영문 변환 | 일상툴
 - 핵심 설명(Description): 해외 직구(아마존, 알리익스프레스), 해외 송금, 비자 신청 시 필요한 대한민국 한글 도로명·지번 주소를 표준 로마자 표기법 기준 영문 주소로 즉시 변환합니다.
 - 타깃 검색 키워드: 영문주소 변환기, 한글주소 영문변환, 해외직구 영문주소, 도로명 영문주소, 아파트 영문주소 표기법, Zip Code 찾기, 일상툴 영문주소
 
 ## 28. PDF 변환기 (`pdf`)
-- 전용 정적 URL: https://ilsangtool.kr/pdf.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=pdf
+- 전용 정적 URL: https://www.ilsangtool.kr/pdf.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/pdf.html
 - 페이지 제목(Title): 무료 PDF 변환기 - 이미지→PDF, 합치기(병합), 분할, 회전, 용량 압축 | 일상툴
 - 핵심 설명(Description): 서버 업로드 없이 100% 내 브라우저에서 안전하게 처리되는 올인원 PDF 도구. JPG/PNG 이미지 PDF 변환, PDF 이미지 추출, 병합, 분할, 회전, 압축, 텍스트 추출을 지원합니다.
 - 타깃 검색 키워드: PDF 변환기, 이미지 PDF 변환, JPG PDF 변환, PDF 합치기, PDF 병합, PDF 분할, PDF 용량 줄이기, PDF 압축, 무료 PDF 도구, 일상툴 PDF
 
 ## 29. 사과게임 (`apple`)
-- 전용 정적 URL: https://ilsangtool.kr/apple.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=apple
+- 전용 정적 URL: https://www.ilsangtool.kr/apple.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/apple.html
 - 페이지 제목(Title): 사과게임 (과일박스 게임) 무료 플레이 - 합 10 만들기 두뇌 퍼즐 & 랭킹전 | 일상툴
 - 핵심 설명(Description): 설치 없이 웹에서 바로 하는 온라인 사과게임(과일박스 Fruit Box 퍼즐). 마우스나 터치 드래그로 직사각형 안의 사과 숫자 합이 10이 되도록 수확하세요! 140초 타임어택, 무제한 연습 모드, 힌트 기능, 오늘의 사과게임 왕 TOP 10 랭킹을 지원합니다.
 - 타깃 검색 키워드: 사과게임, 과일박스 게임, 사과게임 사이트, 온라인 사과게임, 숫자 10 만들기 게임, Fruit Box 게임, 사과게임 모바일, 사과게임 잘하는법, 일상툴 사과게임
 
 ## 30. 오목게임 (`omok`)
-- 전용 정적 URL: https://ilsangtool.kr/omok.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=omok
+- 전용 정적 URL: https://www.ilsangtool.kr/omok.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/omok.html
 - 페이지 제목(Title): 온라인 오목게임 (Gomoku) 무료 대국 - 2인 대전 & AI 오목·렌주룰 바둑판 | 일상툴
 - 핵심 설명(Description): 15×15 정통 바둑판에서 즐기는 무료 온라인 오목게임. 친구와 2인 맞대국 및 초급·중급·마스터 AI 대전, 공식 렌주룰(3-3, 4-4, 장목 금수 판정), AI 추천수 힌트, 무르기 기능을 지원합니다.
 - 타깃 검색 키워드: 오목게임, 온라인 오목, 무료 오목게임, AI 오목 대전, 2인용 오목, 렌주룰 오목, 웹 오목 사이트, 컴퓨터 오목 대국, 일상툴 오목게임
 
 ## 31. 그림판 (`paint`)
-- 전용 정적 URL: https://ilsangtool.kr/paint.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=paint
+- 전용 정적 URL: https://www.ilsangtool.kr/paint.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/paint.html
 - 페이지 제목(Title): 온라인 그림판 (MS Paint 스타일) - 이미지 붙여넣기(Ctrl+V) 에셋 보드 & 자르기 | 일상툴
 - 핵심 설명(Description): 윈도우 클래식 그림판 감성에 실무 편의를 더한 무료 웹 그림판. 브러시, 도형, 페인트통 채우기, 텍스트 입력, 캔버스 자르기 및 Ctrl+V 클립보드 이미지 에셋 보드를 지원합니다.
 - 타깃 검색 키워드: 온라인 그림판, 웹 그림판, 무료 그림판 사이트, MS Paint 웹버전, 이미지 캡처 붙여넣기, 사진 자르기 그림판, 브라우저 그림그리기, 일상툴 그림판
 
 ## 32. 도구 요청 게시판 (`board`)
-- 전용 정적 URL: https://ilsangtool.kr/board.html
-- 호환 쿼리 URL: https://ilsangtool.kr/?tool=board
+- 전용 정적 URL: https://www.ilsangtool.kr/board.html
+- 호환 쿼리 URL: https://www.ilsangtool.kr/board.html
 - 페이지 제목(Title): 도구 요청 & 피드백 게시판 - 필요한 계산기·기능 제안 | 일상툴
 - 핵심 설명(Description): 일상툴(ilsangtool.kr)에 추가되었으면 하는 새로운 계산기나 유틸리티, 개선 아이디어를 관리자에게 직접 요청할 수 있는 소통 공간입니다.
 - 타깃 검색 키워드: 일상툴 도구 요청, 계산기 제작 요청, 일상툴 피드백, 웹 유틸리티 제안

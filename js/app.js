@@ -50,16 +50,23 @@
   }
 
   function setSeo(tool) {
+    if (window.__applyIlsangSeoMeta__ && tool && tool.id) {
+      window.__applyIlsangSeoMeta__(tool.id);
+      return;
+    }
+    var pageUrl = (!tool || tool.id === "home")
+      ? "https://www.ilsangtool.kr/"
+      : ("https://www.ilsangtool.kr/" + tool.id + ".html");
     document.title = tool.title || (tool.name + " - 일상툴");
     if (descMeta) descMeta.setAttribute("content", tool.desc || "");
     var canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/#" + tool.id);
+    if (canonical) canonical.setAttribute("href", pageUrl);
     var ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute("content", tool.title || (tool.name + " - 일상툴"));
     var ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", tool.desc || "");
     var ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("content", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/?tool=" + tool.id);
+    if (ogUrl) ogUrl.setAttribute("content", pageUrl);
   }
 
   var drawer = document.getElementById("mobileDrawer");
@@ -131,11 +138,7 @@
       ? '<span class="live-dot" aria-hidden="true"></span>홈'
       : '<span class="live-dot" aria-hidden="true"></span>홈 / ' + tool.name;
     setSeo(tool);
-    if (history.replaceState) {
-      var nextUrl = id === "home" ? location.pathname : (location.pathname + "?tool=" + id + "#" + id);
-      history.replaceState(null, "", nextUrl);
-    }
-    if (window.__applyIlsangSeoMeta__) window.__applyIlsangSeoMeta__(id);
+    if (history.replaceState) history.replaceState(null, "", id === "home" ? location.pathname : "#" + id);
     else location.hash = id === "home" ? "" : id;
     if (id === "postcode") initPostcode();
     if (id === "apple" && window.onShowAppleGame) window.onShowAppleGame();
@@ -4937,7 +4940,7 @@
     appleOverlayShareBtn.addEventListener("click", function () {
       var rankInfo = getRank(score, remaining === 0);
       var pct = Math.round((score / TOTAL_APPLES) * 100);
-      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://ilsangtool.kr/?tool=apple";
+      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://www.ilsangtool.kr/#apple";
       copyShareText(shareText);
     });
 
@@ -7720,7 +7723,7 @@
     if (modalShareBtn) {
       modalShareBtn.addEventListener("click", function () {
         var winStr = winner === 1 ? "흑 승리" : (winner === 2 ? "백 승리" : "무승부");
-        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://ilsangtool.kr/?tool=omok";
+        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://www.ilsangtool.kr/#omok";
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(shareTxt).then(function () {
             if (toast) toast("🔗 승리 결과가 클립보드에 복사되었습니다!");
@@ -7807,9 +7810,24 @@
   }
 
   window.addEventListener("hashchange", function () {
-    var hash = (location.hash || "").replace("#", "");
-    if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);
-    else show("home");
+    var initToolId = window.__INITIAL_ILSANG_TOOL__ || "";
+  if (!initToolId) {
+    var pathMatch = (location.pathname || "").match(/\/([a-z0-9_-]+)\.html$/i);
+    if (pathMatch && pathMatch[1] && pathMatch[1].toLowerCase() !== "index") {
+      initToolId = pathMatch[1].toLowerCase();
+    }
+  }
+  if (!initToolId) {
+    try {
+      var qParams = new URLSearchParams(location.search || "");
+      if (qParams.get("tool")) initToolId = qParams.get("tool");
+    } catch (e) {}
+  }
+  if (!initToolId) {
+    initToolId = (location.hash || "").replace("#", "");
+  }
+  if (initToolId && TOOLS.some(function (t) { return t.id === initToolId; })) show(initToolId);
+  else show("home");
   });
   var hash = (location.hash || "").replace("#", "");
   if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);

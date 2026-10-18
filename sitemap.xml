@@ -4,231 +4,231 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- 메인 홈 -->
   <url>
-    <loc>https://ilsangtool.kr/</loc>
+    <loc>https://www.ilsangtool.kr/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- 공학용계산기 (calc.html) -->
+  <!-- 공학용계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/calc.html</loc>
+    <loc>https://www.ilsangtool.kr/calc.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 단위 변환기 (unit.html) -->
+  <!-- 단위 변환기 -->
   <url>
-    <loc>https://ilsangtool.kr/unit.html</loc>
+    <loc>https://www.ilsangtool.kr/unit.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- BMI 비만도 계산기 (bmi.html) -->
+  <!-- BMI 비만도 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/bmi.html</loc>
+    <loc>https://www.ilsangtool.kr/bmi.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 환율 환산기 (fx.html) -->
+  <!-- 환율 환산기 -->
   <url>
-    <loc>https://ilsangtool.kr/fx.html</loc>
+    <loc>https://www.ilsangtool.kr/fx.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 연봉 실수령액 계산기 (salary.html) -->
+  <!-- 연봉 실수령액 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/salary.html</loc>
+    <loc>https://www.ilsangtool.kr/salary.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 연말정산·세금 계산기 (tax.html) -->
+  <!-- 연말정산·세금 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/tax.html</loc>
+    <loc>https://www.ilsangtool.kr/tax.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 부가세 계산기 (vat.html) -->
+  <!-- 부가세 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/vat.html</loc>
+    <loc>https://www.ilsangtool.kr/vat.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 더치페이 계산기 (split.html) -->
+  <!-- 더치페이 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/split.html</loc>
+    <loc>https://www.ilsangtool.kr/split.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 칼로리 계산기 (calorie.html) -->
+  <!-- 칼로리 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/calorie.html</loc>
+    <loc>https://www.ilsangtool.kr/calorie.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 온라인 메모장 (notepad.html) -->
+  <!-- 온라인 메모장 -->
   <url>
-    <loc>https://ilsangtool.kr/notepad.html</loc>
+    <loc>https://www.ilsangtool.kr/notepad.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- QR코드 생성기 (qr.html) -->
+  <!-- QR코드 생성기 -->
   <url>
-    <loc>https://ilsangtool.kr/qr.html</loc>
+    <loc>https://www.ilsangtool.kr/qr.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 글자수 세기 (counter.html) -->
+  <!-- 글자수 세기 -->
   <url>
-    <loc>https://ilsangtool.kr/counter.html</loc>
+    <loc>https://www.ilsangtool.kr/counter.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 만나이 계산기 (age.html) -->
+  <!-- 만나이 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/age.html</loc>
+    <loc>https://www.ilsangtool.kr/age.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 환갑·칠순·팔순 계산기 (hwangap.html) -->
+  <!-- 환갑·칠순·팔순 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/hwangap.html</loc>
+    <loc>https://www.ilsangtool.kr/hwangap.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 디데이 계산기 (dday.html) -->
+  <!-- 디데이 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/dday.html</loc>
+    <loc>https://www.ilsangtool.kr/dday.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 대출 이자 계산기 (loan.html) -->
+  <!-- 대출 이자 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/loan.html</loc>
+    <loc>https://www.ilsangtool.kr/loan.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 복리이자 계산기 (compound.html) -->
+  <!-- 복리이자 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/compound.html</loc>
+    <loc>https://www.ilsangtool.kr/compound.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 퍼센트 / 할인 계산기 (percent.html) -->
+  <!-- 퍼센트 / 할인 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/percent.html</loc>
+    <loc>https://www.ilsangtool.kr/percent.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 비밀번호 생성기 (password.html) -->
+  <!-- 비밀번호 생성기 -->
   <url>
-    <loc>https://ilsangtool.kr/password.html</loc>
+    <loc>https://www.ilsangtool.kr/password.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 알람 / 타이머 (alarm.html) -->
+  <!-- 알람 / 타이머 -->
   <url>
-    <loc>https://ilsangtool.kr/alarm.html</loc>
+    <loc>https://www.ilsangtool.kr/alarm.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 세계 시계 (worldclock.html) -->
+  <!-- 세계 시계 -->
   <url>
-    <loc>https://ilsangtool.kr/worldclock.html</loc>
+    <loc>https://www.ilsangtool.kr/worldclock.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 컬러 피커 (color.html) -->
+  <!-- 컬러 피커 -->
   <url>
-    <loc>https://ilsangtool.kr/color.html</loc>
+    <loc>https://www.ilsangtool.kr/color.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 임신 주수 계산기 (preg.html) -->
+  <!-- 임신 주수 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/preg.html</loc>
+    <loc>https://www.ilsangtool.kr/preg.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 스톱워치 (stopwatch.html) -->
+  <!-- 스톱워치 -->
   <url>
-    <loc>https://ilsangtool.kr/stopwatch.html</loc>
+    <loc>https://www.ilsangtool.kr/stopwatch.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 날짜 계산기 (datecalc.html) -->
+  <!-- 날짜 계산기 -->
   <url>
-    <loc>https://ilsangtool.kr/datecalc.html</loc>
+    <loc>https://www.ilsangtool.kr/datecalc.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 우편번호 검색 (postcode.html) -->
+  <!-- 우편번호 검색 -->
   <url>
-    <loc>https://ilsangtool.kr/postcode.html</loc>
+    <loc>https://www.ilsangtool.kr/postcode.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- 영문 주소 변환기 (enaddr.html) -->
+  <!-- 영문 주소 변환기 -->
   <url>
-    <loc>https://ilsangtool.kr/enaddr.html</loc>
+    <loc>https://www.ilsangtool.kr/enaddr.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- PDF 변환기 (pdf.html) -->
+  <!-- PDF 변환기 -->
   <url>
-    <loc>https://ilsangtool.kr/pdf.html</loc>
+    <loc>https://www.ilsangtool.kr/pdf.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 사과게임 (apple.html) -->
+  <!-- 사과게임 -->
   <url>
-    <loc>https://ilsangtool.kr/apple.html</loc>
+    <loc>https://www.ilsangtool.kr/apple.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 오목게임 (omok.html) -->
+  <!-- 오목게임 -->
   <url>
-    <loc>https://ilsangtool.kr/omok.html</loc>
+    <loc>https://www.ilsangtool.kr/omok.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 그림판 (paint.html) -->
+  <!-- 그림판 -->
   <url>
-    <loc>https://ilsangtool.kr/paint.html</loc>
+    <loc>https://www.ilsangtool.kr/paint.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <!-- 도구 요청 게시판 (board.html) -->
+  <!-- 도구 요청 게시판 -->
   <url>
-    <loc>https://ilsangtool.kr/board.html</loc>
+    <loc>https://www.ilsangtool.kr/board.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>

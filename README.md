@@ -1,11 +1,11 @@
-# 일상툴 (IlsangTool - https://ilsangtool.kr)
+# 일상툴 (IlsangTool - https://www.ilsangtool.kr)
 
 33가지 일상·업무 필수 계산기, PDF 변환기, 감성 메모장, 그림판, 두뇌 게임을 설치나 회원가입 없이 웹 브라우저에서 즉시 사용하는 포털입니다.
 
 ## 이번 SEO · GEO · 구글 애드센스(AdSense) 승인 최적화 내역
 1. **라우팅 & Canonical URL 충돌 해결 (`js/daily.js`, `js/app.js`, `index.html`)**
    - `?tool=salary`, `?tool=pdf` 등 쿼리 파라미터로 접속 시 `daily.js`가 초기 화면을 `home`으로 덮어쓰지 않고 즉시 해당 도구를 열도록 통합했습니다.
-   - `setSeo()`가 Canonical URL과 `og:url`을 `#해시`가 아닌 `https://ilsangtool.kr/?tool=<id>`로 설정하도록 수정했습니다.
+   - `setSeo()`가 Canonical URL과 `og:url`을 `#해시`가 아닌 `https://www.ilsangtool.kr/?tool=<id>`로 설정하도록 수정했습니다.
 2. **구글 애드센스(AdSense) 승인 필수 정책 페이지 4종 신규 생성**
    - `about.html` (서비스 소개 및 33개 도구 산출 기준·편집 원칙)
    - `privacy.html` (개인정보처리방침: Google AdSense 제3자 쿠키·DART 쿠키 고지 및 맞춤형 광고 수신거부 링크, 100% 브라우저 로컬 연산 명시)

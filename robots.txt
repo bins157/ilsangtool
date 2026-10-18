@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 Allow: /*.html$
-Allow: /?tool=*
 Allow: /llms.txt
 Allow: /llms-full.txt
 
@@ -9,13 +8,11 @@ Allow: /llms-full.txt
 User-agent: Yeti
 Allow: /
 Allow: /*.html$
-Allow: /?tool=*
 
 # Google Search Crawler (Googlebot & AdSense Mediapartners)
 User-agent: Googlebot
 Allow: /
 Allow: /*.html$
-Allow: /?tool=*
 
 User-agent: Mediapartners-Google
 Allow: /
@@ -46,4 +43,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://ilsangtool.kr/sitemap.xml
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://www.ilsangtool.kr/sitemap.xml
