@@ -1,4 +1,36 @@
 (function () {
+  var _origGetElementById = document.getElementById.bind(document);
+  var _dummyNodes = {};
+  function _makeDummy(id) {
+    if (!_dummyNodes[id]) {
+      var d = document.createElement("div");
+      d.id = id;
+      d.value = "";
+      d.checked = false;
+      d.options = [];
+      d.selectedIndex = 0;
+      d.getContext = function () {
+        return {
+          clearRect: function(){}, fillRect: function(){}, strokeRect: function(){},
+          beginPath: function(){}, moveTo: function(){}, lineTo: function(){},
+          arc: function(){}, fill: function(){}, stroke: function(){},
+          save: function(){}, restore: function(){}, scale: function(){},
+          translate: function(){}, rotate: function(){}, drawImage: function(){},
+          fillText: function(){}, measureText: function(){ return { width: 0 }; },
+          createLinearGradient: function(){ return { addColorStop: function(){} }; },
+          createRadialGradient: function(){ return { addColorStop: function(){} }; },
+          getImageData: function(){ return { data: new Uint8ClampedArray(4) }; },
+          putImageData: function(){}
+        };
+      };
+      _dummyNodes[id] = d;
+    }
+    return _dummyNodes[id];
+  }
+  document.getElementById = function (id) {
+    return _origGetElementById(id) || _makeDummy(id);
+  };
+
   var TOOLS = [
     { id: "home", name: "홈", ico: "⌂", blurb: "33가지 필수 일상 도구", title: "일상툴 - 그림판, 사과게임, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환, 환갑칠순 등 32가지 생활 도구", desc: "그림판, 사과게임(과일박스), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 32가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
     { id: "calc", name: "공학용계산기", ico: "fx", blurb: "삼각함수, 로그, 제곱근", title: "공학용계산기 sin cos log - 일상툴", desc: "삼각함수, 로그, 제곱근, 거듭제곱을 지원하는 공학용 계산기입니다." },
@@ -120,6 +152,11 @@
   });
 
   function show(id) {
+    var realSec = _origGetElementById(id);
+    if (!realSec) {
+      window.location.href = id === "home" ? "index.html" : id + ".html";
+      return;
+    }
     document.querySelectorAll(".view").forEach(function (el) {
       el.classList.toggle("hidden", el.id !== id);
     });
@@ -136,10 +173,8 @@
     pageTitle.textContent = tool.name;
     crumb.innerHTML = id === "home"
       ? '<span class="live-dot" aria-hidden="true"></span>홈'
-      : '<span class="live-dot" aria-hidden="true"></span>홈 / ' + tool.name;
+      : '<span class="live-dot" aria-hidden="true"></span><a href="index.html" style="color:inherit;text-decoration:none;">홈</a> / ' + tool.name;
     setSeo(tool);
-    if (history.replaceState) history.replaceState(null, "", id === "home" ? location.pathname : "#" + id);
-    else location.hash = id === "home" ? "" : id;
     if (id === "postcode") initPostcode();
     if (id === "apple" && window.onShowAppleGame) window.onShowAppleGame();
     else if (id !== "apple" && window.onHideAppleGame) window.onHideAppleGame();
@@ -7801,7 +7836,7 @@
       renderAdSlot(slot);
     });
     // 2. 현재 활성화된 화면 내부의 슬롯
-    var activeSec = sectionId ? document.getElementById(sectionId) : document.querySelector(".view:not(.hidden)");
+    var activeSec = sectionId ? _origGetElementById(sectionId) : document.querySelector(".view:not(.hidden)");
     if (activeSec) {
       activeSec.querySelectorAll(".ad-slot").forEach(function (slot) {
         renderAdSlot(slot);
@@ -7829,9 +7864,14 @@
   if (initToolId && TOOLS.some(function (t) { return t.id === initToolId; })) show(initToolId);
   else show("home");
   });
+  var pageTool = window.__CURRENT_PAGE_TOOL__ || "";
+  if (!pageTool) {
+    var pm = (location.pathname || "").match(/\/([a-z0-9_-]+)\.html$/i);
+    if (pm && pm[1] && pm[1].toLowerCase() !== "index") pageTool = pm[1].toLowerCase();
+  }
   var hash = (location.hash || "").replace("#", "");
-  if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);
-  else show("home");
+  var startTool = (hash && TOOLS.some(function (t) { return t.id === hash; })) ? hash : (pageTool || "home");
+  show(startTool);
 
   setInterval(tickClock, 1000);
   tickClock();
