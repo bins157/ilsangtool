@@ -1,6 +1,38 @@
 (function () {
+  var _origGetElementById = document.getElementById.bind(document);
+  var _dummyNodes = {};
+  function _makeDummy(id) {
+    if (!_dummyNodes[id]) {
+      var d = document.createElement("div");
+      d.id = id;
+      d.value = "";
+      d.checked = false;
+      d.options = [];
+      d.selectedIndex = 0;
+      d.getContext = function () {
+        return {
+          clearRect: function(){}, fillRect: function(){}, strokeRect: function(){},
+          beginPath: function(){}, moveTo: function(){}, lineTo: function(){},
+          arc: function(){}, fill: function(){}, stroke: function(){},
+          save: function(){}, restore: function(){}, scale: function(){},
+          translate: function(){}, rotate: function(){}, drawImage: function(){},
+          fillText: function(){}, measureText: function(){ return { width: 0 }; },
+          createLinearGradient: function(){ return { addColorStop: function(){} }; },
+          createRadialGradient: function(){ return { addColorStop: function(){} }; },
+          getImageData: function(){ return { data: new Uint8ClampedArray(4) }; },
+          putImageData: function(){}
+        };
+      };
+      _dummyNodes[id] = d;
+    }
+    return _dummyNodes[id];
+  }
+  document.getElementById = function (id) {
+    return _origGetElementById(id) || _makeDummy(id);
+  };
+
   var TOOLS = [
-    { id: "home", name: "홈", ico: "⌂", blurb: "32가지 필수 일상 도구", title: "일상툴 - 그림판, 사과게임, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환, 환갑칠순 등 32가지 생활 도구", desc: "그림판, 사과게임(과일박스), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 32가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
+    { id: "home", name: "홈", ico: "⌂", blurb: "33가지 필수 일상 도구", title: "일상툴 - 그림판, 사과게임, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환, 환갑칠순 등 32가지 생활 도구", desc: "그림판, 사과게임(과일박스), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 32가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
     { id: "calc", name: "공학용계산기", ico: "fx", blurb: "삼각함수, 로그, 제곱근", title: "공학용계산기 sin cos log - 일상툴", desc: "삼각함수, 로그, 제곱근, 거듭제곱을 지원하는 공학용 계산기입니다." },
     { id: "unit", name: "단위 변환", ico: "↔", blurb: "길이, 무게, 온도, 평, 데이터", title: "단위 변환기 cm inch kg lb 섭씨 화씨 - 일상툴", desc: "길이, 무게, 온도, 넓이(평), 부피, 데이터 단위를 바로 변환합니다." },
     { id: "bmi", name: "BMI 계산", ico: "⚖", blurb: "아시아-태평양 기준 체질량", title: "BMI 계산기 - 키 몸무게 정상범위 - 일상툴", desc: "키와 몸무게로 BMI와 정상 체중 범위를 계산합니다. 아시아-태평양 기준." },
@@ -50,16 +82,23 @@
   }
 
   function setSeo(tool) {
+    if (window.__applyIlsangSeoMeta__ && tool && tool.id) {
+      window.__applyIlsangSeoMeta__(tool.id);
+      return;
+    }
+    var pageUrl = (!tool || tool.id === "home")
+      ? "https://www.ilsangtool.kr/"
+      : ("https://www.ilsangtool.kr/" + tool.id + ".html");
     document.title = tool.title || (tool.name + " - 일상툴");
     if (descMeta) descMeta.setAttribute("content", tool.desc || "");
     var canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/#" + tool.id);
+    if (canonical) canonical.setAttribute("href", pageUrl);
     var ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute("content", tool.title || (tool.name + " - 일상툴"));
     var ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", tool.desc || "");
     var ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("content", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/?tool=" + tool.id);
+    if (ogUrl) ogUrl.setAttribute("content", pageUrl);
   }
 
   var drawer = document.getElementById("mobileDrawer");
@@ -113,6 +152,15 @@
   });
 
   function show(id) {
+    var curTool = window.__CURRENT_PAGE_TOOL__ || "";
+    if (!curTool) {
+      var pm = (location.pathname || "").match(/\/([a-z0-9_-]+)\.html$/i);
+      curTool = (pm && pm[1] && pm[1].toLowerCase() !== "index") ? pm[1].toLowerCase() : "home";
+    }
+    if (id !== curTool) {
+      window.location.href = id === "home" ? "index.html" : id + ".html";
+      return;
+    }
     document.querySelectorAll(".view").forEach(function (el) {
       el.classList.toggle("hidden", el.id !== id);
     });
@@ -129,14 +177,8 @@
     pageTitle.textContent = tool.name;
     crumb.innerHTML = id === "home"
       ? '<span class="live-dot" aria-hidden="true"></span>홈'
-      : '<span class="live-dot" aria-hidden="true"></span>홈 / ' + tool.name;
+      : '<span class="live-dot" aria-hidden="true"></span><a href="index.html" style="color:inherit;text-decoration:none;">홈</a> / ' + tool.name;
     setSeo(tool);
-    if (history.replaceState) {
-      var nextUrl = id === "home" ? location.pathname : (location.pathname + "?tool=" + id + "#" + id);
-      history.replaceState(null, "", nextUrl);
-    }
-    if (window.__applyIlsangSeoMeta__) window.__applyIlsangSeoMeta__(id);
-    else location.hash = id === "home" ? "" : id;
     if (id === "postcode") initPostcode();
     if (id === "apple" && window.onShowAppleGame) window.onShowAppleGame();
     else if (id !== "apple" && window.onHideAppleGame) window.onHideAppleGame();
@@ -4937,7 +4979,7 @@
     appleOverlayShareBtn.addEventListener("click", function () {
       var rankInfo = getRank(score, remaining === 0);
       var pct = Math.round((score / TOTAL_APPLES) * 100);
-      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://ilsangtool.kr/?tool=apple";
+      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://www.ilsangtool.kr/#apple";
       copyShareText(shareText);
     });
 
@@ -7720,7 +7762,7 @@
     if (modalShareBtn) {
       modalShareBtn.addEventListener("click", function () {
         var winStr = winner === 1 ? "흑 승리" : (winner === 2 ? "백 승리" : "무승부");
-        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://ilsangtool.kr/?tool=omok";
+        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://www.ilsangtool.kr/#omok";
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(shareTxt).then(function () {
             if (toast) toast("🔗 승리 결과가 클립보드에 복사되었습니다!");
@@ -7798,7 +7840,7 @@
       renderAdSlot(slot);
     });
     // 2. 현재 활성화된 화면 내부의 슬롯
-    var activeSec = sectionId ? document.getElementById(sectionId) : document.querySelector(".view:not(.hidden)");
+    var activeSec = sectionId ? _origGetElementById(sectionId) : document.querySelector(".view:not(.hidden)");
     if (activeSec) {
       activeSec.querySelectorAll(".ad-slot").forEach(function (slot) {
         renderAdSlot(slot);
@@ -7807,13 +7849,29 @@
   }
 
   window.addEventListener("hashchange", function () {
-    var hash = (location.hash || "").replace("#", "");
-    if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);
-    else show("home");
+    var curTool = window.__CURRENT_PAGE_TOOL__ || "";
+    if (!curTool) {
+      var pm = (location.pathname || "").match(/\/([a-z0-9_-]+)\.html$/i);
+      curTool = (pm && pm[1] && pm[1].toLowerCase() !== "index") ? pm[1].toLowerCase() : "home";
+    }
+    var h = (location.hash || "").replace("#", "");
+    if (h && TOOLS.some(function (t) { return t.id === h; }) && h !== curTool) {
+      window.location.replace(h === "home" ? "index.html" : (h + ".html"));
+    }
   });
-  var hash = (location.hash || "").replace("#", "");
-  if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);
-  else show("home");
+
+  var pageTool = window.__CURRENT_PAGE_TOOL__ || "";
+  if (!pageTool) {
+    var pm = (location.pathname || "").match(/\/([a-z0-9_-]+)\.html$/i);
+    if (pm && pm[1] && pm[1].toLowerCase() !== "index") pageTool = pm[1].toLowerCase();
+  }
+  var startTool = pageTool || "home";
+  var initialHash = (location.hash || "").replace("#", "");
+  if (initialHash && TOOLS.some(function (t) { return t.id === initialHash; }) && initialHash !== startTool) {
+    window.location.replace(initialHash === "home" ? "index.html" : (initialHash + ".html"));
+  } else {
+    show(startTool);
+  }
 
   setInterval(tickClock, 1000);
   tickClock();

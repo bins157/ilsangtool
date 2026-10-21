@@ -1,48 +1,44 @@
 User-agent: *
 Allow: /
+Allow: /*.html
 Allow: /?tool=*
-Allow: /about.html
-Allow: /privacy.html
-Allow: /terms.html
-Allow: /contact.html
 Allow: /llms.txt
 Allow: /llms-full.txt
-
-# Google AdSense Crawler (애드센스 심사 및 문맥 광고 매칭 봇 최우선 허용)
-User-agent: Mediapartners-Google
-Allow: /
-Allow: /?tool=*
-
-# Google Search Crawler (Googlebot)
-User-agent: Googlebot
-Allow: /
-Allow: /?tool=*
-
-User-agent: Googlebot-Image
-Allow: /
 
 # Naver Search Crawler (Yeti) - 쿼리 파라미터(?tool=) 개별 도구 색인 명시적 허용
 User-agent: Yeti
 Allow: /
+Allow: /*.html
 Allow: /?tool=*
+
+# Google Search Crawler (Googlebot & AdSense Mediapartners)
+User-agent: Googlebot
+Allow: /
+Allow: /*.html
+Allow: /?tool=*
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
 
 # Daum / Bing Search Crawlers
 User-agent: Daumoa
 Allow: /
+Allow: /*.html
 Allow: /?tool=*
 
 User-agent: Bingbot
 Allow: /
+Allow: /*.html
 Allow: /?tool=*
 
-# AI & Generative Search Engines (GEO: ChatGPT, Perplexity, Claude, Gemini)
+# AI & Generative Search Engines (GEO)
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
-Allow: /
-
-User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
