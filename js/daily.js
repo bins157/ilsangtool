@@ -1,43 +1,6 @@
 (function () {
-  var _origGetElementById = document.getElementById.bind(document);
-  var _dummyNodes = {};
-  function _makeDummy(id) {
-    if (!_dummyNodes[id]) {
-      var d = document.createElement("div");
-      d.id = id;
-      d.value = "";
-      d.checked = false;
-      d.options = [];
-      d.selectedIndex = 0;
-      d.getContext = function () {
-        return {
-          clearRect: function(){}, fillRect: function(){}, strokeRect: function(){},
-          beginPath: function(){}, moveTo: function(){}, lineTo: function(){},
-          arc: function(){}, fill: function(){}, stroke: function(){},
-          save: function(){}, restore: function(){}, scale: function(){},
-          translate: function(){}, rotate: function(){}, drawImage: function(){},
-          setTransform: function(){}, resetTransform: function(){}, transform: function(){},
-          closePath: function(){}, rect: function(){}, ellipse: function(){}, clip: function(){},
-          quadraticCurveTo: function(){}, bezierCurveTo: function(){}, arcTo: function(){},
-          strokeText: function(){}, setLineDash: function(){}, getLineDash: function(){ return []; },
-          isPointInPath: function(){ return false; }, createPattern: function(){ return null; },
-          fillText: function(){}, measureText: function(){ return { width: 0 }; },
-          createLinearGradient: function(){ return { addColorStop: function(){} }; },
-          createRadialGradient: function(){ return { addColorStop: function(){} }; },
-          getImageData: function(){ return { data: new Uint8ClampedArray(4) }; },
-          putImageData: function(){}
-        };
-      };
-      _dummyNodes[id] = d;
-    }
-    return _dummyNodes[id];
-  }
-  document.getElementById = function (id) {
-    return _origGetElementById(id) || _makeDummy(id);
-  };
-
   var TOOLS = [
-    { id: "home", name: "홈", ico: "⌂", blurb: "33가지 필수 일상 도구", title: "일상툴 - 그림판, 사과게임, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환, 환갑칠순 등 32가지 생활 도구", desc: "그림판, 사과게임(과일박스), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 32가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
+    { id: "home", name: "홈", ico: "⌂", blurb: "32가지 필수 일상 도구", title: "일상툴 - 그림판, 사과게임, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환, 환갑칠순 등 32가지 생활 도구", desc: "그림판, 사과게임(과일박스), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 32가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
     { id: "calc", name: "공학용계산기", ico: "fx", blurb: "삼각함수, 로그, 제곱근", title: "공학용계산기 sin cos log - 일상툴", desc: "삼각함수, 로그, 제곱근, 거듭제곱을 지원하는 공학용 계산기입니다." },
     { id: "unit", name: "단위 변환", ico: "↔", blurb: "길이, 무게, 온도, 평, 데이터", title: "단위 변환기 cm inch kg lb 섭씨 화씨 - 일상툴", desc: "길이, 무게, 온도, 넓이(평), 부피, 데이터 단위를 바로 변환합니다." },
     { id: "bmi", name: "BMI 계산", ico: "⚖", blurb: "아시아-태평양 기준 체질량", title: "BMI 계산기 - 키 몸무게 정상범위 - 일상툴", desc: "키와 몸무게로 BMI와 정상 체중 범위를 계산합니다. 아시아-태평양 기준." },
@@ -87,23 +50,16 @@
   }
 
   function setSeo(tool) {
-    if (window.__applyIlsangSeoMeta__ && tool && tool.id) {
-      window.__applyIlsangSeoMeta__(tool.id);
-      return;
-    }
-    var pageUrl = (!tool || tool.id === "home")
-      ? "https://www.ilsangtool.kr/"
-      : ("https://www.ilsangtool.kr/" + tool.id + ".html");
     document.title = tool.title || (tool.name + " - 일상툴");
     if (descMeta) descMeta.setAttribute("content", tool.desc || "");
     var canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", pageUrl);
+    if (canonical) canonical.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/#" + tool.id);
     var ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute("content", tool.title || (tool.name + " - 일상툴"));
     var ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", tool.desc || "");
     var ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("content", pageUrl);
+    if (ogUrl) ogUrl.setAttribute("content", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/?tool=" + tool.id);
   }
 
   var drawer = document.getElementById("mobileDrawer");
@@ -156,28 +112,7 @@
     });
   });
 
-  function show(id, isPopState) {
-    var curTool = window.__CURRENT_PAGE_TOOL__ || "";
-    if (!curTool) {
-      var pm = (location.pathname || "").match(/\/([a-z0-9_-]+)\.html$/i);
-      curTool = (pm && pm[1] && pm[1].toLowerCase() !== "index") ? pm[1].toLowerCase() : "home";
-    }
-
-    var targetSec = _origGetElementById(id);
-    if (!targetSec) {
-      window.location.href = id === "home" ? "index.html" : id + ".html";
-      return;
-    }
-
-    window.__CURRENT_PAGE_TOOL__ = id;
-
-    if (!isPopState && window.history && window.history.pushState) {
-      var targetUrl = id === "home" ? "index.html" : (id + ".html");
-      try {
-        window.history.pushState({ tool: id }, "", targetUrl);
-      } catch (e) {}
-    }
-
+  function show(id) {
     document.querySelectorAll(".view").forEach(function (el) {
       el.classList.toggle("hidden", el.id !== id);
     });
@@ -194,8 +129,14 @@
     pageTitle.textContent = tool.name;
     crumb.innerHTML = id === "home"
       ? '<span class="live-dot" aria-hidden="true"></span>홈'
-      : '<span class="live-dot" aria-hidden="true"></span><a href="index.html" style="color:inherit;text-decoration:none;">홈</a> / ' + tool.name;
+      : '<span class="live-dot" aria-hidden="true"></span>홈 / ' + tool.name;
     setSeo(tool);
+    if (history.replaceState) {
+      var nextUrl = id === "home" ? location.pathname : (location.pathname + "?tool=" + id + "#" + id);
+      history.replaceState(null, "", nextUrl);
+    }
+    if (window.__applyIlsangSeoMeta__) window.__applyIlsangSeoMeta__(id);
+    else location.hash = id === "home" ? "" : id;
     if (id === "postcode") initPostcode();
     if (id === "apple" && window.onShowAppleGame) window.onShowAppleGame();
     else if (id !== "apple" && window.onHideAppleGame) window.onHideAppleGame();
@@ -209,24 +150,8 @@
     }, 60);
   }
 
-  var _prefetched = {};
-  function prefetchTool(id) {
-    if (!id || _prefetched[id]) return;
-    _prefetched[id] = true;
-    try {
-      var link = document.createElement('link');
-      link.rel = 'prefetch';
-      link.href = (id === 'home' ? 'index.html' : id + '.html');
-      link.as = 'document';
-      document.head.appendChild(link);
-    } catch (e) {}
-  }
-
   document.querySelectorAll(".nav button, .mobile-nav button, .drawer-tools-wrap button, .dock-btn[data-id], .brand[data-id], .mobile-brand[data-id], .quick-chip[data-id]").forEach(function (btn) {
     btn.addEventListener("click", function () { show(btn.dataset.id); });
-    btn.addEventListener("mouseenter", function () { prefetchTool(btn.dataset.id); }, { passive: true });
-    btn.addEventListener("touchstart", function () { prefetchTool(btn.dataset.id); }, { passive: true });
-    btn.addEventListener("focus", function () { prefetchTool(btn.dataset.id); }, { passive: true });
   });
 
   var quickMoreBtn = document.getElementById("quickMoreBtn");
@@ -234,20 +159,13 @@
     quickMoreBtn.addEventListener("click", openDrawer);
   }
 
+
   document.querySelectorAll(".tool-card[data-tool]").forEach(function (card) {
-    var tid = card.getAttribute("data-tool");
-    card.addEventListener("click", function () { show(tid); });
-    card.addEventListener("mouseenter", function () { prefetchTool(tid); }, { passive: true });
-    card.addEventListener("touchstart", function () { prefetchTool(tid); }, { passive: true });
-    card.addEventListener("focus", function () { prefetchTool(tid); }, { passive: true });
+    card.addEventListener("click", function () { show(card.getAttribute("data-tool")); });
     card.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") show(tid);
+      if (e.key === "Enter") show(card.getAttribute("data-tool"));
     });
   });
-
-  setTimeout(function () {
-    ["calc", "salary", "apple", "paint", "unit"].forEach(prefetchTool);
-  }, 1000);
 
   document.getElementById("navSearch").addEventListener("input", function () {
     var q = this.value.trim().toLowerCase();
@@ -438,7 +356,7 @@
   ["bmiH", "bmiW"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcBmi);
   });
-  if (_origGetElementById("bmiH")) calcBmi();
+  calcBmi();
 
   function calcAge() {
     var v = document.getElementById("birthDate").value;
@@ -459,7 +377,7 @@
   }
   document.getElementById("birthDate").valueAsDate = new Date(1995, 0, 1);
   document.getElementById("birthDate").addEventListener("input", calcAge);
-  if (_origGetElementById("birthDate")) calcAge();
+  calcAge();
 
   var STEMS = ["갑", "을", "병", "정", "무", "기", "경", "신", "임", "계"];
   var BRANCHES = [
@@ -708,12 +626,12 @@
       }
     };
   }
-  if (_origGetElementById("hgBirth")) calcHwangap();
+  calcHwangap();
 
   // --- ONLINE NOTEPAD CONTROLLER (줄노트 · 모눈종이 · 포스트잇) ---
   (function initNotepad() {
     var npText = document.getElementById("npText");
-    if (!_origGetElementById("npText")) return;
+    if (!npText) return;
 
     var npWrap = document.getElementById("notepadWrap");
     var npBinderLabel = document.getElementById("npBinderLabel");
@@ -1287,7 +1205,7 @@
   ["pOrig", "pOff", "pA", "pB"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcPercent);
   });
-  if (_origGetElementById("pctBase")) calcPercent();
+  calcPercent();
 
   function calcLoan() {
     var p = parseFloat(document.getElementById("loanAmt").value) || 0;
@@ -1302,7 +1220,7 @@
   ["loanAmt", "loanRate", "loanYears"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcLoan);
   });
-  if (_origGetElementById("loanAmt")) calcLoan();
+  calcLoan();
 
   function genPw() {
     var sets = "";
@@ -1318,14 +1236,12 @@
     for (var i = 0; i < len; i++) out += sets[arr[i] % sets.length];
     document.getElementById("pwOut").textContent = out;
   }
-  if (_origGetElementById("pwGen")) {
-    document.getElementById("pwGen").onclick = genPw;
-    document.getElementById("pwCopy").onclick = function () {
-      var t = document.getElementById("pwOut").textContent;
-      if (t && t !== "-") navigator.clipboard.writeText(t).then(function () { toast("복사했습니다"); });
-    };
-    genPw();
-  }
+  document.getElementById("pwGen").onclick = genPw;
+  document.getElementById("pwCopy").onclick = function () {
+    var t = document.getElementById("pwOut").textContent;
+    if (t && t !== "-") navigator.clipboard.writeText(t).then(function () { toast("복사했습니다"); });
+  };
+  genPw();
 
   function countText() {
     var t = document.getElementById("countText").value;
@@ -1356,7 +1272,7 @@
   ["ddDate", "ddTitle"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcDday);
   });
-  if (_origGetElementById("ddDate")) calcDday();
+  calcDday();
 
   var CITIES = [
     { name: "서울", tz: "Asia/Seoul" },
@@ -1369,7 +1285,7 @@
     { name: "시드니", tz: "Australia/Sydney" }
   ];
   function renderWorld() {
-    var body = _origGetElementById("clockBody");
+    var body = document.getElementById("clockBody");
     if (!body) return;
     body.innerHTML = CITIES.map(function (c) {
       var d = new Date();
@@ -1392,7 +1308,7 @@
     document.getElementById(id).addEventListener("input", calcFx);
     document.getElementById(id).addEventListener("change", calcFx);
   });
-  if (_origGetElementById("fxAmt")) calcFx();
+  calcFx();
 
   // --------------------------------------------------------------------------
   // Scientific Calculator (Casio fx Style Engine)
@@ -1970,7 +1886,7 @@
   ["splitTotal", "splitPeople", "splitTip"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcSplit);
   });
-  if (_origGetElementById("splitTotal")) calcSplit();
+  calcSplit();
 
   function calcCal() {
     var sex = document.getElementById("calSex").value;
@@ -1988,7 +1904,7 @@
     document.getElementById(id).addEventListener("input", calcCal);
     document.getElementById(id).addEventListener("change", calcCal);
   });
-  if (_origGetElementById("calWeight")) calcCal();
+  calcCal();
 
   document.getElementById("qrBtn").onclick = function () {
     var t = document.getElementById("qrText").value.trim();
@@ -2053,7 +1969,7 @@
     document.getElementById(id).addEventListener("input", calcVat);
     document.getElementById(id).addEventListener("change", calcVat);
   });
-  if (_origGetElementById("vatAmt")) calcVat();
+  calcVat();
 
   function calcSalary() {
     var year = parseFloat(document.getElementById("salYear").value) || 0;
@@ -2084,7 +2000,7 @@
   ["salYear", "salNon"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcSalary);
   });
-  if (_origGetElementById("salAmt")) calcSalary();
+  calcSalary();
 
   function earnedIncomeDeduction(salary) {
     if (salary <= 5000000) return salary * 0.7;
@@ -2171,7 +2087,7 @@
   ["txSalary", "txFamily", "txPaid", "txIrp", "txPension"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcYearEndTax);
   });
-  if (_origGetElementById("taxSalary")) calcYearEndTax();
+  calcYearEndTax();
 
   function calcPreg() {
     var v = document.getElementById("pregLmp").value;
@@ -2192,7 +2108,7 @@
   lmpDef.setDate(lmpDef.getDate() - 70);
   document.getElementById("pregLmp").valueAsDate = lmpDef;
   document.getElementById("pregLmp").addEventListener("input", calcPreg);
-  if (_origGetElementById("pregLmp")) calcPreg();
+  calcPreg();
 
   var swStart = 0, swAcc = 0, swTimer = null, swLapN = 0;
   function fmtSw(ms) {
@@ -2256,7 +2172,7 @@
   ["dcFrom", "dcTo", "dcAdd"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcDates);
   });
-  if (_origGetElementById("dateStart")) calcDates();
+  calcDates();
 
   function calcCompound() {
     var p = parseFloat(document.getElementById("cpPrincipal").value) || 0;
@@ -2284,7 +2200,7 @@
     document.getElementById(id).addEventListener("input", calcCompound);
     document.getElementById(id).addEventListener("change", calcCompound);
   });
-  if (_origGetElementById("compInit")) calcCompound();
+  calcCompound();
 
   function calcTargetSave() {
     var goal = parseFloat(document.getElementById("tgGoal").value) || 0;
@@ -2311,7 +2227,7 @@
   ["tgGoal", "tgHave", "tgRate", "tgYears"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcTargetSave);
   });
-  if (_origGetElementById("tsTarget")) calcTargetSave();
+  calcTargetSave();
 
   var lastPcEn = "";
   var postcodeInited = false;
@@ -2543,7 +2459,7 @@
         document.getElementById("bdTitle").value = "";
         document.getElementById("bdBody").value = "";
         if (contactEl) contactEl.value = "";
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
         toast("관리자 이메일로 성공적으로 전송되었습니다!");
       })
       .catch(function (err) {
@@ -2558,7 +2474,7 @@
         localStorage.setItem(BD_KEY, JSON.stringify(posts.slice(0, 50)));
         document.getElementById("bdTitle").value = "";
         document.getElementById("bdBody").value = "";
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
         toast("소중한 의견이 등록되었습니다!");
       })
       .finally(function () {
@@ -2567,13 +2483,12 @@
       });
     };
   }
-  if (_origGetElementById("bdList")) renderBoard();
+  renderBoard();
 
   /* ==========================================================================
      PDF Suite (Smallpdf Alternative - 100% In-Browser)
      ========================================================================== */
   (function initPdfSuite() {
-    if (!_origGetElementById("pdfStatus") && !_origGetElementById("img2pdfDropzone")) return;
     if (window.pdfjsLib) {
       pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
     }
@@ -3714,7 +3629,6 @@
      Apple Game (Fruit Box Game / 사과게임) Module
      ========================================================================== */
   (function initAppleGame() {
-    if (!_origGetElementById("appleBoard")) return;
     var COLS = 17;
     var ROWS = 10;
     var TOTAL_APPLES = 170;
@@ -3795,7 +3709,7 @@
     var appleLeaderboardDate = document.getElementById("appleLeaderboardDate");
     var appleLeaderboardBody = document.getElementById("appleLeaderboardBody");
 
-    if (!_origGetElementById("appleBoard") || !_origGetElementById("appleBoardWrapper")) return;
+    if (!appleBoard || !appleBoardWrapper) return;
 
     // =========================================================================
     // Canvas Fireworks & Dopamine Particle System
@@ -5023,7 +4937,7 @@
     appleOverlayShareBtn.addEventListener("click", function () {
       var rankInfo = getRank(score, remaining === 0);
       var pct = Math.round((score / TOTAL_APPLES) * 100);
-      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://www.ilsangtool.kr/#apple";
+      var shareText = "[일상툴 사과게임 결과]\n🍎 수확 점수: " + score + "점 (" + pct + "%)\n🏆 등급: " + rankInfo.title + "\n\n👉 나도 도전하기: https://ilsangtool.kr/?tool=apple";
       copyShareText(shareText);
     });
 
@@ -5055,7 +4969,7 @@
   (function initPaintTool() {
     var canvas = document.getElementById("paintCanvas");
     var overlayCanvas = document.getElementById("paintOverlayCanvas");
-    if (!_origGetElementById("paintCanvas") || !_origGetElementById("paintOverlayCanvas")) return;
+    if (!canvas || !overlayCanvas) return;
 
     var ctx = canvas.getContext("2d", { willReadFrequently: true });
     var overlayCtx = overlayCanvas.getContext("2d");
@@ -6495,7 +6409,7 @@
 
     // DOM Elements
     var canvas = document.getElementById("omokCanvas");
-    if (!_origGetElementById("omokCanvas")) return;
+    if (!canvas) return;
     var ctx = canvas.getContext("2d");
     var boardWrapper = document.getElementById("omokBoardWrapper");
     var turnBadge = document.getElementById("omokTurnBadge");
@@ -6679,7 +6593,7 @@
       gameStartTime = Date.now();
       resetTimer();
       updateUI();
-      if (_origGetElementById("bdList")) renderBoard();
+      renderBoard();
 
       // If AI mode and AI plays Black (선공), trigger AI move
       if (mode === "ai" && playerColor === 2) {
@@ -7089,14 +7003,14 @@
       var winResult = checkWin(board, x, y, curTurn, rule);
       if (winResult.win) {
         endGame(curTurn, winResult.stones, (curTurn === 1 ? "흑" : "백") + "이 5목을 완성하여 승리했습니다!");
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
         return true;
       }
 
       // Check Draw (Board Full)
       if (history.length >= BOARD_SIZE * BOARD_SIZE) {
         endGame(3, null, "바둑판이 가득 차 무승부로 종료되었습니다!");
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
         return true;
       }
 
@@ -7104,7 +7018,7 @@
       curTurn = curTurn === 1 ? 2 : 1;
       resetTimer();
       updateUI();
-      if (_origGetElementById("bdList")) renderBoard();
+      renderBoard();
 
       // Trigger AI if in AI mode and it's AI's turn
       if (mode === "ai" && curTurn !== playerColor && !gameOver) {
@@ -7515,14 +7429,14 @@
       }
       if (!hoverPos || hoverPos.x !== pos.x || hoverPos.y !== pos.y) {
         hoverPos = pos;
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       }
     });
 
     canvas.addEventListener("mouseleave", function () {
       if (hoverPos) {
         hoverPos = null;
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       }
     });
 
@@ -7612,7 +7526,7 @@
         rule = "renju";
         ruleRenjuBtn.classList.add("active");
         if (ruleFreeBtn) ruleFreeBtn.classList.remove("active");
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       });
     }
 
@@ -7621,7 +7535,7 @@
         rule = "free";
         ruleFreeBtn.classList.add("active");
         if (ruleRenjuBtn) ruleRenjuBtn.classList.remove("active");
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       });
     }
 
@@ -7645,7 +7559,7 @@
           hintPos = { x: best.x, y: best.y };
           playStoneSound();
           if (statusText) statusText.textContent = "💡 AI 추천수: " + coordName(best.x, best.y) + " 자리를 확인하세요!";
-          if (_origGetElementById("bdList")) renderBoard();
+          renderBoard();
         }
       });
     }
@@ -7684,7 +7598,7 @@
         hintPos = null;
         resetTimer();
         updateUI();
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       });
     }
 
@@ -7719,7 +7633,7 @@
           boardWrapper.classList.add("omok-theme-wood");
           boardWrapper.classList.remove("omok-theme-dark");
         }
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       });
     }
 
@@ -7732,7 +7646,7 @@
           boardWrapper.classList.add("omok-theme-dark");
           boardWrapper.classList.remove("omok-theme-wood");
         }
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       });
     }
 
@@ -7741,7 +7655,7 @@
     if (showNumbersCb) {
       showNumbersCb.addEventListener("change", function () {
         showNumbers = showNumbersCb.checked;
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       });
     }
 
@@ -7749,7 +7663,7 @@
     if (showFoulsCb) {
       showFoulsCb.addEventListener("change", function () {
         showFouls = showFoulsCb.checked;
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       });
     }
 
@@ -7806,7 +7720,7 @@
     if (modalShareBtn) {
       modalShareBtn.addEventListener("click", function () {
         var winStr = winner === 1 ? "흑 승리" : (winner === 2 ? "백 승리" : "무승부");
-        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://www.ilsangtool.kr/#omok";
+        var shareTxt = "[일상툴 오목게임] " + winStr + " (" + history.length + "수 완성)\n친구와 한 기기 2인 대전 & 스마트 AI 대국을 즐겨보세요! https://ilsangtool.kr/?tool=omok";
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(shareTxt).then(function () {
             if (toast) toast("🔗 승리 결과가 클립보드에 복사되었습니다!");
@@ -7824,14 +7738,14 @@
 
     // Window Resize Observer for Board
     window.addEventListener("resize", function () {
-      if (_origGetElementById("bdList")) renderBoard();
+      renderBoard();
     });
 
     // Lifecycle Hooks
     window.onShowOmokGame = function () {
       setTimeout(function () {
         renderStats();
-        if (_origGetElementById("bdList")) renderBoard();
+        renderBoard();
       }, 50);
     };
 
@@ -7884,7 +7798,7 @@
       renderAdSlot(slot);
     });
     // 2. 현재 활성화된 화면 내부의 슬롯
-    var activeSec = sectionId ? _origGetElementById(sectionId) : document.querySelector(".view:not(.hidden)");
+    var activeSec = sectionId ? document.getElementById(sectionId) : document.querySelector(".view:not(.hidden)");
     if (activeSec) {
       activeSec.querySelectorAll(".ad-slot").forEach(function (slot) {
         renderAdSlot(slot);
@@ -7892,46 +7806,14 @@
     }
   }
 
-  window.addEventListener("popstate", function (e) {
-    var target = (e.state && e.state.tool) ? e.state.tool : null;
-    if (!target) {
-      var pm = (location.pathname || "").match(/\/([a-z0-9_-]+)\.html$/i);
-      target = (pm && pm[1] && pm[1].toLowerCase() !== "index") ? pm[1].toLowerCase() : "home";
-    }
-    if (_origGetElementById(target)) {
-      show(target, true);
-    } else {
-      window.location.reload();
-    }
-  });
-
   window.addEventListener("hashchange", function () {
-    var h = (location.hash || "").replace("#", "");
-    if (h && TOOLS.some(function (t) { return t.id === h; })) {
-      if (_origGetElementById(h)) {
-        show(h);
-      } else {
-        window.location.replace(h === "home" ? "index.html" : (h + ".html"));
-      }
-    }
+    var hash = (location.hash || "").replace("#", "");
+    if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);
+    else show("home");
   });
-
-  var pageTool = window.__CURRENT_PAGE_TOOL__ || "";
-  if (!pageTool) {
-    var pm = (location.pathname || "").match(/\/([a-z0-9_-]+)\.html$/i);
-    if (pm && pm[1] && pm[1].toLowerCase() !== "index") pageTool = pm[1].toLowerCase();
-  }
-  var startTool = pageTool || "home";
-  var initialHash = (location.hash || "").replace("#", "");
-  if (initialHash && TOOLS.some(function (t) { return t.id === initialHash; })) {
-    if (_origGetElementById(initialHash)) {
-      show(initialHash);
-    } else {
-      window.location.replace(initialHash === "home" ? "index.html" : (initialHash + ".html"));
-    }
-  } else {
-    show(startTool);
-  }
+  var hash = (location.hash || "").replace("#", "");
+  if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);
+  else show("home");
 
   setInterval(tickClock, 1000);
   tickClock();
