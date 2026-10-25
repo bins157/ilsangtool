@@ -43,9 +43,12 @@
   <meta name="theme-color" content="#080b11">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" as="style" crossorigin
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/style.css?v=49">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  </noscript>
+  <link rel="stylesheet" href="css/style.css?v=57">
 
   <!-- Google Search Favicon & Apple Touch Icon -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -56,8 +59,32 @@
   <link rel="shortcut icon" href="/favicon.ico">
 
   <!-- Google AdSense Official Script (Verification & Ad Serving) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827"
-    crossorigin="anonymous"></script>
+  <!-- Google AdSense Smart Deferred Loader (High Performance & Core Web Vitals) -->
+  <script>
+    (function() {
+      var adsenseLoaded = false;
+      function loadAdSense() {
+        if (adsenseLoaded) return;
+        adsenseLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827';
+        s.crossOrigin = 'anonymous';
+        document.head.appendChild(s);
+        window.removeEventListener('scroll', loadAdSense);
+        window.removeEventListener('mousemove', loadAdSense);
+        window.removeEventListener('touchstart', loadAdSense);
+      }
+      window.addEventListener('scroll', loadAdSense, { passive: true });
+      window.addEventListener('mousemove', loadAdSense, { passive: true });
+      window.addEventListener('touchstart', loadAdSense, { passive: true });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() { setTimeout(loadAdSense, 1200); });
+      } else {
+        setTimeout(loadAdSense, 1500);
+      }
+    })();
+  </script>
 
   <script src="js/config.js"></script>
 
@@ -1024,7 +1051,7 @@
   <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="js/daily.js?v=55"></script>
+  <script src="js/daily.js?v=57"></script>
 
     <script id="ilsangtool-multipage-helper">
     (function() {

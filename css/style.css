@@ -6,8 +6,6 @@
 /* --------------------------------------------------------------------------
    01. Fonts & Custom Properties
    -------------------------------------------------------------------------- */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
 :root {
   /* Color Palette */
   --bg-dark: #080b11;
@@ -98,7 +96,7 @@ html, body {
 }
 
 body {
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, system-ui, Roboto, "Segoe UI", "Noto Sans KR", sans-serif;
   background-color: var(--bg-dark);
   background-image: var(--bg-gradient);
   background-attachment: fixed;

@@ -398,7 +398,7 @@
   ["bmiH", "bmiW"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcBmi);
   });
-  calcBmi();
+  if (_origGetElementById("bmiH")) calcBmi();
 
   function calcAge() {
     var v = document.getElementById("birthDate").value;
@@ -419,7 +419,7 @@
   }
   document.getElementById("birthDate").valueAsDate = new Date(1995, 0, 1);
   document.getElementById("birthDate").addEventListener("input", calcAge);
-  calcAge();
+  if (_origGetElementById("birthDate")) calcAge();
 
   var STEMS = ["갑", "을", "병", "정", "무", "기", "경", "신", "임", "계"];
   var BRANCHES = [
@@ -668,7 +668,7 @@
       }
     };
   }
-  calcHwangap();
+  if (_origGetElementById("hgBirth")) calcHwangap();
 
   // --- ONLINE NOTEPAD CONTROLLER (줄노트 · 모눈종이 · 포스트잇) ---
   (function initNotepad() {
@@ -1247,7 +1247,7 @@
   ["pOrig", "pOff", "pA", "pB"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcPercent);
   });
-  calcPercent();
+  if (_origGetElementById("pctBase")) calcPercent();
 
   function calcLoan() {
     var p = parseFloat(document.getElementById("loanAmt").value) || 0;
@@ -1262,7 +1262,7 @@
   ["loanAmt", "loanRate", "loanYears"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcLoan);
   });
-  calcLoan();
+  if (_origGetElementById("loanAmt")) calcLoan();
 
   function genPw() {
     var sets = "";
@@ -1278,12 +1278,14 @@
     for (var i = 0; i < len; i++) out += sets[arr[i] % sets.length];
     document.getElementById("pwOut").textContent = out;
   }
-  document.getElementById("pwGen").onclick = genPw;
-  document.getElementById("pwCopy").onclick = function () {
-    var t = document.getElementById("pwOut").textContent;
-    if (t && t !== "-") navigator.clipboard.writeText(t).then(function () { toast("복사했습니다"); });
-  };
-  genPw();
+  if (_origGetElementById("pwGen")) {
+    document.getElementById("pwGen").onclick = genPw;
+    document.getElementById("pwCopy").onclick = function () {
+      var t = document.getElementById("pwOut").textContent;
+      if (t && t !== "-") navigator.clipboard.writeText(t).then(function () { toast("복사했습니다"); });
+    };
+    genPw();
+  }
 
   function countText() {
     var t = document.getElementById("countText").value;
@@ -1314,7 +1316,7 @@
   ["ddDate", "ddTitle"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcDday);
   });
-  calcDday();
+  if (_origGetElementById("ddDate")) calcDday();
 
   var CITIES = [
     { name: "서울", tz: "Asia/Seoul" },
@@ -1327,7 +1329,7 @@
     { name: "시드니", tz: "Australia/Sydney" }
   ];
   function renderWorld() {
-    var body = document.getElementById("clockBody");
+    var body = _origGetElementById("clockBody");
     if (!body) return;
     body.innerHTML = CITIES.map(function (c) {
       var d = new Date();
@@ -1350,7 +1352,7 @@
     document.getElementById(id).addEventListener("input", calcFx);
     document.getElementById(id).addEventListener("change", calcFx);
   });
-  calcFx();
+  if (_origGetElementById("fxAmt")) calcFx();
 
   // --------------------------------------------------------------------------
   // Scientific Calculator (Casio fx Style Engine)
@@ -1928,7 +1930,7 @@
   ["splitTotal", "splitPeople", "splitTip"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcSplit);
   });
-  calcSplit();
+  if (_origGetElementById("splitTotal")) calcSplit();
 
   function calcCal() {
     var sex = document.getElementById("calSex").value;
@@ -1946,7 +1948,7 @@
     document.getElementById(id).addEventListener("input", calcCal);
     document.getElementById(id).addEventListener("change", calcCal);
   });
-  calcCal();
+  if (_origGetElementById("calWeight")) calcCal();
 
   document.getElementById("qrBtn").onclick = function () {
     var t = document.getElementById("qrText").value.trim();
@@ -2011,7 +2013,7 @@
     document.getElementById(id).addEventListener("input", calcVat);
     document.getElementById(id).addEventListener("change", calcVat);
   });
-  calcVat();
+  if (_origGetElementById("vatAmt")) calcVat();
 
   function calcSalary() {
     var year = parseFloat(document.getElementById("salYear").value) || 0;
@@ -2042,7 +2044,7 @@
   ["salYear", "salNon"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcSalary);
   });
-  calcSalary();
+  if (_origGetElementById("salAmt")) calcSalary();
 
   function earnedIncomeDeduction(salary) {
     if (salary <= 5000000) return salary * 0.7;
@@ -2129,7 +2131,7 @@
   ["txSalary", "txFamily", "txPaid", "txIrp", "txPension"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcYearEndTax);
   });
-  calcYearEndTax();
+  if (_origGetElementById("taxSalary")) calcYearEndTax();
 
   function calcPreg() {
     var v = document.getElementById("pregLmp").value;
@@ -2150,7 +2152,7 @@
   lmpDef.setDate(lmpDef.getDate() - 70);
   document.getElementById("pregLmp").valueAsDate = lmpDef;
   document.getElementById("pregLmp").addEventListener("input", calcPreg);
-  calcPreg();
+  if (_origGetElementById("pregLmp")) calcPreg();
 
   var swStart = 0, swAcc = 0, swTimer = null, swLapN = 0;
   function fmtSw(ms) {
@@ -2214,7 +2216,7 @@
   ["dcFrom", "dcTo", "dcAdd"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcDates);
   });
-  calcDates();
+  if (_origGetElementById("dateStart")) calcDates();
 
   function calcCompound() {
     var p = parseFloat(document.getElementById("cpPrincipal").value) || 0;
@@ -2242,7 +2244,7 @@
     document.getElementById(id).addEventListener("input", calcCompound);
     document.getElementById(id).addEventListener("change", calcCompound);
   });
-  calcCompound();
+  if (_origGetElementById("compInit")) calcCompound();
 
   function calcTargetSave() {
     var goal = parseFloat(document.getElementById("tgGoal").value) || 0;
@@ -2269,7 +2271,7 @@
   ["tgGoal", "tgHave", "tgRate", "tgYears"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", calcTargetSave);
   });
-  calcTargetSave();
+  if (_origGetElementById("tsTarget")) calcTargetSave();
 
   var lastPcEn = "";
   var postcodeInited = false;
@@ -2501,7 +2503,7 @@
         document.getElementById("bdTitle").value = "";
         document.getElementById("bdBody").value = "";
         if (contactEl) contactEl.value = "";
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
         toast("관리자 이메일로 성공적으로 전송되었습니다!");
       })
       .catch(function (err) {
@@ -2516,7 +2518,7 @@
         localStorage.setItem(BD_KEY, JSON.stringify(posts.slice(0, 50)));
         document.getElementById("bdTitle").value = "";
         document.getElementById("bdBody").value = "";
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
         toast("소중한 의견이 등록되었습니다!");
       })
       .finally(function () {
@@ -2525,12 +2527,13 @@
       });
     };
   }
-  renderBoard();
+  if (_origGetElementById("bdList")) renderBoard();
 
   /* ==========================================================================
      PDF Suite (Smallpdf Alternative - 100% In-Browser)
      ========================================================================== */
   (function initPdfSuite() {
+    if (!_origGetElementById("pdfStatus") && !_origGetElementById("img2pdfDropzone")) return;
     if (window.pdfjsLib) {
       pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
     }
@@ -3671,6 +3674,7 @@
      Apple Game (Fruit Box Game / 사과게임) Module
      ========================================================================== */
   (function initAppleGame() {
+    if (!_origGetElementById("appleBoard")) return;
     var COLS = 17;
     var ROWS = 10;
     var TOTAL_APPLES = 170;
@@ -6635,7 +6639,7 @@
       gameStartTime = Date.now();
       resetTimer();
       updateUI();
-      renderBoard();
+      if (_origGetElementById("bdList")) renderBoard();
 
       // If AI mode and AI plays Black (선공), trigger AI move
       if (mode === "ai" && playerColor === 2) {
@@ -7045,14 +7049,14 @@
       var winResult = checkWin(board, x, y, curTurn, rule);
       if (winResult.win) {
         endGame(curTurn, winResult.stones, (curTurn === 1 ? "흑" : "백") + "이 5목을 완성하여 승리했습니다!");
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
         return true;
       }
 
       // Check Draw (Board Full)
       if (history.length >= BOARD_SIZE * BOARD_SIZE) {
         endGame(3, null, "바둑판이 가득 차 무승부로 종료되었습니다!");
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
         return true;
       }
 
@@ -7060,7 +7064,7 @@
       curTurn = curTurn === 1 ? 2 : 1;
       resetTimer();
       updateUI();
-      renderBoard();
+      if (_origGetElementById("bdList")) renderBoard();
 
       // Trigger AI if in AI mode and it's AI's turn
       if (mode === "ai" && curTurn !== playerColor && !gameOver) {
@@ -7471,14 +7475,14 @@
       }
       if (!hoverPos || hoverPos.x !== pos.x || hoverPos.y !== pos.y) {
         hoverPos = pos;
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       }
     });
 
     canvas.addEventListener("mouseleave", function () {
       if (hoverPos) {
         hoverPos = null;
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       }
     });
 
@@ -7568,7 +7572,7 @@
         rule = "renju";
         ruleRenjuBtn.classList.add("active");
         if (ruleFreeBtn) ruleFreeBtn.classList.remove("active");
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       });
     }
 
@@ -7577,7 +7581,7 @@
         rule = "free";
         ruleFreeBtn.classList.add("active");
         if (ruleRenjuBtn) ruleRenjuBtn.classList.remove("active");
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       });
     }
 
@@ -7601,7 +7605,7 @@
           hintPos = { x: best.x, y: best.y };
           playStoneSound();
           if (statusText) statusText.textContent = "💡 AI 추천수: " + coordName(best.x, best.y) + " 자리를 확인하세요!";
-          renderBoard();
+          if (_origGetElementById("bdList")) renderBoard();
         }
       });
     }
@@ -7640,7 +7644,7 @@
         hintPos = null;
         resetTimer();
         updateUI();
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       });
     }
 
@@ -7675,7 +7679,7 @@
           boardWrapper.classList.add("omok-theme-wood");
           boardWrapper.classList.remove("omok-theme-dark");
         }
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       });
     }
 
@@ -7688,7 +7692,7 @@
           boardWrapper.classList.add("omok-theme-dark");
           boardWrapper.classList.remove("omok-theme-wood");
         }
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       });
     }
 
@@ -7697,7 +7701,7 @@
     if (showNumbersCb) {
       showNumbersCb.addEventListener("change", function () {
         showNumbers = showNumbersCb.checked;
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       });
     }
 
@@ -7705,7 +7709,7 @@
     if (showFoulsCb) {
       showFoulsCb.addEventListener("change", function () {
         showFouls = showFoulsCb.checked;
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       });
     }
 
@@ -7780,14 +7784,14 @@
 
     // Window Resize Observer for Board
     window.addEventListener("resize", function () {
-      renderBoard();
+      if (_origGetElementById("bdList")) renderBoard();
     });
 
     // Lifecycle Hooks
     window.onShowOmokGame = function () {
       setTimeout(function () {
         renderStats();
-        renderBoard();
+        if (_origGetElementById("bdList")) renderBoard();
       }, 50);
     };
 
