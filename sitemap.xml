@@ -5,9 +5,23 @@
   <!-- 메인 홈 -->
   <url>
     <loc>https://ilsangtool.kr/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+  <!-- 무설치 백색소음 & 뽀모도로 타이머 -->
+  <url>
+    <loc>https://ilsangtool.kr/?tool=focus</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <!-- 손 없는 날 달력 & 이사 비용 간단 견적기 -->
+  <url>
+    <loc>https://ilsangtool.kr/?tool=moving</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
   <!-- 공학용계산기 -->
   <url>

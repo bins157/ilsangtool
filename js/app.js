@@ -1,6 +1,6 @@
 (function () {
   var TOOLS = [
-    { id: "home", name: "홈", ico: "⌂", blurb: "32가지 필수 일상 도구", title: "일상툴 - 그림판, 사과게임, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환, 환갑칠순 등 32가지 생활 도구", desc: "그림판, 사과게임(과일박스), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환, 환갑·칠순·팔순, 온라인 메모장, 주휴·실업급여, 부가세, 더치페이, QR코드 등 32가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
+    { id: "home", name: "홈", ico: "⌂", blurb: "35가지 필수 일상 도구", title: "일상툴 - 손없는날·이사견적, 백색소음·뽀모도로, 그림판, 사과게임, 오목, 계산기, 단위변환, BMI, 환율, 연봉실수령, PDF변환 등 35가지 생활 도구", desc: "2026 손 없는 날 달력 & 이사 비용 견적기, 무설치 백색소음 & 뽀모도로 타이머, 그림판, 사과게임, 오목게임(2인대전·AI), 계산기, 단위변환, BMI, 환율, 연봉 실수령, PDF 변환 등 35가지 필수 일상 웹 도구. 회원가입 없이 브라우저에서 즉시 무료 사용." },
     { id: "calc", name: "공학용계산기", ico: "fx", blurb: "삼각함수, 로그, 제곱근", title: "공학용계산기 sin cos log - 일상툴", desc: "삼각함수, 로그, 제곱근, 거듭제곱을 지원하는 공학용 계산기입니다." },
     { id: "unit", name: "단위 변환", ico: "↔", blurb: "길이, 무게, 온도, 평, 데이터", title: "단위 변환기 cm inch kg lb 섭씨 화씨 - 일상툴", desc: "길이, 무게, 온도, 넓이(평), 부피, 데이터 단위를 바로 변환합니다." },
     { id: "bmi", name: "BMI 계산", ico: "⚖", blurb: "아시아-태평양 기준 체질량", title: "BMI 계산기 - 키 몸무게 정상범위 - 일상툴", desc: "키와 몸무게로 BMI와 정상 체중 범위를 계산합니다. 아시아-태평양 기준." },
@@ -21,6 +21,8 @@
     { id: "percent", name: "퍼센트 / 할인", ico: "%", blurb: "할인가, 비율, 증감률", title: "퍼센트 할인 계산기 - 일상툴", desc: "할인율, 할인가, 비율, 증감률을 계산합니다." },
     { id: "password", name: "비밀번호 생성", ico: "#", blurb: "안전한 랜덤 비밀번호", title: "비밀번호 생성기 - 일상툴", desc: "암호학 난수로 랜덤 비밀번호를 생성합니다." },
     { id: "alarm", name: "알람 / 타이머", ico: "⏱", blurb: "지정 시간 브라우저 알림", title: "알람 타이머 - 일상툴", desc: "지정한 시각에 브라우저 알림과 소리를 울립니다." },
+    { id: "focus", name: "백색소음 & 뽀모도로", ico: "🎧", blurb: "빗소리·장작불·카페 & 25분 몰입", title: "무설치 백색소음 & 뽀모도로 타이머 - 빗소리·장작불·카페 믹서 - 일상툴", desc: "설치 없이 브라우저에서 바로 듣는 무설치 백색소음(빗소리, 모닥불, 카페, 파도 소리 믹서)과 25분 집중 뽀모도로 타이머. 체류 몰입도와 작업 능률을 극대화하세요." },
+    { id: "moving", name: "손없는날·이사견적", ico: "🚚", blurb: "손 없는 날 달력 & 이사 견적 계산", title: "2026년 손 없는 날 달력 & 이사 비용 견적 계산기 - 음력 길일·포장 이사 비용 비교 - 일상툴", desc: "2026년 월별 손 없는 날(음력 끝자리 9·0일) 달력과 포장·반포장·원룸 이사 비용 실시간 견적 계산기. 동서남북 손 방위, 사다리차 비용, 주말·손없는날 할증 비교 및 D-30 이사 체크리스트 무료 제공." },
     { id: "worldclock", name: "세계 시계", ico: "🌐", blurb: "서울 도쿄 뉴욕 현재시각", title: "세계 시계 시차 - 일상툴", desc: "서울, 도쿄, 뉴욕, 런던 등 주요 도시 현재 시각입니다." },
     { id: "color", name: "컬러 피커", ico: "◆", blurb: "HEX RGB HSL 변환", title: "컬러 피커 HEX RGB - 일상툴", desc: "색을 고르고 HEX, RGB, HSL 값을 변환합니다." },
     { id: "preg", name: "임신 주수", ico: "♥", blurb: "LMP 기준 예정일", title: "임신 주수 계산기 예정일 - 일상툴", desc: "마지막 생리일 기준 임신 주수와 예정일을 계산합니다. 의료 진단이 아닙니다." },
@@ -7756,6 +7758,1273 @@
     // Initial Start
     renderStats();
     resetBoard();
+  })();
+
+  // ==========================================================================
+  // 백색소음 (Web Audio API Synthesizer) & 뽀모도로 타이머 로직
+  // ==========================================================================
+  (function initFocusTool() {
+    var focusAudioCtx = null;
+    var masterGain = null;
+    var masterVolume = 0.8;
+
+    function getAudioCtx() {
+      if (!focusAudioCtx) {
+        var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          focusAudioCtx = new AudioContextClass();
+          masterGain = focusAudioCtx.createGain();
+          masterGain.gain.setValueAtTime(masterVolume, focusAudioCtx.currentTime);
+          masterGain.connect(focusAudioCtx.destination);
+        }
+      }
+      if (focusAudioCtx && focusAudioCtx.state === 'suspended') {
+        focusAudioCtx.resume();
+      }
+      return focusAudioCtx;
+    }
+
+    function createPinkNoiseBuffer(ctx) {
+      var bufferSize = ctx.sampleRate * 4;
+      var buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      var data = buffer.getChannelData(0);
+      var b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+      for (var i = 0; i < bufferSize; i++) {
+        var white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        b3 = 0.86650 * b3 + white * 0.3104856;
+        b4 = 0.55000 * b4 + white * 0.5329522;
+        b5 = -0.7616 * b5 - white * 0.0168980;
+        data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.06;
+        b6 = white * 0.115926;
+      }
+      return buffer;
+    }
+
+    function createBrownNoiseBuffer(ctx) {
+      var bufferSize = ctx.sampleRate * 4;
+      var buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      var data = buffer.getChannelData(0);
+      var lastOut = 0.0;
+      for (var i = 0; i < bufferSize; i++) {
+        var white = Math.random() * 2 - 1;
+        data[i] = (lastOut + (0.02 * white)) / 1.02;
+        lastOut = data[i];
+        data[i] *= 1.8;
+      }
+      return buffer;
+    }
+
+    var tracks = {
+      rain: { playing: false, gainVal: 0.5, gainNode: null, source: null, intervalId: null },
+      fire: { playing: false, gainVal: 0.5, gainNode: null, source: null, intervalId: null },
+      cafe: { playing: false, gainVal: 0.4, gainNode: null, source: null, intervalId: null },
+      wave: { playing: false, gainVal: 0.5, gainNode: null, source: null, lfo: null },
+      wind: { playing: false, gainVal: 0.45, gainNode: null, source: null, lfo: null }
+    };
+
+    function startSound(key) {
+      var ctx = getAudioCtx();
+      if (!ctx || tracks[key].playing) return;
+
+      var track = tracks[key];
+      track.gainNode = ctx.createGain();
+      track.gainNode.gain.setValueAtTime(track.gainVal, ctx.currentTime);
+      track.gainNode.connect(masterGain);
+
+      if (key === 'rain') {
+        var pBuffer = createPinkNoiseBuffer(ctx);
+        var src = ctx.createBufferSource();
+        src.buffer = pBuffer;
+        src.loop = true;
+        var filter = ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(1000, ctx.currentTime);
+        filter.Q.setValueAtTime(0.8, ctx.currentTime);
+        src.connect(filter);
+        filter.connect(track.gainNode);
+        src.start();
+        track.source = src;
+
+        track.intervalId = setInterval(function () {
+          if (!track.playing || !ctx) return;
+          try {
+            var dropOsc = ctx.createOscillator();
+            var dropGain = ctx.createGain();
+            var freq = 1200 + Math.random() * 800;
+            dropOsc.frequency.setValueAtTime(freq, ctx.currentTime);
+            dropOsc.frequency.exponentialRampToValueAtTime(300, ctx.currentTime + 0.06);
+            dropGain.gain.setValueAtTime(0.015 * track.gainVal, ctx.currentTime);
+            dropGain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.06);
+            dropOsc.connect(dropGain);
+            dropGain.connect(track.gainNode);
+            dropOsc.start();
+            dropOsc.stop(ctx.currentTime + 0.07);
+          } catch (e) {}
+        }, 180);
+
+      } else if (key === 'fire') {
+        var bBuffer = createBrownNoiseBuffer(ctx);
+        var bSrc = ctx.createBufferSource();
+        bSrc.buffer = bBuffer;
+        bSrc.loop = true;
+        var bFilter = ctx.createBiquadFilter();
+        bFilter.type = 'lowpass';
+        bFilter.frequency.setValueAtTime(260, ctx.currentTime);
+        bSrc.connect(bFilter);
+        bFilter.connect(track.gainNode);
+        bSrc.start();
+        track.source = bSrc;
+
+        track.intervalId = setInterval(function () {
+          if (!track.playing || !ctx) return;
+          if (Math.random() > 0.45) return;
+          try {
+            var popOsc = ctx.createOscillator();
+            var popGain = ctx.createGain();
+            popOsc.type = 'triangle';
+            popOsc.frequency.setValueAtTime(200 + Math.random() * 600, ctx.currentTime);
+            popGain.gain.setValueAtTime(0.06 * track.gainVal, ctx.currentTime);
+            popGain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.03 + Math.random() * 0.04);
+            popOsc.connect(popGain);
+            popGain.connect(track.gainNode);
+            popOsc.start();
+            popOsc.stop(ctx.currentTime + 0.08);
+          } catch (e) {}
+        }, 80);
+
+      } else if (key === 'cafe') {
+        var cBuffer = createPinkNoiseBuffer(ctx);
+        var cSrc = ctx.createBufferSource();
+        cSrc.buffer = cBuffer;
+        cSrc.loop = true;
+        var cFilter1 = ctx.createBiquadFilter();
+        cFilter1.type = 'bandpass';
+        cFilter1.frequency.setValueAtTime(500, ctx.currentTime);
+        cFilter1.Q.setValueAtTime(1.2, ctx.currentTime);
+        cSrc.connect(cFilter1);
+        cFilter1.connect(track.gainNode);
+        cSrc.start();
+        track.source = cSrc;
+
+        track.intervalId = setInterval(function () {
+          if (!track.playing || !ctx) return;
+          if (Math.random() > 0.3) return;
+          try {
+            var cupOsc = ctx.createOscillator();
+            var cupGain = ctx.createGain();
+            cupOsc.type = 'sine';
+            cupOsc.frequency.setValueAtTime(2200 + Math.random() * 800, ctx.currentTime);
+            cupGain.gain.setValueAtTime(0.008 * track.gainVal, ctx.currentTime);
+            cupGain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3);
+            cupOsc.connect(cupGain);
+            cupGain.connect(track.gainNode);
+            cupOsc.start();
+            cupOsc.stop(ctx.currentTime + 0.32);
+          } catch (e) {}
+        }, 3200);
+
+      } else if (key === 'wave') {
+        var wBuffer = createPinkNoiseBuffer(ctx);
+        var wSrc = ctx.createBufferSource();
+        wSrc.buffer = wBuffer;
+        wSrc.loop = true;
+
+        var wFilter = ctx.createBiquadFilter();
+        wFilter.type = 'lowpass';
+        wFilter.frequency.setValueAtTime(450, ctx.currentTime);
+
+        var wModGain = ctx.createGain();
+        wModGain.gain.setValueAtTime(0.3, ctx.currentTime);
+
+        var lfo = ctx.createOscillator();
+        lfo.type = 'sine';
+        lfo.frequency.setValueAtTime(0.12, ctx.currentTime);
+
+        var lfoGain = ctx.createGain();
+        lfoGain.gain.setValueAtTime(0.28, ctx.currentTime);
+        lfo.connect(lfoGain);
+        lfoGain.connect(wModGain.gain);
+
+        wSrc.connect(wFilter);
+        wFilter.connect(wModGain);
+        wModGain.connect(track.gainNode);
+
+        lfo.start();
+        wSrc.start();
+        track.source = wSrc;
+        track.lfo = lfo;
+
+      } else if (key === 'wind') {
+        var wnBuffer = createPinkNoiseBuffer(ctx);
+        var wnSrc = ctx.createBufferSource();
+        wnSrc.buffer = wnBuffer;
+        wnSrc.loop = true;
+
+        var wnFilter = ctx.createBiquadFilter();
+        wnFilter.type = 'bandpass';
+        wnFilter.frequency.setValueAtTime(400, ctx.currentTime);
+        wnFilter.Q.setValueAtTime(2.0, ctx.currentTime);
+
+        var windLfo = ctx.createOscillator();
+        windLfo.type = 'sine';
+        windLfo.frequency.setValueAtTime(0.18, ctx.currentTime);
+        var windLfoGain = ctx.createGain();
+        windLfoGain.gain.setValueAtTime(250, ctx.currentTime);
+        windLfo.connect(windLfoGain);
+        windLfoGain.connect(wnFilter.frequency);
+
+        wnSrc.connect(wnFilter);
+        wnFilter.connect(track.gainNode);
+
+        windLfo.start();
+        wnSrc.start();
+        track.source = wnSrc;
+        track.lfo = windLfo;
+      }
+
+      track.playing = true;
+      updateTrackUI(key);
+    }
+
+    function stopSound(key) {
+      var track = tracks[key];
+      if (!track.playing) return;
+      if (track.source) {
+        try { track.source.stop(); } catch (e) {}
+        track.source = null;
+      }
+      if (track.lfo) {
+        try { track.lfo.stop(); } catch (e) {}
+        track.lfo = null;
+      }
+      if (track.intervalId) {
+        clearInterval(track.intervalId);
+        track.intervalId = null;
+      }
+      track.playing = false;
+      updateTrackUI(key);
+    }
+
+    function setVolume(key, val) {
+      tracks[key].gainVal = val / 100;
+      if (tracks[key].gainNode && focusAudioCtx) {
+        tracks[key].gainNode.gain.setValueAtTime(tracks[key].gainVal, focusAudioCtx.currentTime);
+      }
+      var valEl = document.getElementById('val' + capitalize(key));
+      if (valEl) valEl.textContent = val + '%';
+    }
+
+    function capitalize(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
+    function updateTrackUI(key) {
+      var card = document.querySelector('.focus-track-card[data-sound="' + key + '"]');
+      var pill = document.getElementById('pill' + capitalize(key));
+      var range = document.getElementById('vol' + capitalize(key));
+      var isPlay = tracks[key].playing;
+
+      if (card) {
+        if (isPlay) card.classList.add('playing');
+        else card.classList.remove('playing');
+      }
+      if (pill) {
+        pill.textContent = isPlay ? 'ON' : 'OFF';
+      }
+      if (range) {
+        range.disabled = !isPlay;
+      }
+    }
+
+    function applyPreset(name) {
+      getAudioCtx();
+      if (name === 'mute-all') {
+        Object.keys(tracks).forEach(function (k) { stopSound(k); });
+        return;
+      }
+      Object.keys(tracks).forEach(function (k) { stopSound(k); });
+
+      if (name === 'rainy-cafe') {
+        setTrackVolInput('rain', 60);
+        setTrackVolInput('cafe', 40);
+        startSound('rain');
+        startSound('cafe');
+      } else if (name === 'campfire-night') {
+        setTrackVolInput('fire', 70);
+        setTrackVolInput('wind', 30);
+        startSound('fire');
+        startSound('wind');
+      } else if (name === 'deep-ocean') {
+        setTrackVolInput('wave', 75);
+        setTrackVolInput('wind', 25);
+        startSound('wave');
+        startSound('wind');
+      } else if (name === 'forest-wind') {
+        setTrackVolInput('wind', 70);
+        setTrackVolInput('rain', 20);
+        startSound('wind');
+        startSound('rain');
+      }
+    }
+
+    function setTrackVolInput(key, val) {
+      var r = document.getElementById('vol' + capitalize(key));
+      if (r) r.value = val;
+      setVolume(key, val);
+    }
+
+    // 뽀모도로 타이머 엔진
+    var currentMode = 'pomodoro';
+    var timerStatus = 'stopped';
+    var totalSeconds = 25 * 60;
+    var remainingSeconds = 25 * 60;
+    var timerInterval = null;
+    var completedSessions = parseInt(localStorage.getItem('ilsangtool-focus-sessions') || '0', 10);
+
+    var ringCircle = document.getElementById('focusRingProgress');
+    var ringCircumference = 2 * Math.PI * 115;
+    if (ringCircle) {
+      ringCircle.style.strokeDasharray = ringCircumference;
+      ringCircle.style.strokeDashoffset = 0;
+    }
+
+    function updateDoneCounter() {
+      var countEl = document.getElementById('focusDoneCount');
+      var roundTxt = document.getElementById('focusRoundText');
+      if (countEl) countEl.textContent = completedSessions;
+      if (roundTxt) {
+        roundTxt.innerHTML = '오늘의 집중: <strong id="focusDoneCount">' + completedSessions + '</strong>회 (' + (completedSessions * 25) + '분)';
+      }
+    }
+
+    function formatTime(sec) {
+      var m = Math.floor(sec / 60);
+      var s = sec % 60;
+      return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function renderTimerUI() {
+      var disp = document.getElementById('focusTimeDisplay');
+      if (disp) disp.textContent = formatTime(remainingSeconds);
+
+      if (ringCircle) {
+        var progress = totalSeconds > 0 ? (totalSeconds - remainingSeconds) / totalSeconds : 0;
+        var offset = ringCircumference * progress;
+        ringCircle.style.strokeDashoffset = offset;
+        ringCircle.style.stroke = currentMode === 'pomodoro' ? '#f59e0b' : '#10b981';
+      }
+
+      var badge = document.getElementById('focusStatusBadge');
+      if (badge) {
+        if (timerStatus === 'running') {
+          badge.className = 'focus-status-badge running';
+          badge.textContent = currentMode === 'pomodoro' ? '집중 몰입 중 🔥' : '휴식 중 ☕';
+        } else if (timerStatus === 'paused') {
+          badge.className = 'focus-status-badge';
+          badge.textContent = '일시 정지됨 ⏸';
+        } else {
+          badge.className = 'focus-status-badge';
+          badge.textContent = '준비 완료 ✨';
+        }
+      }
+
+      if (timerStatus === 'running') {
+        var modeIco = currentMode === 'pomodoro' ? '🍅' : '☕';
+        document.title = '[' + formatTime(remainingSeconds) + '] ' + modeIco + ' ' + (currentMode === 'pomodoro' ? '집중' : '휴식') + ' | 일상툴';
+      }
+    }
+
+    function startTimer() {
+      getAudioCtx();
+      if (timerStatus === 'running') return;
+
+      timerStatus = 'running';
+      updateStartButtonUI();
+      renderTimerUI();
+
+      timerInterval = setInterval(function () {
+        if (remainingSeconds > 0) {
+          remainingSeconds--;
+          renderTimerUI();
+        } else {
+          onTimerComplete();
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      if (timerStatus !== 'running') return;
+      clearInterval(timerInterval);
+      timerStatus = 'paused';
+      updateStartButtonUI();
+      renderTimerUI();
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      timerStatus = 'stopped';
+      setModeTime(currentMode);
+      updateStartButtonUI();
+      renderTimerUI();
+    }
+
+    function updateStartButtonUI() {
+      var ico = document.getElementById('focusStartIcon');
+      var lbl = document.getElementById('focusStartLabel');
+      var btn = document.getElementById('focusStartBtn');
+      if (!btn || !ico || !lbl) return;
+
+      if (timerStatus === 'running') {
+        ico.textContent = '❚❚';
+        lbl.textContent = '일시 정지';
+        btn.classList.remove('gold');
+        btn.classList.add('ghost');
+      } else {
+        ico.textContent = '▶';
+        lbl.textContent = timerStatus === 'paused' ? '계속하기' : '시작하기';
+        btn.classList.remove('ghost');
+        btn.classList.add('gold');
+      }
+    }
+
+    function setModeTime(mode) {
+      currentMode = mode;
+      var mins = 25;
+      if (mode === 'pomodoro') mins = 25;
+      else if (mode === 'shortBreak') mins = 5;
+      else if (mode === 'longBreak') mins = 15;
+      else if (mode === 'custom') {
+        var cInput = document.getElementById('focusCustomMin');
+        mins = cInput ? parseInt(cInput.value, 10) || 45 : 45;
+      }
+      totalSeconds = mins * 60;
+      remainingSeconds = totalSeconds;
+    }
+
+    function playChimeBell() {
+      var ctx = getAudioCtx();
+      if (!ctx) return;
+      var notes = [523.25, 659.25, 783.99, 1046.50];
+      notes.forEach(function (freq, idx) {
+        setTimeout(function () {
+          try {
+            var osc = ctx.createOscillator();
+            var g = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime);
+            g.gain.setValueAtTime(0.08, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.8);
+            osc.connect(g);
+            g.connect(masterGain);
+            osc.start();
+            osc.stop(ctx.currentTime + 1.9);
+          } catch (e) {}
+        }, idx * 120);
+      });
+    }
+
+    function onTimerComplete() {
+      clearInterval(timerInterval);
+      timerStatus = 'stopped';
+      updateStartButtonUI();
+
+      var bellChecked = document.getElementById('focusBellCheck');
+      if (!bellChecked || bellChecked.checked) {
+        playChimeBell();
+      }
+
+      if (currentMode === 'pomodoro') {
+        completedSessions++;
+        localStorage.setItem('ilsangtool-focus-sessions', String(completedSessions));
+        updateDoneCounter();
+
+        if (window.Notification && Notification.permission === 'granted') {
+          new Notification('🍅 25분 집중 완료!', { body: '훌륭합니다! 5분간 휴식을 취하고 뇌를 리프레시하세요.' });
+        }
+      } else {
+        if (window.Notification && Notification.permission === 'granted') {
+          new Notification('☕ 휴식 종료!', { body: '휴식이 끝났습니다. 다음 집중 세션을 시작해보세요.' });
+        }
+      }
+
+      var autoBreak = document.getElementById('focusAutoBreakCheck');
+      if (autoBreak && autoBreak.checked && currentMode === 'pomodoro') {
+        switchModeTab('shortBreak');
+        startTimer();
+      } else {
+        renderTimerUI();
+      }
+    }
+
+    function switchModeTab(mode) {
+      document.querySelectorAll('#pomodoroModes .focus-mode-tab').forEach(function (tab) {
+        if (tab.dataset.mode === mode) tab.classList.add('active');
+        else tab.classList.remove('active');
+      });
+      var customWrap = document.getElementById('focusCustomWrap');
+      if (customWrap) {
+        customWrap.style.display = mode === 'custom' ? 'flex' : 'none';
+      }
+      resetTimer();
+      setModeTime(mode);
+      renderTimerUI();
+    }
+
+    document.querySelectorAll('#pomodoroModes .focus-mode-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        switchModeTab(this.dataset.mode);
+      });
+    });
+
+    var applyCustomBtn = document.getElementById('applyFocusCustom');
+    if (applyCustomBtn) {
+      applyCustomBtn.addEventListener('click', function () {
+        resetTimer();
+        setModeTime('custom');
+        renderTimerUI();
+      });
+    }
+
+    var startBtn = document.getElementById('focusStartBtn');
+    if (startBtn) {
+      startBtn.addEventListener('click', function () {
+        if (timerStatus === 'running') pauseTimer();
+        else startTimer();
+      });
+    }
+
+    var resetBtn = document.getElementById('focusResetBtn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', resetTimer);
+    }
+
+    var add5Btn = document.getElementById('focusAdd5Min');
+    if (add5Btn) {
+      add5Btn.addEventListener('click', function () {
+        remainingSeconds += 300;
+        totalSeconds += 300;
+        renderTimerUI();
+      });
+    }
+    var add1Btn = document.getElementById('focusAdd1Min');
+    if (add1Btn) {
+      add1Btn.addEventListener('click', function () {
+        remainingSeconds += 60;
+        totalSeconds += 60;
+        renderTimerUI();
+      });
+    }
+
+    var zenBtn = document.getElementById('focusZenBtn');
+    if (zenBtn) {
+      zenBtn.addEventListener('click', function () {
+        document.body.classList.toggle('focus-zen-active');
+        zenBtn.textContent = document.body.classList.contains('focus-zen-active') ? '⛶ 전체화면 해제' : '⛶ 전체화면';
+      });
+    }
+
+    ['rain', 'fire', 'cafe', 'wave', 'wind'].forEach(function (key) {
+      var btn = document.getElementById('btnToggle' + capitalize(key));
+      if (btn) {
+        btn.addEventListener('click', function () {
+          if (tracks[key].playing) stopSound(key);
+          else startSound(key);
+        });
+      }
+      var range = document.getElementById('vol' + capitalize(key));
+      if (range) {
+        range.addEventListener('input', function () {
+          setVolume(key, parseInt(this.value, 10));
+        });
+      }
+    });
+
+    document.querySelectorAll('.focus-preset-chip').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyPreset(this.dataset.preset);
+      });
+    });
+
+    var masterRange = document.getElementById('focusMasterVol');
+    var masterValTxt = document.getElementById('focusMasterVal');
+    if (masterRange) {
+      masterRange.addEventListener('input', function () {
+        var v = parseInt(this.value, 10);
+        masterVolume = v / 100;
+        if (masterGain && focusAudioCtx) {
+          masterGain.gain.setValueAtTime(masterVolume, focusAudioCtx.currentTime);
+        }
+        if (masterValTxt) masterValTxt.textContent = v + '%';
+      });
+    }
+
+    updateDoneCounter();
+    renderTimerUI();
+  })();
+
+  (function initMovingTool() {
+    var lunarInfo = [
+      0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
+      0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,
+      0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,
+      0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,
+      0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,
+      0x06ca0,0x0b550,0x15355,0x04da0,0x0a5d0,0x14573,0x052d0,0x0a9a8,0x0e950,0x06aa0,
+      0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,
+      0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b5a0,0x195a6,
+      0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,
+      0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x055c0,0x0ab60,0x096d5,0x092e0,
+      0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,
+      0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,
+      0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,
+      0x05aa0,0x076a3,0x096d0,0x04bd7,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,
+      0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0
+    ];
+
+    function lYearDays(y) {
+      var sum = 348;
+      for (var i = 0x8000; i > 0x8; i >>= 1) sum += (lunarInfo[y - 1900] & i) ? 1 : 0;
+      return sum + leapDays(y);
+    }
+    function leapDays(y) {
+      if (leapMonth(y)) return (lunarInfo[y - 1900] & 0x10000) ? 30 : 29;
+      return 0;
+    }
+    function leapMonth(y) {
+      return lunarInfo[y - 1900] & 0xf;
+    }
+    function monthDays(y, m) {
+      return (lunarInfo[y - 1900] & (0x10000 >> m)) ? 30 : 29;
+    }
+    function solarToLunar(solarYear, solarMonth, solarDay) {
+      if (solarYear < 1900 || solarYear > 2049) return { year: solarYear, month: solarMonth, day: solarDay, isLeap: false };
+      var offset = (Date.UTC(solarYear, solarMonth - 1, solarDay) - Date.UTC(1900, 0, 31)) / 86400000;
+      var i, temp = 0;
+      for (i = 1900; i < 2050 && offset > 0; i++) {
+        temp = lYearDays(i);
+        offset -= temp;
+      }
+      if (offset < 0) {
+        offset += temp;
+        i--;
+      }
+      var year = i;
+      var leap = leapMonth(i);
+      var isLeap = false;
+      for (i = 1; i < 13 && offset > 0; i++) {
+        if (leap > 0 && i === (leap + 1) && !isLeap) {
+          --i;
+          isLeap = true;
+          temp = leapDays(year);
+        } else {
+          temp = monthDays(year, i);
+        }
+        if (isLeap && i === (leap + 1)) isLeap = false;
+        offset -= temp;
+      }
+      if (offset === 0 && leap > 0 && i === leap + 1) {
+        if (isLeap) {
+          isLeap = false;
+        } else {
+          isLeap = true;
+          --i;
+        }
+      }
+      if (offset < 0) {
+        offset += temp;
+        i--;
+      }
+      var month = i;
+      var day = Math.floor(offset) + 1;
+      return { year: year, month: month, day: day, isLeap: isLeap };
+    }
+
+    var DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
+
+    // Sub-tab Navigation
+    var tabBtns = document.querySelectorAll(".moving-tab-btn");
+    var tabPanels = {
+      calendar: document.getElementById("movingTabCalendar"),
+      estimator: document.getElementById("movingTabEstimator"),
+      checklist: document.getElementById("movingTabChecklist"),
+      guide: document.getElementById("movingTabGuide")
+    };
+
+    function switchSubTab(tabName) {
+      tabBtns.forEach(function (btn) {
+        btn.classList.toggle("active", btn.getAttribute("data-tab") === tabName);
+      });
+      Object.keys(tabPanels).forEach(function (key) {
+        if (tabPanels[key]) {
+          tabPanels[key].classList.toggle("active", key === tabName);
+        }
+      });
+    }
+
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var t = btn.getAttribute("data-tab");
+        if (t) switchSubTab(t);
+      });
+    });
+
+    // Calendar state
+    var today = new Date();
+    var currentYear = 2026;
+    var currentMonth = 10;
+    if (today.getFullYear() >= 2025 && today.getFullYear() <= 2028) {
+      currentYear = today.getFullYear();
+      currentMonth = today.getMonth() + 1;
+    }
+
+    var selectedDate = {
+      year: currentYear,
+      month: currentMonth,
+      day: 28
+    };
+
+    var calTitleEl = document.getElementById("movingCalTitle");
+    var calBodyEl = document.getElementById("movingCalBody");
+    var monthCountEl = document.getElementById("movingMonthCount");
+    var monthDaysEl = document.getElementById("movingMonthDays");
+    var nearestDdayEl = document.getElementById("movingNearestDday");
+    var nearestDateEl = document.getElementById("movingNearestDate");
+    var weekdayRecommendEl = document.getElementById("movingWeekdayRecommend");
+
+    var detailIcon = document.getElementById("movingDetailIcon");
+    var detailTitle = document.getElementById("movingDetailTitle");
+    var detailDesc = document.getElementById("movingDetailDesc");
+    var applyToEstimatorBtn = document.getElementById("movingApplyToEstimatorBtn");
+
+    function isSonFreeDay(year, month, day) {
+      var l = solarToLunar(year, month, day);
+      return (l.day % 10 === 9 || l.day % 10 === 0);
+    }
+
+    function updateDateDetail(year, month, day) {
+      selectedDate = { year: year, month: month, day: day };
+      var dObj = new Date(year, month - 1, day);
+      var dayOfWeek = DAY_NAMES[dObj.getDay()];
+      var l = solarToLunar(year, month, day);
+      var sonFree = (l.day % 10 === 9 || l.day % 10 === 0);
+      var isWeekend = (dObj.getDay() === 0 || dObj.getDay() === 6);
+      var isFriday = (dObj.getDay() === 5);
+
+      if (detailTitle) {
+        detailTitle.textContent = "선택한 날짜: " + year + "년 " + month + "월 " + day + "일 (" + dayOfWeek + ")";
+      }
+      if (detailDesc) {
+        var lunarStr = "음력 " + (l.isLeap ? "윤" : "") + l.month + "월 " + l.day + "일";
+        if (sonFree) {
+          if (isWeekend) {
+            if (detailIcon) detailIcon.textContent = "🔥";
+            detailDesc.textContent = lunarStr + " · 주말 손 없는 날 (이사 수요가 가장 집중되어 예약 마감이 빠르고 할증이 적용되는 날)";
+          } else if (isFriday) {
+            if (detailIcon) detailIcon.textContent = "✨";
+            detailDesc.textContent = lunarStr + " · 금요일 손 없는 날 (주말 직전 인기 길일, 악귀가 활동을 쉬어 모든 방위가 길한 날)";
+          } else {
+            if (detailIcon) detailIcon.textContent = "🌿";
+            detailDesc.textContent = lunarStr + " · 평일 손 없는 날 (가성비 길일! 주말 대비 이사비용 15~25% 절감 가능한 추천일)";
+          }
+        } else {
+          if (detailIcon) detailIcon.textContent = "📅";
+          var directionGuide = "";
+          var ld = l.day % 10;
+          if (ld === 1 || ld === 2) directionGuide = "동쪽";
+          else if (ld === 3 || ld === 4) directionGuide = "남쪽";
+          else if (ld === 5 || ld === 6) directionGuide = "서쪽";
+          else if (ld === 7 || ld === 8) directionGuide = "북쪽";
+          detailDesc.textContent = lunarStr + " · 일반일 (악귀 손이 " + directionGuide + "에 머무는 날, " + directionGuide + "을 제외한 다른 방위 이동은 무방함. 이사비용이 가장 저렴한 경제적인 날)";
+        }
+      }
+    }
+
+    function renderCalendar() {
+      if (!calBodyEl) return;
+      if (calTitleEl) calTitleEl.textContent = currentYear + "년 " + currentMonth + "월";
+
+      // Update quick year buttons
+      document.querySelectorAll(".moving-year-chip").forEach(function (chip) {
+        chip.classList.toggle("active", parseInt(chip.getAttribute("data-year"), 10) === currentYear);
+      });
+
+      var firstDay = new Date(currentYear, currentMonth - 1, 1).getDay();
+      var daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+      var prevMonthDays = new Date(currentYear, currentMonth - 1, 0).getDate();
+
+      var sonFreeDays = [];
+      var weekdaySonFreeDays = [];
+      var dayCounter = 1;
+      var nextMonthCounter = 1;
+
+      // Find all son free days this month
+      for (var d = 1; d <= daysInMonth; d++) {
+        if (isSonFreeDay(currentYear, currentMonth, d)) {
+          var dow = new Date(currentYear, currentMonth - 1, d).getDay();
+          sonFreeDays.push({ day: d, dow: DAY_NAMES[dow], isWeekend: (dow === 0 || dow === 6), isFri: (dow === 5) });
+          if (dow >= 1 && dow <= 4) {
+            weekdaySonFreeDays.push({ day: d, dow: DAY_NAMES[dow] });
+          }
+        }
+      }
+
+      // Update Summary Cards
+      if (monthCountEl) monthCountEl.textContent = sonFreeDays.length + "일";
+      if (monthDaysEl) {
+        var daysListStr = sonFreeDays.map(function (s) { return s.day + "일(" + s.dow + ")"; }).join(", ");
+        monthDaysEl.textContent = daysListStr || "없음";
+      }
+
+      // Nearest Son Free Day & D-Day
+      var nearestFound = null;
+
+      // Search up to 90 days ahead
+      for (var step = 0; step < 90; step++) {
+        var checkDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + step);
+        var cy = checkDate.getFullYear();
+        var cm = checkDate.getMonth() + 1;
+        var cd = checkDate.getDate();
+        if (isSonFreeDay(cy, cm, cd)) {
+          nearestFound = { year: cy, month: cm, day: cd, dow: DAY_NAMES[checkDate.getDay()], diff: step };
+          break;
+        }
+      }
+
+      if (nearestFound) {
+        if (nearestDdayEl) {
+          nearestDdayEl.textContent = nearestFound.diff === 0 ? "D-Day (오늘)" : ("D-" + nearestFound.diff);
+        }
+        if (nearestDateEl) {
+          nearestDateEl.textContent = nearestFound.month + "월 " + nearestFound.day + "일 (" + nearestFound.dow + ")";
+        }
+      }
+
+      // Weekday Recommendation
+      if (weekdayRecommendEl) {
+        if (weekdaySonFreeDays.length > 0) {
+          var rec = weekdaySonFreeDays[0];
+          weekdayRecommendEl.textContent = currentMonth + "월 " + rec.day + "일 (" + rec.dow + ")";
+        } else if (sonFreeDays.length > 0) {
+          weekdayRecommendEl.textContent = currentMonth + "월 " + sonFreeDays[0].day + "일 (" + sonFreeDays[0].dow + ")";
+        } else {
+          weekdayRecommendEl.textContent = "평일 화·수·목요일 추천";
+        }
+      }
+
+      // Build Calendar Grid
+      var totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
+      var curRow = "<tr>";
+
+      for (var i = 0; i < totalCells; i++) {
+        if (i % 7 === 0 && i !== 0) {
+          curRow += "</tr><tr>";
+        }
+
+        var colIdx = i % 7;
+        var isSun = (colIdx === 0);
+        var isSat = (colIdx === 6);
+
+        if (i < firstDay) {
+          var prevD = prevMonthDays - (firstDay - 1 - i);
+          curRow += '<td class="moving-cal-cell other-month ' + (isSun ? 'sun' : '') + (isSat ? 'sat' : '') + '">' +
+            '<div class="moving-cal-cell-inner">' +
+            '<div class="moving-cal-cell-top"><span class="solar-date">' + prevD + '</span></div>' +
+            '</div></td>';
+        } else if (dayCounter <= daysInMonth) {
+          var dNum = dayCounter++;
+          var l = solarToLunar(currentYear, currentMonth, dNum);
+          var sonFree = (l.day % 10 === 9 || l.day % 10 === 0);
+          var isSelected = (selectedDate.year === currentYear && selectedDate.month === currentMonth && selectedDate.day === dNum);
+          var isToday = (today.getFullYear() === currentYear && (today.getMonth() + 1) === currentMonth && today.getDate() === dNum);
+
+          var cellClasses = ["moving-cal-cell"];
+          if (isSun) cellClasses.push("sun");
+          if (isSat) cellClasses.push("sat");
+          if (sonFree) cellClasses.push("is-son-free");
+          if (isSelected) cellClasses.push("selected");
+          if (isToday) cellClasses.push("today");
+
+          var badgeHtml = "";
+          if (sonFree) {
+            if (isSun || isSat) {
+              badgeHtml = '<span class="moving-cell-badge weekend-free">🔥 주말 손없는날</span>';
+            } else if (colIdx === 5) {
+              badgeHtml = '<span class="moving-cell-badge son-free">✨ 금요 손없는날</span>';
+            } else {
+              badgeHtml = '<span class="moving-cell-badge son-free">🌿 평일 손없는날</span>';
+            }
+          }
+
+          var lunarLabel = "음 " + (l.isLeap ? "윤" : "") + l.month + "." + l.day;
+
+          curRow += '<td class="' + cellClasses.join(" ") + '" data-year="' + currentYear + '" data-month="' + currentMonth + '" data-day="' + dNum + '">' +
+            '<div class="moving-cal-cell-inner">' +
+            '<div class="moving-cal-cell-top">' +
+            '<span class="solar-date">' + dNum + '</span>' +
+            '<span class="lunar-date">' + lunarLabel + '</span>' +
+            '</div>' +
+            badgeHtml +
+            '</div></td>';
+        } else {
+          var nextD = nextMonthCounter++;
+          curRow += '<td class="moving-cal-cell other-month ' + (isSun ? 'sun' : '') + (isSat ? 'sat' : '') + '">' +
+            '<div class="moving-cal-cell-inner">' +
+            '<div class="moving-cal-cell-top"><span class="solar-date">' + nextD + '</span></div>' +
+            '</div></td>';
+        }
+      }
+      curRow += "</tr>";
+      calBodyEl.innerHTML = curRow;
+
+      // Bind cell click
+      calBodyEl.querySelectorAll(".moving-cal-cell:not(.other-month)").forEach(function (cell) {
+        cell.addEventListener("click", function () {
+          var y = parseInt(cell.getAttribute("data-year"), 10);
+          var m = parseInt(cell.getAttribute("data-month"), 10);
+          var d = parseInt(cell.getAttribute("data-day"), 10);
+          calBodyEl.querySelectorAll(".moving-cal-cell.selected").forEach(function (c) { c.classList.remove("selected"); });
+          cell.classList.add("selected");
+          updateDateDetail(y, m, d);
+        });
+      });
+
+      updateDateDetail(selectedDate.year, selectedDate.month, selectedDate.day);
+    }
+
+    // Calendar Navigation buttons
+    var prevMonthBtn = document.getElementById("movingPrevMonth");
+    var nextMonthBtn = document.getElementById("movingNextMonth");
+    var todayBtn = document.getElementById("movingTodayBtn");
+
+    if (prevMonthBtn) {
+      prevMonthBtn.addEventListener("click", function () {
+        currentMonth--;
+        if (currentMonth < 1) {
+          currentMonth = 12;
+          currentYear--;
+        }
+        if (currentYear < 2025) currentYear = 2025;
+        renderCalendar();
+      });
+    }
+
+    if (nextMonthBtn) {
+      nextMonthBtn.addEventListener("click", function () {
+        currentMonth++;
+        if (currentMonth > 12) {
+          currentMonth = 1;
+          currentYear++;
+        }
+        if (currentYear > 2028) currentYear = 2028;
+        renderCalendar();
+      });
+    }
+
+    if (todayBtn) {
+      todayBtn.addEventListener("click", function () {
+        currentYear = today.getFullYear();
+        currentMonth = today.getMonth() + 1;
+        selectedDate = { year: currentYear, month: currentMonth, day: today.getDate() };
+        renderCalendar();
+      });
+    }
+
+    document.querySelectorAll(".moving-year-chip").forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var y = parseInt(chip.getAttribute("data-year"), 10);
+        if (y) {
+          currentYear = y;
+          renderCalendar();
+        }
+      });
+    });
+
+    // Transfer Date to Estimator
+    if (applyToEstimatorBtn) {
+      applyToEstimatorBtn.addEventListener("click", function () {
+        var yStr = selectedDate.year;
+        var mStr = (selectedDate.month < 10 ? "0" : "") + selectedDate.month;
+        var dStr = (selectedDate.day < 10 ? "0" : "") + selectedDate.day;
+        var formatted = yStr + "-" + mStr + "-" + dStr;
+        var dateInp = document.getElementById("moveDateInput");
+        if (dateInp) {
+          dateInp.value = formatted;
+          onDateInputChange();
+        }
+        switchSubTab("estimator");
+        toast("선택한 날짜(" + formatted + ")가 견적기에 적용되었습니다! 🚚");
+      });
+    }
+
+    // ----------------------------------------------------
+    // Estimator Logic
+    // ----------------------------------------------------
+    var moveDateInp = document.getElementById("moveDateInput");
+    var dateBadgeEl = document.getElementById("moveDateStatusBadge");
+    var optSonFree = document.getElementById("moveOptSonFree");
+    var optWeekend = document.getElementById("moveOptWeekend");
+    var optMonthEnd = document.getElementById("moveOptMonthEnd");
+
+    var originFloorSel = document.getElementById("moveOriginFloor");
+    var destFloorSel = document.getElementById("moveDestFloor");
+
+    var priceRangeEl = document.getElementById("movePriceRange");
+    var priceAvgEl = document.getElementById("movePriceAvg");
+    var bBaseEl = document.getElementById("moveBreakdownBase");
+    var bLadderEl = document.getElementById("moveBreakdownLadder");
+    var bDistEl = document.getElementById("moveBreakdownDist");
+    var bSurchargeEl = document.getElementById("moveBreakdownSurcharge");
+    var bExtraEl = document.getElementById("moveBreakdownExtra");
+    var savingsTipEl = document.getElementById("moveSavingsTip");
+    var copyResultBtn = document.getElementById("moveCopyResultBtn");
+
+    function getSelectedRadio(name) {
+      var r = document.querySelector('input[name="' + name + '"]:checked');
+      return r ? r.value : null;
+    }
+
+    function formatWon(num) {
+      return num.toLocaleString() + "원";
+    }
+
+    function formatManWon(num) {
+      var man = Math.round(num / 10000);
+      return man + "만 원";
+    }
+
+    function onDateInputChange() {
+      if (!moveDateInp || !moveDateInp.value) return;
+      var parts = moveDateInp.value.split("-");
+      if (parts.length !== 3) return;
+      var y = parseInt(parts[0], 10);
+      var m = parseInt(parts[1], 10);
+      var d = parseInt(parts[2], 10);
+
+      var l = solarToLunar(y, m, d);
+      var sonFree = (l.day % 10 === 9 || l.day % 10 === 0);
+      var dt = new Date(y, m - 1, d);
+      var dow = dt.getDay();
+      var isWk = (dow === 0 || dow === 5 || dow === 6);
+      var isMend = (d >= 25);
+
+      if (optSonFree) optSonFree.checked = sonFree;
+      if (optWeekend) optWeekend.checked = isWk;
+      if (optMonthEnd) optMonthEnd.checked = isMend;
+
+      if (dateBadgeEl) {
+        if (sonFree) {
+          dateBadgeEl.textContent = (isWk ? "🔥 주말 손없는날" : "✨ 손 없는 날");
+          dateBadgeEl.className = "moving-cell-badge " + (isWk ? "weekend-free" : "son-free");
+          dateBadgeEl.style.display = "inline-block";
+        } else {
+          dateBadgeEl.textContent = (isWk ? "주말 일반일" : "평일 일반일");
+          dateBadgeEl.className = "moving-cell-badge";
+          dateBadgeEl.style.display = "inline-block";
+        }
+      }
+
+      calcEstimator();
+    }
+
+    function calcEstimator() {
+      var size = getSelectedRadio("moveSize") || "1ton";
+      var type = getSelectedRadio("moveType") || "full";
+      var dist = parseInt(getSelectedRadio("moveDistance") || "10", 10);
+
+      var baseRates = {
+        "1ton": {
+          cargo: [150000, 220000, 180000],
+          semi:  [260000, 360000, 310000],
+          full:  [390000, 520000, 450000]
+        },
+        "2.5ton": {
+          cargo: [350000, 480000, 410000],
+          semi:  [580000, 750000, 660000],
+          full:  [780000, 980000, 880000]
+        },
+        "5ton": {
+          cargo: [620000, 800000, 710000],
+          semi:  [900000, 1180000, 1040000],
+          full:  [1200000, 1550000, 1370000]
+        },
+        "6ton": {
+          cargo: [950000, 1250000, 1100000],
+          semi:  [1350000, 1800000, 1570000],
+          full:  [1800000, 2400000, 2100000]
+        }
+      };
+
+      var baseEntry = (baseRates[size] && baseRates[size][type]) || baseRates["1ton"]["full"];
+      var baseMin = baseEntry[0];
+      var baseMax = baseEntry[1];
+      var baseAvg = baseEntry[2];
+
+      var distFee = 0;
+      if (dist === 30) distFee = 40000;
+      else if (dist === 50) distFee = 80000;
+      else if (dist === 100) distFee = 180000;
+
+      function getFloorCost(val, s) {
+        if (val === "ladder-low") return (s === "5ton" || s === "6ton") ? 130000 : 120000;
+        if (val === "ladder-mid") return (s === "5ton" || s === "6ton") ? 150000 : 140000;
+        if (val === "ladder-high") return 180000;
+        if (val === "ladder-vhigh") return 220000;
+        if (val === "stairs") return (s === "1ton") ? 60000 : 100000;
+        return 0;
+      }
+
+      var originLadder = getFloorCost(originFloorSel ? originFloorSel.value : "ladder-mid", size);
+      var destLadder = getFloorCost(destFloorSel ? destFloorSel.value : "ladder-mid", size);
+      var totalLadder = originLadder + destLadder;
+
+      var sonSurcharge = (optSonFree && optSonFree.checked) ? 0.20 : 0;
+      var weekendSurcharge = (optWeekend && optWeekend.checked) ? 0.12 : 0;
+      var monthEndSurcharge = (optMonthEnd && optMonthEnd.checked) ? 0.08 : 0;
+      var totalRate = sonSurcharge + weekendSurcharge + monthEndSurcharge;
+
+      var surchargeMin = Math.round(baseMin * totalRate);
+      var surchargeMax = Math.round(baseMax * totalRate);
+      var surchargeAvg = Math.round(baseAvg * totalRate);
+
+      var totalExtra = 0;
+      document.querySelectorAll(".move-extra-opt:checked").forEach(function (opt) {
+        totalExtra += parseInt(opt.getAttribute("data-cost") || "0", 10);
+      });
+
+      var totalMin = baseMin + distFee + totalLadder + surchargeMin + totalExtra;
+      var totalMax = baseMax + distFee + totalLadder + surchargeMax + totalExtra;
+      var totalAvg = baseAvg + distFee + totalLadder + surchargeAvg + totalExtra;
+
+      if (priceRangeEl) priceRangeEl.textContent = formatManWon(totalMin) + " ~ " + formatManWon(totalMax);
+      if (priceAvgEl) priceAvgEl.innerHTML = '평균 약 <strong>' + formatManWon(totalAvg) + '</strong>';
+
+      if (bBaseEl) bBaseEl.textContent = formatWon(baseAvg);
+      if (bLadderEl) bLadderEl.textContent = formatWon(totalLadder);
+      if (bDistEl) bDistEl.textContent = formatWon(distFee);
+      if (bSurchargeEl) bSurchargeEl.textContent = (surchargeAvg > 0 ? "+" : "") + formatWon(surchargeAvg);
+      if (bExtraEl) bExtraEl.textContent = formatWon(totalExtra);
+
+      if (savingsTipEl) {
+        if (sonSurcharge > 0 || weekendSurcharge > 0) {
+          var saveAmount = Math.round(baseAvg * (sonSurcharge + weekendSurcharge));
+          savingsTipEl.innerHTML = '손 없는 날 또는 주말 대신 <strong>평일(화·수·목) 일반일</strong>로 이사 날짜를 조정하시면 약 <strong>' + formatManWon(saveAmount) + '</strong>을 즉시 절약할 수 있습니다!';
+        } else {
+          savingsTipEl.innerHTML = '현재 <strong>가장 경제적인 평일 일반일</strong>로 선택되어 있습니다. 불필요한 할증 없이 최저가로 이사 가능합니다! 👍';
+        }
+      }
+    }
+
+    document.querySelectorAll('input[name="moveSize"], input[name="moveType"], input[name="moveDistance"], .move-extra-opt, #moveOptSonFree, #moveOptWeekend, #moveOptMonthEnd').forEach(function (el) {
+      el.addEventListener("change", calcEstimator);
+    });
+
+    if (originFloorSel) originFloorSel.addEventListener("change", calcEstimator);
+    if (destFloorSel) destFloorSel.addEventListener("change", calcEstimator);
+    if (moveDateInp) moveDateInp.addEventListener("change", onDateInputChange);
+
+    if (moveDateInp) {
+      var initY = selectedDate.year;
+      var initM = (selectedDate.month < 10 ? "0" : "") + selectedDate.month;
+      var initD = (selectedDate.day < 10 ? "0" : "") + selectedDate.day;
+      moveDateInp.value = initY + "-" + initM + "-" + initD;
+      onDateInputChange();
+    }
+
+    if (copyResultBtn) {
+      copyResultBtn.addEventListener("click", function () {
+        var sizeMap = { "1ton": "1톤 원룸", "2.5ton": "2.5톤 소형", "5ton": "5톤 가정", "6ton": "6톤+ 대형" };
+        var typeMap = { "full": "포장이사", "semi": "반포장이사", "cargo": "일반/용달" };
+        var sVal = getSelectedRadio("moveSize") || "1ton";
+        var tVal = getSelectedRadio("moveType") || "full";
+        var dateVal = moveDateInp ? moveDateInp.value : "";
+        var priceStr = priceRangeEl ? priceRangeEl.textContent : "";
+        var avgStr = priceAvgEl ? priceAvgEl.textContent.replace("평균 약 ", "") : "";
+
+        var summaryText = "[일상툴 이사 견적 계산 결과]\n" +
+          "• 이사 규모: " + (sizeMap[sVal] || sVal) + "\n" +
+          "• 이사 방식: " + (typeMap[tVal] || tVal) + "\n" +
+          "• 예정일: " + dateVal + (optSonFree && optSonFree.checked ? " (손 없는 날)" : "") + "\n" +
+          "• 예상 견적가: " + priceStr + " (평균 " + avgStr + ")\n" +
+          "• 기본 인건/차량: " + (bBaseEl ? bBaseEl.textContent : "") + "\n" +
+          "• 사다리/층수: " + (bLadderEl ? bLadderEl.textContent : "") + "\n" +
+          "• 거리 및 할증: " + (bSurchargeEl ? bSurchargeEl.textContent : "") + "\n\n" +
+          "출처: 일상툴 손없는날 & 이사견적기 (https://ilsangtool.kr/?tool=moving)";
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(summaryText).then(function () {
+            toast("견적 요약이 클립보드에 복사되었습니다! 📋");
+          }).catch(function () {
+            toast("복사되었습니다.");
+          });
+        } else {
+          toast("클립보드 복사 완료!");
+        }
+      });
+    }
+
+    var CHK_STORAGE_KEY = "ilsang_moving_chk_v1";
+    var chkProgressTxt = document.getElementById("checklistProgressTxt");
+    var chkProgressFill = document.getElementById("checklistProgressFill");
+    var resetChkBtn = document.getElementById("moveResetChecklistBtn");
+    var chkItems = document.querySelectorAll(".move-chk-item");
+
+    function updateChecklistProgress() {
+      var total = chkItems.length;
+      var checkedCount = 0;
+      var saved = [];
+
+      chkItems.forEach(function (chk) {
+        if (chk.checked) {
+          checkedCount++;
+          saved.push(chk.getAttribute("data-id"));
+        }
+      });
+
+      var pct = total > 0 ? Math.round((checkedCount / total) * 100) : 0;
+      if (chkProgressTxt) chkProgressTxt.textContent = checkedCount + " / " + total + " 완료 (" + pct + "%)";
+      if (chkProgressFill) chkProgressFill.style.width = pct + "%";
+
+      try {
+        localStorage.setItem(CHK_STORAGE_KEY, JSON.stringify(saved));
+      } catch (e) {}
+    }
+
+    function loadChecklist() {
+      try {
+        var raw = localStorage.getItem(CHK_STORAGE_KEY);
+        if (raw) {
+          var saved = JSON.parse(raw);
+          if (Array.isArray(saved)) {
+            chkItems.forEach(function (chk) {
+              var id = chk.getAttribute("data-id");
+              chk.checked = (saved.indexOf(id) !== -1);
+            });
+          }
+        }
+      } catch (e) {}
+      updateChecklistProgress();
+    }
+
+    chkItems.forEach(function (chk) {
+      chk.addEventListener("change", updateChecklistProgress);
+    });
+
+    if (resetChkBtn) {
+      resetChkBtn.addEventListener("click", function () {
+        if (!confirm("모든 이사 체크리스트 항목을 초기화하시겠습니까?")) return;
+        chkItems.forEach(function (chk) { chk.checked = false; });
+        try { localStorage.removeItem(CHK_STORAGE_KEY); } catch (e) {}
+        updateChecklistProgress();
+        toast("체크리스트가 초기화되었습니다.");
+      });
+    }
+
+    renderCalendar();
+    calcEstimator();
+    loadChecklist();
   })();
 
   function renderAdSlot(el) {
