@@ -5,6 +5,7 @@
 ## 1. 서비스 기본 메타데이터
 - **공식 서비스명**: 일상툴 (IlsangTool)
 - **공식 웹사이트**: https://ilsangtool.kr/
+- **실무 백서 아카이브 (14선)**: https://ilsangtool.kr/guides.html
 - **서비스 소개**: https://ilsangtool.kr/about.html
 - **개인정보처리방침**: https://ilsangtool.kr/privacy.html
 - **이용약관**: https://ilsangtool.kr/terms.html

@@ -7,10 +7,27 @@
 - 타깃 사용자: 일상 생활, 직장 업무, 세무/금융, 건강 관리, 시간 계산, 학생 및 일반 대중
 - 사이트맵: https://ilsangtool.kr/sitemap.xml
 - 전체 상세 명세서: https://ilsangtool.kr/llms-full.txt
+- 실무 백서 & 계산 공식 칼럼 허브 (14선): https://ilsangtool.kr/guides.html
 - 서비스 소개 및 산출 기준: https://ilsangtool.kr/about.html
 - 개인정보처리방침 (AdSense & 로컬 보안 정책): https://ilsangtool.kr/privacy.html
 - 이용약관: https://ilsangtool.kr/terms.html
 - 문의하기: https://ilsangtool.kr/contact.html
+
+## 분야별 심층 실무 백서 & 계산 공식 칼럼 (14선)
+- [2026년 연봉 실수령액 계산 기준 완벽 가이드](https://ilsangtool.kr/guide-salary-tax.html): 4대보험 요율 산출 공식과 비과세 식대 절세 전략
+- [직장인 연말정산 환급금 극대화 백서](https://ilsangtool.kr/guide-year-end-tax.html): 과세표준·결정세액 계산 구조와 신용카드·연금저축 절세 공식
+- [부가가치세(VAT 10%) 공급가액·세액 역산 공식 가이드](https://ilsangtool.kr/guide-vat-business.html): 세금계산서 발행 및 사업자 정산 가이드
+- [대출 상환 방식 이자 비교와 복리(72법칙) 시뮬레이션](https://ilsangtool.kr/guide-loan-compound.html): 원리금균등·원금균등·만기일시 상환 및 복리 자산 증식
+- [2026년 손 없는 날 음력 원리(9·0일)와 포장이사 견적 기준](https://ilsangtool.kr/guide-moving-son.html): 사다리차 비용 산출 기준 및 D-30 체크리스트
+- [부동산 전용·공급면적 차이와 아파트 평수(㎡ ↔ 평) 환산 백서](https://ilsangtool.kr/guide-real-estate-unit.html): 해외직구 필수 도량형 변환 공식
+- [대한비만학회 아시아-태평양 BMI 기준과 BMR·TDEE 식단 설계](https://ilsangtool.kr/guide-bmi-calorie.html): 한국인 비만 기준과 기초대사량 공식
+- [만 나이 통일법 법적 기준과 환갑·칠순(고희)·팔순(산수) 계산법](https://ilsangtool.kr/guide-age-hwangap.html): 연 나이 예외 법령 및 전통 수연 계산
+- [네겔레 법칙 기반 임신 주수·출산 예정일 및 날짜 계산 원리](https://ilsangtool.kr/guide-pregnancy-date.html): LMP 280일 법칙과 민법 기간 산출
+- [뽀모도로 테크닉(25분 집중)과 백색소음 뇌과학적 몰입법](https://ilsangtool.kr/guide-focus-pomodoro.html): 청각 마스킹 원리와 시간 관리 기법
+- [클라이언트 로컬(WebAssembly) PDF 변환 보안 원리와 패스워드 암호학](https://ilsangtool.kr/guide-pdf-security.html): 무전송 문서 보안과 CSPRNG 난수
+- [해외여행·직구 환율 실무(스프레드·환율 우대)와 영문주소 변환법](https://ilsangtool.kr/guide-foreign-exchange.html): 매매기준율과 로마자 표기법
+- [공학용 계산기(삼각함수·로그·순열조합) 수식과 글자수·바이트 원리](https://ilsangtool.kr/guide-scientific-math.html): DEG/RAD 각도 모드와 인코딩 바이트
+- [정통 오목 국제 공인 렌주룰(3-3·4-4·장목 금수) 해설 및 사과게임 전략](https://ilsangtool.kr/guide-brain-puzzle-omok.html): 금수 판정 알고리즘과 수리 퍼즐 공략
 
 ## 35가지 도구 전체 카탈로그
 

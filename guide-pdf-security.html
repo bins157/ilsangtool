@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인정보 유출 없는 클라이언트 로컬(WebAssembly) PDF 변환·병합·압축 원리와 패스워드 암호학 가이드 | 일상툴 실무 백서</title>
+  <meta name="description" content="무료 온라인 PDF 변환 사이트 이용 시 발생할 수 있는 클라우드 서버 문서 유출 위험성을 짚어보고, 브라우저 내부 메모리(WebAssembly·HTML5 Canvas)에서 100% 로컬 처리되는 무서버 PDF 기술과 Web Crypto API 암호학적 난수 비밀번호 생성 원리를 해설합니다.">
+  <meta name="author" content="일상툴 에디토리얼 연구팀">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ilsangtool.kr/guide-pdf-security.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="일상툴 (IlsangTool)">
+  <meta property="og:title" content="개인정보 유출 없는 클라이언트 로컬(WebAssembly) PDF 변환·병합·압축 원리와 패스워드 암호학 가이드">
+  <meta property="og:description" content="무료 온라인 PDF 변환 사이트 이용 시 발생할 수 있는 클라우드 서버 문서 유출 위험성을 짚어보고, 브라우저 내부 메모리(WebAssembly·HTML5 Canvas)에서 100% 로컬 처리되는 무서버 PDF 기술과 Web Crypto API 암호학적 난수 비밀번호 생성 원리를 해설합니다.">
+  <meta property="og:url" content="https://ilsangtool.kr/guide-pdf-security.html">
+  <meta property="og:image" content="https://ilsangtool.kr/favicon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="개인정보 유출 없는 클라이언트 로컬(WebAssembly) PDF 변환·병합·압축 원리와 패스워드 암호학 가이드">
+  <meta name="twitter:description" content="무료 온라인 PDF 변환 사이트 이용 시 발생할 수 있는 클라우드 서버 문서 유출 위험성을 짚어보고, 브라우저 내부 메모리(WebAssembly·HTML5 Canvas)에서 100% 로컬 처리되는 무서버 PDF 기술과 Web Crypto API 암호학적 난수 비밀번호 생성 원리를 해설합니다.">
+  <meta name="twitter:image" content="https://ilsangtool.kr/favicon.png">
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css?v=53">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://ilsangtool.kr/guide-pdf-security.html#article",
+      "headline": "개인정보 유출 없는 클라이언트 로컬(WebAssembly) PDF 변환·병합·압축 원리와 패스워드 암호학 가이드",
+      "description": "무료 온라인 PDF 변환 사이트 이용 시 발생할 수 있는 클라우드 서버 문서 유출 위험성을 짚어보고, 브라우저 내부 메모리(WebAssembly·HTML5 Canvas)에서 100% 로컬 처리되는 무서버 PDF 기술과 Web Crypto API 암호학적 난수 비밀번호 생성 원리를 해설합니다.",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-10-30",
+      "author": {
+        "@type": "Organization",
+        "name": "일상툴 에디토리얼 연구팀",
+        "url": "https://ilsangtool.kr/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "일상툴 (IlsangTool)",
+        "url": "https://ilsangtool.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ilsangtool.kr/favicon.png"
+        }
+      },
+      "mainEntityOfPage": "https://ilsangtool.kr/guide-pdf-security.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "일상툴 홈",
+          "item": "https://ilsangtool.kr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "실무 백서·칼럼",
+          "item": "https://ilsangtool.kr/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "개인정보 유출 없는 클라이언트 로컬(WebAssembly) PDF 변환·병합·압축 원리와 패스워드 암호학 가이드",
+          "item": "https://ilsangtool.kr/guide-pdf-security.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ilsangtool.kr/guide-pdf-security.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "인터넷 연결(와이파이)을 끊은 상태에서 일상툴 PDF 변환기를 써도 작동하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네! 웹페이지가 한 번 로드된 이후에는 인터넷 랜선을 뽑거나 비행기 모드로 전환한 상태에서 PDF 병합·분할·압축을 실행해도 100% 정상 작동합니다. 이것이 바로 외부 서버로 파일을 전혀 전송하지 않는다는 가장 확실한 증거입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "안전한 비밀번호는 몇 자리 이상으로 설정하는 것이 권장되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "한국인터넷진흥원(KISA) 및 미국 국립표준기술연구소(NIST) 가이드라인에 따르면 영문 대소문자, 숫자, 특수문자를 혼합할 경우 최소 12자리 이상(금융·관리자 계정은 16자리 이상)으로 설정하는 것을 권장합니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .policy-wrap { max-width: 960px; margin: 0 auto; padding: 36px 20px 80px; color: #e2e8f0; line-height: 1.8; }
+    .policy-top-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 20px; margin-bottom: 28px; border-bottom: 1px solid rgba(148,163,184,0.18); }
+    .policy-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #f8fafc; font-weight: 800; font-size: 18px; }
+    .policy-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .policy-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .policy-links a { text-decoration: none; font-size: 13px; font-weight: 600; color: #cbd5e1; padding: 6px 12px; border-radius: 8px; background: rgba(30,41,59,0.7); border: 1px solid rgba(148,163,184,0.2); transition: all 0.15s ease; }
+    .policy-links a:hover, .policy-links a.active { color: #ffffff; border-color: #60a5fa; background: rgba(37,99,235,0.28); }
+    .guide-breadcrumb { font-size: 12.5px; color: #94a3b8; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .guide-breadcrumb a { color: #93c5fd; text-decoration: none; }
+    .guide-breadcrumb a:hover { text-decoration: underline; }
+    .policy-card { background: rgba(15,23,42,0.85); border: 1px solid rgba(148,163,184,0.18); border-radius: 20px; padding: 34px 30px; margin-bottom: 24px; box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
+    .guide-header-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .guide-pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: rgba(37,99,235,0.22); color: #93c5fd; border: 1px solid rgba(96,165,250,0.35); }
+    .guide-pill.amber { background: rgba(245,158,11,0.16); color: #fcd34d; border-color: rgba(245,158,11,0.35); }
+    .policy-card h1 { font-size: 26px; font-weight: 800; color: #ffffff; margin: 0 0 14px 0; line-height: 1.38; letter-spacing: -0.02em; }
+    .guide-meta-bar { font-size: 12.5px; color: #94a3b8; padding-bottom: 18px; margin-bottom: 20px; border-bottom: 1px solid rgba(148,163,184,0.15); display: flex; flex-wrap: wrap; gap: 14px; }
+    .guide-lead-summary { background: rgba(30,41,59,0.65); border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 16px 18px; margin-bottom: 22px; font-size: 14.5px; color: #e2e8f0; line-height: 1.75; }
+    .guide-toc-box { background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; padding: 18px 22px; margin-bottom: 28px; }
+    .guide-toc-title { font-size: 14px; font-weight: 800; color: #f8fafc; margin-bottom: 10px; }
+    .guide-toc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+    .guide-toc-list a { color: #93c5fd; text-decoration: none; font-size: 13.5px; font-weight: 600; }
+    .guide-toc-list a:hover { color: #ffffff; text-decoration: underline; }
+    .policy-card h2 { font-size: 20px; font-weight: 800; color: #93c5fd; margin: 34px 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(148,163,184,0.14); }
+    .policy-card h3 { font-size: 16px; font-weight: 700; color: #f8fafc; margin: 20px 0 8px 0; }
+    .policy-card p, .policy-card li { font-size: 14.5px; color: #cbd5e1; line-height: 1.8; }
+    .policy-card p { margin-bottom: 14px; }
+    .policy-card ul, .policy-card ol { padding-left: 22px; margin: 10px 0 16px; }
+    .policy-card li { margin-bottom: 8px; }
+    .policy-card strong { color: #f8fafc; }
+    .policy-card code { background: rgba(30,41,59,0.9); color: #fcd34d; padding: 2px 6px; border-radius: 6px; font-size: 13px; }
+    .guide-formula-box { background: linear-gradient(135deg, rgba(30,41,59,0.85), rgba(15,23,42,0.95)); border: 1px solid rgba(96,165,250,0.3); border-radius: 14px; padding: 18px 20px; margin: 16px 0 20px; font-size: 14px; color: #f1f5f9; line-height: 1.85; }
+    .guide-callout { background: rgba(30,41,59,0.65); border: 1px solid rgba(245,158,11,0.32); border-radius: 14px; padding: 18px 20px; margin: 18px 0 22px; font-size: 14px; color: #e2e8f0; }
+    .guide-table-wrap { overflow-x: auto; margin: 16px 0 22px; border-radius: 12px; border: 1px solid rgba(148,163,184,0.2); }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; }
+    .guide-table th { background: rgba(30,41,59,0.95); color: #f8fafc; font-weight: 700; padding: 12px 14px; border-bottom: 1px solid rgba(148,163,184,0.25); white-space: nowrap; }
+    .guide-table td { padding: 11px 14px; border-bottom: 1px solid rgba(148,163,184,0.12); color: #cbd5e1; vertical-align: top; }
+    .guide-table tr:last-child td { border-bottom: none; }
+    .guide-table tr:nth-child(even) td { background: rgba(30,41,59,0.35); }
+    .guide-cta-banner { background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(15,23,42,0.9)); border: 1px solid rgba(96,165,250,0.4); border-radius: 16px; padding: 22px 24px; margin: 28px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .guide-cta-info h3 { margin: 0 0 6px 0; font-size: 17px; color: #ffffff; }
+    .guide-cta-info p { margin: 0; font-size: 13.5px; color: #cbd5e1; }
+    .guide-cta-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .guide-cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700; text-decoration: none; transition: all 0.15s ease; }
+    .guide-cta-btn.primary { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #ffffff; box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .guide-cta-btn.primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .guide-cta-btn.secondary { background: rgba(30,41,59,0.85); color: #e2e8f0; border: 1px solid rgba(148,163,184,0.3); }
+    .guide-cta-btn.secondary:hover { border-color: #60a5fa; color: #ffffff; }
+    .guide-faq-box { margin-top: 30px; }
+    .guide-faq-item { background: rgba(30,41,59,0.55); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+    .guide-faq-item summary { cursor: pointer; font-weight: 700; font-size: 14.5px; color: #93c5fd; }
+    .guide-faq-item p { margin: 10px 0 0 0; font-size: 13.8px; color: #cbd5e1; line-height: 1.75; }
+    .guide-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 14px; }
+    .guide-related-card { display: block; text-decoration: none; background: rgba(30,41,59,0.65); border: 1px solid rgba(148,163,184,0.18); border-radius: 14px; padding: 16px 18px; transition: all 0.15s ease; }
+    .guide-related-card:hover { border-color: #60a5fa; background: rgba(37,99,235,0.18); transform: translateY(-2px); }
+    .guide-related-card .r-cat { font-size: 11.5px; color: #fcd34d; font-weight: 700; margin-bottom: 4px; }
+    .guide-related-card h4 { font-size: 14.5px; color: #f8fafc; margin: 0 0 6px 0; line-height: 1.4; }
+    .guide-related-card p { font-size: 12.5px; color: #94a3b8; margin: 0; line-height: 1.5; }
+    .policy-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(148,163,184,0.16); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12.5px; color: #94a3b8; }
+    .policy-footer a { color: #93c5fd; text-decoration: none; }
+    @media (max-width: 640px) {
+      .policy-card { padding: 22px 18px; }
+      .policy-card h1 { font-size: 21px; }
+      .policy-card h2 { font-size: 17.5px; }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="policy-wrap">
+
+    <header class="policy-top-nav">
+      <a href="https://ilsangtool.kr/" class="policy-brand">
+        <img src="favicon.png" alt="일상툴 로고">
+        <span>일상툴 (IlsangTool)</span>
+      </a>
+      <nav class="policy-links" aria-label="사이트 주요 안내 및 백서 메뉴">
+        <a href="https://ilsangtool.kr/">🏠 홈 (전체 도구)</a>
+        <a href="guides.html" class="active">📚 실무 백서·칼럼</a>
+        <a href="about.html" class="">서비스 소개</a>
+        <a href="privacy.html" class="">개인정보처리방침</a>
+        <a href="terms.html" class="">이용약관</a>
+        <a href="contact.html" class="">문의하기</a>
+      </nav>
+    </header>
+  
+    <nav class="guide-breadcrumb" aria-label="현재 위치">
+      <a href="https://ilsangtool.kr/">홈</a>
+      <span>›</span>
+      <a href="guides.html">실무 백서·칼럼</a>
+      <span>›</span>
+      <span>IT · 정보보안 백서</span>
+    </nav>
+
+    <main>
+      <article class="policy-card">
+        <div class="guide-header-badges">
+          <span class="guide-pill">IT · 정보보안 백서</span>
+          <span class="guide-pill amber">클라이언트 로컬 보안</span>
+        </div>
+        <h1>개인정보 유출 없는 클라이언트 로컬(WebAssembly) PDF 변환·병합·압축 원리와 패스워드 암호학 가이드</h1>
+        <div class="guide-meta-bar">
+          <span>✍️ 작성·감수: <strong>일상툴 에디토리얼 연구팀</strong></span>
+          <span>📅 최종 검수일: 2026-10-30</span>
+          <span>⏱️ 예상 독서 시간: 8분</span>
+          <span>🏛️ 기준 근거: W3C WebAssembly & Web Cryptography API 표준 · OWASP 비밀번호 보안 가이드라인</span>
+        </div>
+
+        <div class="guide-lead-summary">
+          <strong>핵심 요약:</strong> 근로계약서, 등기부등본, 재무제표, 신분증 사본이 담긴 PDF 파일을 외부 서버 기반 변환 사이트에 업로드하는 것은 심각한 보안 위협이 될 수 있습니다. 파일이 기기 밖으로 단 1바이트도 나가지 않는 클라이언트 로컬 PDF 연산 기술과 안전한 패스워드 설계 원칙을 다룹니다.
+        </div>
+
+        <nav class="guide-toc-box" aria-label="본문 목차">
+          <div class="guide-toc-title">📑 본문 목차 (클릭 시 해당 단락으로 이동)</div>
+          <ul class="guide-toc-list">
+            
+    <li><a href="#sec-1">1. 서버 업로드 방식 온라인 변환기의 보안 구조와 기밀 유출 리스크</a></li>
+  
+    <li><a href="#sec-2">2. 100% 브라우저 로컬 연산(Zero-Server Architecture)의 작동 원리</a></li>
+  
+    <li><a href="#sec-3">3. PDF 병합·분할·이미지 추출·용량 압축의 실무 활용 매뉴얼</a></li>
+  
+    <li><a href="#sec-4">4. 무차별 대입 공격(Brute-force)을 무력화하는 비밀번호 엔트로피(Entropy) 공식</a></li>
+  
+    <li><a href="#sec-5">5. Math.random()과 Web Crypto API(CSPRNG) 암호학적 난수의 결정적 차이</a></li>
+  
+          </ul>
+        </nav>
+
+        
+      <h2 id="sec-1">1. 서버 업로드 방식 온라인 변환기의 보안 구조와 기밀 유출 리스크</h2>
+      <p>
+        직장인과 학생들은 매일 이미지(JPG·PNG)를 PDF로 묶거나, 여러 개의 PDF 계약서를 하나로 합치거나(병합), 이메일 첨부 용량 제한(보통 10~25MB)을 맞추기 위해 PDF를 압축합니다. 이때 흔히 검색엔진 상단에 나오는 해외 무료 PDF 사이트에 파일을 업로드하곤 합니다.
+      </p>
+      <p>
+        그러나 전통적인 서버 기반(Server-Side) 온라인 변환기는 사용자의 파일을 <strong>외부 클라우드 스토리지에 전송(Upload) → 원격 서버에서 변환 → 다운로드 링크 생성</strong>의 과정을 거칩니다. 업체들이 "1시간 후 서버에서 자동 삭제된다"고 안내하더라도, 전송 과정에서 사내 보안 규정(DLP) 위반으로 감지되거나 민감한 개인정보(주민등록번호, 급여 명세, 부동산 계약서)가 외부 서버 디스크를 거친다는 사실 자체가 큰 보안 부담이 됩니다.
+      </p>
+
+      <h2 id="sec-2">2. 100% 브라우저 로컬 연산(Zero-Server Architecture)의 작동 원리</h2>
+      <p>
+        현대 웹 표준 기술의 발전으로 이제 무거운 프로그램(Acrobat 등)을 설치하거나 외부 서버에 파일을 올리지 않고도 <strong>사용자의 PC·스마트폰 웹 브라우저 내부 메모리(RAM)에서 직접 문서를 처리</strong>할 수 있게 되었습니다.
+      </p>
+      <div class="guide-table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>비교 항목</th>
+              <th>기존 클라우드 서버 업로드 방식</th>
+              <th>일상툴 100% 브라우저 로컬 연산 방식</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>파일 처리 위치</strong></td>
+              <td>외부 원격 클라우드 서버</td>
+              <td><strong>사용자 기기(PC·스마트폰) 브라우저 내부 메모리</strong></td>
+            </tr>
+            <tr>
+              <td><strong>네트워크 전송량</strong></td>
+              <td>파일 용량만큼 업로드 + 다운로드 데이터 소모</td>
+              <td><strong>외부 서버 전송 0 Byte (오프라인 상태에서도 동작)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>기밀 문서 보안성</strong></td>
+              <td>외부 서버 임시 저장으로 사내 보안 정책 저촉 우려</td>
+              <td><strong>파일이 내 컴퓨터 밖으로 절대 나가지 않아 유출 원천 불가능</strong></td>
+            </tr>
+            <tr>
+              <td><strong>처리 속도 및 제한</strong></td>
+              <td>업로드/다운로드 대기 시간 및 일일 무료 횟수 제한</td>
+              <td><strong>업로드 대기 없이 1초 만에 즉시 변환 · 무제한 무료</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        일상툴의 PDF 도구는 모질라(Mozilla) 재단의 오픈소스 렌더링 엔진인 <code>PDF.js</code>와 순수 클라이언트 문서 조작 라이브러리인 <code>pdf-lib</code>, <code>HTML5 Canvas API</code>를 결합하여 모든 페이지 렌더링과 바이트 재조립을 사용자 기기 안에서 완결합니다.
+      </p>
+
+      <h2 id="sec-3">3. PDF 병합·분할·이미지 추출·용량 압축의 실무 활용 매뉴얼</h2>
+      <ul>
+        <li><strong>이미지 → PDF 변환:</strong> 스마트폰으로 촬영한 영수증, 통장 사본, 신분증 사진 여러 장을 드래그하여 A4 규격(여백 및 세로/가로 방향 지정) 단일 PDF 문서로 즉시 묶어 전자결재 증빙으로 제출할 수 있습니다.</li>
+        <li><strong>PDF 병합(Merge) & 분할(Split):</strong> 표지 PDF와 본문 PDF, 첨부 서류 PDF를 원하는 순서대로 합치거나, 100페이지짜리 보고서에서 필요한 3~5페이지만 쏙 뽑아내어 별도 파일로 저장합니다.</li>
+        <li><strong>PDF 용량 압축(Compress):</strong> 관공서 전자민원(정부24, 홈택스)이나 이메일 첨부 시 파일 용량이 10MB를 초과할 때, 문서 내 고해상도 비트맵 리소스를 최적 리샘플링하여 화질 저하를 최소화하면서 파일 크기를 50~80% 줄입니다.</li>
+      </ul>
+
+      <h2 id="sec-4">4. 무차별 대입 공격(Brute-force)을 무력화하는 비밀번호 엔트로피(Entropy) 공식</h2>
+      <p>
+        계정 해킹의 대다수는 사전 대입 공격(Dictionary Attack)과 무차별 대입 공격(Brute-force Attack)으로 발생합니다. 비밀번호의 수학적 안전도를 나타내는 지표는 <strong>정보 엔트로피(Information Entropy, 단위: bit)</strong>입니다.
+      </p>
+      <div class="guide-formula-box">
+        <strong>🔐 비밀번호 엔트로피(보안 강도) 계산 공식</strong><br>
+        <code>E = L × log₂(R)</code><br>
+        (<code>E</code>: 엔트로피 비트 수, <code>L</code>: 비밀번호 글자 길이, <code>R</code>: 사용된 문자 집합의 크기)<br>
+        • 숫자만 사용 시 <code>R = 10</code> | 영문 소문자만 <code>R = 26</code> | 대소문자+숫자+특수문자 조합 시 <code>R ≈ 94</code>
+      </div>
+      <p>
+        예를 들어 숫자만 사용한 6자리 비밀번호(<code>L=6, R=10</code>)의 경우의 수는 백만 개(약 19.9 bit)에 불과해 최신 GPU 연산기로 <strong>0.001초 만에 해독</strong>됩니다. 반면 영문 대문자(26) + 소문자(26) + 숫자(10) + 특수문자(32)를 섞은 <strong>16자리 랜덤 비밀번호(<code>L=16, R=94</code>)</strong>는 약 <strong>104.8 bit</strong>의 엔트로피를 가지며, 슈퍼컴퓨터로도 수조 년이 걸려 사실상 해독이 불가능합니다.
+      </p>
+
+      <h2 id="sec-5">5. Math.random()과 Web Crypto API(CSPRNG) 암호학적 난수의 결정적 차이</h2>
+      <p>
+        일반적인 프로그래밍의 <code>Math.random()</code> 함수는 시드(Seed) 값에 의해 다음 숫자를 예측할 수 있는 의사난수(PRNG)이므로 보안 패스워드 생성에 사용하면 안 됩니다. 일상툴의 비밀번호 생성기는 운영체제 커널의 하드웨어 엔트로피 소스를 직접 참조하는 웹 표준 <strong><code>window.crypto.getRandomValues()</code> (암호학적 안전 의사난수 생성기, CSPRNG)</strong>를 사용하여 예측 불가능한 무결점 패스워드를 생성합니다.
+      </p>
+    
+
+        <div class="guide-cta-banner">
+          <div class="guide-cta-info">
+            <h3>⚡ 방금 읽은 공식으로 내 수치를 1초 만에 계산해 보세요!</h3>
+            <p>회원가입이나 서버 전송 없이 브라우저 로컬에서 즉시 무료로 시뮬레이션할 수 있습니다.</p>
+          </div>
+          <div class="guide-cta-btns">
+            <a href="https://ilsangtool.kr/?tool=pdf" class="guide-cta-btn primary">
+              <span>🚀</span><span>100% 로컬 PDF 변환·병합기 바로 실행</span>
+            </a>
+            <a href="https://ilsangtool.kr/?tool=password" class="guide-cta-btn secondary">
+              <span>🔗</span><span>암호학 난수 비밀번호 생성기</span>
+            </a>
+          </div>
+        </div>
+
+        <section class="guide-faq-box" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">💬 자주 묻는 질문 (실무 심층 FAQ)</h2>
+          
+    <details class="guide-faq-item" open>
+      <summary>Q1. 인터넷 연결(와이파이)을 끊은 상태에서 일상툴 PDF 변환기를 써도 작동하나요?</summary>
+      <p>네! 웹페이지가 한 번 로드된 이후에는 인터넷 랜선을 뽑거나 비행기 모드로 전환한 상태에서 PDF 병합·분할·압축을 실행해도 100% 정상 작동합니다. 이것이 바로 외부 서버로 파일을 전혀 전송하지 않는다는 가장 확실한 증거입니다.</p>
+    </details>
+  
+    <details class="guide-faq-item" >
+      <summary>Q2. 안전한 비밀번호는 몇 자리 이상으로 설정하는 것이 권장되나요?</summary>
+      <p>한국인터넷진흥원(KISA) 및 미국 국립표준기술연구소(NIST) 가이드라인에 따르면 영문 대소문자, 숫자, 특수문자를 혼합할 경우 최소 12자리 이상(금융·관리자 계정은 16자리 이상)으로 설정하는 것을 권장합니다.</p>
+    </details>
+  
+        </section>
+
+        <section style="margin-top:34px; padding-top:24px; border-top:1px solid rgba(148,163,184,0.16);">
+          <h2 style="margin-top:0;">📚 함께 읽으면 좋은 연관 실무 백서</h2>
+          <div class="guide-related-grid">
+            
+      <a href="guide-focus-pomodoro.html" class="guide-related-card">
+        <div class="r-cat">뇌과학 · 생산성 백서</div>
+        <h4>뽀모도로 테크닉(25분 집중·5분 휴식)과 백색소음(청각 마스킹)을 활용한 뇌과학적 업무·학습 몰입법</h4>
+        <p>프란체스코 시릴로의 뽀모도로 타이머 기법(25분 몰입 + 5분 휴식 사이클)이 전두엽 피로를 줄이는 원리와 화이트·핑크·브라운 노이즈(빗소리·장작불·카페 소음)의 확률적 공명 및 청각 마스킹 효과를 깊이 있게 해설합니다.</p>
+      </a>
+    
+      <a href="guide-foreign-exchange.html" class="guide-related-card">
+        <div class="r-cat">글로벌 · 외환 · 직구 백서</div>
+        <h4>해외여행·직구 환율 계산 실무: 매매기준율 vs 현찰 스프레드, 환율 우대 90%의 의미와 영문주소 변환법</h4>
+        <p>원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) 환율 계산 시 매매기준율과 현찰 살 때/팔 때 스프레드의 차이, 환율 우대 90% 계산 공식, 해외 카드 결제 시 DCC(원화결제) 이중수수료 차단법 및 국립국어원 로마자 표기법 기반 영문주소 변환 규칙을 정리합니다.</p>
+      </a>
+    
+      <a href="guide-vat-business.html" class="guide-related-card">
+        <div class="r-cat">금융 · 세무 백서</div>
+        <h4>부가가치세(VAT 10%) 공급가액·세액 역산 공식과 세금계산서 발행 및 사업자 정산 가이드</h4>
+        <p>대한민국 부가가치세(VAT 10%) 별도·포함 금액 계산 원리, 합계금액에서 공급가액을 역산하는 나누기 1.1 공식, 일반과세자와 간이과세자의 부가세 차이, 전자세금계산서 발행 기한 및 단수 처리 규정을 상세히 설명합니다.</p>
+      </a>
+    
+          </div>
+          <div style="margin-top:18px; text-align:right;">
+            <a href="guides.html" style="color:#93c5fd; font-size:13.5px; font-weight:700; text-decoration:none;">👉 전체 12종 실무 백서·칼럼 목록 보기</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="policy-footer">
+      <div>© 2026 일상툴 (ilsangtool.kr). 모든 계산 및 파일 처리는 사용자 브라우저 로컬에서 안전하게 실행됩니다.</div>
+      <div>
+        <a href="https://ilsangtool.kr/">홈</a> ·
+        <a href="guides.html">실무 백서·칼럼</a> ·
+        <a href="about.html">서비스 소개</a> ·
+        <a href="privacy.html">개인정보처리방침</a> ·
+        <a href="terms.html">이용약관</a> ·
+        <a href="contact.html">문의하기</a> ·
+        <a href="sitemap.xml">사이트맵</a>
+      </div>
+    </footer>
+  
+  </div>
+</body>
+</html>

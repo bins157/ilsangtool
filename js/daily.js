@@ -55,7 +55,7 @@
     document.title = tool.title || (tool.name + " - 일상툴");
     if (descMeta) descMeta.setAttribute("content", tool.desc || "");
     var canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/#" + tool.id);
+    if (canonical) canonical.setAttribute("href", tool.id === "home" ? "https://ilsangtool.kr/" : "https://ilsangtool.kr/?tool=" + tool.id);
     var ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute("content", tool.title || (tool.name + " - 일상툴"));
     var ogDesc = document.querySelector('meta[property="og:description"]');
@@ -2378,17 +2378,51 @@
   });
 
   var BD_KEY = "dailytool-board";
+  var DEFAULT_BOARD_POSTS = [
+    {
+      name: "이사준비중",
+      when: "2026. 10. 12.",
+      title: "[반영완료] 2026년 손 없는 날 달력이랑 포장이사 견적 비교 도구 만들어주세요",
+      body: "이사 날짜 잡을 때 음력 9일, 10일 일일이 달력 찾아보기 번거로운데 월별로 손 없는 날이랑 평일/주말 포장이사·사다리차 예상 비용을 한눈에 비교할 수 있으면 좋겠습니다. → [운영팀 답변] 2025~2028년 음양력 변환 엔진과 톤수별 이사·사다리차 견적 시뮬레이터(?tool=moving)가 정식 오픈되었습니다."
+    },
+    {
+      name: "수험생민지",
+      when: "2026. 10. 08.",
+      title: "[반영완료] 공부할 때 켜둘 무설치 백색소음(빗소리, 장작불) + 뽀모도로 타이머 요청",
+      body: "브라우저에서 바로 빗소리랑 장작 타는 소리 섞어서 들으면서 25분 집중 / 5분 휴식 뽀모도로 타이머 돌릴 수 있는 도구가 있으면 매일 쓸 것 같아요! → [운영팀 답변] Web Audio API 기반 4채널 백색소음 믹서 & 뽀모도로 타이머(?tool=focus)가 추가되었습니다."
+    },
+    {
+      name: "인사팀박대리",
+      when: "2026. 09. 29.",
+      title: "[반영완료] 회사 보안 때문에 외부 업로드 없는 PDF 병합/분할/이미지 변환기가 필요해요",
+      body: "근로계약서나 이력서 PDF 합치기 할 때 외부 무료 사이트에 파일 올리기가 보안상 걱정됩니다. 서버 전송 없이 브라우저 안에서만 작동하는 로컬 PDF 변환기를 지원해 주세요. → [운영팀 답변] 100% 클라이언트 로컬 메모리(WebAssembly)에서 동작하는 올인원 PDF 변환기(?tool=pdf)가 반영되었습니다."
+    },
+    {
+      name: "효도하자",
+      when: "2026. 09. 19.",
+      title: "[반영완료] 부모님 칠순(고희), 팔순(산수) 계산할 때 만나이/세는나이 기준 함께 표시 요청",
+      body: "만나이 통일법 이후로 칠순 잔치를 만 70세에 하는지 한국나이 70세(만 69세)에 하는지 가족들끼리 헷갈려 합니다. 두 기준 연도와 남은 D-Day를 같이 보여주세요. → [운영팀 답변] 환갑·칠순·팔순 계산기(?tool=hwangap) 및 수연(壽宴) 실무 백서에 전통 세는나이 기준과 만 나이 기준을 동시 표기하도록 개선했습니다."
+    },
+    {
+      name: "바둑동호회",
+      when: "2026. 09. 11.",
+      title: "[반영완료] 오목게임에 국제 공인 렌주룰(3-3, 4-4, 장목 금수) 판정 기능 넣어주세요",
+      body: "친구랑 오목 둘 때 흑이 3-3이나 4-4 두면 너무 싱겁게 끝나버립니다. 렌주룰 금수 자리에 X 표시가 뜨고 AI랑도 대국할 수 있으면 좋겠습니다. → [운영팀 답변] 15×15 정통 오목게임(?tool=omok)에 공인 렌주룰 금수 판정 엔진과 초급·중급·마스터 3단계 AI 대국 모드를 탑재했습니다."
+    },
+    {
+      name: "디자인프리",
+      when: "2026. 10. 25.",
+      title: "[검토중] 프리랜서 3.3% 원천징수 및 종합소득세 간편 계산기 추가 건의",
+      body: "외주 용역비 정산할 때 부가세 10% 계산기는 정말 잘 쓰고 있습니다! 여기에 프리랜서 3.3%(소득세 3% + 지방소득세 0.3%) 공제 후 실입금액과 역산 기능도 추가되면 좋겠습니다. → [운영팀 답변] 소중한 의견 감사합니다! 현재 세무 계산 모듈 확장 업데이트 리스트에 등록되어 개발 검토 중입니다."
+    }
+  ];
   function loadBoard() {
     try { return JSON.parse(localStorage.getItem(BD_KEY) || "[]"); } catch (e) { return []; }
   }
   function renderBoard() {
     var list = document.getElementById("bdList");
     if (!list) return;
-    var posts = loadBoard();
-    if (!posts.length) {
-      list.innerHTML = '<div class="card panel" style="padding:16px 20px"><p class="desc" style="margin:0">아직 등록된 요청이 없습니다. 첫 번째 도구를 요청해 보세요!</p></div>';
-      return;
-    }
+    var posts = loadBoard().concat(DEFAULT_BOARD_POSTS);
     list.innerHTML = posts.map(function (p) {
       return '<article class="card panel board-item"><div class="board-meta">' +
         esc(p.name || "익명") + " · " + esc(p.when) +
@@ -9080,7 +9114,9 @@
     if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);
     else show("home");
   });
-  var hash = (location.hash || "").replace("#", "");
+  var qToolInit = "";
+  try { qToolInit = new URLSearchParams(location.search).get("tool") || ""; } catch (e) {}
+  var hash = (location.hash || "").replace("#", "") || qToolInit;
   if (hash && TOOLS.some(function (t) { return t.id === hash; })) show(hash);
   else show("home");
 

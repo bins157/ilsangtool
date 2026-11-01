@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서 | 일상툴 실무 백서</title>
+  <meta name="description" content="아파트 분양 공고의 전용면적(59㎡·84㎡), 주거공용면적, 공급면적, 계약면적의 정확한 개념과 제곱미터(㎡)를 평수로 바꾸는 0.3025 공식, 그리고 미국·유럽 해외직구 필수 길이(inch·ft)·무게(lb·oz)·온도(℉) 환산 기준을 총정리합니다.">
+  <meta name="author" content="일상툴 에디토리얼 연구팀">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ilsangtool.kr/guide-real-estate-unit.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="일상툴 (IlsangTool)">
+  <meta property="og:title" content="부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서">
+  <meta property="og:description" content="아파트 분양 공고의 전용면적(59㎡·84㎡), 주거공용면적, 공급면적, 계약면적의 정확한 개념과 제곱미터(㎡)를 평수로 바꾸는 0.3025 공식, 그리고 미국·유럽 해외직구 필수 길이(inch·ft)·무게(lb·oz)·온도(℉) 환산 기준을 총정리합니다.">
+  <meta property="og:url" content="https://ilsangtool.kr/guide-real-estate-unit.html">
+  <meta property="og:image" content="https://ilsangtool.kr/favicon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서">
+  <meta name="twitter:description" content="아파트 분양 공고의 전용면적(59㎡·84㎡), 주거공용면적, 공급면적, 계약면적의 정확한 개념과 제곱미터(㎡)를 평수로 바꾸는 0.3025 공식, 그리고 미국·유럽 해외직구 필수 길이(inch·ft)·무게(lb·oz)·온도(℉) 환산 기준을 총정리합니다.">
+  <meta name="twitter:image" content="https://ilsangtool.kr/favicon.png">
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css?v=53">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://ilsangtool.kr/guide-real-estate-unit.html#article",
+      "headline": "부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서",
+      "description": "아파트 분양 공고의 전용면적(59㎡·84㎡), 주거공용면적, 공급면적, 계약면적의 정확한 개념과 제곱미터(㎡)를 평수로 바꾸는 0.3025 공식, 그리고 미국·유럽 해외직구 필수 길이(inch·ft)·무게(lb·oz)·온도(℉) 환산 기준을 총정리합니다.",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-10-30",
+      "author": {
+        "@type": "Organization",
+        "name": "일상툴 에디토리얼 연구팀",
+        "url": "https://ilsangtool.kr/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "일상툴 (IlsangTool)",
+        "url": "https://ilsangtool.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ilsangtool.kr/favicon.png"
+        }
+      },
+      "mainEntityOfPage": "https://ilsangtool.kr/guide-real-estate-unit.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "일상툴 홈",
+          "item": "https://ilsangtool.kr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "실무 백서·칼럼",
+          "item": "https://ilsangtool.kr/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서",
+          "item": "https://ilsangtool.kr/guide-real-estate-unit.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ilsangtool.kr/guide-real-estate-unit.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "전용면적 85㎡(국민주택규모) 기준이 세금에서 왜 중요한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "주택법상 전용면적 85㎡(수도권 외 읍·면 지역은 100㎡) 이하 주택을 \"국민주택규모\"라고 합니다. 생애최초 및 일반 주택 취득 시 전용 85㎡ 이하 주택은 농어촌특별세(0.2%)가 비과세되어 취득세율이 1.1%로 낮아지지만, 85㎡를 조금이라도 초과하면 농어촌특별세가 부과되어 세율이 1.3% 이상으로 올라갑니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "금 1돈과 고기 1근은 각각 몇 그램(g)인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "귀금속 거래에서 금 1돈은 정확히 3.75g이며(골드바 10돈 = 37.5g), 정육점에서 사용하는 육류 1근은 600g(채소·과일 한 근은 품목에 따라 300g 또는 400g)입니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .policy-wrap { max-width: 960px; margin: 0 auto; padding: 36px 20px 80px; color: #e2e8f0; line-height: 1.8; }
+    .policy-top-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 20px; margin-bottom: 28px; border-bottom: 1px solid rgba(148,163,184,0.18); }
+    .policy-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #f8fafc; font-weight: 800; font-size: 18px; }
+    .policy-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .policy-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .policy-links a { text-decoration: none; font-size: 13px; font-weight: 600; color: #cbd5e1; padding: 6px 12px; border-radius: 8px; background: rgba(30,41,59,0.7); border: 1px solid rgba(148,163,184,0.2); transition: all 0.15s ease; }
+    .policy-links a:hover, .policy-links a.active { color: #ffffff; border-color: #60a5fa; background: rgba(37,99,235,0.28); }
+    .guide-breadcrumb { font-size: 12.5px; color: #94a3b8; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .guide-breadcrumb a { color: #93c5fd; text-decoration: none; }
+    .guide-breadcrumb a:hover { text-decoration: underline; }
+    .policy-card { background: rgba(15,23,42,0.85); border: 1px solid rgba(148,163,184,0.18); border-radius: 20px; padding: 34px 30px; margin-bottom: 24px; box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
+    .guide-header-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .guide-pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: rgba(37,99,235,0.22); color: #93c5fd; border: 1px solid rgba(96,165,250,0.35); }
+    .guide-pill.amber { background: rgba(245,158,11,0.16); color: #fcd34d; border-color: rgba(245,158,11,0.35); }
+    .policy-card h1 { font-size: 26px; font-weight: 800; color: #ffffff; margin: 0 0 14px 0; line-height: 1.38; letter-spacing: -0.02em; }
+    .guide-meta-bar { font-size: 12.5px; color: #94a3b8; padding-bottom: 18px; margin-bottom: 20px; border-bottom: 1px solid rgba(148,163,184,0.15); display: flex; flex-wrap: wrap; gap: 14px; }
+    .guide-lead-summary { background: rgba(30,41,59,0.65); border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 16px 18px; margin-bottom: 22px; font-size: 14.5px; color: #e2e8f0; line-height: 1.75; }
+    .guide-toc-box { background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; padding: 18px 22px; margin-bottom: 28px; }
+    .guide-toc-title { font-size: 14px; font-weight: 800; color: #f8fafc; margin-bottom: 10px; }
+    .guide-toc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+    .guide-toc-list a { color: #93c5fd; text-decoration: none; font-size: 13.5px; font-weight: 600; }
+    .guide-toc-list a:hover { color: #ffffff; text-decoration: underline; }
+    .policy-card h2 { font-size: 20px; font-weight: 800; color: #93c5fd; margin: 34px 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(148,163,184,0.14); }
+    .policy-card h3 { font-size: 16px; font-weight: 700; color: #f8fafc; margin: 20px 0 8px 0; }
+    .policy-card p, .policy-card li { font-size: 14.5px; color: #cbd5e1; line-height: 1.8; }
+    .policy-card p { margin-bottom: 14px; }
+    .policy-card ul, .policy-card ol { padding-left: 22px; margin: 10px 0 16px; }
+    .policy-card li { margin-bottom: 8px; }
+    .policy-card strong { color: #f8fafc; }
+    .policy-card code { background: rgba(30,41,59,0.9); color: #fcd34d; padding: 2px 6px; border-radius: 6px; font-size: 13px; }
+    .guide-formula-box { background: linear-gradient(135deg, rgba(30,41,59,0.85), rgba(15,23,42,0.95)); border: 1px solid rgba(96,165,250,0.3); border-radius: 14px; padding: 18px 20px; margin: 16px 0 20px; font-size: 14px; color: #f1f5f9; line-height: 1.85; }
+    .guide-callout { background: rgba(30,41,59,0.65); border: 1px solid rgba(245,158,11,0.32); border-radius: 14px; padding: 18px 20px; margin: 18px 0 22px; font-size: 14px; color: #e2e8f0; }
+    .guide-table-wrap { overflow-x: auto; margin: 16px 0 22px; border-radius: 12px; border: 1px solid rgba(148,163,184,0.2); }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; }
+    .guide-table th { background: rgba(30,41,59,0.95); color: #f8fafc; font-weight: 700; padding: 12px 14px; border-bottom: 1px solid rgba(148,163,184,0.25); white-space: nowrap; }
+    .guide-table td { padding: 11px 14px; border-bottom: 1px solid rgba(148,163,184,0.12); color: #cbd5e1; vertical-align: top; }
+    .guide-table tr:last-child td { border-bottom: none; }
+    .guide-table tr:nth-child(even) td { background: rgba(30,41,59,0.35); }
+    .guide-cta-banner { background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(15,23,42,0.9)); border: 1px solid rgba(96,165,250,0.4); border-radius: 16px; padding: 22px 24px; margin: 28px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .guide-cta-info h3 { margin: 0 0 6px 0; font-size: 17px; color: #ffffff; }
+    .guide-cta-info p { margin: 0; font-size: 13.5px; color: #cbd5e1; }
+    .guide-cta-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .guide-cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700; text-decoration: none; transition: all 0.15s ease; }
+    .guide-cta-btn.primary { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #ffffff; box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .guide-cta-btn.primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .guide-cta-btn.secondary { background: rgba(30,41,59,0.85); color: #e2e8f0; border: 1px solid rgba(148,163,184,0.3); }
+    .guide-cta-btn.secondary:hover { border-color: #60a5fa; color: #ffffff; }
+    .guide-faq-box { margin-top: 30px; }
+    .guide-faq-item { background: rgba(30,41,59,0.55); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+    .guide-faq-item summary { cursor: pointer; font-weight: 700; font-size: 14.5px; color: #93c5fd; }
+    .guide-faq-item p { margin: 10px 0 0 0; font-size: 13.8px; color: #cbd5e1; line-height: 1.75; }
+    .guide-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 14px; }
+    .guide-related-card { display: block; text-decoration: none; background: rgba(30,41,59,0.65); border: 1px solid rgba(148,163,184,0.18); border-radius: 14px; padding: 16px 18px; transition: all 0.15s ease; }
+    .guide-related-card:hover { border-color: #60a5fa; background: rgba(37,99,235,0.18); transform: translateY(-2px); }
+    .guide-related-card .r-cat { font-size: 11.5px; color: #fcd34d; font-weight: 700; margin-bottom: 4px; }
+    .guide-related-card h4 { font-size: 14.5px; color: #f8fafc; margin: 0 0 6px 0; line-height: 1.4; }
+    .guide-related-card p { font-size: 12.5px; color: #94a3b8; margin: 0; line-height: 1.5; }
+    .policy-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(148,163,184,0.16); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12.5px; color: #94a3b8; }
+    .policy-footer a { color: #93c5fd; text-decoration: none; }
+    @media (max-width: 640px) {
+      .policy-card { padding: 22px 18px; }
+      .policy-card h1 { font-size: 21px; }
+      .policy-card h2 { font-size: 17.5px; }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="policy-wrap">
+
+    <header class="policy-top-nav">
+      <a href="https://ilsangtool.kr/" class="policy-brand">
+        <img src="favicon.png" alt="일상툴 로고">
+        <span>일상툴 (IlsangTool)</span>
+      </a>
+      <nav class="policy-links" aria-label="사이트 주요 안내 및 백서 메뉴">
+        <a href="https://ilsangtool.kr/">🏠 홈 (전체 도구)</a>
+        <a href="guides.html" class="active">📚 실무 백서·칼럼</a>
+        <a href="about.html" class="">서비스 소개</a>
+        <a href="privacy.html" class="">개인정보처리방침</a>
+        <a href="terms.html" class="">이용약관</a>
+        <a href="contact.html" class="">문의하기</a>
+      </nav>
+    </header>
+  
+    <nav class="guide-breadcrumb" aria-label="현재 위치">
+      <a href="https://ilsangtool.kr/">홈</a>
+      <span>›</span>
+      <a href="guides.html">실무 백서·칼럼</a>
+      <span>›</span>
+      <span>부동산 · 공학 단위 백서</span>
+    </nav>
+
+    <main>
+      <article class="policy-card">
+        <div class="guide-header-badges">
+          <span class="guide-pill">부동산 · 공학 단위 백서</span>
+          <span class="guide-pill amber">평수·도량형 완벽 해설</span>
+        </div>
+        <h1>부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서</h1>
+        <div class="guide-meta-bar">
+          <span>✍️ 작성·감수: <strong>일상툴 에디토리얼 연구팀</strong></span>
+          <span>📅 최종 검수일: 2026-10-30</span>
+          <span>⏱️ 예상 독서 시간: 8분</span>
+          <span>🏛️ 기준 근거: 주택법 시행규칙 · 국가기술표준원 법정계량단위 가이드</span>
+        </div>
+
+        <div class="guide-lead-summary">
+          <strong>핵심 요약:</strong> 아파트 청약 공고문에는 항상 "전용면적 84.98㎡"로 표기되지만, 일상 대화에서는 여전히 "34평형 아파트"라고 부릅니다. 왜 84㎡가 25평이 아니라 34평으로 불리는지 부동산 면적 체계를 분석하고, 실생활 필수 도량형 변환 공식을 정리합니다.
+        </div>
+
+        <nav class="guide-toc-box" aria-label="본문 목차">
+          <div class="guide-toc-title">📑 본문 목차 (클릭 시 해당 단락으로 이동)</div>
+          <ul class="guide-toc-list">
+            
+    <li><a href="#sec-1">1. 왜 전용 84㎡ 아파트를 25평이 아니라 "34평형"이라고 부를까?</a></li>
+  
+    <li><a href="#sec-2">2. 전용면적 · 주거공용면적 · 공급면적 · 서비스면적(발코니) 완벽 비교</a></li>
+  
+    <li><a href="#sec-3">3. 제곱미터(㎡) ↔ 평수(坪) 정밀 공식과 3초 암산법 및 평형별 조견표</a></li>
+  
+    <li><a href="#sec-4">4. 해외직구·항공 수하물 필수 길이(inch·ft) 및 무게(lb·oz) 환산 표준</a></li>
+  
+    <li><a href="#sec-5">5. 온도(섭씨 ℃ ↔ 화씨 ℉) 및 디지털 데이터 용량(MB·GB·TB) 계산 원리</a></li>
+  
+          </ul>
+        </nav>
+
+        
+      <h2 id="sec-1">1. 왜 전용 84㎡ 아파트를 25평이 아니라 "34평형"이라고 부를까?</h2>
+      <p>
+        1평(坪)은 가로·세로 각 6자(약 1.818m)인 정사각형 넓이로, 미터법으로 환산하면 정확히 <strong>3.305785㎡</strong>입니다. 따라서 국민평형이라 불리는 <strong>84㎡</strong>를 단순히 3.3058로 나누면 약 <strong>25.4평</strong>이 나옵니다. 그런데 부동산 중개업소나 일상에서는 왜 84㎡ 아파트를 <strong>33평 또는 34평형</strong>이라고 부를까요?
+      </p>
+      <p>
+        그 이유는 <strong>아파트의 평형을 부를 때는 '전용면적(84㎡)'이 아니라 계단·복도·엘리베이터 면적까지 합산한 '공급면적(약 110~114㎡)'을 기준으로 평수를 계산하는 관행</strong>이 굳어져 있기 때문입니다. 반면 오피스텔은 계약면적이나 전용면적 기준으로 부르는 경우가 혼재되어 있어 면적 용어를 정확히 구분하지 않으면 실제 방 크기를 크게 오해할 수 있습니다.
+      </p>
+
+      <h2 id="sec-2">2. 전용면적 · 주거공용면적 · 공급면적 · 서비스면적(발코니) 완벽 비교</h2>
+      <div class="guide-table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>면적 구분</th>
+              <th>포함되는 공간</th>
+              <th>산출 공식 및 부동산 실무 핵심 포인트</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>전용면적</strong></td>
+              <td>침실, 거실, 주방, 욕실, 현관 등 현관문 안쪽 실거주 공간</td>
+              <td>등기부등본에 등재되는 <strong>실제 내 집 내부 넓이</strong>이자 재산세·취득세(85㎡ 이하 감면 기준) 과세 기준</td>
+            </tr>
+            <tr>
+              <td><strong>주거공용면적</strong></td>
+              <td>복도, 계단, 엘리베이터, 공동 현관 로비</td>
+              <td>같은 동 입주민이 함께 사용하는 건물 내부 공용 공간</td>
+            </tr>
+            <tr>
+              <td><strong>공급면적 (분양면적)</strong></td>
+              <td><strong>전용면적 + 주거공용면적</strong></td>
+              <td><strong>아파트 "OO평형"을 부르는 기준 면적</strong> (예: 전용 84㎡ + 주거공용 28㎡ = 공급 112㎡ ≈ 34평)</td>
+            </tr>
+            <tr>
+              <td><strong>기타공용면적</strong></td>
+              <td>지하주차장, 관리사무소, 노인정, 커뮤니티센터</td>
+              <td>단지 전체 부대복리시설 면적</td>
+            </tr>
+            <tr>
+              <td><strong>계약면적</strong></td>
+              <td><strong>공급면적 + 기타공용면적</strong></td>
+              <td>오피스텔 분양 시 주로 표기하는 면적 (전용률이 45~50%로 낮아 반드시 전용면적을 따로 확인해야 함)</td>
+            </tr>
+            <tr>
+              <td><strong>서비스면적 (발코니)</strong></td>
+              <td>외벽에 덧붙여진 앞·뒤 베란다(발코니)</td>
+              <td>전용·공급·계약면적 <strong>어디에도 포함되지 않는 무료 보너스 면적</strong>. 확장 공사 시 실사용 면적이 8~11평 넓어짐</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="sec-3">3. 제곱미터(㎡) ↔ 평수(坪) 정밀 공식과 3초 암산법 및 평형별 조견표</h2>
+      <div class="guide-formula-box">
+        <strong>📐 부동산 면적 양방향 공식 & 3초 암산법</strong><br>
+        <strong>• 정밀 공식:</strong> <code>평 = 제곱미터(㎡) × 0.3025</code> &nbsp;|&nbsp; <code>제곱미터(㎡) = 평 × 3.305785</code><br>
+        <strong>• 3초 암산법:</strong> 제곱미터(㎡) 숫자의 <strong>일의 자리를 반올림해 버리고 3을 곱하면</strong> 즉시 평수가 됩니다.<br>
+        (예: <code>59㎡ → 6 × 3 = 18평</code> / <code>84㎡ → 8.5 × 3 ≈ 25.5평</code> / <code>112㎡ → 11 × 3 = 33평</code>)
+      </div>
+      <div class="guide-table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>아파트 타입 호칭</th>
+              <th>전용면적 (㎡ / 평)</th>
+              <th>공급면적 (㎡ / 평형)</th>
+              <th>발코니 확장 후 실사용 면적</th>
+              <th>주요 타깃 가구</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>소형 (구 20~21평형)</strong></td>
+              <td>49㎡ (약 14.8평)</td>
+              <td>약 66~69㎡ (20~21평)</td>
+              <td>약 19~21평</td>
+              <td>1~2인 가구, 신혼부부</td>
+            </tr>
+            <tr>
+              <td><strong>중소형 (구 24~25평형)</strong></td>
+              <td><strong>59㎡ (약 17.8평)</strong></td>
+              <td>약 79~82㎡ (24~25평)</td>
+              <td>약 23~25평</td>
+              <td>2~3인 가구 (방 3 + 욕실 2 표준)</td>
+            </tr>
+            <tr>
+              <td><strong>준중형 (구 29~30평형)</strong></td>
+              <td>74㎡ (약 22.4평)</td>
+              <td>약 96~99㎡ (29~30평)</td>
+              <td>약 28~30평</td>
+              <td>3~4인 가구 실속형</td>
+            </tr>
+            <tr>
+              <td><strong>국민평형 (구 33~34평형)</strong></td>
+              <td><strong>84㎡ (약 25.4평)</strong></td>
+              <td>약 109~114㎡ (33~34평)</td>
+              <td>약 33~36평</td>
+              <td>3~4인 표준 가정 (국민주택규모 85㎡ 이하)</td>
+            </tr>
+            <tr>
+              <td><strong>중대형 (구 42~45평형)</strong></td>
+              <td>114㎡ (약 34.5평)</td>
+              <td>약 140~148㎡ (42~45평)</td>
+              <td>약 43~46평</td>
+              <td>4인 이상 다자녀·2세대 동거</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="sec-4">4. 해외직구·항공 수하물 필수 길이(inch·ft) 및 무게(lb·oz) 환산 표준</h2>
+      <p>
+        미국 아마존(Amazon) 등에서 의류, TV, 신발, 영양제를 직구하거나 배송대행지(배대지) 항공 운임을 계산할 때는 야드·파운드법 단위를 미터법으로 정확히 변환해야 합니다.
+      </p>
+      <ul>
+        <li><strong>인치(inch) → 센티미터(cm):</strong> <code>1 inch = 2.54 cm</code> (예: 허리 30인치 바지 = <code>30 × 2.54 = 76.2 cm</code> / 65인치 TV 대각선 길이 = <code>65 × 2.54 = 165.1 cm</code>)</li>
+        <li><strong>피트(ft) → 센티미터(cm):</strong> <code>1 ft = 12 inch = 30.48 cm</code> (예: 신장 5피트 10인치 = <code>(5 × 30.48) + (10 × 2.54) = 177.8 cm</code>)</li>
+        <li><strong>파운드(lb) → 킬로그램(kg):</strong> <code>1 lb = 0.453592 kg (약 453.6 g)</code> (배대지 배송비의 기본 단위로, 10파운드 택배는 약 4.54kg입니다.)</li>
+        <li><strong>온스(oz) 및 액량 온스(fl oz):</strong> 무게 단위인 상용 온스(<code>1 oz = 28.35 g</code>)와 향수·음료 용량에 쓰이는 액량 온스(<code>1 fl oz ≈ 29.57 ml</code>)는 서로 다른 단위이므로 주의하세요.</li>
+      </ul>
+
+      <h2 id="sec-5">5. 온도(섭씨 ℃ ↔ 화씨 ℉) 및 디지털 데이터 용량(MB·GB·TB) 계산 원리</h2>
+      <ul>
+        <li><strong>섭씨(℃)와 화씨(℉) 변환 공식:</strong> 미국 오븐 레시피나 일기예보에서 쓰는 화씨온도는 물의 어는점을 32℉, 끓는점을 212℉로 정한 체계입니다. <code>℉ = (℃ × 1.8) + 32</code>이며, 반대로 <code>℃ = (℉ - 32) ÷ 1.8</code>입니다. 예를 들어 에어프라이어 레시피의 <strong>350℉는 섭씨 약 177℃(180℃ 설정)</strong>, <strong>400℉는 섭씨 약 204℃(200℃ 설정)</strong>입니다.</li>
+        <li><strong>데이터 용량(1024 진법 vs 1000 진법):</strong> 컴퓨터 운영체제(Windows)는 이진법 기준인 <code>1 GB = 1,024 MB</code>로 계산하는 반면, 외장하드나 SSD 제조사는 십진법 기준인 <code>1 GB = 1,000 MB</code>로 표기하기 때문에 1TB SSD를 PC에 연결하면 약 931GB로 표시됩니다.</li>
+      </ul>
+    
+
+        <div class="guide-cta-banner">
+          <div class="guide-cta-info">
+            <h3>⚡ 방금 읽은 공식으로 내 수치를 1초 만에 계산해 보세요!</h3>
+            <p>회원가입이나 서버 전송 없이 브라우저 로컬에서 즉시 무료로 시뮬레이션할 수 있습니다.</p>
+          </div>
+          <div class="guide-cta-btns">
+            <a href="https://ilsangtool.kr/?tool=unit" class="guide-cta-btn primary">
+              <span>🚀</span><span>단위 변환기 (평·㎡·인치·파운드) 바로 실행</span>
+            </a>
+            <a href="https://ilsangtool.kr/?tool=calc" class="guide-cta-btn secondary">
+              <span>🔗</span><span>공학용 계산기</span>
+            </a>
+          </div>
+        </div>
+
+        <section class="guide-faq-box" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">💬 자주 묻는 질문 (실무 심층 FAQ)</h2>
+          
+    <details class="guide-faq-item" open>
+      <summary>Q1. 전용면적 85㎡(국민주택규모) 기준이 세금에서 왜 중요한가요?</summary>
+      <p>주택법상 전용면적 85㎡(수도권 외 읍·면 지역은 100㎡) 이하 주택을 "국민주택규모"라고 합니다. 생애최초 및 일반 주택 취득 시 전용 85㎡ 이하 주택은 농어촌특별세(0.2%)가 비과세되어 취득세율이 1.1%로 낮아지지만, 85㎡를 조금이라도 초과하면 농어촌특별세가 부과되어 세율이 1.3% 이상으로 올라갑니다.</p>
+    </details>
+  
+    <details class="guide-faq-item" >
+      <summary>Q2. 금 1돈과 고기 1근은 각각 몇 그램(g)인가요?</summary>
+      <p>귀금속 거래에서 금 1돈은 정확히 3.75g이며(골드바 10돈 = 37.5g), 정육점에서 사용하는 육류 1근은 600g(채소·과일 한 근은 품목에 따라 300g 또는 400g)입니다.</p>
+    </details>
+  
+        </section>
+
+        <section style="margin-top:34px; padding-top:24px; border-top:1px solid rgba(148,163,184,0.16);">
+          <h2 style="margin-top:0;">📚 함께 읽으면 좋은 연관 실무 백서</h2>
+          <div class="guide-related-grid">
+            
+      <a href="guide-moving-son.html" class="guide-related-card">
+        <div class="r-cat">부동산 · 생활 백서</div>
+        <h4>2026년 손 없는 날 음력 원리(9·0일)와 포장이사·사다리차 견적 산출 기준 및 D-30 체크리스트</h4>
+        <p>전통 민속 길일인 손 없는 날(음력 끝자리 9·0일)의 계산 원리와 동서남북 손 방위표, 1톤 원룸부터 5톤 가정 포장이사 및 사다리차 층수별 표준 요금표, 이사 비용 30% 절약법과 D-30 필수 체크리스트를 총정리합니다.</p>
+      </a>
+    
+      <a href="guide-foreign-exchange.html" class="guide-related-card">
+        <div class="r-cat">글로벌 · 외환 · 직구 백서</div>
+        <h4>해외여행·직구 환율 계산 실무: 매매기준율 vs 현찰 스프레드, 환율 우대 90%의 의미와 영문주소 변환법</h4>
+        <p>원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) 환율 계산 시 매매기준율과 현찰 살 때/팔 때 스프레드의 차이, 환율 우대 90% 계산 공식, 해외 카드 결제 시 DCC(원화결제) 이중수수료 차단법 및 국립국어원 로마자 표기법 기반 영문주소 변환 규칙을 정리합니다.</p>
+      </a>
+    
+      <a href="guide-bmi-calorie.html" class="guide-related-card">
+        <div class="r-cat">건강 · 의학 통계 백서</div>
+        <h4>대한비만학회 아시아-태평양 BMI 비만도 기준과 기초대사량(BMR)·유지 칼로리(TDEE) 식단 설계 가이드</h4>
+        <p>서구권과 다른 한국인 맞춤형 대한비만학회 체질량지수(BMI 23 과체중, 25 비만) 판정 기준, Mifflin-St Jeor 기초대사량(BMR) 공식, 활동대사량(TDEE) 및 요요 없는 주당 0.5kg 체지방 감량 칼로리 계산법을 설명합니다.</p>
+      </a>
+    
+          </div>
+          <div style="margin-top:18px; text-align:right;">
+            <a href="guides.html" style="color:#93c5fd; font-size:13.5px; font-weight:700; text-decoration:none;">👉 전체 12종 실무 백서·칼럼 목록 보기</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="policy-footer">
+      <div>© 2026 일상툴 (ilsangtool.kr). 모든 계산 및 파일 처리는 사용자 브라우저 로컬에서 안전하게 실행됩니다.</div>
+      <div>
+        <a href="https://ilsangtool.kr/">홈</a> ·
+        <a href="guides.html">실무 백서·칼럼</a> ·
+        <a href="about.html">서비스 소개</a> ·
+        <a href="privacy.html">개인정보처리방침</a> ·
+        <a href="terms.html">이용약관</a> ·
+        <a href="contact.html">문의하기</a> ·
+        <a href="sitemap.xml">사이트맵</a>
+      </div>
+    </footer>
+  
+  </div>
+</body>
+</html>

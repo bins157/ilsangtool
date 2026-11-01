@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대출 상환 방식(원리금균등·원금균등·만기일시) 이자 비교와 복리(72법칙) 자산 증식 시뮬레이션 | 일상툴 실무 백서</title>
+  <meta name="description" content="주택담보대출·신용대출 실행 시 원리금균등분할상환, 원금균등분할상환, 만기일시상환의 월 납입금 및 총 이자 차이를 비교하고, 예금·적금·ETF 복리 수익률 공식과 72의 법칙을 상세히 분석합니다.">
+  <meta name="author" content="일상툴 에디토리얼 연구팀">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ilsangtool.kr/guide-loan-compound.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="일상툴 (IlsangTool)">
+  <meta property="og:title" content="대출 상환 방식(원리금균등·원금균등·만기일시) 이자 비교와 복리(72법칙) 자산 증식 시뮬레이션">
+  <meta property="og:description" content="주택담보대출·신용대출 실행 시 원리금균등분할상환, 원금균등분할상환, 만기일시상환의 월 납입금 및 총 이자 차이를 비교하고, 예금·적금·ETF 복리 수익률 공식과 72의 법칙을 상세히 분석합니다.">
+  <meta property="og:url" content="https://ilsangtool.kr/guide-loan-compound.html">
+  <meta property="og:image" content="https://ilsangtool.kr/favicon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="대출 상환 방식(원리금균등·원금균등·만기일시) 이자 비교와 복리(72법칙) 자산 증식 시뮬레이션">
+  <meta name="twitter:description" content="주택담보대출·신용대출 실행 시 원리금균등분할상환, 원금균등분할상환, 만기일시상환의 월 납입금 및 총 이자 차이를 비교하고, 예금·적금·ETF 복리 수익률 공식과 72의 법칙을 상세히 분석합니다.">
+  <meta name="twitter:image" content="https://ilsangtool.kr/favicon.png">
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css?v=53">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://ilsangtool.kr/guide-loan-compound.html#article",
+      "headline": "대출 상환 방식(원리금균등·원금균등·만기일시) 이자 비교와 복리(72법칙) 자산 증식 시뮬레이션",
+      "description": "주택담보대출·신용대출 실행 시 원리금균등분할상환, 원금균등분할상환, 만기일시상환의 월 납입금 및 총 이자 차이를 비교하고, 예금·적금·ETF 복리 수익률 공식과 72의 법칙을 상세히 분석합니다.",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-10-30",
+      "author": {
+        "@type": "Organization",
+        "name": "일상툴 에디토리얼 연구팀",
+        "url": "https://ilsangtool.kr/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "일상툴 (IlsangTool)",
+        "url": "https://ilsangtool.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ilsangtool.kr/favicon.png"
+        }
+      },
+      "mainEntityOfPage": "https://ilsangtool.kr/guide-loan-compound.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "일상툴 홈",
+          "item": "https://ilsangtool.kr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "실무 백서·칼럼",
+          "item": "https://ilsangtool.kr/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "대출 상환 방식(원리금균등·원금균등·만기일시) 이자 비교와 복리(72법칙) 자산 증식 시뮬레이션",
+          "item": "https://ilsangtool.kr/guide-loan-compound.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ilsangtool.kr/guide-loan-compound.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "시중 은행의 일반 정기적금 금리 연 4%는 연복리인가요, 단리인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "대부분의 은행 정기적금은 단리 상품이며, 특히 매월 나누어 입금하므로 첫 달 입금액만 12개월치 이자(4%)를 다 받고 마지막 달 입금액은 1개월치 이자(4%×1/12)만 받습니다. 따라서 표면 금리 연 4.0% 정기적금의 세전 실질 수익률(만기 총납입액 대비)은 약 2.17% 수준입니다. 진정한 복리 효과를 누리려면 만기 원리금을 재예치하거나 배당 재투자형 ETF·연금계좌를 활용해야 합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "대출 실행 초기에는 원리금균등상환 시 왜 원금이 거의 줄어들지 않나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "매월 이자는 \"남아있는 대출 잔액 × 월 이자율\"로 먼저 계산되기 때문입니다. 대출 초기에는 잔액이 가장 크므로 월 납입액의 60~70% 이상이 이자로 충당되고 나머지만 원금 상환에 쓰입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "이자소득세 15.4%를 아끼는 비과세·저율과세 방법이 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "일반 예·적금 이자에는 15.4%(소득세 14% + 지방소득세 1.4%)가 원천징수됩니다. 만 19세 이상 거주자라면 중개형 ISA(개인종합자산관리계좌)를 활용해 순이익 200만 원(서민형 400만 원)까지 비과세, 초과분은 9.9% 분리과세 혜택을 받을 수 있습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .policy-wrap { max-width: 960px; margin: 0 auto; padding: 36px 20px 80px; color: #e2e8f0; line-height: 1.8; }
+    .policy-top-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 20px; margin-bottom: 28px; border-bottom: 1px solid rgba(148,163,184,0.18); }
+    .policy-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #f8fafc; font-weight: 800; font-size: 18px; }
+    .policy-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .policy-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .policy-links a { text-decoration: none; font-size: 13px; font-weight: 600; color: #cbd5e1; padding: 6px 12px; border-radius: 8px; background: rgba(30,41,59,0.7); border: 1px solid rgba(148,163,184,0.2); transition: all 0.15s ease; }
+    .policy-links a:hover, .policy-links a.active { color: #ffffff; border-color: #60a5fa; background: rgba(37,99,235,0.28); }
+    .guide-breadcrumb { font-size: 12.5px; color: #94a3b8; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .guide-breadcrumb a { color: #93c5fd; text-decoration: none; }
+    .guide-breadcrumb a:hover { text-decoration: underline; }
+    .policy-card { background: rgba(15,23,42,0.85); border: 1px solid rgba(148,163,184,0.18); border-radius: 20px; padding: 34px 30px; margin-bottom: 24px; box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
+    .guide-header-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .guide-pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: rgba(37,99,235,0.22); color: #93c5fd; border: 1px solid rgba(96,165,250,0.35); }
+    .guide-pill.amber { background: rgba(245,158,11,0.16); color: #fcd34d; border-color: rgba(245,158,11,0.35); }
+    .policy-card h1 { font-size: 26px; font-weight: 800; color: #ffffff; margin: 0 0 14px 0; line-height: 1.38; letter-spacing: -0.02em; }
+    .guide-meta-bar { font-size: 12.5px; color: #94a3b8; padding-bottom: 18px; margin-bottom: 20px; border-bottom: 1px solid rgba(148,163,184,0.15); display: flex; flex-wrap: wrap; gap: 14px; }
+    .guide-lead-summary { background: rgba(30,41,59,0.65); border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 16px 18px; margin-bottom: 22px; font-size: 14.5px; color: #e2e8f0; line-height: 1.75; }
+    .guide-toc-box { background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; padding: 18px 22px; margin-bottom: 28px; }
+    .guide-toc-title { font-size: 14px; font-weight: 800; color: #f8fafc; margin-bottom: 10px; }
+    .guide-toc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+    .guide-toc-list a { color: #93c5fd; text-decoration: none; font-size: 13.5px; font-weight: 600; }
+    .guide-toc-list a:hover { color: #ffffff; text-decoration: underline; }
+    .policy-card h2 { font-size: 20px; font-weight: 800; color: #93c5fd; margin: 34px 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(148,163,184,0.14); }
+    .policy-card h3 { font-size: 16px; font-weight: 700; color: #f8fafc; margin: 20px 0 8px 0; }
+    .policy-card p, .policy-card li { font-size: 14.5px; color: #cbd5e1; line-height: 1.8; }
+    .policy-card p { margin-bottom: 14px; }
+    .policy-card ul, .policy-card ol { padding-left: 22px; margin: 10px 0 16px; }
+    .policy-card li { margin-bottom: 8px; }
+    .policy-card strong { color: #f8fafc; }
+    .policy-card code { background: rgba(30,41,59,0.9); color: #fcd34d; padding: 2px 6px; border-radius: 6px; font-size: 13px; }
+    .guide-formula-box { background: linear-gradient(135deg, rgba(30,41,59,0.85), rgba(15,23,42,0.95)); border: 1px solid rgba(96,165,250,0.3); border-radius: 14px; padding: 18px 20px; margin: 16px 0 20px; font-size: 14px; color: #f1f5f9; line-height: 1.85; }
+    .guide-callout { background: rgba(30,41,59,0.65); border: 1px solid rgba(245,158,11,0.32); border-radius: 14px; padding: 18px 20px; margin: 18px 0 22px; font-size: 14px; color: #e2e8f0; }
+    .guide-table-wrap { overflow-x: auto; margin: 16px 0 22px; border-radius: 12px; border: 1px solid rgba(148,163,184,0.2); }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; }
+    .guide-table th { background: rgba(30,41,59,0.95); color: #f8fafc; font-weight: 700; padding: 12px 14px; border-bottom: 1px solid rgba(148,163,184,0.25); white-space: nowrap; }
+    .guide-table td { padding: 11px 14px; border-bottom: 1px solid rgba(148,163,184,0.12); color: #cbd5e1; vertical-align: top; }
+    .guide-table tr:last-child td { border-bottom: none; }
+    .guide-table tr:nth-child(even) td { background: rgba(30,41,59,0.35); }
+    .guide-cta-banner { background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(15,23,42,0.9)); border: 1px solid rgba(96,165,250,0.4); border-radius: 16px; padding: 22px 24px; margin: 28px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .guide-cta-info h3 { margin: 0 0 6px 0; font-size: 17px; color: #ffffff; }
+    .guide-cta-info p { margin: 0; font-size: 13.5px; color: #cbd5e1; }
+    .guide-cta-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .guide-cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700; text-decoration: none; transition: all 0.15s ease; }
+    .guide-cta-btn.primary { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #ffffff; box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .guide-cta-btn.primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .guide-cta-btn.secondary { background: rgba(30,41,59,0.85); color: #e2e8f0; border: 1px solid rgba(148,163,184,0.3); }
+    .guide-cta-btn.secondary:hover { border-color: #60a5fa; color: #ffffff; }
+    .guide-faq-box { margin-top: 30px; }
+    .guide-faq-item { background: rgba(30,41,59,0.55); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+    .guide-faq-item summary { cursor: pointer; font-weight: 700; font-size: 14.5px; color: #93c5fd; }
+    .guide-faq-item p { margin: 10px 0 0 0; font-size: 13.8px; color: #cbd5e1; line-height: 1.75; }
+    .guide-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 14px; }
+    .guide-related-card { display: block; text-decoration: none; background: rgba(30,41,59,0.65); border: 1px solid rgba(148,163,184,0.18); border-radius: 14px; padding: 16px 18px; transition: all 0.15s ease; }
+    .guide-related-card:hover { border-color: #60a5fa; background: rgba(37,99,235,0.18); transform: translateY(-2px); }
+    .guide-related-card .r-cat { font-size: 11.5px; color: #fcd34d; font-weight: 700; margin-bottom: 4px; }
+    .guide-related-card h4 { font-size: 14.5px; color: #f8fafc; margin: 0 0 6px 0; line-height: 1.4; }
+    .guide-related-card p { font-size: 12.5px; color: #94a3b8; margin: 0; line-height: 1.5; }
+    .policy-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(148,163,184,0.16); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12.5px; color: #94a3b8; }
+    .policy-footer a { color: #93c5fd; text-decoration: none; }
+    @media (max-width: 640px) {
+      .policy-card { padding: 22px 18px; }
+      .policy-card h1 { font-size: 21px; }
+      .policy-card h2 { font-size: 17.5px; }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="policy-wrap">
+
+    <header class="policy-top-nav">
+      <a href="https://ilsangtool.kr/" class="policy-brand">
+        <img src="favicon.png" alt="일상툴 로고">
+        <span>일상툴 (IlsangTool)</span>
+      </a>
+      <nav class="policy-links" aria-label="사이트 주요 안내 및 백서 메뉴">
+        <a href="https://ilsangtool.kr/">🏠 홈 (전체 도구)</a>
+        <a href="guides.html" class="active">📚 실무 백서·칼럼</a>
+        <a href="about.html" class="">서비스 소개</a>
+        <a href="privacy.html" class="">개인정보처리방침</a>
+        <a href="terms.html" class="">이용약관</a>
+        <a href="contact.html" class="">문의하기</a>
+      </nav>
+    </header>
+  
+    <nav class="guide-breadcrumb" aria-label="현재 위치">
+      <a href="https://ilsangtool.kr/">홈</a>
+      <span>›</span>
+      <a href="guides.html">실무 백서·칼럼</a>
+      <span>›</span>
+      <span>금융 · 자산관리 백서</span>
+    </nav>
+
+    <main>
+      <article class="policy-card">
+        <div class="guide-header-badges">
+          <span class="guide-pill">금융 · 자산관리 백서</span>
+          <span class="guide-pill amber">대출·복리 수학 공식</span>
+        </div>
+        <h1>대출 상환 방식(원리금균등·원금균등·만기일시) 이자 비교와 복리(72법칙) 자산 증식 시뮬레이션</h1>
+        <div class="guide-meta-bar">
+          <span>✍️ 작성·감수: <strong>일상툴 에디토리얼 연구팀</strong></span>
+          <span>📅 최종 검수일: 2026-10-30</span>
+          <span>⏱️ 예상 독서 시간: 8분</span>
+          <span>🏛️ 기준 근거: 금융감독원 금융소비자정보포털 파인(FINE) · 표준 금융공학 수식</span>
+        </div>
+
+        <div class="guide-lead-summary">
+          <strong>핵심 요약:</strong> 이자율(Interest Rate)은 대출자에게는 줄여야 할 비용이지만, 투자자에게는 자산을 불려주는 복리 엔진입니다. 대출 상환 방식 3가지에 따른 총이자 격차와 DSR 규제 원리, 그리고 거치식·적립식 복리 수식을 실전 시뮬레이션 표로 비교합니다.
+        </div>
+
+        <nav class="guide-toc-box" aria-label="본문 목차">
+          <div class="guide-toc-title">📑 본문 목차 (클릭 시 해당 단락으로 이동)</div>
+          <ul class="guide-toc-list">
+            
+    <li><a href="#sec-1">1. 대출 상환 방식 3대 구조(원리금균등·원금균등·만기일시) 완벽 비교</a></li>
+  
+    <li><a href="#sec-2">2. [실전 비교표] 3억 원 대출(연 4.0%, 30년 만기) 시 상환 방식별 총이자 차이</a></li>
+  
+    <li><a href="#sec-3">3. 대출 총이자를 수천만 원 줄이는 중도상환 & 금리인하요구권 활용법</a></li>
+  
+    <li><a href="#sec-4">4. 단리(Simple Interest) vs 복리(Compound Interest) 수학적 수익 격차</a></li>
+  
+    <li><a href="#sec-5">5. 72의 법칙(Rule of 72)과 매월 적립식 복리 투자로 1억 모으기 플랜</a></li>
+  
+          </ul>
+        </nav>
+
+        
+      <h2 id="sec-1">1. 대출 상환 방식 3대 구조(원리금균등·원금균등·만기일시) 완벽 비교</h2>
+      <p>
+        은행에서 주택담보대출이나 신용대출을 실행할 때 대출 금리만큼 중요한 것이 바로 <strong>상환 방식 선택</strong>입니다. 똑같은 원금과 금리라도 상환 방식에 따라 만기까지 은행에 내는 총이자 차이가 수천만 원에 달합니다.
+      </p>
+      <ul>
+        <li><strong>원리금균등분할상환 (Equal Principal and Interest):</strong> 대출 기간 동안 <strong>매월 납부하는 (원금 + 이자)의 합계 금액이 만기까지 매달 똑같은 방식</strong>입니다. 초기에는 월 납입금 중 이자가 차지하는 비중이 크고, 시간이 지날수록 원금 상환 비중이 커집니다. 매달 고정 지출을 예측하기 쉬워 직장인이 가장 많이 선택합니다.</li>
+        <li><strong>원금균등분할상환 (Equal Principal):</strong> 대출 원금을 대출 개월 수로 똑같이 나누어 매달 동일한 원금을 갚고, 이자는 남은 잔액에 대해서만 계산하는 방식입니다. 첫 달 납입금이 가장 많고 갈수록 매달 내는 금액이 줄어들며, <strong>3가지 방식 중 총이자 부담이 가장 적습니다.</strong></li>
+        <li><strong>만기일시상환 (Bullet Repayment):</strong> 대출 기간 내내 원금은 전혀 갚지 않고 매달 이자만 내다가 만기일에 원금 전액을 한꺼번에 상환하는 방식입니다. 당장 월 부담은 가장 적지만 원금이 줄지 않아 <strong>총이자가 가장 많이 발생</strong>합니다.</li>
+      </ul>
+
+      <h2 id="sec-2">2. [실전 비교표] 3억 원 대출(연 4.0%, 30년 만기) 시 상환 방식별 총이자 차이</h2>
+      <div class="guide-table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>상환 방식</th>
+              <th>첫 달 납입액</th>
+              <th>마지막 달 납입액</th>
+              <th>30년간 총 납부 이자</th>
+              <th>총 상환 금액 (원금+이자)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>원금균등분할상환</strong><br>(총이자 최소)</td>
+              <td>약 1,833,333원</td>
+              <td>약 836,111원</td>
+              <td><strong>약 180,500,000원</strong></td>
+              <td>약 480,500,000원</td>
+            </tr>
+            <tr>
+              <td><strong>원리금균등분할상환</strong><br>(월 지출 일정)</td>
+              <td><strong>약 1,432,246원</strong></td>
+              <td><strong>약 1,432,246원</strong></td>
+              <td><strong>약 215,608,520원</strong></td>
+              <td>약 515,608,520원</td>
+            </tr>
+            <tr>
+              <td><strong>만기일시상환</strong><br>(월 이자만 납부 가정)</td>
+              <td>1,000,000원</td>
+              <td>301,000,000원</td>
+              <td><strong>360,000,000원</strong></td>
+              <td>660,000,000원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        위 시뮬레이션에서 볼 수 있듯 3억 원을 연 4.0%로 30년간 빌릴 때, 원금균등상환을 선택하면 원리금균등상환 대비 <strong>총이자를 약 3,510만 원 절약</strong>할 수 있습니다.
+      </p>
+
+      <h2 id="sec-3">3. 대출 총이자를 수천만 원 줄이는 중도상환 & 금리인하요구권 활용법</h2>
+      <div class="guide-formula-box">
+        <strong>📌 원리금균등 월 상환액 산출 공식</strong><br>
+        <code>M = P × [ r(1 + r)^n ] ÷ [ (1 + r)^n - 1 ]</code><br>
+        (<code>P</code>: 대출원금, <code>r</code>: 월 이자율 = 연이율÷12, <code>n</code>: 총 상환 개월 수)
+      </div>
+      <ul>
+        <li><strong>3년 경과 후 원금 일부 중도상환:</strong> 은행권 대출은 통상 실행일로부터 <strong>3년(36개월)이 지나면 중도상환수수료가 전액 면제</strong>됩니다(면제 비율 매년 차감). 상여금이나 여유 자금이 생길 때마다 대출 원금을 일부 상환하면 그 즉시 남은 원금이 줄어들어 다음 달부터 부과되는 이자가 영구적으로 감소합니다.</li>
+        <li><strong>DSR(총부채원리금상환비율) 관리:</strong> DSR은 연간 소득 대비 모든 대출의 연간 원리금 상환액 비율(1금융권 40% 한도)입니다. 만기가 짧은 신용대출이나 마이너스통장 한도는 DSR을 급격히 소진시키므로, 주택담보대출 실행 전 불필요한 마이너스통장 한도를 감액하거나 해지하면 대출 한도를 늘릴 수 있습니다.</li>
+      </ul>
+
+      <h2 id="sec-4">4. 단리(Simple Interest) vs 복리(Compound Interest) 수학적 수익 격차</h2>
+      <p>
+        예금·적금이나 장기 투자에서 <strong>단리</strong>는 오직 최초 원금에 대해서만 이자가 붙는 방식이고, <strong>복리</strong>는 발생한 이자가 다시 원금에 합산되어 '이자에 이자가 붙는' 지수함수적 성장 구조입니다.
+      </p>
+      <div class="guide-formula-box">
+        <strong>📈 거치식 및 적립식 복리 만기 공식</strong><br>
+        <strong>• 거치식 복리 만기액:</strong> <code>FV = P × (1 + r/m)^(m×t)</code> (<code>m</code>: 연간 복리 횟수, <code>t</code>: 투자 연수)<br>
+        <strong>• 월 적립식 복리 만기액:</strong> <code>FV = PMT × [ ((1 + r/12)^(12×t) - 1) ÷ (r/12) ] × (1 + r/12)</code>
+      </div>
+
+      <h2 id="sec-5">5. 72의 법칙(Rule of 72)과 매월 적립식 복리 투자로 1억 모으기 플랜</h2>
+      <p>
+        원금이 <strong>2배가 되는 데 걸리는 시간(년)</strong>을 암산할 때는 72를 연 복리 수익률(%)로 나누는 <strong>72의 법칙</strong>을 사용합니다. 예를 들어 연 복리 6% 자산에 투자하면 <code>72 ÷ 6 = 약 12년</code> 만에 원금이 2배가 되고, 연 9%이면 약 8년 만에 2배가 됩니다.
+      </p>
+      <div class="guide-table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>목표 기간</th>
+              <th>연 복리 3.5% (정기적금 수준)</th>
+              <th>연 복리 6.0% (배당·채권 혼합)</th>
+              <th>연 복리 9.0% (글로벌 지수 장기평균)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>3년 만에 1억 모으기</strong></td>
+              <td>월 약 2,632,000원 적립</td>
+              <td>월 약 2,535,000원 적립</td>
+              <td>월 약 2,430,000원 적립</td>
+            </tr>
+            <tr>
+              <td><strong>5년 만에 1억 모으기</strong></td>
+              <td>월 약 1,525,000원 적립</td>
+              <td>월 약 1,433,000원 적립</td>
+              <td>월 약 1,326,000원 적립</td>
+            </tr>
+            <tr>
+              <td><strong>10년 만에 1억 모으기</strong></td>
+              <td>월 약 699,000원 적립</td>
+              <td>월 약 610,000원 적립</td>
+              <td><strong>월 약 516,000원 적립</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+
+        <div class="guide-cta-banner">
+          <div class="guide-cta-info">
+            <h3>⚡ 방금 읽은 공식으로 내 수치를 1초 만에 계산해 보세요!</h3>
+            <p>회원가입이나 서버 전송 없이 브라우저 로컬에서 즉시 무료로 시뮬레이션할 수 있습니다.</p>
+          </div>
+          <div class="guide-cta-btns">
+            <a href="https://ilsangtool.kr/?tool=loan" class="guide-cta-btn primary">
+              <span>🚀</span><span>대출 이자 계산기 바로 실행</span>
+            </a>
+            <a href="https://ilsangtool.kr/?tool=compound" class="guide-cta-btn secondary">
+              <span>🔗</span><span>복리이자 계산기</span>
+            </a>
+          </div>
+        </div>
+
+        <section class="guide-faq-box" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">💬 자주 묻는 질문 (실무 심층 FAQ)</h2>
+          
+    <details class="guide-faq-item" open>
+      <summary>Q1. 시중 은행의 일반 정기적금 금리 연 4%는 연복리인가요, 단리인가요?</summary>
+      <p>대부분의 은행 정기적금은 단리 상품이며, 특히 매월 나누어 입금하므로 첫 달 입금액만 12개월치 이자(4%)를 다 받고 마지막 달 입금액은 1개월치 이자(4%×1/12)만 받습니다. 따라서 표면 금리 연 4.0% 정기적금의 세전 실질 수익률(만기 총납입액 대비)은 약 2.17% 수준입니다. 진정한 복리 효과를 누리려면 만기 원리금을 재예치하거나 배당 재투자형 ETF·연금계좌를 활용해야 합니다.</p>
+    </details>
+  
+    <details class="guide-faq-item" >
+      <summary>Q2. 대출 실행 초기에는 원리금균등상환 시 왜 원금이 거의 줄어들지 않나요?</summary>
+      <p>매월 이자는 "남아있는 대출 잔액 × 월 이자율"로 먼저 계산되기 때문입니다. 대출 초기에는 잔액이 가장 크므로 월 납입액의 60~70% 이상이 이자로 충당되고 나머지만 원금 상환에 쓰입니다.</p>
+    </details>
+  
+    <details class="guide-faq-item" >
+      <summary>Q3. 이자소득세 15.4%를 아끼는 비과세·저율과세 방법이 있나요?</summary>
+      <p>일반 예·적금 이자에는 15.4%(소득세 14% + 지방소득세 1.4%)가 원천징수됩니다. 만 19세 이상 거주자라면 중개형 ISA(개인종합자산관리계좌)를 활용해 순이익 200만 원(서민형 400만 원)까지 비과세, 초과분은 9.9% 분리과세 혜택을 받을 수 있습니다.</p>
+    </details>
+  
+        </section>
+
+        <section style="margin-top:34px; padding-top:24px; border-top:1px solid rgba(148,163,184,0.16);">
+          <h2 style="margin-top:0;">📚 함께 읽으면 좋은 연관 실무 백서</h2>
+          <div class="guide-related-grid">
+            
+      <a href="guide-salary-tax.html" class="guide-related-card">
+        <div class="r-cat">금융 · 세무 백서</div>
+        <h4>2026년 연봉 실수령액 계산 기준 완벽 가이드: 4대보험 요율 산출 공식과 비과세 식대 절세 전략</h4>
+        <p>2026년 근로자 4대보험 요율(국민연금 4.5%, 건강보험 3.545%, 장기요양 12.95%, 고용보험 0.9%)과 근로소득 간이세액표 산출 구조, 비과세 식대 20만 원의 절세 효과 및 연봉 3,000만~1억 원 구간별 월 실수령액 비교표를 상세히 해설합니다.</p>
+      </a>
+    
+      <a href="guide-year-end-tax.html" class="guide-related-card">
+        <div class="r-cat">금융 · 세무 백서</div>
+        <h4>직장인 연말정산 환급금 극대화 백서: 과세표준·결정세액 계산 구조와 신용카드·연금저축 절세 공식</h4>
+        <p>연말정산 총급여액에서 근로소득공제, 소득공제(인적공제·신용/체크카드 황금비율), 세액공제(연금저축·IRP 최대 900만 원, 월세·의료비)를 거쳐 최종 환급금이 결정되는 전 과정을 공식과 사례로 완벽 정리합니다.</p>
+      </a>
+    
+      <a href="guide-real-estate-unit.html" class="guide-related-card">
+        <div class="r-cat">부동산 · 공학 단위 백서</div>
+        <h4>부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서</h4>
+        <p>아파트 분양 공고의 전용면적(59㎡·84㎡), 주거공용면적, 공급면적, 계약면적의 정확한 개념과 제곱미터(㎡)를 평수로 바꾸는 0.3025 공식, 그리고 미국·유럽 해외직구 필수 길이(inch·ft)·무게(lb·oz)·온도(℉) 환산 기준을 총정리합니다.</p>
+      </a>
+    
+          </div>
+          <div style="margin-top:18px; text-align:right;">
+            <a href="guides.html" style="color:#93c5fd; font-size:13.5px; font-weight:700; text-decoration:none;">👉 전체 12종 실무 백서·칼럼 목록 보기</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="policy-footer">
+      <div>© 2026 일상툴 (ilsangtool.kr). 모든 계산 및 파일 처리는 사용자 브라우저 로컬에서 안전하게 실행됩니다.</div>
+      <div>
+        <a href="https://ilsangtool.kr/">홈</a> ·
+        <a href="guides.html">실무 백서·칼럼</a> ·
+        <a href="about.html">서비스 소개</a> ·
+        <a href="privacy.html">개인정보처리방침</a> ·
+        <a href="terms.html">이용약관</a> ·
+        <a href="contact.html">문의하기</a> ·
+        <a href="sitemap.xml">사이트맵</a>
+      </div>
+    </footer>
+  
+  </div>
+</body>
+</html>

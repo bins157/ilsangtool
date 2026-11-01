@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해외여행·직구 환율 계산 실무: 매매기준율 vs 현찰 스프레드, 환율 우대 90%의 의미와 영문주소 변환법 | 일상툴 실무 백서</title>
+  <meta name="description" content="원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) 환율 계산 시 매매기준율과 현찰 살 때/팔 때 스프레드의 차이, 환율 우대 90% 계산 공식, 해외 카드 결제 시 DCC(원화결제) 이중수수료 차단법 및 국립국어원 로마자 표기법 기반 영문주소 변환 규칙을 정리합니다.">
+  <meta name="author" content="일상툴 에디토리얼 연구팀">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ilsangtool.kr/guide-foreign-exchange.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="일상툴 (IlsangTool)">
+  <meta property="og:title" content="해외여행·직구 환율 계산 실무: 매매기준율 vs 현찰 스프레드, 환율 우대 90%의 의미와 영문주소 변환법">
+  <meta property="og:description" content="원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) 환율 계산 시 매매기준율과 현찰 살 때/팔 때 스프레드의 차이, 환율 우대 90% 계산 공식, 해외 카드 결제 시 DCC(원화결제) 이중수수료 차단법 및 국립국어원 로마자 표기법 기반 영문주소 변환 규칙을 정리합니다.">
+  <meta property="og:url" content="https://ilsangtool.kr/guide-foreign-exchange.html">
+  <meta property="og:image" content="https://ilsangtool.kr/favicon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="해외여행·직구 환율 계산 실무: 매매기준율 vs 현찰 스프레드, 환율 우대 90%의 의미와 영문주소 변환법">
+  <meta name="twitter:description" content="원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) 환율 계산 시 매매기준율과 현찰 살 때/팔 때 스프레드의 차이, 환율 우대 90% 계산 공식, 해외 카드 결제 시 DCC(원화결제) 이중수수료 차단법 및 국립국어원 로마자 표기법 기반 영문주소 변환 규칙을 정리합니다.">
+  <meta name="twitter:image" content="https://ilsangtool.kr/favicon.png">
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css?v=53">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://ilsangtool.kr/guide-foreign-exchange.html#article",
+      "headline": "해외여행·직구 환율 계산 실무: 매매기준율 vs 현찰 스프레드, 환율 우대 90%의 의미와 영문주소 변환법",
+      "description": "원화(KRW)·달러(USD)·엔화(JPY)·유로(EUR)·위안(CNY) 환율 계산 시 매매기준율과 현찰 살 때/팔 때 스프레드의 차이, 환율 우대 90% 계산 공식, 해외 카드 결제 시 DCC(원화결제) 이중수수료 차단법 및 국립국어원 로마자 표기법 기반 영문주소 변환 규칙을 정리합니다.",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-10-30",
+      "author": {
+        "@type": "Organization",
+        "name": "일상툴 에디토리얼 연구팀",
+        "url": "https://ilsangtool.kr/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "일상툴 (IlsangTool)",
+        "url": "https://ilsangtool.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ilsangtool.kr/favicon.png"
+        }
+      },
+      "mainEntityOfPage": "https://ilsangtool.kr/guide-foreign-exchange.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "일상툴 홈",
+          "item": "https://ilsangtool.kr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "실무 백서·칼럼",
+          "item": "https://ilsangtool.kr/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "해외여행·직구 환율 계산 실무: 매매기준율 vs 현찰 스프레드, 환율 우대 90%의 의미와 영문주소 변환법",
+          "item": "https://ilsangtool.kr/guide-foreign-exchange.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ilsangtool.kr/guide-foreign-exchange.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "일본 엔화(JPY) 환율은 왜 1엔이 아니라 100엔 단위로 표시되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "원화와 엔화는 모두 통화 단위가 커서 1엔당 원화 가치가 약 8~10원 내외의 한 자릿수에 불과합니다. 따라서 외환시장 관행상 소수점 오차를 줄이고 달러(1달러당 약 1,300~1,400원)와 자릿수를 맞추기 위해 일본 엔화와 인도네시아 루피아(IDR)는 100단위 기준으로 고시합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "해외직구 시 영문 주소의 띄어쓰기나 대소문자가 조금 틀려도 배송이 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "국제 특송(DHL, FedEx, 우체국 EMS 등)에서 가장 중요한 핵심 식별자는 국가 코드(KR, South Korea)와 \"5자리 도로명 우편번호(Postal Code)\"입니다. 국가와 5자리 우편번호, 그리고 도로명 번지수·동호수 숫자만 정확하면 한국 통관 후 국내 택배 시스템이 한글 주소로 자동 매칭하여 안전하게 배송됩니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .policy-wrap { max-width: 960px; margin: 0 auto; padding: 36px 20px 80px; color: #e2e8f0; line-height: 1.8; }
+    .policy-top-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 20px; margin-bottom: 28px; border-bottom: 1px solid rgba(148,163,184,0.18); }
+    .policy-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #f8fafc; font-weight: 800; font-size: 18px; }
+    .policy-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .policy-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .policy-links a { text-decoration: none; font-size: 13px; font-weight: 600; color: #cbd5e1; padding: 6px 12px; border-radius: 8px; background: rgba(30,41,59,0.7); border: 1px solid rgba(148,163,184,0.2); transition: all 0.15s ease; }
+    .policy-links a:hover, .policy-links a.active { color: #ffffff; border-color: #60a5fa; background: rgba(37,99,235,0.28); }
+    .guide-breadcrumb { font-size: 12.5px; color: #94a3b8; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .guide-breadcrumb a { color: #93c5fd; text-decoration: none; }
+    .guide-breadcrumb a:hover { text-decoration: underline; }
+    .policy-card { background: rgba(15,23,42,0.85); border: 1px solid rgba(148,163,184,0.18); border-radius: 20px; padding: 34px 30px; margin-bottom: 24px; box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
+    .guide-header-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .guide-pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: rgba(37,99,235,0.22); color: #93c5fd; border: 1px solid rgba(96,165,250,0.35); }
+    .guide-pill.amber { background: rgba(245,158,11,0.16); color: #fcd34d; border-color: rgba(245,158,11,0.35); }
+    .policy-card h1 { font-size: 26px; font-weight: 800; color: #ffffff; margin: 0 0 14px 0; line-height: 1.38; letter-spacing: -0.02em; }
+    .guide-meta-bar { font-size: 12.5px; color: #94a3b8; padding-bottom: 18px; margin-bottom: 20px; border-bottom: 1px solid rgba(148,163,184,0.15); display: flex; flex-wrap: wrap; gap: 14px; }
+    .guide-lead-summary { background: rgba(30,41,59,0.65); border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 16px 18px; margin-bottom: 22px; font-size: 14.5px; color: #e2e8f0; line-height: 1.75; }
+    .guide-toc-box { background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; padding: 18px 22px; margin-bottom: 28px; }
+    .guide-toc-title { font-size: 14px; font-weight: 800; color: #f8fafc; margin-bottom: 10px; }
+    .guide-toc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+    .guide-toc-list a { color: #93c5fd; text-decoration: none; font-size: 13.5px; font-weight: 600; }
+    .guide-toc-list a:hover { color: #ffffff; text-decoration: underline; }
+    .policy-card h2 { font-size: 20px; font-weight: 800; color: #93c5fd; margin: 34px 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(148,163,184,0.14); }
+    .policy-card h3 { font-size: 16px; font-weight: 700; color: #f8fafc; margin: 20px 0 8px 0; }
+    .policy-card p, .policy-card li { font-size: 14.5px; color: #cbd5e1; line-height: 1.8; }
+    .policy-card p { margin-bottom: 14px; }
+    .policy-card ul, .policy-card ol { padding-left: 22px; margin: 10px 0 16px; }
+    .policy-card li { margin-bottom: 8px; }
+    .policy-card strong { color: #f8fafc; }
+    .policy-card code { background: rgba(30,41,59,0.9); color: #fcd34d; padding: 2px 6px; border-radius: 6px; font-size: 13px; }
+    .guide-formula-box { background: linear-gradient(135deg, rgba(30,41,59,0.85), rgba(15,23,42,0.95)); border: 1px solid rgba(96,165,250,0.3); border-radius: 14px; padding: 18px 20px; margin: 16px 0 20px; font-size: 14px; color: #f1f5f9; line-height: 1.85; }
+    .guide-callout { background: rgba(30,41,59,0.65); border: 1px solid rgba(245,158,11,0.32); border-radius: 14px; padding: 18px 20px; margin: 18px 0 22px; font-size: 14px; color: #e2e8f0; }
+    .guide-table-wrap { overflow-x: auto; margin: 16px 0 22px; border-radius: 12px; border: 1px solid rgba(148,163,184,0.2); }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; }
+    .guide-table th { background: rgba(30,41,59,0.95); color: #f8fafc; font-weight: 700; padding: 12px 14px; border-bottom: 1px solid rgba(148,163,184,0.25); white-space: nowrap; }
+    .guide-table td { padding: 11px 14px; border-bottom: 1px solid rgba(148,163,184,0.12); color: #cbd5e1; vertical-align: top; }
+    .guide-table tr:last-child td { border-bottom: none; }
+    .guide-table tr:nth-child(even) td { background: rgba(30,41,59,0.35); }
+    .guide-cta-banner { background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(15,23,42,0.9)); border: 1px solid rgba(96,165,250,0.4); border-radius: 16px; padding: 22px 24px; margin: 28px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .guide-cta-info h3 { margin: 0 0 6px 0; font-size: 17px; color: #ffffff; }
+    .guide-cta-info p { margin: 0; font-size: 13.5px; color: #cbd5e1; }
+    .guide-cta-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .guide-cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700; text-decoration: none; transition: all 0.15s ease; }
+    .guide-cta-btn.primary { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #ffffff; box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .guide-cta-btn.primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .guide-cta-btn.secondary { background: rgba(30,41,59,0.85); color: #e2e8f0; border: 1px solid rgba(148,163,184,0.3); }
+    .guide-cta-btn.secondary:hover { border-color: #60a5fa; color: #ffffff; }
+    .guide-faq-box { margin-top: 30px; }
+    .guide-faq-item { background: rgba(30,41,59,0.55); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+    .guide-faq-item summary { cursor: pointer; font-weight: 700; font-size: 14.5px; color: #93c5fd; }
+    .guide-faq-item p { margin: 10px 0 0 0; font-size: 13.8px; color: #cbd5e1; line-height: 1.75; }
+    .guide-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 14px; }
+    .guide-related-card { display: block; text-decoration: none; background: rgba(30,41,59,0.65); border: 1px solid rgba(148,163,184,0.18); border-radius: 14px; padding: 16px 18px; transition: all 0.15s ease; }
+    .guide-related-card:hover { border-color: #60a5fa; background: rgba(37,99,235,0.18); transform: translateY(-2px); }
+    .guide-related-card .r-cat { font-size: 11.5px; color: #fcd34d; font-weight: 700; margin-bottom: 4px; }
+    .guide-related-card h4 { font-size: 14.5px; color: #f8fafc; margin: 0 0 6px 0; line-height: 1.4; }
+    .guide-related-card p { font-size: 12.5px; color: #94a3b8; margin: 0; line-height: 1.5; }
+    .policy-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(148,163,184,0.16); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12.5px; color: #94a3b8; }
+    .policy-footer a { color: #93c5fd; text-decoration: none; }
+    @media (max-width: 640px) {
+      .policy-card { padding: 22px 18px; }
+      .policy-card h1 { font-size: 21px; }
+      .policy-card h2 { font-size: 17.5px; }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="policy-wrap">
+
+    <header class="policy-top-nav">
+      <a href="https://ilsangtool.kr/" class="policy-brand">
+        <img src="favicon.png" alt="일상툴 로고">
+        <span>일상툴 (IlsangTool)</span>
+      </a>
+      <nav class="policy-links" aria-label="사이트 주요 안내 및 백서 메뉴">
+        <a href="https://ilsangtool.kr/">🏠 홈 (전체 도구)</a>
+        <a href="guides.html" class="active">📚 실무 백서·칼럼</a>
+        <a href="about.html" class="">서비스 소개</a>
+        <a href="privacy.html" class="">개인정보처리방침</a>
+        <a href="terms.html" class="">이용약관</a>
+        <a href="contact.html" class="">문의하기</a>
+      </nav>
+    </header>
+  
+    <nav class="guide-breadcrumb" aria-label="현재 위치">
+      <a href="https://ilsangtool.kr/">홈</a>
+      <span>›</span>
+      <a href="guides.html">실무 백서·칼럼</a>
+      <span>›</span>
+      <span>글로벌 · 외환 · 직구 백서</span>
+    </nav>
+
+    <main>
+      <article class="policy-card">
+        <div class="guide-header-badges">
+          <span class="guide-pill">글로벌 · 외환 · 직구 백서</span>
+          <span class="guide-pill amber">환전·영문주소 실무</span>
+        </div>
+        <h1>해외여행·직구 환율 계산 실무: 매매기준율 vs 현찰 스프레드, 환율 우대 90%의 의미와 영문주소 변환법</h1>
+        <div class="guide-meta-bar">
+          <span>✍️ 작성·감수: <strong>일상툴 에디토리얼 연구팀</strong></span>
+          <span>📅 최종 검수일: 2026-10-30</span>
+          <span>⏱️ 예상 독서 시간: 8분</span>
+          <span>🏛️ 기준 근거: 한국은행 외환제도 안내 · 관세청 해외직구 통관 규정 · 국립국어원 국어의 로마자 표기법</span>
+        </div>
+
+        <div class="guide-lead-summary">
+          <strong>핵심 요약:</strong> 해외여행 환전이나 해외직구 결제 시 포털에 검색되는 기준 환율과 실제 내가 지불하는 원화 금액 사이에는 환전 수수료(스프레드)가 존재합니다. 은행 환율 고시표를 읽는 법부터 DCC 이중 환전 차단, 그리고 해외 배송 영문주소 작성 규칙까지 한 번에 정리합니다.
+        </div>
+
+        <nav class="guide-toc-box" aria-label="본문 목차">
+          <div class="guide-toc-title">📑 본문 목차 (클릭 시 해당 단락으로 이동)</div>
+          <ul class="guide-toc-list">
+            
+    <li><a href="#sec-1">1. 매매기준율 · 현찰 살 때 · 송금 보낼 때(전신환) 환율이 서로 다른 이유</a></li>
+  
+    <li><a href="#sec-2">2. "환율 우대 90%"의 진짜 의미와 실제 우대 환율 계산 공식</a></li>
+  
+    <li><a href="#sec-3">3. 해외 현지 카드 결제 및 직구 시 필수: DCC(자국통화결제) 차단법</a></li>
+  
+    <li><a href="#sec-4">4. 해외직구 목록통관 면세 한도($150 vs $200) 및 관부가세 계산 기준</a></li>
+  
+    <li><a href="#sec-5">5. 국립국어원 로마자 표기법 기준 한글 도로명주소 → 영문주소 변환 4원칙</a></li>
+  
+          </ul>
+        </nav>
+
+        
+      <h2 id="sec-1">1. 매매기준율 · 현찰 살 때 · 송금 보낼 때(전신환) 환율이 서로 다른 이유</h2>
+      <p>
+        은행이나 포털 사이트에서 미국 달러(USD)나 일본 엔(JPY) 환율을 조회하면 가장 크게 적혀 있는 숫자가 바로 <strong>매매기준율(Base Rate)</strong>입니다. 매매기준율은 외환시장에서 은행 간 대규모 외화 거래가 체결되는 기준 가격입니다.
+      </p>
+      <p>
+        그러나 일반 소비자가 은행 창구에서 실물 달러 지폐를 사거나 해외로 송금할 때는 매매기준율 그대로 거래할 수 없으며, 외화 조달·보관·수송 비용과 은행 마진인 <strong>환전 수수료(Spread, 스프레드)</strong>가 더해집니다.
+      </p>
+      <div class="guide-table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>환율 종류</th>
+              <th>적용 상황</th>
+              <th>매매기준율 대비 스프레드 (주요 시중은행 표준)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>매매기준율</strong></td>
+              <td>외환시장 기준 환율 (트래블 카드 100% 우대 충전 시 적용)</td>
+              <td><strong>기준점 (0%)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>현찰 살 때</strong></td>
+              <td>해외여행 전 원화를 내고 <strong>실물 외화 지폐</strong>를 찾을 때</td>
+              <td>• 미국 달러(USD): <strong>약 +1.75%</strong><br>• 일본 엔(JPY): <strong>약 +1.75%</strong><br>• 유럽 유로(EUR): <strong>약 +1.99%</strong><br>• 중국 위안(CNY)·동남아 통화: <strong>약 +5% ~ 12%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>현찰 팔 때</strong></td>
+              <td>여행 후 남은 외화 지폐를 다시 원화로 바꿀 때</td>
+              <td>매매기준율 대비 약 -1.75% ~ -1.99% 차감 (동전은 현찰가의 50% 이하)</td>
+            </tr>
+            <tr>
+              <td><strong>전신환 보낼 때 (송금)</strong></td>
+              <td>실물 지폐 없이 계좌 간 해외 송금 또는 해외 카드 결제 대금 청구 시</td>
+              <td>매매기준율 대비 <strong>약 +0.95% ~ +1.0%</strong> (현찰보다 수수료가 절반 수준으로 저렴)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="sec-2">2. "환율 우대 90%"의 진짜 의미와 실제 우대 환율 계산 공식</h2>
+      <p>
+        은행 앱에서 제공하는 <strong>"달러 환율 우대 90%"</strong>는 달러 가격 자체를 90% 할인해 준다는 뜻이 아니라, <strong>은행이 챙기는 환전 수수료(현찰 스프레드 약 1.75%)의 90%를 깎아주겠다</strong>는 의미입니다.
+      </p>
+      <div class="guide-formula-box">
+        <strong>💱 환율 우대 적용 시 실제 적용 환율 공식</strong><br>
+        <code>실제 적용 환율 = 매매기준율 + [ 기본 환전수수료 × (1 - 우대율) ]</code><br><br>
+        <strong>• 계산 예시:</strong> 달러 매매기준율이 <code>1,400원</code>이고 기본 현찰 스프레드가 <code>1.75%(24.5원)</code>일 때:<br>
+        - 우대 0% (일반 창구): <code>1,400 + 24.5 = 1달러당 1,424.5원</code><br>
+        - <strong>우대 90% (모바일 앱):</strong> <code>1,400 + (24.5 × 0.1) = 1달러당 1,402.45원</code> (1,000달러 환전 시 약 22,050원 절약)
+      </div>
+
+      <h2 id="sec-3">3. 해외 현지 카드 결제 및 직구 시 필수: DCC(자국통화결제) 차단법</h2>
+      <p>
+        해외 가맹점 단말기나 해외직구 사이트(아마존, 호텔 예약 사이트 등)에서 신용·체크카드로 결제할 때 영수증이나 결제 통화가 달러(USD)·엔(JPY)·유로(EUR)가 아닌 <strong>원화(KRW)로 표시되는 서비스가 바로 DCC(Dynamic Currency Conversion, 해외원화결제)</strong>입니다.
+      </p>
+      <div class="guide-callout">
+        <strong>🚨 해외 결제 시 반드시 "현지 통화(Local Currency)"로 결제하세요!</strong><br>
+        DCC로 결제하면 <code>현지 통화 → 원화(현지 결제대행사 고율 수수료 3~8% 부과) → 달러(국제 브랜드사 전환) → 원화(국내 카드사 청구)</code>라는 이중·삼중 환전을 거치면서 불필요한 수수료가 최대 5~10% 더 빠져나갑니다. 출국 전 국내 카드사 앱에서 <strong>'해외원화결제(DCC) 사전 차단 서비스'</strong>를 무료로 신청해 두면 원화 결제 시도가 자동으로 거절되어 이중 수수료를 100% 예방할 수 있습니다.
+      </div>
+
+      <h2 id="sec-4">4. 해외직구 목록통관 면세 한도($150 vs $200) 및 관부가세 계산 기준</h2>
+      <ul>
+        <li><strong>일반 국가 (미국 외 중국, 일본, 유럽 등):</strong> 물품 가격(현지 배송비 포함)이 미화 환산 <strong>$150 이하</strong>일 때 관세와 부가세가 면제됩니다.</li>
+        <li><strong>미국발 목록통관 (한·미 FTA 특례):</strong> 의약품, 건강기능식품 등 일반통관 대상 품목을 제외한 일반 목록통관 상품은 <strong>$200 이하</strong>까지 면세됩니다. (단, 영양제·화장품 등이 1건이라도 섞여 있으면 전체가 일반통관으로 전환되어 미국발이라도 $150 기준으로 낮아지므로 반드시 확인해야 합니다.)</li>
+      </ul>
+
+      <h2 id="sec-5">5. 국립국어원 로마자 표기법 기준 한글 도로명주소 → 영문주소 변환 4원칙</h2>
+      <p>
+        해외직구 쇼핑몰(Shipping Address)이나 해외 은행 송금, 입국신고서 작성 시에는 우리말 주소와 반대로 <strong>가장 작은 단위(동·호수, 상세주소)부터 가장 큰 단위(시·도, 국가명) 순서</strong>로 적습니다.
+      </p>
+      <div class="guide-formula-box">
+        <strong>✈️ 영문 주소 표기 표준 순서 (작은 단위 → 큰 단위)</strong><br>
+        <strong>• 한글 주소:</strong> 서울특별시 중구 세종대로 110, 302동 1504호 (우편번호 04524)<br>
+        <strong>• 영문 주소:</strong> <code>1504, 302-dong, 110, Sejong-daero, Jung-gu, Seoul, 04524, Republic of Korea</code>
+      </div>
+      <ul>
+        <li><strong>행정구역 단위(시·도·군·구·읍·면·리·동)와 도로명 단위(대로·로·길):</strong> 앞에 붙임표(<code>-</code>)를 넣고 하이픈 뒤 첫 글자는 소문자로 표기합니다. (예: <code>Gangnam-gu</code>, <code>Teheran-ro</code>, <code>Samseong-dong</code>)</li>
+        <li><strong>아파트 동·호수(Address Line 2):</strong> 해외 배송 기사가 아니라 <strong>한국에 도착한 뒤 한국 우체국·택배 기사가 읽는 정보</strong>이므로 <code>101-dong 502-ho</code> 또는 간단히 <code>Apt 101-502</code>로 적으면 정확하게 배달됩니다.</li>
+      </ul>
+    
+
+        <div class="guide-cta-banner">
+          <div class="guide-cta-info">
+            <h3>⚡ 방금 읽은 공식으로 내 수치를 1초 만에 계산해 보세요!</h3>
+            <p>회원가입이나 서버 전송 없이 브라우저 로컬에서 즉시 무료로 시뮬레이션할 수 있습니다.</p>
+          </div>
+          <div class="guide-cta-btns">
+            <a href="https://ilsangtool.kr/?tool=fx" class="guide-cta-btn primary">
+              <span>🚀</span><span>실시간 환율 환산기 바로 실행</span>
+            </a>
+            <a href="https://ilsangtool.kr/?tool=enaddr" class="guide-cta-btn secondary">
+              <span>🔗</span><span>영문 주소 변환기</span>
+            </a>
+          </div>
+        </div>
+
+        <section class="guide-faq-box" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">💬 자주 묻는 질문 (실무 심층 FAQ)</h2>
+          
+    <details class="guide-faq-item" open>
+      <summary>Q1. 일본 엔화(JPY) 환율은 왜 1엔이 아니라 100엔 단위로 표시되나요?</summary>
+      <p>원화와 엔화는 모두 통화 단위가 커서 1엔당 원화 가치가 약 8~10원 내외의 한 자릿수에 불과합니다. 따라서 외환시장 관행상 소수점 오차를 줄이고 달러(1달러당 약 1,300~1,400원)와 자릿수를 맞추기 위해 일본 엔화와 인도네시아 루피아(IDR)는 100단위 기준으로 고시합니다.</p>
+    </details>
+  
+    <details class="guide-faq-item" >
+      <summary>Q2. 해외직구 시 영문 주소의 띄어쓰기나 대소문자가 조금 틀려도 배송이 되나요?</summary>
+      <p>국제 특송(DHL, FedEx, 우체국 EMS 등)에서 가장 중요한 핵심 식별자는 국가 코드(KR, South Korea)와 "5자리 도로명 우편번호(Postal Code)"입니다. 국가와 5자리 우편번호, 그리고 도로명 번지수·동호수 숫자만 정확하면 한국 통관 후 국내 택배 시스템이 한글 주소로 자동 매칭하여 안전하게 배송됩니다.</p>
+    </details>
+  
+        </section>
+
+        <section style="margin-top:34px; padding-top:24px; border-top:1px solid rgba(148,163,184,0.16);">
+          <h2 style="margin-top:0;">📚 함께 읽으면 좋은 연관 실무 백서</h2>
+          <div class="guide-related-grid">
+            
+      <a href="guide-real-estate-unit.html" class="guide-related-card">
+        <div class="r-cat">부동산 · 공학 단위 백서</div>
+        <h4>부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서</h4>
+        <p>아파트 분양 공고의 전용면적(59㎡·84㎡), 주거공용면적, 공급면적, 계약면적의 정확한 개념과 제곱미터(㎡)를 평수로 바꾸는 0.3025 공식, 그리고 미국·유럽 해외직구 필수 길이(inch·ft)·무게(lb·oz)·온도(℉) 환산 기준을 총정리합니다.</p>
+      </a>
+    
+      <a href="guide-vat-business.html" class="guide-related-card">
+        <div class="r-cat">금융 · 세무 백서</div>
+        <h4>부가가치세(VAT 10%) 공급가액·세액 역산 공식과 세금계산서 발행 및 사업자 정산 가이드</h4>
+        <p>대한민국 부가가치세(VAT 10%) 별도·포함 금액 계산 원리, 합계금액에서 공급가액을 역산하는 나누기 1.1 공식, 일반과세자와 간이과세자의 부가세 차이, 전자세금계산서 발행 기한 및 단수 처리 규정을 상세히 설명합니다.</p>
+      </a>
+    
+      <a href="guide-pdf-security.html" class="guide-related-card">
+        <div class="r-cat">IT · 정보보안 백서</div>
+        <h4>개인정보 유출 없는 클라이언트 로컬(WebAssembly) PDF 변환·병합·압축 원리와 패스워드 암호학 가이드</h4>
+        <p>무료 온라인 PDF 변환 사이트 이용 시 발생할 수 있는 클라우드 서버 문서 유출 위험성을 짚어보고, 브라우저 내부 메모리(WebAssembly·HTML5 Canvas)에서 100% 로컬 처리되는 무서버 PDF 기술과 Web Crypto API 암호학적 난수 비밀번호 생성 원리를 해설합니다.</p>
+      </a>
+    
+          </div>
+          <div style="margin-top:18px; text-align:right;">
+            <a href="guides.html" style="color:#93c5fd; font-size:13.5px; font-weight:700; text-decoration:none;">👉 전체 12종 실무 백서·칼럼 목록 보기</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="policy-footer">
+      <div>© 2026 일상툴 (ilsangtool.kr). 모든 계산 및 파일 처리는 사용자 브라우저 로컬에서 안전하게 실행됩니다.</div>
+      <div>
+        <a href="https://ilsangtool.kr/">홈</a> ·
+        <a href="guides.html">실무 백서·칼럼</a> ·
+        <a href="about.html">서비스 소개</a> ·
+        <a href="privacy.html">개인정보처리방침</a> ·
+        <a href="terms.html">이용약관</a> ·
+        <a href="contact.html">문의하기</a> ·
+        <a href="sitemap.xml">사이트맵</a>
+      </div>
+    </footer>
+  
+  </div>
+</body>
+</html>

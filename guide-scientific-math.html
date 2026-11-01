@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공학용 계산기(삼각함수·로그·순열조합) 실무 수식 가이드와 자기소개서 글자수·바이트(Byte) 계산 원리 | 일상툴 실무 백서</title>
+  <meta name="description" content="카시오(Casio fx) 스타일 공학용 계산기의 각도 단위(DEG·RAD·GRAD), 삼각함수와 역삼각함수, 상용로그(log)·자연로그(ln), 순열(nPr)·조합(nCr) 공식 및 취업 자기소개서 공백 포함/제외 글자수와 UTF-8·EUC-KR 바이트 계산 원리를 상세히 해설합니다.">
+  <meta name="author" content="일상툴 에디토리얼 연구팀">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ilsangtool.kr/guide-scientific-math.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="일상툴 (IlsangTool)">
+  <meta property="og:title" content="공학용 계산기(삼각함수·로그·순열조합) 실무 수식 가이드와 자기소개서 글자수·바이트(Byte) 계산 원리">
+  <meta property="og:description" content="카시오(Casio fx) 스타일 공학용 계산기의 각도 단위(DEG·RAD·GRAD), 삼각함수와 역삼각함수, 상용로그(log)·자연로그(ln), 순열(nPr)·조합(nCr) 공식 및 취업 자기소개서 공백 포함/제외 글자수와 UTF-8·EUC-KR 바이트 계산 원리를 상세히 해설합니다.">
+  <meta property="og:url" content="https://ilsangtool.kr/guide-scientific-math.html">
+  <meta property="og:image" content="https://ilsangtool.kr/favicon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="공학용 계산기(삼각함수·로그·순열조합) 실무 수식 가이드와 자기소개서 글자수·바이트(Byte) 계산 원리">
+  <meta name="twitter:description" content="카시오(Casio fx) 스타일 공학용 계산기의 각도 단위(DEG·RAD·GRAD), 삼각함수와 역삼각함수, 상용로그(log)·자연로그(ln), 순열(nPr)·조합(nCr) 공식 및 취업 자기소개서 공백 포함/제외 글자수와 UTF-8·EUC-KR 바이트 계산 원리를 상세히 해설합니다.">
+  <meta name="twitter:image" content="https://ilsangtool.kr/favicon.png">
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css?v=53">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://ilsangtool.kr/guide-scientific-math.html#article",
+      "headline": "공학용 계산기(삼각함수·로그·순열조합) 실무 수식 가이드와 자기소개서 글자수·바이트(Byte) 계산 원리",
+      "description": "카시오(Casio fx) 스타일 공학용 계산기의 각도 단위(DEG·RAD·GRAD), 삼각함수와 역삼각함수, 상용로그(log)·자연로그(ln), 순열(nPr)·조합(nCr) 공식 및 취업 자기소개서 공백 포함/제외 글자수와 UTF-8·EUC-KR 바이트 계산 원리를 상세히 해설합니다.",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-10-30",
+      "author": {
+        "@type": "Organization",
+        "name": "일상툴 에디토리얼 연구팀",
+        "url": "https://ilsangtool.kr/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "일상툴 (IlsangTool)",
+        "url": "https://ilsangtool.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ilsangtool.kr/favicon.png"
+        }
+      },
+      "mainEntityOfPage": "https://ilsangtool.kr/guide-scientific-math.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "일상툴 홈",
+          "item": "https://ilsangtool.kr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "실무 백서·칼럼",
+          "item": "https://ilsangtool.kr/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "공학용 계산기(삼각함수·로그·순열조합) 실무 수식 가이드와 자기소개서 글자수·바이트(Byte) 계산 원리",
+          "item": "https://ilsangtool.kr/guide-scientific-math.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ilsangtool.kr/guide-scientific-math.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "공학용 계산기에서 음수의 제곱을 할 때 왜 괄호를 꼭 쳐야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "수학 연산 우선순위상 거듭제곱(²)이 음수 부호(-)보다 먼저 계산되기 때문입니다. 괄호 없이 -3²을 입력하면 -(3²)으로 인식되어 -9가 나오므로, 음수 자체를 제곱하려면 반드시 (-3)²으로 괄호를 묶어 입력해야 +9가 산출됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "발표 대본 1분 분량은 공백 포함 몇 글자 정도로 작성하면 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "한국어 표준 아나운서 및 면접 발표 속도는 분당 약 300~350자(공백 포함 기준, 단어 수 약 80~100어절)입니다. 따라서 1분 자기소개 스피치 대본은 공백 포함 320~350자, 3분 프레젠테이션 대본은 약 1,000자 내외로 구성하면 시간 초과 없이 또박또박 전달할 수 있습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    .policy-wrap { max-width: 960px; margin: 0 auto; padding: 36px 20px 80px; color: #e2e8f0; line-height: 1.8; }
+    .policy-top-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 20px; margin-bottom: 28px; border-bottom: 1px solid rgba(148,163,184,0.18); }
+    .policy-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #f8fafc; font-weight: 800; font-size: 18px; }
+    .policy-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .policy-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .policy-links a { text-decoration: none; font-size: 13px; font-weight: 600; color: #cbd5e1; padding: 6px 12px; border-radius: 8px; background: rgba(30,41,59,0.7); border: 1px solid rgba(148,163,184,0.2); transition: all 0.15s ease; }
+    .policy-links a:hover, .policy-links a.active { color: #ffffff; border-color: #60a5fa; background: rgba(37,99,235,0.28); }
+    .guide-breadcrumb { font-size: 12.5px; color: #94a3b8; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .guide-breadcrumb a { color: #93c5fd; text-decoration: none; }
+    .guide-breadcrumb a:hover { text-decoration: underline; }
+    .policy-card { background: rgba(15,23,42,0.85); border: 1px solid rgba(148,163,184,0.18); border-radius: 20px; padding: 34px 30px; margin-bottom: 24px; box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
+    .guide-header-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .guide-pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: rgba(37,99,235,0.22); color: #93c5fd; border: 1px solid rgba(96,165,250,0.35); }
+    .guide-pill.amber { background: rgba(245,158,11,0.16); color: #fcd34d; border-color: rgba(245,158,11,0.35); }
+    .policy-card h1 { font-size: 26px; font-weight: 800; color: #ffffff; margin: 0 0 14px 0; line-height: 1.38; letter-spacing: -0.02em; }
+    .guide-meta-bar { font-size: 12.5px; color: #94a3b8; padding-bottom: 18px; margin-bottom: 20px; border-bottom: 1px solid rgba(148,163,184,0.15); display: flex; flex-wrap: wrap; gap: 14px; }
+    .guide-lead-summary { background: rgba(30,41,59,0.65); border-left: 4px solid #3b82f6; border-radius: 0 12px 12px 0; padding: 16px 18px; margin-bottom: 22px; font-size: 14.5px; color: #e2e8f0; line-height: 1.75; }
+    .guide-toc-box { background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; padding: 18px 22px; margin-bottom: 28px; }
+    .guide-toc-title { font-size: 14px; font-weight: 800; color: #f8fafc; margin-bottom: 10px; }
+    .guide-toc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+    .guide-toc-list a { color: #93c5fd; text-decoration: none; font-size: 13.5px; font-weight: 600; }
+    .guide-toc-list a:hover { color: #ffffff; text-decoration: underline; }
+    .policy-card h2 { font-size: 20px; font-weight: 800; color: #93c5fd; margin: 34px 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(148,163,184,0.14); }
+    .policy-card h3 { font-size: 16px; font-weight: 700; color: #f8fafc; margin: 20px 0 8px 0; }
+    .policy-card p, .policy-card li { font-size: 14.5px; color: #cbd5e1; line-height: 1.8; }
+    .policy-card p { margin-bottom: 14px; }
+    .policy-card ul, .policy-card ol { padding-left: 22px; margin: 10px 0 16px; }
+    .policy-card li { margin-bottom: 8px; }
+    .policy-card strong { color: #f8fafc; }
+    .policy-card code { background: rgba(30,41,59,0.9); color: #fcd34d; padding: 2px 6px; border-radius: 6px; font-size: 13px; }
+    .guide-formula-box { background: linear-gradient(135deg, rgba(30,41,59,0.85), rgba(15,23,42,0.95)); border: 1px solid rgba(96,165,250,0.3); border-radius: 14px; padding: 18px 20px; margin: 16px 0 20px; font-size: 14px; color: #f1f5f9; line-height: 1.85; }
+    .guide-callout { background: rgba(30,41,59,0.65); border: 1px solid rgba(245,158,11,0.32); border-radius: 14px; padding: 18px 20px; margin: 18px 0 22px; font-size: 14px; color: #e2e8f0; }
+    .guide-table-wrap { overflow-x: auto; margin: 16px 0 22px; border-radius: 12px; border: 1px solid rgba(148,163,184,0.2); }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; }
+    .guide-table th { background: rgba(30,41,59,0.95); color: #f8fafc; font-weight: 700; padding: 12px 14px; border-bottom: 1px solid rgba(148,163,184,0.25); white-space: nowrap; }
+    .guide-table td { padding: 11px 14px; border-bottom: 1px solid rgba(148,163,184,0.12); color: #cbd5e1; vertical-align: top; }
+    .guide-table tr:last-child td { border-bottom: none; }
+    .guide-table tr:nth-child(even) td { background: rgba(30,41,59,0.35); }
+    .guide-cta-banner { background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(15,23,42,0.9)); border: 1px solid rgba(96,165,250,0.4); border-radius: 16px; padding: 22px 24px; margin: 28px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .guide-cta-info h3 { margin: 0 0 6px 0; font-size: 17px; color: #ffffff; }
+    .guide-cta-info p { margin: 0; font-size: 13.5px; color: #cbd5e1; }
+    .guide-cta-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .guide-cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700; text-decoration: none; transition: all 0.15s ease; }
+    .guide-cta-btn.primary { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #ffffff; box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .guide-cta-btn.primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .guide-cta-btn.secondary { background: rgba(30,41,59,0.85); color: #e2e8f0; border: 1px solid rgba(148,163,184,0.3); }
+    .guide-cta-btn.secondary:hover { border-color: #60a5fa; color: #ffffff; }
+    .guide-faq-box { margin-top: 30px; }
+    .guide-faq-item { background: rgba(30,41,59,0.55); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+    .guide-faq-item summary { cursor: pointer; font-weight: 700; font-size: 14.5px; color: #93c5fd; }
+    .guide-faq-item p { margin: 10px 0 0 0; font-size: 13.8px; color: #cbd5e1; line-height: 1.75; }
+    .guide-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 14px; }
+    .guide-related-card { display: block; text-decoration: none; background: rgba(30,41,59,0.65); border: 1px solid rgba(148,163,184,0.18); border-radius: 14px; padding: 16px 18px; transition: all 0.15s ease; }
+    .guide-related-card:hover { border-color: #60a5fa; background: rgba(37,99,235,0.18); transform: translateY(-2px); }
+    .guide-related-card .r-cat { font-size: 11.5px; color: #fcd34d; font-weight: 700; margin-bottom: 4px; }
+    .guide-related-card h4 { font-size: 14.5px; color: #f8fafc; margin: 0 0 6px 0; line-height: 1.4; }
+    .guide-related-card p { font-size: 12.5px; color: #94a3b8; margin: 0; line-height: 1.5; }
+    .policy-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(148,163,184,0.16); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12.5px; color: #94a3b8; }
+    .policy-footer a { color: #93c5fd; text-decoration: none; }
+    @media (max-width: 640px) {
+      .policy-card { padding: 22px 18px; }
+      .policy-card h1 { font-size: 21px; }
+      .policy-card h2 { font-size: 17.5px; }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="policy-wrap">
+
+    <header class="policy-top-nav">
+      <a href="https://ilsangtool.kr/" class="policy-brand">
+        <img src="favicon.png" alt="일상툴 로고">
+        <span>일상툴 (IlsangTool)</span>
+      </a>
+      <nav class="policy-links" aria-label="사이트 주요 안내 및 백서 메뉴">
+        <a href="https://ilsangtool.kr/">🏠 홈 (전체 도구)</a>
+        <a href="guides.html" class="active">📚 실무 백서·칼럼</a>
+        <a href="about.html" class="">서비스 소개</a>
+        <a href="privacy.html" class="">개인정보처리방침</a>
+        <a href="terms.html" class="">이용약관</a>
+        <a href="contact.html" class="">문의하기</a>
+      </nav>
+    </header>
+  
+    <nav class="guide-breadcrumb" aria-label="현재 위치">
+      <a href="https://ilsangtool.kr/">홈</a>
+      <span>›</span>
+      <a href="guides.html">실무 백서·칼럼</a>
+      <span>›</span>
+      <span>공학 · 수학 · 문서 백서</span>
+    </nav>
+
+    <main>
+      <article class="policy-card">
+        <div class="guide-header-badges">
+          <span class="guide-pill">공학 · 수학 · 문서 백서</span>
+          <span class="guide-pill amber">공학계산·자소서 표준</span>
+        </div>
+        <h1>공학용 계산기(삼각함수·로그·순열조합) 실무 수식 가이드와 자기소개서 글자수·바이트(Byte) 계산 원리</h1>
+        <div class="guide-meta-bar">
+          <span>✍️ 작성·감수: <strong>일상툴 에디토리얼 연구팀</strong></span>
+          <span>📅 최종 검수일: 2026-10-30</span>
+          <span>⏱️ 예상 독서 시간: 8분</span>
+          <span>🏛️ 기준 근거: 국제표준화기구(ISO 80000-2) 수학 기호 표준 · 유니코드(UTF-8) 및 KS X 1001 문자 인코딩 규격</span>
+        </div>
+
+        <div class="guide-lead-summary">
+          <strong>핵심 요약:</strong> 이공계 대학생과 엔지니어의 필수품인 공학용 계산기에서 가장 빈번히 발생하는 각도 모드(DEG vs RAD) 오류 해결법, 로그·지수·확률통계 공식, 그리고 채용 시스템에서 글자수와 바이트(Byte)가 다르게 측정되는 인코딩 원리를 정리합니다.
+        </div>
+
+        <nav class="guide-toc-box" aria-label="본문 목차">
+          <div class="guide-toc-title">📑 본문 목차 (클릭 시 해당 단락으로 이동)</div>
+          <ul class="guide-toc-list">
+            
+    <li><a href="#sec-1">1. 공학용 계산기 계산 결과가 이상할 때: DEG · RAD · GRAD 각도 모드 완벽 이해</a></li>
+  
+    <li><a href="#sec-2">2. 삼각함수(sin·cos·tan)와 역삼각함수(arcsin·arccos·arctan) 및 쌍곡선함수 공식</a></li>
+  
+    <li><a href="#sec-3">3. 상용로그(log₁₀)와 자연로그(ln)의 차이 및 데시벨(dB)·pH 농도 실무 응용</a></li>
+  
+    <li><a href="#sec-4">4. 확률과 통계의 기초: 팩토리얼(n!), 순열(nPr), 조합(nCr) 수식과 활용 사례</a></li>
+  
+    <li><a href="#sec-5">5. 채용 자기소개서 글자수 세기(공백 포함 vs 제외)와 한글 바이트(2Byte vs 3Byte) 원리</a></li>
+  
+          </ul>
+        </nav>
+
+        
+      <h2 id="sec-1">1. 공학용 계산기 계산 결과가 이상할 때: DEG · RAD · GRAD 각도 모드 완벽 이해</h2>
+      <p>
+        공학용 계산기를 처음 사용할 때 가장 흔히 겪는 당황스러운 상황은 <code>sin(30)</code>을 눌렀는데 익숙한 <code>0.5</code>가 아니라 <code>-0.9880316...</code>이라는 음수가 나오는 경우입니다. 이는 계산기 고장이 아니라 각도 단위가 <strong>DEG(도, Degree)</strong>가 아닌 <strong>RAD(라디안, Radian)</strong>으로 설정되어 있기 때문입니다.
+      </p>
+      <div class="guide-table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>각도 모드</th>
+              <th>원 1바퀴 기준</th>
+              <th>직각(90°) 표기</th>
+              <th>환산 공식</th>
+              <th>주요 사용 분야</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>DEG (Degree, 육십분법)</strong></td>
+              <td><strong>360°</strong></td>
+              <td>90°</td>
+              <td><code>1° = π / 180 rad</code></td>
+              <td>중·고교 수학, 건축·토목 설계, 일상 각도 계산 (<code>sin(30°) = 0.5</code>)</td>
+            </tr>
+            <tr>
+              <td><strong>RAD (Radian, 호도법)</strong></td>
+              <td><strong>2π rad</strong> (약 6.2832)</td>
+              <td>π / 2 rad</td>
+              <td><code>1 rad = 180° / π ≈ 57.2958°</code></td>
+              <td>대학 미적분학, 물리학 파동·진동 방정식, 전자공학 위상 계산</td>
+            </tr>
+            <tr>
+              <td><strong>GRAD (Gradian, 백분법)</strong></td>
+              <td><strong>400 gon</strong></td>
+              <td>100 gon</td>
+              <td><code>1 gon = 0.9°</code></td>
+              <td>유럽 토지 측량 및 특수 포병 탄도학 (직각을 100등분한 단위)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="sec-2">2. 삼각함수(sin·cos·tan)와 역삼각함수(arcsin·arccos·arctan) 및 쌍곡선함수 공식</h2>
+      <ul>
+        <li><strong>기본 삼각함수 (sin, cos, tan):</strong> 직각삼각형의 중심각을 입력하여 변의 길이 비율을 구합니다. (예: 경사각이 30°인 오르막길의 높이 비율 = <code>sin(30°) = 0.5</code>)</li>
+        <li><strong>역삼각함수 (sin⁻¹, cos⁻¹, tan⁻¹):</strong> 반대로 두 변의 길이 비율(삼각비)을 알고 있을 때 <strong>몇 도(°)인지 각도를 역산</strong>하는 함수입니다. 계산기에서 <code>[SHIFT] + [sin]</code>을 눌러 실행합니다. 예를 들어 밑변이 10m이고 높이가 10m인 경사로의 기울기가 1(<code>10÷10=1</code>)일 때, 경사각은 <code>tan⁻¹(1) = 45°</code>입니다.</li>
+        <li><strong>쌍곡선함수 (sinh, cosh, tanh):</strong> 자연상수 <code>e</code>의 지수함수 조합으로 정의되며(<code>sinh(x) = (e^x - e^-x) / 2</code>, <code>cosh(x) = (e^x + e^-x) / 2</code>), 현수교 케이블이나 송전선이 중력에 의해 자연스럽게 처지는 곡선인 <strong>현수선(Catenary Curve)</strong> 설계와 딥러닝 활성화 함수(tanh)에 필수적으로 사용됩니다.</li>
+      </ul>
+
+      <h2 id="sec-3">3. 상용로그(log₁₀)와 자연로그(ln)의 차이 및 데시벨(dB)·pH 농도 실무 응용</h2>
+      <div class="guide-formula-box">
+        <strong>📐 공학 계산기 로그 표기 규칙</strong><br>
+        • <strong><code>log</code> 버튼 (상용로그):</strong> 밑(Base)이 <strong>10</strong>인 로그 (<code>log₁₀(x)</code>). 예: <code>log(1000) = 3</code><br>
+        • <strong><code>ln</code> 버튼 (자연로그):</strong> 밑이 자연상수 <strong>e (≈ 2.7182818)</strong>인 로그 (<code>log_e(x)</code>). 예: <code>ln(e²) = 2</code><br>
+        • <strong>밑 변환 공식:</strong> 임의의 밑 a에 대한 로그 <code>log_a(b)</code>를 구할 때는 <code>ln(b) ÷ ln(a)</code> 또는 <code>log(b) ÷ log(a)</code>로 계산합니다.
+      </div>
+      <p>
+        상용로그는 음향공학의 소음 측정 단위인 <strong>데시벨(<code>dB = 10 × log₁₀(P₂/P₁)</code>)</strong>, 지진의 에너지 크기를 나타내는 <strong>리히터 규모</strong>, 화학의 수용액 산성도 지표인 <strong>수소이온농도지수(<code>pH = -log₁₀[H⁺]</code>)</strong> 계산에 직접 사용됩니다.
+      </p>
+
+      <h2 id="sec-4">4. 확률과 통계의 기초: 팩토리얼(n!), 순열(nPr), 조합(nCr) 수식과 활용 사례</h2>
+      <div class="guide-formula-box">
+        <strong>🎲 순열(Permutation)과 조합(Combination) 공식</strong><br>
+        • <strong>팩토리얼 (n!):</strong> <code>n! = n × (n-1) × (n-2) × … × 1</code> (단, <code>0! = 1</code>로 정의)<br>
+        • <strong>순열 (nPr - 순서 고려):</strong> 서로 다른 n개 중 r개를 뽑아 <strong>순서대로 일렬로 나열</strong>하는 경우의 수 = <code>n! ÷ (n - r)!</code><br>
+        • <strong>조합 (nCr - 순서 무관):</strong> 서로 다른 n개 중 순서와 상관없이 <strong>r개를 선택만</strong> 하는 경우의 수 = <code>n! ÷ [ r! × (n - r)! ]</code>
+      </div>
+      <p>
+        예를 들어 후보 10명 중에서 회장 1명, 부회장 1명, 총무 1명을 직책을 구분하여 뽑는 가짓수는 순서가 중요하므로 순열 <code>10P3 = 10 × 9 × 8 = 720가지</code>이며, 직책 구분 없이 대표 위원 3명을 뽑는 가짓수는 조합 <code>10C3 = 720 ÷ 3! = 120가지</code>입니다.
+      </p>
+
+      <h2 id="sec-5">5. 채용 자기소개서 글자수 세기(공백 포함 vs 제외)와 한글 바이트(2Byte vs 3Byte) 원리</h2>
+      <p>
+        대기업 및 공공기관 채용 사이트에 자기소개서(자소서)를 입력할 때 가장 주의해야 할 기준은 <strong>'공백 포함 글자수'</strong>와 <strong>'바이트(Byte) 제한'</strong>입니다.
+      </p>
+      <ul>
+        <li><strong>공백 포함 vs 공백 제외:</strong> 별도의 명시가 없는 한 국내 채용 시스템의 95% 이상은 띄어쓰기(스페이스)와 줄바꿈(엔터)을 모두 1글자로 포함하는 <strong>'공백 포함 글자수'</strong>를 기준으로 삼습니다. 분량이 "1,000자 이내"라면 공백 포함 850~980자(85~98%)를 채우는 것이 인사담당자에게 가장 안정적인 인상을 줍니다.</li>
+        <li><strong>왜 한글 1글자가 곳마다 2Byte 또는 3Byte로 다를까?:</strong> 영문 알파벳, 숫자, 공백은 모든 인코딩에서 <strong>1 Byte</strong>입니다. 반면 한글은 전통 한국어 완성형 인코딩인 <strong>EUC-KR(CP949)에서는 한글 1글자 = 2 Byte</strong>로 계산되고, 국제 웹 표준 인코딩인 <strong>UTF-8에서는 한글 1글자 = 3 Byte</strong>로 계산됩니다. 금융권이나 공기업 구형 채용 솔루션에서 "2,000 Byte 이내"라고 표기된 경우 보통 EUC-KR 기준(한글 약 1,000자)을 의미합니다.</li>
+      </ul>
+    
+
+        <div class="guide-cta-banner">
+          <div class="guide-cta-info">
+            <h3>⚡ 방금 읽은 공식으로 내 수치를 1초 만에 계산해 보세요!</h3>
+            <p>회원가입이나 서버 전송 없이 브라우저 로컬에서 즉시 무료로 시뮬레이션할 수 있습니다.</p>
+          </div>
+          <div class="guide-cta-btns">
+            <a href="https://ilsangtool.kr/?tool=calc" class="guide-cta-btn primary">
+              <span>🚀</span><span>카시오 스타일 공학용 계산기 바로 실행</span>
+            </a>
+            <a href="https://ilsangtool.kr/?tool=counter" class="guide-cta-btn secondary">
+              <span>🔗</span><span>글자수·바이트 계산기</span>
+            </a>
+          </div>
+        </div>
+
+        <section class="guide-faq-box" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">💬 자주 묻는 질문 (실무 심층 FAQ)</h2>
+          
+    <details class="guide-faq-item" open>
+      <summary>Q1. 공학용 계산기에서 음수의 제곱을 할 때 왜 괄호를 꼭 쳐야 하나요?</summary>
+      <p>수학 연산 우선순위상 거듭제곱(²)이 음수 부호(-)보다 먼저 계산되기 때문입니다. 괄호 없이 -3²을 입력하면 -(3²)으로 인식되어 -9가 나오므로, 음수 자체를 제곱하려면 반드시 (-3)²으로 괄호를 묶어 입력해야 +9가 산출됩니다.</p>
+    </details>
+  
+    <details class="guide-faq-item" >
+      <summary>Q2. 발표 대본 1분 분량은 공백 포함 몇 글자 정도로 작성하면 되나요?</summary>
+      <p>한국어 표준 아나운서 및 면접 발표 속도는 분당 약 300~350자(공백 포함 기준, 단어 수 약 80~100어절)입니다. 따라서 1분 자기소개 스피치 대본은 공백 포함 320~350자, 3분 프레젠테이션 대본은 약 1,000자 내외로 구성하면 시간 초과 없이 또박또박 전달할 수 있습니다.</p>
+    </details>
+  
+        </section>
+
+        <section style="margin-top:34px; padding-top:24px; border-top:1px solid rgba(148,163,184,0.16);">
+          <h2 style="margin-top:0;">📚 함께 읽으면 좋은 연관 실무 백서</h2>
+          <div class="guide-related-grid">
+            
+      <a href="guide-real-estate-unit.html" class="guide-related-card">
+        <div class="r-cat">부동산 · 공학 단위 백서</div>
+        <h4>부동산 전용면적·공급면적·계약면적 차이와 아파트 평수(㎡ ↔ 평) 환산 공식 및 해외직구 도량형 백서</h4>
+        <p>아파트 분양 공고의 전용면적(59㎡·84㎡), 주거공용면적, 공급면적, 계약면적의 정확한 개념과 제곱미터(㎡)를 평수로 바꾸는 0.3025 공식, 그리고 미국·유럽 해외직구 필수 길이(inch·ft)·무게(lb·oz)·온도(℉) 환산 기준을 총정리합니다.</p>
+      </a>
+    
+      <a href="guide-brain-puzzle-omok.html" class="guide-related-card">
+        <div class="r-cat">두뇌 스포츠 · 알고리즘 백서</div>
+        <h4>정통 오목 국제 공인 렌주룰(3-3·4-4·장목 금수) 완벽 해설 및 사과게임(합 10 퍼즐) 고득점 수리 전략</h4>
+        <p>오목에서 선공(흑)의 필승을 막기 위해 제정된 국제 렌주룰(Renju Rule)의 삼삼(3-3), 사사(4-4), 육목(장목) 금수 판정 기준과 예외 규칙(거짓 금수), 그리고 사과게임(과일박스 합 10 퍼즐)에서 130점 이상 고득점을 달성하는 관통 드래그 알고리즘을 해설합니다.</p>
+      </a>
+    
+      <a href="guide-pdf-security.html" class="guide-related-card">
+        <div class="r-cat">IT · 정보보안 백서</div>
+        <h4>개인정보 유출 없는 클라이언트 로컬(WebAssembly) PDF 변환·병합·압축 원리와 패스워드 암호학 가이드</h4>
+        <p>무료 온라인 PDF 변환 사이트 이용 시 발생할 수 있는 클라우드 서버 문서 유출 위험성을 짚어보고, 브라우저 내부 메모리(WebAssembly·HTML5 Canvas)에서 100% 로컬 처리되는 무서버 PDF 기술과 Web Crypto API 암호학적 난수 비밀번호 생성 원리를 해설합니다.</p>
+      </a>
+    
+          </div>
+          <div style="margin-top:18px; text-align:right;">
+            <a href="guides.html" style="color:#93c5fd; font-size:13.5px; font-weight:700; text-decoration:none;">👉 전체 12종 실무 백서·칼럼 목록 보기</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="policy-footer">
+      <div>© 2026 일상툴 (ilsangtool.kr). 모든 계산 및 파일 처리는 사용자 브라우저 로컬에서 안전하게 실행됩니다.</div>
+      <div>
+        <a href="https://ilsangtool.kr/">홈</a> ·
+        <a href="guides.html">실무 백서·칼럼</a> ·
+        <a href="about.html">서비스 소개</a> ·
+        <a href="privacy.html">개인정보처리방침</a> ·
+        <a href="terms.html">이용약관</a> ·
+        <a href="contact.html">문의하기</a> ·
+        <a href="sitemap.xml">사이트맵</a>
+      </div>
+    </footer>
+  
+  </div>
+</body>
+</html>
