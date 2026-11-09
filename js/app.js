@@ -134,11 +134,12 @@
       : '<span class="live-dot" aria-hidden="true"></span>홈 / ' + tool.name;
     setSeo(tool);
     if (history.replaceState) {
-      var nextUrl = id === "home" ? location.pathname : (location.pathname + "?tool=" + id + "#" + id);
-      history.replaceState(null, "", nextUrl);
+      var targetSearch = id === "home" ? "" : ("?tool=" + id);
+      if (location.search !== targetSearch || location.hash) {
+        history.replaceState(null, "", location.pathname + targetSearch);
+      }
     }
     if (window.__applyIlsangSeoMeta__) window.__applyIlsangSeoMeta__(id);
-    else location.hash = id === "home" ? "" : id;
     if (id === "postcode") initPostcode();
     if (id === "apple" && window.onShowAppleGame) window.onShowAppleGame();
     else if (id !== "apple" && window.onHideAppleGame) window.onHideAppleGame();

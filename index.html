@@ -62,19 +62,6 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867455027568827"
     crossorigin="anonymous"></script>
 
-
-  <script id="seo-early-query-sync">
-    (function () {
-      try {
-        var params = new URLSearchParams(window.location.search);
-        var qTool = params.get('tool');
-        if (qTool && !window.location.hash) {
-          window.history.replaceState(null, '', window.location.pathname + '?tool=' + encodeURIComponent(qTool) + '#' + encodeURIComponent(qTool));
-        }
-      } catch (e) { }
-    })();
-  </script>
-
   <script src="js/config.js"></script>
 
   <!-- Schema.org Rich Structured Data (JSON-LD) for SEO & GEO -->
@@ -5969,20 +5956,21 @@
         const ogUrl = document.querySelector('meta[property="og:url"]');
         if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
 
-        // 주소창을 검색엔진 친화적인 ?tool=<id>#<id> 형태로 동기화
+        // 주소창을 검색엔진 친화적인 ?tool=<id> 형태로 유지 (불필요한 해시 리디렉션 방지)
         try {
           if (key === 'home') {
-            if (window.location.search.includes('tool=')) {
+            if (window.location.search.includes('tool=') || window.location.hash) {
               window.history.replaceState(null, '', window.location.pathname);
             }
           } else {
-            const targetUrl = window.location.pathname + '?tool=' + key + '#' + key;
-            if (window.location.search !== '?tool=' + key) {
-              window.history.replaceState(null, '', targetUrl);
+            const targetSearch = '?tool=' + key;
+            if (window.location.search !== targetSearch || window.location.hash) {
+              window.history.replaceState(null, '', window.location.pathname + targetSearch);
             }
           }
         } catch (e) { }
       }
+      window.__applyIlsangSeoMeta__ = applyToolSeoMeta;
 
       // 모든 도구 섹션에 바이럴 공유 바 & 연관 도구 내부 링크 자동 주입
       function injectViralAndRelatedBlocks() {
